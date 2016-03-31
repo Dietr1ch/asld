@@ -1,6 +1,7 @@
 #!/bin/python
 from enum import Enum
 
+
 class Color(Enum):
     """Term color codes"""
     BLACK   = '\033[90m'
@@ -25,6 +26,7 @@ class Color(Enum):
         """Prints to stdout"""
         print(self(s))
 
+
 def color_test():
     Color.BLACK  .print("BLACK  ")
     Color.RED    .print("RED    ")
@@ -34,6 +36,7 @@ def color_test():
     Color.MAGENTA.print("MAGENTA")
     Color.CYAN   .print("CYAN   ")
     Color.WHITE  .print("WHITE  ")
+
 
 if __name__=='__main__':
     color_test()

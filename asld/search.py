@@ -1,13 +1,21 @@
 from time import time
 from multiprocessing import Pool
+from signal import SIGINT, SIG_IGN, signal
 
 from rdflib.term import URIRef, Literal
 
-from utils.heap import Heap
-from utils.color_print import Color
+from asld.utils.heap import Heap
+from asld.utils.color_print import Color
 
-from graph import ASLDGraph
-from query import ASLDQuery, Direction
+from asld.graph import ASLDGraph
+from asld.query.direction import Direction
+from asld.query.query import Query
+from asld.query.state import State
+from asld.query.transition import Transition
+
+
+def _worker_ignore_SIGINT():
+    signal(SIGINT, SIG_IGN)
 
 
 class ASLDSearch:
@@ -17,10 +25,10 @@ class ASLDSearch:
 
         def __init__(self,
                      node,
-                     state:  ASLDQuery.State,
+                     state:  State,
                      parent,
                      P:      URIRef,
-                     t:      ASLDQuery.Transition,
+                     t:      Transition,
                      d:      Direction,
                      g=float("inf")):
             assert node.__class__ is URIRef  or  node.__class__ is Literal
@@ -73,7 +81,7 @@ class ASLDSearch:
 
 
 
-    def __init__(self, queryAutomaton: ASLDQuery):
+    def __init__(self, queryAutomaton: Query):
         self.g = ASLDGraph()
         self.query = queryAutomaton
 
@@ -150,13 +158,13 @@ class ASLDSearch:
 
     def _expand(self, ns):
 
-        for t in ns.q.t_f:
+        for t in ns.q.next_transitions_f:
             for _,P,O in self.g.query(ns.n):
-                self._reach(ns, P, cN=O,cQ=t.dest, t=t, d=Direction.forward)
+                self._reach(ns, P, cN=O,cQ=t.dst, t=t, d=Direction.forward)
 
-        for t in ns.q.t_b:
+        for t in ns.q.next_transitions_b:
             for S,P,_ in self.g.query(None, None, ns.n):
-                self._reach(ns, P, cN=S,cQ=t.dest, t=t, d=Direction.backward)
+                self._reach(ns, P, cN=S,cQ=t.dst, t=t, d=Direction.backward)
 
 
     def _paths(self):
@@ -246,11 +254,9 @@ class ASLDSearch:
 
         return (rdy, pnd, gls, pendingExpansions)
 
-    def paths(self, parallelRequests=10, batchSize=40):
+    def paths(self, parallelRequests=40, batchSize=160):
         """
         Performs search using parallel requests to expand top-f value NodeStates
-
-        yielding prevents nice encapsulation
         """
         if parallelRequests<2:
             return self._paths()
@@ -258,7 +264,7 @@ class ASLDSearch:
         # Initialize search
         _t0_search = time()
         self._enqueue(self.startNS)
-        pool = Pool(processes=parallelRequests)
+        pool = Pool(parallelRequests, _worker_ignore_SIGINT)  # Workaround python mp-bug
 
         # Empty open...
         while self.open:
@@ -287,7 +293,7 @@ class ASLDSearch:
             if pnd:
                 newTriples = 0
                 _t0_parallelExpand = time()
-                requests = [(i, ns.n) for (i, ns) in enumerate(pnd)]
+                requests = [(i, ns.n, ns.q._next_P(), ns.q.hasBackwardTransition()) for (i, ns) in enumerate(pnd)]
 
                 Color.BLUE.print("\nMapping %d requests:" % len(requests))
                 for (i, iri, reqGraph) in pool.imap_unordered(ASLDGraph.pure_loadB, requests):
@@ -317,3 +323,15 @@ class ASLDSearch:
         Color.BLUE.print("\nSearch took %4.2fs" % _t_search)
         Color.GREEN.print("\nOpen was emptied, there are no more paths")
         pool.close()
+
+    def run(self):
+        """Intended only for interactive CLI use"""
+        r = []
+        try:
+            for p in self.paths():
+                r.append(p)
+        except KeyboardInterrupt:
+            Color.BLUE.print("\nTerminating search.")
+        except Exception as e:
+            Color.RED.print("Terminated on: %s" % e)
+        return r

@@ -64,101 +64,85 @@ NAME.add(RDFS.label)
 # Queries
 # =======
 def name(n, w=1):
-    a = Query(n)
-    a._addTriple("s0",
-                 FOAF.name, Direction.forward,
-                 "Name", None, NodeFilter_any())
-    a.states["s0"].h   = 1*w
-    a.states["Name"].h = 0*w
+    b = QueryBuilder(n, "Person")
+    b.frm("Person").through(FOAF["name"]).final("Name")
+
+    a = b.build(w)
+    assert a.states["Person"].h  == 1*w
+    assert a.states["Name"].h    == 0*w
     return a
+
 
 def journals(n, w=1):
     """ dc:creator-/swrc:journal/rdfs:label """
 
-    a = Query(n, "author")
-    a._addTriple("author",
-                 DC.creator, Direction.backward,
-                 "jPaper", NodeFilter_regex(".*journal.*"))
-    a._addTriple("jPaper",
-                 SWRC.journal, Direction.forward,
-                 "Journal")
-    a._addTriple("Journal",
-                 RDFS.label, Direction.forward,
-                 "Name", None, NodeFilter_any())
-    a.states["author"].h      = 3*w
-    a.states["jPaper"].h  = 2*w
-    a.states["Journal"].h = 1*w
-    a.states["Name"].h    = 0*w
+    b = QueryBuilder(n, "Author")
+    b.frm("Author").through(DC.creator).backwards_to("jPaper", NodeFilter_regex(".*journal.*"))
+    b.frm("jPaper").through(SWRC.journal).to("Journal")
+    b.frm("Journal").through(RDFS.label).final("Name")
+
+    a = b.build(w)
+    assert a.states["Author"].h  == 3*w
+    assert a.states["jPaper"].h  == 2*w
+    assert a.states["Journal"].h == 1*w
+    assert a.states["Name"].h    == 0*w
     return a
+
 
 def conferences(n, w=1):
     """ dc:creator-/swrc:series/rdfs:label """
-    a = Query(n)
-    a._addTriple("s0",
-                 DC.creator, Direction.backward,
-                 "Paper")
-    a._addTriple("Paper",
-                 SWRC.series, Direction.forward,
-                 "Conf")
-    a._addTriple("Conf",
-                 RDFS.label, Direction.forward,
-                 "Name", None, NodeFilter_any())
-    a.states["s0"].h    = 3*w
-    a.states["Paper"].h = 2*w
-    a.states["Conf"].h  = 1*w
-    a.states["Name"].h  = 0*w
+    b = QueryBuilder(n, "Author")
+    b.frm("Author").through(DC.creator).backwards_to("Paper")
+    b.frm("Paper").through(SWRC.series).to("ConfPaper")
+    b.frm("ConfPaper").through(RDFS.label).final("Name")
+
+    a = b.build(w)
+    assert a.states["s0"].h    == 3*w
+    assert a.states["Paper"].h == 2*w
+    assert a.states["Conf"].h  == 1*w
+    assert a.states["Name"].h  == 0*w
     return a
 
 
 # Coauthors
 def coAuth(n, w=1):
     # Works
-    a = Query(n)
-    a._addTriple("s0",
-                 DC.creator, Direction.backward,
-                 "Paper1")
-    a._addTriple("Paper1",
-                 DC.creator, Direction.forward,
-                 "CoAuth", NodeFilter_but(n))
-    a._addTriple("CoAuth",
-                 FOAF.name, Direction.forward,
-                 "Name", None, NodeFilter_any())
-    a.states["s0"].h     = 3*w
-    a.states["Paper1"].h = 2*w
-    a.states["CoAuth"].h = 1*w
-    a.states["Name"].h   = 0*w
+    b = QueryBuilder(n, "Author")
+    b.frm("Author").through(DC["creator"]).backwards_to("Paper")
+    b.frm("Paper").through(DC["creator"]).to("CoAuth", NodeFilter_but(n))
+
+    b.frm("CoAuth").through(NAME).final("Name")
+
+    a = b.build(w)
+    assert a.states["Author"].h == 3*w
+    assert a.states["Paper"].h  == 2*w
+    assert a.states["CoAuth"].h == 1*w
+    assert a.states["Name"].h   == 0*w
     return a
+
 
 def coAuthStar(n, w=1):
     # Works
-    a = Query(n)
-    a._addTriple("s0",
-                 DC.creator, Direction.backward,
-                 "Paper1")
-    a._addTriple("Paper1",
-                 DC.creator, Direction.forward,
-                 "CoAuth", NodeFilter_but(n))
+    b = QueryBuilder(n, "Author")
+    b.frm("Author").through(DC["creator"]).backwards_to("Paper")
+    b.frm("Paper").through(DC["creator"]).to("CoAuth", NodeFilter_but(n))
 
-    a._addTriple("CoAuth",
-                 DC.creator, Direction.backward,
-                 "Paper2")
-    a._addTriple("Paper2",
-                 DC.creator, Direction.forward,
-                 "CoAuth")
+    b.frm("CoAuth").through(DC["creator"]).backwards_to("Paper'")
+    b.frm("Paper'").through(DC["creator"]).to("CoAuth")
 
-    a._addTriple("CoAuth",
-                 FOAF.name, Direction.forward,
-                 "Name", None, NodeFilter_any())
-    a.states["s0"].h     = 3*w
-    a.states["Paper1"].h = 2*w
-    a.states["CoAuth"].h = 1*w
-    a.states["Name"].h   = 0*w
-    a.states["Paper2"].h = 2*w
+    b.frm("CoAuth").through(NAME).final("Name")
+
+    a = b.build(w)
+    assert a.states["Author"].h == 3*w
+    assert a.states["Paper"].h  == 2*w
+    assert a.states["Paper'"].h == 2*w
+    assert a.states["CoAuth"].h == 1*w
+    assert a.states["Name"].h   == 0*w
     return a
 
+
 def _coAuthStar(n, w=1):
-    # TODO: check heuristic build
-    b = ASLDQueryBuilder(n)
+    b = QueryBuilder(n)
     b.frm().through(DC.creator).backwards_to("Paper1")
     b.frm("Paper1").through(DC.creator).to("CoAuth", ff=NodeFilter_but(n))
 
@@ -167,16 +151,14 @@ def _coAuthStar(n, w=1):
 
     b.frm("CoAuth").through(FOAF.name).final("Name")
 
-    a = b.build()
-    #a.states["s0"].h     = 3*w
-    #a.states["Paper1"].h = 2*w
-    #a.states["CoAuth"].h = 1*w
-    #a.states["Paper2"].h = 2*w
-    assert a.states["s0"].h     == 3
-    assert a.states["Paper1"].h == 2
-    assert a.states["CoAuth"].h == 1
-    assert a.states["Paper2"].h == 2
+    a = b.build(w)
+    assert a.states["s0"].h     == 3*w
+    assert a.states["Paper1"].h == 2*w
+    assert a.states["CoAuth"].h == 1*w
+    assert a.states["Paper2"].h == 2*w
+    assert a.states["Name"].h   == 0*w
     return a
+
 
 
 # LMDB
@@ -186,65 +168,51 @@ def directors(n, w=1):
     """ Expected: {A dbo:starring^    -/      dbo:director/foaf:name ?x}
         Used:     {A lmdbMovie:actor^ -/lmdbMovie:director/foaf:name ?x} """
 
-    a = Query(n)
-    a._addTriple("s0",
-                 LMDB_Movie.actor, Direction.backward,
-                 "Movie")
-    a._addTriple("Movie",
-                 LMDB_Movie.director, Direction.forward,
-                 "Director")
-    a._addTriple("Director",
-                 NAME, Direction.forward,
-                 "Name", None, NodeFilter_any())
-    a.states["s0"].h       = 3*w
-    a.states["Movie"].h    = 2*w
-    a.states["Director"].h = 1*w
-    a.states["Name"].h     = 0*w
+    b = QueryBuilder(n, "Actor")
+    b.frm("Actor").through(LMDB_Movie["actor"]).backwards_to("Movie")
+    b.frm("Movie").through(LMDB_Movie["director"]).to("Director")
+    b.frm("Director").through(NAME).final("Name")
+
+    a = b.build(w)
+    assert a.states["Actor"].h    == 3*w
+    assert a.states["Movie"].h    == 2*w
+    assert a.states["Director"].h == 1*w
+    assert a.states["Name"].h     == 0*w
     return a
+
 
 def coActor(n, w=1):
-    a = Query(n)
-    a._addTriple("s0",
-                 LMDB_Movie.actor, Direction.backward,
-                 "Movie")
-    a._addTriple("Movie",
-                 LMDB_Movie.actor, Direction.forward,
-                 "CoActor", NodeFilter_but(n))
+    b = QueryBuilder(n, "Actor")
+    b.frm("Actor").through(LMDB_Movie["actor"]).backwards_to("Movie")
+    b.frm("Movie").through(LMDB_Movie["actor"]).to("CoActor", NodeFilter_but(n))
+    b.frm("CoActor").through(NAME).final("Name")
 
-    a._addTriple("CoActor",
-                 NAME, Direction.forward,
-                 "Name", None, NodeFilter_any())
-    a.states["s0"].h      = 3*w
-    a.states["Movie"].h   = 2*w
-    a.states["CoActor"].h = 1*w
-    a.states["Name"].h    = 0*w
+    a = b.build(w)
+    assert a.states["Actor"].h   == 3*w
+    assert a.states["Movie"].h   == 2*w
+    assert a.states["CoActor"].h == 1*w
+    assert a.states["Name"].h    == 0*w
     return a
+
 
 def coActorStar(n, w=1):
-    a = Query(n)
-    a._addTriple("s0",
-                 LMDB_Movie.actor, Direction.backward,
-                 "Movie")
-    a._addTriple("Movie",
-                 LMDB_Movie.actor, Direction.forward,
-                 "CoActor", NodeFilter_but(n))
+    b = QueryBuilder(n, "Actor")
+    b.frm("Actor").through(LMDB_Movie["actor"]).backwards_to("Movie")
+    b.frm("Movie").through(LMDB_Movie["actor"]).to("CoActor", NodeFilter_but(n))
 
-    a._addTriple("CoActor",
-                 LMDB_Movie.actor, Direction.backward,
-                 "Movie2")
-    a._addTriple("Movie2",
-                 LMDB_Movie.actor, Direction.forward,
-                 "CoActor")
+    b.frm("CoActor").through(LMDB_Movie["actor"]).backwards_to("Movie'")
+    b.frm("Movie'").through(LMDB_Movie["actor"]).to("CoActor")  # CoActor already defined
 
-    a._addTriple("CoActor",
-                 NAME, Direction.forward,
-                 "Name", None, NodeFilter_any())
-    a.states["s0"].h      = 3*w
-    a.states["Movie"].h   = 2*w
-    a.states["CoActor"].h = 1*w
-    a.states["Name"].h    = 0*w
-    a.states["Movie2"].h  = 2*w
+    b.frm("CoActor").through(NAME).final("Name")
+
+    a = b.build(w)
+    assert a.states["Actor"].h   == 3*w
+    assert a.states["Movie"].h   == 2*w
+    assert a.states["CoActor"].h == 1*w
+    assert a.states["Name"].h    == 0*w
+    assert a.states["Movie'"].h  == 2*w
     return a
+
 
 
 # YAGO
@@ -253,74 +221,53 @@ def NATO_business(n=YAGO["Berlin"], w=1):
     # ?x yago:isLocatedIn* ?country
     #    yago:dealsWith    ?area
     #     rdf:type         yago:wikicat_Member_states_of_NATO
-    a = Query(n)
-    a._addTriple("s0",
-                 YAGO.isLocatedIn, Direction.forward,
-                 "Place")
+    b = QueryBuilder(n, "City")
+    b.frm("City").through(YAGO["isLocatedIn"]).to("Place")
 
-    a._addTriple("Place",
-                 YAGO["isLocatedIn"], Direction.forward,
-                 "Place")
+    b.frm("Place").through(YAGO["isLocatedIn"]).to("Place")
 
-    a._addTriple("Place",
-                 YAGO["dealsWith"], Direction.forward,
-                 "Area")
+    b.frm("Place").through(YAGO["dealsWith"]).to("Area")
 
-    a._addTriple("Area",
-                 RDF["type"], Direction.forward,
-                 "NATO", None, NodeFilter_only(YAGO["wikicategory_Member_states_of_NATO"]))
+    b.frm("Area").through(RDF["type"]).to("NATO", None, NodeFilter_only(YAGO["wikicategory_Member_states_of_NATO"]))
 
-    a.states["s0"].h    = 3*w
-    a.states["Place"].h = 2*w
-    a.states["Area"].h  = 1*w
-    a.states["NATO"].h  = 0*w
+
+    a = b.build(w)
+    assert a.states["s0"].h    == 3*w
+    assert a.states["Place"].h == 2*w
+    assert a.states["Area"].h  == 1*w
+    assert a.states["NATO"].h  == 0*w
     return a
+
 
 def NATO_business_r(n=YAGO["Berlin"], w=1):
     # ?x yago:isLocatedIn* ?country
     #    yago:dealsWith    ?area
     #     rdf:type         yago:wikicat_Member_states_of_NATO
-    a = Query(YAGO["wikicategory_Member_states_of_NATO"])
-    a._addTriple("s0",
-                 RDF["type"], Direction.backward,
-                 "Area")
-    a._addTriple("s0",
-                 RDF["type"], Direction.forward,
-                 "Area")
+    b = QueryBuilder(YAGO["wikicategory_Member_states_of_NATO"])
 
-    a._addTriple("Area",
-                 YAGO["dealsWith"], Direction.backward,
-                 "Place", None, NodeFilter_only(n))
+    b.frm("s0").through(RDF["type"]).to("Area")
+    b.frm("s0").through(RDF["type"]).backwards_to("Area")
 
-    a._addTriple("Place",
-                 YAGO["isLocatedIn"], Direction.forward,
-                 "Place")
+    b.frm("Area").through(YAGO["dealsWith"]).backwards_to("Place", None, NodeFilter_only(n))
 
-    a.states["s0"].h    = 2*w
-    a.states["Area"].h  = 1*w
-    a.states["Place"].h = 0*w
+    b.frm("Place").through(YAGO["isLocatedIn"]).to("Place")
+
+    a = b.build(w)
+    assert a.states["s0"].h    == 2*w
+    assert a.states["Area"].h  == 1*w
+    assert a.states["Place"].h == 0*w
     return a
 
 
-# Init
-# ====
 
-
-#def NATO(n=YAGO["wikicategory_Member_states_of_NATO"], w=1):
 def NATO(n=YAGO["wikicat_Member_states_of_NATO"], w=1):
-    # TODO: check heuristic build
-    b = ASLDQueryBuilder(n, "NationType")
+    b = QueryBuilder(n, "NationType")
     b.frm("NationType").through(RDF["type"]).backwards_to("Area")
     b.frm("Area").through(YAGO["dealsWith"]).backwards_to("Place")
     b.frm("Place").through(YAGO["isLocatedIn"]).to("Place")
     b.frm("Place").through(YAGO["isLocatedIn"]).backwards_final("Place_f")
 
-    a = b.build()
-    a.states["NationType"].h = 3*w
-    a.states["Area"].h       = 2*w
-    a.states["Place"].h      = 1*w
-    a.states["Place_f"].h    = 0*w
-
+    a = b.build(w)
     assert a.states["NationType"].h == 3*w
     assert a.states["Area"].h       == 2*w
     assert a.states["Place"].h      == 1*w
@@ -329,19 +276,13 @@ def NATO(n=YAGO["wikicat_Member_states_of_NATO"], w=1):
 
 
 def Europe(n=YAGO["wikicategory_Capitals_in_Europe"], w=1):
-    # TODO: check heuristic build
-    b = ASLDQueryBuilder(n, "EuropeCapitals")
+    b = QueryBuilder(n, "EuropeCapitals")
     b.frm("EuropeCapitals").through(RDF["type"]).backwards_to("Capital")
     b.frm("Capital").through(YAGO["isLocatedIn"]).to("Place")
     b.frm("Place").through(YAGO["isLocatedIn"]).to("Place")
-    b.frm("Place").through(YAGO["dealsWith"]).to("Area")
+    b.frm("Place").through(YAGO["dealsWith"]).final("Area")
 
-    a = b.build()
-    a.states["EuropeCapitals"].h = 3*w
-    a.states["Capital"].h        = 2*w
-    a.states["Place"].h          = 1*w
-    a.states["Area"].h           = 0*w
-
+    a = b.build(w)
     assert a.states["EuropeCapitals"].h == 3*w
     assert a.states["Capital"].h        == 2*w
     assert a.states["Place"].h          == 1*w
@@ -350,37 +291,34 @@ def Europe(n=YAGO["wikicategory_Capitals_in_Europe"], w=1):
 
 
 def Airports(n=YAGO["wikicategory_Airports_in_the_Netherlands"], w=1):
-    # TODO: check heuristic build
-    b = ASLDQueryBuilder(n, "Airports")
+    b = QueryBuilder(n, "Airports")
     b.frm("Airports").through(RDF["type"]).backwards_to("airport")
     b.frm("airport").through(YAGO["isLocatedIn"]).final("Place")
     b.frm("Place").through(YAGO["isLocatedIn"]).to("Place")
 
-    a = b.build()
-    a.states["Airports"].h = 2*w
-    a.states["airport"].h  = 1*w
-    a.states["Place"].h    = 0*w
-
+    a = b.build(w)
     assert a.states["Airports"].h == 2*w
     assert a.states["airport"].h  == 1*w
     assert a.states["Place"].h    == 0*w
     return a
 
 
+
+
 print("DBLP: examples")
-print("  * f(coAuthStar(jBaier))")
-print("  * f(coAuth(jReutter))")
-print("  * f(name(dVroc))")
+print("  * coAuthStar(jBaier)")
+print("  * coAuth(jReutter)")
+print("  * name(dVroc)")
 print("")
 
 print("LMDB examples:")
-print("  * f(directors(kBacon))")
-print("  * f(coActorStar(kBacon))")
+print("  * directors(kBacon)")
+print("  * coActorStar(kBacon)")
 print("")
 
 print("YAGO examples:")
-#print("  * f(NATO_business())")
-print("  * f(NATO())")
-print("  * f(Europe())")
-print("  * f(Airports())")
+print("  * NATO_business()")
+print("  * NATO()")
+print("  * Europe()")
+print("  * Airports()")
 print("")

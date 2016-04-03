@@ -9,6 +9,7 @@ from asld.utils.color_print import Color
 from asld.query.direction import Direction
 
 
+# Document servers that are known to provide incomplete inverses, but have a SPARQL endpoint.
 scumbag_servers = set()
 scumbag_servers.add((regex_compile("^http://yago-knowledge.org/resource/.*"), "https://linkeddata1.calcul.u-psud.fr/sparql"))
 
@@ -19,31 +20,37 @@ class ASLDGraph:
 
     B suffix on blocking calls
     """
+
     @classmethod
     def _sparql_query(cls, s, P, o):
-        _not = ""
-        #if P.negate:
-            #_not = "!"
-        #P = P.next_set
+        """
+        Builds a SPARQL query to expand a node (s or o) over a set of predicates P
 
-        # Disjunction of sameTERMs of P elements
-        flt = " || ".join(  map(lambda p: "sameTERM(?P, <%s>)"%p, P)  )
+        There is NO support for complemented Arcs. (they are marginally easier than getting all arcs)
+        Is there even a real query that needs complement? It seems a non-invertable ArcFilter is plain useless
+        """
+
+        # Disjunction of sameTERMs of P elements   ("sT(?P, p_0) || sT(?P, p_1) || ..." \forall p_i \in P)
+        flt = ""
+        if P:  # P exists and is non-empty
+            flt = " || ".join(  map(lambda p: "sameTERM(?P, <%s>)"%p, P)  )
+            flt = "FILTER (%s)" % flt
 
         if o is None:
             return """
-                   SELECT ?P, ?O
-                   WHERE {
-                       <%s> ?P ?O.
-                       FILTER (%s(%s))
-                   }
-                   """ % (s, _not, flt)
+                SELECT ?P, ?O
+                WHERE {
+                    <%s> ?P ?O.
+                    %s
+                }
+                """ % (s, flt)
         elif s is None:
             return """
-                   SELECT ?S, ?P
-                   WHERE {
-                     ?S ?P <%s>.
-                     FILTER (%s(%s))
-                   }""" % (o, _not, flt)
+                SELECT ?S, ?P
+                WHERE {
+                    ?S ?P <%s>.
+                    %s
+                }""" % (o, flt)
         assert False, "Unexpected query; Either S or O should be given (%s,%s,%s)" % (s, p, o)
 
     @classmethod
@@ -51,53 +58,63 @@ class ASLDGraph:
         print("%80s (%-40s) %50s" % (Color.RED(s), Color.GREEN(p), Color.YELLOW(o)))
 
     @classmethod
+    def pure_load_evil_SPARQL_reverseB(cls, iri, p):
+        """
+        Expands reverse arcs from evil servers that have incomplete documents.
+        """
+        g = Graph()
+        for r, endpoint in scumbag_servers:
+            if r.match(iri):
+                Color.BLUE.print("Looking up on the SPARQL endpoint (server's documents tend to omit backward edges)")
+
+                (p_b, _) = p  # Descriptions for backward and forward predicates
+
+                se = SPARQLWrapper(endpoint)
+                queryString = ASLDGraph._sparql_query(None, p_b, iri)
+                se.setQuery(queryString)
+                se.setReturnFormat(JSON)
+
+                for attempt in range(3):
+                    try:
+                        results = se.query().convert()
+                        results = results["results"]["bindings"]
+
+                        for result in results:
+                            S = URIRef(result["S"]["value"])
+                            P = URIRef(result["P"]["value"])
+                            g.add((S, P, iri))
+                        print("SPARQL reverse query %s yielded %d triples back" % (iri, len(results)))
+                        return g
+
+                    except Exception as e:
+                        Color.YELLOW.print("SPARQL_Request-%d for '%s' failed: %s" % (attempt, iri, e))
+                Color.RED.print("SPARQL Request '%s%s" % (Color.GREEN(queryString), Color.RED("' failed")))
+                Color.YELLOW.print("The server's SPARQL endpoint (%s) is unavailable" % endpoint)
+        return g
+
+    @classmethod
     def pure_loadB(cls, i__iri_p_hBT):
-        # TODO: fix direction assumption
+        """
+        Expands an IRI.
+        Uses a neighbor description for narrowing SPARQL inverses
+        """
         (i, iri, p, hBT) = i__iri_p_hBT
         assert isinstance(iri, URIRef)
 
         g = Graph()
-        if hBT:
-            for r, endpoint in scumbag_servers:
-                if r.match(iri):
-                    Color.BLUE.print("Looking up on the SPARQL endpoint (server's documents tend to omit backward edges)")
+        if hBT:  # The state has backward transitions
+            # Workaround for evil servers
+            g = ASLDGraph.pure_load_evil_SPARQL_reverseB(iri, p)
 
-                    se = SPARQLWrapper(endpoint)
-                    (p, _) = p  # Only use backward set
-                    queryString = ASLDGraph._sparql_query(None, p, iri)
-                    se.setQuery(queryString)
-                    se.setReturnFormat(JSON)
-
-                    for attempt in range(3):
-                        try:
-                            g = Graph()
-                            # REVIEW: can a query be made multiple times?
-                            results = se.query().convert()
-                            results = results["results"]["bindings"]
-
-                            # TODO: move result to the graph
-                            for result in results:
-                                S = URIRef(result["S"]["value"])
-                                P = URIRef(result["P"]["value"])
-                                g.add((S, P, iri))
-                            print("expanding %s yielded %d triples back" % (iri, len(results)))
-
-                            return (i, iri, g)
-
-                        except Exception as e:
-                            Color.YELLOW.print("SPARQL_Request-%d for '%s' failed: %s" % (attempt, iri, e))
-                    Color.RED.print("SPARQL Request '%s%s" % (Color.GREEN(queryString), Color.RED("' failed")))
-                    Color.YELLOW.print("The server's SPARQL endpoint is unavailable. Getting document for '%s" % iri)
-
-
+        # Get the document
         for attempt in range(3):
             try:
                 g.load(iri)
-                return (i, iri, g)
+                break
             except Exception as e:
                 Color.YELLOW.print("Request-%d for '%s' failed: %s" % (attempt, iri, e))
 
-        return (i, iri, None)
+        return (i, iri, g)
 
 
     class Stats:

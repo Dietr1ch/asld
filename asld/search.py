@@ -2,6 +2,8 @@ from time import time
 from multiprocessing import Pool
 from signal import SIGINT, SIG_IGN, signal
 
+from shutil import get_terminal_size
+
 from rdflib.term import URIRef, Literal
 
 from asld.utils.heap import Heap
@@ -16,6 +18,22 @@ from asld.query.transition import Transition
 
 def _worker_ignore_SIGINT():
     signal(SIGINT, SIG_IGN)
+
+
+# Output Helpers
+# ==============
+term_size = get_terminal_size((80, 20))
+
+
+def rP(s, i=0):
+    print("%*s" % (term_size.columns+9*i, s))
+
+
+def printPath(path):
+    for n in path:
+        if n.parent:  # has previous transition
+            rP("%s    " % n.str_p(), 1)
+        rP("%-69s: %21s" % (n.str_n(), n.str_q()), 2)
 
 
 class ASLDSearch:
@@ -46,6 +64,7 @@ class ASLDSearch:
             # Node cost
             self.g = g
 
+
         def __lt__(self, other):
             return self.n < other.n
 
@@ -54,6 +73,7 @@ class ASLDSearch:
 
         def __hash__(self):
             return hash(self.n)^(hash(self.q)+1)
+
 
         def str_n(self):
             if isinstance(self.n, URIRef):
@@ -74,8 +94,10 @@ class ASLDSearch:
         def str_q(self):
             return Color.YELLOW(self.q.name)
 
+
         def __str__(self):
             return "(%21s: %s)" % (self.str_q(), self.str_n())
+
         def __repr__(self):
             return str(self)
 
@@ -85,6 +107,9 @@ class ASLDSearch:
         self.g = ASLDGraph()
         self.query = queryAutomaton
 
+        self._setup_search()
+
+    def _setup_search(self):
         self.open   = Heap()
         self.closed = set()
         self.states = {}
@@ -244,11 +269,11 @@ class ASLDSearch:
                 continue
 
             # Add to batch
-            if ns not in self.g.loaded:
-                if isinstance(ns.n, URIRef):
+            if isinstance(ns.n, URIRef):
+                if ns not in self.g.loaded:
                     pnd.append(ns)
                 else:
-                    rdy.append(ns)
+                    rdy.append(ns)  # It will make sense on query re-runs over local data (ensures optimal order)
             else:
                 rdy.append(ns)
 
@@ -280,7 +305,7 @@ class ASLDSearch:
                 _t0_localExpand = time()
                 for ns in rdy:
                     pendingExpansions -= 1
-                    print("\r  expansions (%4d): %s" % (pendingExpansions, "."*pendingExpansions), end="")
+                    print("\r  local expansions (%4d): %s" % (pendingExpansions, "."*pendingExpansions), end="")
 
                     # Expand nodes
                     self._expand(ns)
@@ -298,13 +323,20 @@ class ASLDSearch:
                 Color.BLUE.print("\nMapping %d requests:" % len(requests))
                 for (i, iri, reqGraph) in pool.imap_unordered(ASLDGraph.pure_loadB, requests):
                     pendingExpansions -= 1
-                    print("\r  expansions (%4d): %s" % (pendingExpansions, "."*pendingExpansions), end="")
+                    print("\r  || expansions (%4d): %s" % (pendingExpansions, "."*pendingExpansions), end="")
 
-                    if reqGraph is None:  # Request failed
+                    ns = pnd[i]
+                    if ns in self.g.loaded:
+                        assert False, "No loads should be issued to loaded NodeStates (%s)" % ns
+
+                    if len(reqGraph) == 0:
                         Color.RED.print("\nRequest[%d] for '%s' failed" % (i, iri))
                         continue
 
-                    ns = pnd[i]
+                    # Some triples (from the doc (or the backward SPARQL hack)) where found
+                    # Consider this ns expanded.
+                    self.g.loaded.add(ns)
+
 
                     # merge graphs
                     newTriples += len(reqGraph)
@@ -324,12 +356,16 @@ class ASLDSearch:
         Color.GREEN.print("\nOpen was emptied, there are no more paths")
         pool.close()
 
-    def run(self):
+    def run(self, parallelRequests=40):
         """Intended only for interactive CLI use"""
         r = []
+        if self.closed:
+            self._setup_search()
+
         try:
-            for p in self.paths():
+            for p in self.paths(parallelRequests, 4*parallelRequests):
                 r.append(p)
+                printPath(p)
         except KeyboardInterrupt:
             Color.BLUE.print("\nTerminating search.")
         except Exception as e:

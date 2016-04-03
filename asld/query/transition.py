@@ -6,6 +6,14 @@ from asld.utils.color_print import Color
 
 
 class Transition:
+    """
+    A transition allows moving from State src to State dst using a triple
+      allowed by a filter in an specific direction.
+
+    The transition may require the triple forward or not,
+    src -- P --> dst   (src, p', dst)
+    src ~~ P ~~> dst   (dst, p', src)
+    """
 
     _explain_allowance  = False
 
@@ -28,23 +36,11 @@ class Transition:
             self.src.next_transitions_b.add(self)
             self.dst.prev_transitions_b.add(self)
 
-    def prev(self):
-        """Returns the state that uses this Transition"""
-        if self.direction is Direction.forward:
-            return self.src
-        return self.dst
-
-    def next(self):
-        """Returns the state reached by using this Transition"""
-        if self.direction is Direction.forward:
-            return self.dst
-        return self.src
-
 
     def inverse(self):
         """
         Returns the set allowed by the Transition
-        Or None if the Inverse is not defined/allowed
+        Or None if the Inverse is not defined (or unreasonable to compute)
         """
         return self.arc_filter.inverse()
 
@@ -63,9 +59,9 @@ class Transition:
 
     def __str__(self) -> str:
         s = "---"
-        if self.arc_dir == Direction.backward:
+        if self.direction == Direction.backward:
             s = "~~~"
-        return "(%s %s> %s)" % (self.origin, s, self.dest)
+        return "(%s %s> %s)" % (self.src, s, self.dst)
 
     def __repr__(self):
         return str(self)

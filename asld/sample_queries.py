@@ -232,7 +232,7 @@ def NATO_business(n=YAGO["Berlin"], w=1):
 
 
     a = b.build(w)
-    assert a.states["s0"].h    == 3*w
+    assert a.states["City"].h  == 3*w
     assert a.states["Place"].h == 2*w
     assert a.states["Area"].h  == 1*w
     assert a.states["NATO"].h  == 0*w

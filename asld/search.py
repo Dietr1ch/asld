@@ -365,6 +365,7 @@ class ASLDSearch:
         try:
             for p in self.paths(parallelRequests, 4*parallelRequests):
                 r.append(p)
+                print()
                 printPath(p)
         except KeyboardInterrupt:
             Color.BLUE.print("\nTerminating search.")

@@ -266,7 +266,6 @@ class ASLDSearch:
             # REVIEW: allow blocking goal check
             if ns.q.accepts(ns.n):
                 gls.append(ns)
-                continue
 
             # Add to batch
             if isinstance(ns.n, URIRef):
@@ -356,19 +355,34 @@ class ASLDSearch:
         Color.GREEN.print("\nOpen was emptied, there are no more paths")
         pool.close()
 
-    def run(self, parallelRequests=40):
+    def run(self, parallelRequests=40, limit_time=float("inf"), limit_ans=float("inf")):
         """Intended only for interactive CLI use"""
+        term_size = get_terminal_size((80, 20))  # Update CLI width
+
         r = []
         if self.closed:
             self._setup_search()
 
+        _t0 = time()
         try:
+            answers = 0
             for p in self.paths(parallelRequests, 4*parallelRequests):
                 r.append(p)
                 print()
                 printPath(p)
+
+                answers += 1
+                if answers >= limit_ans:
+                    Color.BLUE.print("Reached the %d-Answer limit" % limit_ans)
+                    break
+                if time()-_t0 >= limit_time:
+                    Color.BLUE.print("Reached the %.2fs time limit" % limit_time)
+                    break
+
         except KeyboardInterrupt:
             Color.BLUE.print("\nTerminating search.")
         except Exception as e:
             Color.RED.print("Terminated on: %s" % e)
+        t = time() - _t0
+        Color.GREEN.print("\nSearch took %.2fs. Gathered %d triples and got back %d paths." % (t, len(self.g.g), len(r)))
         return r

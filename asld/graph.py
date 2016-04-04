@@ -82,8 +82,14 @@ class ASLDGraph:
                         for result in results:
                             S = URIRef(result["S"]["value"])
                             P = URIRef(result["P"]["value"])
-                            g.add((S, P, iri))
+                            try:
+                                g.add((S, P, iri))
+                            except:
+                                pass
                         print("SPARQL reverse query %s yielded %d triples back" % (iri, len(results)))
+                        if len(results)==0:
+                            Color.YELLOW.print("Query to %s:" % endpoint)
+                            Color.YELLOW.print(queryString)
                         return g
 
                     except Exception as e:

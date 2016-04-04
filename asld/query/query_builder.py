@@ -36,26 +36,26 @@ class QueryBuilder:
 
         def to(self, destName, ff=None, af=None):
             if destName in self.a.states.keys():
-                assert ff is None
-                assert af is None
+                assert ff is None, "State was already defined"
+                assert af is None, "State was already defined"
             self.a._addTriple(self.originName,
                               ArcFilter_any(), Direction.forward,
                               destName, ff, af)
 
         def backwards_to(self, destName, ff=None, af=None):
             if destName in self.a.states.keys():
-                assert ff is None
-                assert af is None
+                assert ff is None, "State was already defined"
+                assert af is None, "State was already defined"
             self.a._addTriple(self.originName,
                               ArcFilter_any(), Direction.backward,
                               destName, ff, af)
 
 
-        def final(self, destName):
-            self.to(destName, None, NodeFilter_any())
+        def final(self, destName, flt=None):
+            self.to(destName, flt, NodeFilter_any())
 
-        def backwards_final(self, destName):
-            self.backwards_to(destName, None, NodeFilter_any())
+        def backwards_final(self, destName, flt=None):
+            self.backwards_to(destName, flt, NodeFilter_any())
 
 
     class _SP:
@@ -84,11 +84,11 @@ class QueryBuilder:
                               destName, ff, af)
 
 
-        def final(self, destName):
-            self.to(destName, None, NodeFilter_any())
+        def final(self, destName, flt=None):
+            self.to(destName, flt, NodeFilter_any())
 
-        def backwards_final(self, destName):
-            self.backwards_to(destName, None, NodeFilter_any())
+        def backwards_final(self, destName, flt=None):
+            self.backwards_to(destName, flt, NodeFilter_any())
 
 
     def __init__(self, n:URIRef, name="s0", ff=None, af=None):

@@ -25,16 +25,21 @@ from asld.search import ASLDSearch
 # DBPedia
 DB  = Namespace(URIRef("http://dbpedia.org/"         ))
 DBO = Namespace(URIRef("http://dbpedia.org/ontology/"))
+DBR = Namespace(URIRef("http://dbpedia.org/resource/"))
+
 # DBLP
 DBLP          = Namespace(URIRef("http://dblp.l3s.de/d2r/"                 ))
 DBLP_Authors  = Namespace(URIRef("http://dblp.l3s.de/d2r/resource/authors/"))
+
 # Linked Movie DB
 LMDB         = Namespace(URIRef("http://data.linkedmdb.org/"                ))
 LMDB_Actors  = Namespace(URIRef("http://data.linkedmdb.org/resource/actor/" ))
 LMDB_Films   = Namespace(URIRef("http://data.linkedmdb.org/resource/film/"  ))
 LMDB_Movie   = Namespace(URIRef("http://data.linkedmdb.org/resource/movie/" ))
+
 # SWRC
 SWRC = Namespace(URIRef("http://swrc.ontoware.org/ontology#"))
+
 # YAGO
 YAGO = Namespace(URIRef("http://yago-knowledge.org/resource/"))
 
@@ -181,7 +186,7 @@ def directors(n, w=1):
     return a
 
 
-def coActor(n, w=1):
+def CoActor_LMDB(n, w=1):
     b = QueryBuilder(n, "Actor")
     b.frm("Actor").through(LMDB_Movie["actor"]).backwards_to("Movie")
     b.frm("Movie").through(LMDB_Movie["actor"]).to("CoActor", NodeFilter_but(n))
@@ -195,7 +200,7 @@ def coActor(n, w=1):
     return a
 
 
-def coActorStar(n, w=1):
+def CoActorStar_LMDB(n=kBacon, w=1):
     b = QueryBuilder(n, "Actor")
     b.frm("Actor").through(LMDB_Movie["actor"]).backwards_to("Movie")
     b.frm("Movie").through(LMDB_Movie["actor"]).to("CoActor", NodeFilter_but(n))
@@ -215,8 +220,54 @@ def coActorStar(n, w=1):
 
 
 
+# DBPedia
+# -------
+def CoActorStar_DBpedia(n=DBR["Kevin_Bacon"], w=1):
+    # PREFIX dbo: <http://dbpedia.org/ontology/>
+    # PREFIX dbr: <http://dbpedia.org/resource/>
+
+    # select * where {?x (^dbo:starring/dbo:starring)* dbr:Kevin_Bacon}
+
+    b = QueryBuilder(n, "RootActor")
+    b.frm().through(DBO["starring"]).backwards_to("Movie")
+    b.frm("Movie").through(DBO["starring"]).to("CoActor", None, NodeFilter_but(n))
+
+    b.frm("CoActor").through(DBO["starring"]).backwards_to("Movie")
+
+    return b.build(w)
+
+
+def CoActorStar_director_DBpedia(n=DBR["Kevin_Bacon"], w=1):
+    # Might not be what you expect, Movies will be matched only once, leaving out multiple directors
+
+    b = QueryBuilder(n, "Actor")
+    b.frm("Actor").through(DBO["starring"]).backwards_to("Movie")
+    b.frm("Movie").through(DBO["starring"]).to("Actor")
+
+
+    # We can be lazy about finding out the correct direction for dbo:director (=
+    b.frm("Actor").through(DBO["director"]).final("DirectedMovie")
+    b.frm("Actor").through(DBO["director"]).backwards_to("DirectedMovie")  # DirectedMovie already defined
+
+    return b.build(w)
+
+
 # YAGO
 # ----
+def CoActorStar_YAGO(n=YAGO["Kevin_Bacon"], w=1):
+    # PREFIX yago: <http://yago-knowledge.org/resource/>
+    # select * where {?x (yago:actedIn/^yago:actedIn)* yago:Kevin_Bacon}
+
+    other = NodeFilter_but(n)
+    b = QueryBuilder(n, "RootActor")
+    b.frm().through(YAGO["actedIn"]).to("Movie")
+    b.frm("Movie").through(YAGO["actedIn"]).backwards_final("CoActor", other)
+
+    b.frm("CoActor").through(YAGO["actedIn"]).to("Movie")
+
+    return b.build(w)
+
+
 def NATO_business(n=YAGO["Berlin"], w=1):
     # ?x yago:isLocatedIn* ?country
     #    yago:dealsWith    ?area
@@ -240,15 +291,30 @@ def NATO_business(n=YAGO["Berlin"], w=1):
 
 
 def NATO_business_r(n=YAGO["Berlin"], w=1):
-    # ?x yago:isLocatedIn* ?country
-    #    yago:dealsWith    ?area
-    #     rdf:type         yago:wikicat_Member_states_of_NATO
-    b = QueryBuilder(YAGO["wikicategory_Member_states_of_NATO"])
+    # This query is NOT answered by the yago SPARQL endpoint
+    # See the endpoint struggle trying to use over 1GB of RAM (=
+
+    # (Virtuoso 42000 Error TN...: Exceeded 1000000000 bytes in transitive temp memory.  use t_distinct, t_max or more T_MAX_memory options to limit the search or increase the pool)
+    # (1000000000 bytes in transitive temp memory)
+
+    # Endpoint: https://linkeddata1.calcul.u-psud.fr/sparql
+
+
+    # PREFIX yago: <http://yago-knowledge.org/resource/>
+    #
+    # select ?x, ?country, ?area
+    # where {
+    #   ?x        yago:isLocatedIn* ?country.
+    #   ?country  yago:dealsWith    ?area.
+    #   ?area      rdf:type         yago:wikicat_Member_states_of_NATO
+    # }
+
+    b = QueryBuilder(YAGO["wikicat_Member_states_of_NATO"])
 
     b.frm("s0").through(RDF["type"]).to("Area")
     b.frm("s0").through(RDF["type"]).backwards_to("Area")
 
-    b.frm("Area").through(YAGO["dealsWith"]).backwards_to("Place", None, NodeFilter_only(n))
+    b.frm("Area").through(YAGO["dealsWith"]).backwards_to("Place", None, NodeFilter_but(n))
 
     b.frm("Place").through(YAGO["isLocatedIn"]).to("Place")
 
@@ -275,7 +341,9 @@ def NATO(n=YAGO["wikicat_Member_states_of_NATO"], w=1):
     return a
 
 
-def Europe(n=YAGO["wikicategory_Capitals_in_Europe"], w=1):
+def Europe(n=YAGO["wikicat_Capitals_in_Europe"], w=1):
+    # Using wikicat_* instead of wikicategory_*
+
     b = QueryBuilder(n, "EuropeCapitals")
     b.frm("EuropeCapitals").through(RDF["type"]).backwards_to("Capital")
     b.frm("Capital").through(YAGO["isLocatedIn"]).to("Place")
@@ -290,8 +358,9 @@ def Europe(n=YAGO["wikicategory_Capitals_in_Europe"], w=1):
     return a
 
 
-def Airports(n=YAGO["wikicategory_Airports_in_the_Netherlands"], w=1):
+def Airports(n=YAGO["wikicat_Airports_in_the_Netherlands"], w=1):
     b = QueryBuilder(n, "Airports")
+
     b.frm("Airports").through(RDF["type"]).backwards_to("airport")
     b.frm("airport").through(YAGO["isLocatedIn"]).final("Place")
     b.frm("Place").through(YAGO["isLocatedIn"]).to("Place")

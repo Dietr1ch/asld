@@ -419,7 +419,7 @@ class ASLDSearch:
 
                 _t_end = time()
                 _t_localExpansions = _t_end - _t0_localExpansions
-                print("\r Sync expanded (%4.2fs) %3d nodes" % (_t_localExpand, len(rdy)))
+                print("\r Sync expanded (%4.2fs) %3d nodes" % (_t_localExpansions, len(rdy)))
 
 
             # Parallel expand

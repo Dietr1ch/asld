@@ -144,8 +144,9 @@ class QueryBuilder:
         reached = [(s.h, s) for s in reachedStates]
         reached.sort()
 
-        Color.GREEN.print("Heuristic:")
-        for (h, s) in reached:
-            Color.GREEN.print("  * %d: %s" % (h, s))
+        if __debug__:
+            Color.GREEN.print("Heuristic:")
+            for (h, s) in reached:
+                Color.GREEN.print("  * %d: %s" % (h, s))
 
         return self.a

@@ -68,7 +68,7 @@ NAME.add(RDFS.label)
 
 # Queries
 # =======
-def name(n, w=1):
+def name(n=jBaier, w=1):
     b = QueryBuilder(n, "Person")
     b.frm("Person").through(FOAF["name"]).final("Name")
 
@@ -78,7 +78,7 @@ def name(n, w=1):
     return a
 
 
-def journals(n, w=1):
+def journals(n=jBaier, w=1):
     """ dc:creator-/swrc:journal/rdfs:label """
 
     b = QueryBuilder(n, "Author")
@@ -94,23 +94,23 @@ def journals(n, w=1):
     return a
 
 
-def conferences(n, w=1):
+def conferences(n=jBaier, w=1):
     """ dc:creator-/swrc:series/rdfs:label """
     b = QueryBuilder(n, "Author")
     b.frm("Author").through(DC.creator).backwards_to("Paper")
-    b.frm("Paper").through(SWRC.series).to("ConfPaper")
-    b.frm("ConfPaper").through(RDFS.label).final("Name")
+    b.frm("Paper").through(SWRC.series).to("Conference")
+    b.frm("Conference").through(RDFS.label).final("Name")
 
     a = b.build(w)
-    assert a.states["s0"].h    == 3*w
-    assert a.states["Paper"].h == 2*w
-    assert a.states["Conf"].h  == 1*w
-    assert a.states["Name"].h  == 0*w
+    assert a.states["Author"].h      == 3*w
+    assert a.states["Paper"].h       == 2*w
+    assert a.states["Conference"].h  == 1*w
+    assert a.states["Name"].h        == 0*w
     return a
 
 
 # Coauthors
-def coAuth(n, w=1):
+def coAuth(n=jBaier, w=1):
     # Works
     b = QueryBuilder(n, "Author")
     b.frm("Author").through(DC["creator"]).backwards_to("Paper")
@@ -126,7 +126,7 @@ def coAuth(n, w=1):
     return a
 
 
-def coAuthStar(n, w=1):
+def coAuthStar(n=jBaier, w=1):
     # Works
     b = QueryBuilder(n, "Author")
     b.frm("Author").through(DC["creator"]).backwards_to("Paper")
@@ -146,30 +146,11 @@ def coAuthStar(n, w=1):
     return a
 
 
-def _coAuthStar(n, w=1):
-    b = QueryBuilder(n)
-    b.frm().through(DC.creator).backwards_to("Paper1")
-    b.frm("Paper1").through(DC.creator).to("CoAuth", ff=NodeFilter_but(n))
-
-    b.frm("CoAuth").through(DC.creator).backwards_to("Paper2")
-    b.frm("Paper2").through(DC.creator).to("CoAuth")
-
-    b.frm("CoAuth").through(FOAF.name).final("Name")
-
-    a = b.build(w)
-    assert a.states["s0"].h     == 3*w
-    assert a.states["Paper1"].h == 2*w
-    assert a.states["CoAuth"].h == 1*w
-    assert a.states["Paper2"].h == 2*w
-    assert a.states["Name"].h   == 0*w
-    return a
-
-
 
 # LMDB
 # ----
 # Directors
-def directors(n, w=1):
+def directors(n=kBacon, w=1):
     """ Expected: {A dbo:starring^    -/      dbo:director/foaf:name ?x}
         Used:     {A lmdbMovie:actor^ -/lmdbMovie:director/foaf:name ?x} """
 
@@ -186,7 +167,7 @@ def directors(n, w=1):
     return a
 
 
-def CoActor_LMDB(n, w=1):
+def CoActor_LMDB(n=kBacon, w=1):
     b = QueryBuilder(n, "Actor")
     b.frm("Actor").through(LMDB_Movie["actor"]).backwards_to("Movie")
     b.frm("Movie").through(LMDB_Movie["actor"]).to("CoActor", NodeFilter_but(n))

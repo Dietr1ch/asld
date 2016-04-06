@@ -21,6 +21,24 @@ class ASLDGraph:
     B suffix on blocking calls
     """
 
+    class RequestAnswer:
+        """
+        Answer for a iri request
+        Acts as a named tuple
+        """
+        def __init__(self, g, iri, index, reqTime):
+            self.g = g
+            self.iri = iri
+            self.index = index
+            self.reqTime = reqTime
+
+        def __len__(self):
+            return len(self.g)
+
+        def __str__(self):
+            return "RequestAnswer<%s>" % self.iri
+
+
     @classmethod
     def _sparql_query(cls, s, P, o):
         """
@@ -99,17 +117,23 @@ class ASLDGraph:
         return g
 
     @classmethod
-    def pure_loadB(cls, i__iri_p_hBT):
+    def pure_loadB(cls, iri__i__p__hBT):
         """
         Expands an IRI.
         Uses a neighbor description for narrowing SPARQL inverses
+
+        Returns a RequestAnswer (~named tuple)
         """
-        (i, iri, p, hBT) = i__iri_p_hBT
+        # Unwrap parameters
+        (iri, i, p, hBT) = iri__i__p__hBT
         assert isinstance(iri, URIRef)
 
+        _t0 = time()
+        # Get new triples
         g = Graph()
-        if hBT:  # The state has backward transitions
-            # Workaround for evil servers
+        if hBT:
+            # Workaround for evil servers on backward transitions
+            # This adds extra time on those servers :c
             g = ASLDGraph.pure_load_evil_SPARQL_reverseB(iri, p)
 
         # Get the document
@@ -118,27 +142,11 @@ class ASLDGraph:
                 g.load(iri)
                 break
             except Exception as e:
+                print()
                 Color.YELLOW.print("Request-%d for '%s' failed: %s" % (attempt, iri, e))
 
-        return (i, iri, g)
+        return ASLDGraph.RequestAnswer(g, iri, i, time()-_t0)
 
-
-    class Stats:
-        class Snapshot:
-            def __init__(self):
-                self.size           = 0
-                self.requestTime    = 0
-                self.solutionsFound = 0
-                self.tripleRecv     = 0
-
-        def __init__(self):
-            self.requestsCompleted = 0
-            self.requestsFailed    = 0
-            self.requestsAttempted = 0
-            self.snapshots = [ASLDGraph.Stats.Snapshot()]
-
-        def snap(self):
-            self.snapshots.append(ASLDGraph.Stats.Snapshot())
 
 
     def __init__(self):
@@ -146,20 +154,27 @@ class ASLDGraph:
         self.loaded = set()
         self.failed = set()
 
-        self.stats = ASLDGraph.Stats()
 
     def loadB(self, iri: URIRef) -> bool:
-        """Loads resource data if needed"""
+        """
+        Loads resource data if needed
+        """
         assert isinstance(iri, URIRef)
 
         if iri in self.loaded:
-            return True
+            return (False, 0)
 
         try:
+            old = len(self.g)
             self.g.load(iri)
+            incr = len(self.g)-old
+
+            return (True, incr)
         except Exception as e:
             self.failed.add(iri)
             Color.RED.print("Loading '%s' failed. (%s)." % (iri, e))
+
+        return (True, 0)
 
     def retryFailedB(self) -> int:
         """Attempts to get failed requests again"""
@@ -191,7 +206,7 @@ class ASLDGraph:
             yield (S, P, O)
 
     def queryB(self, s=None, p=None, o=None):
-        """Queries the graph after requesting s or o"""
+        """ Queries the graph after requesting s or o """
         if o is None:
             self.loadB(s)
         elif s is None:

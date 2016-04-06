@@ -11,5 +11,13 @@ from asld.search import ASLDSearch
 
 # Init
 # ====
-
 from asld.sample_queries import *
+
+
+# Extra tools
+# ===========
+import json
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.pyplot import show, figure, plot
+

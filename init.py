@@ -1,3 +1,6 @@
+import argparse
+import gc
+from copy import copy
 from rdflib.term import URIRef
 from rdflib.namespace import Namespace, DC, FOAF, OWL, RDF, RDFS, XMLNS
 
@@ -23,65 +26,75 @@ from matplotlib.pyplot import show, figure, plot
 
 
 automatons = [
-    name,
-    journals,
-    conferences,
-    coAuth,
-    coAuthStar,
-    directors,
-    CoActor_LMDB,
-    CoActorStar_LMDB,
-    CoActorStar_DBpedia,
-    CoActorStar_director_DBpedia,
-    CoActorStar_YAGO,
-    NATO_business,
-    NATO_business_r,
-    NATO,
-    Europe,
-    Airports
+    (Name,                         "Node name"),
+    (Journals,                     "Journal papers"),
+    (Conferences,                  "Conferences"),
+    (CoAuth,                       "Coauthors"),
+    (CoAuthStar,                   "Coauthor*"),
+    (Directors,                    "Directors"),
+    (CoActor_LMDB,                 "Coauthor [LMDB]"),
+    (CoActorStar_LMDB,             "Coauthor* [LMDB]"),
+    (CoActorStar_DBpedia,          "Coauthor* [DBpedia]"),
+    (CoActorStar_director_DBpedia, "Coauthor*/Director [DBpedia]"),
+    (CoActorStar_YAGO,             "Coauthor* [YAGO]"),
+    (NATO_business,                "NATO business (Berlin)"),
+    (NATO_business_r,              "NATO business (reverse)"),
+    (NATO,                         "NATO"),
+    (Europe,                       "Europe Capitals"),
+    (Airports,                     "Airports in the Netherlands")
 ]
 
 
-def runAll(queries, parallelRequests=40, limit_time=30*60, limit_ans=float("inf")):
+def runAll(queries,
+           parallelRequests=40,
+           limit_time=30*60, limit_ans=float("inf"), limit_triples=1e5):
     searches = []
-    try:
-        for (q, name) in queries:
+    for (q, name) in queries:
+        try:
             Color.BLUE.print("Running search on %s..." % name)
             s = ASLDSearch(q)
 
             # Run search
-            (ans, aC, t) = s.test(parallelRequests, limit_time, limit_ans)
+            data = s.test(parallelRequests,
+                          limit_time, limit_ans, limit_triples)
             searches.append(
-            {
-                "query": name,
-                "answerCount": aC,
-                "answers": ans,
-                "time": t,
-                "stats": s.stats.history
-            }
+                {
+                    "query": name,
+                    "data": data
+                }
             )
-    except KeyboardInterrupt:
-        Color.BLUE.print("\nTerminating search.")
-    except Exception as e:
-        Color.RED.print("Terminated on: %s" % e)
+            s = None
+            gc.collect()
+
+        except KeyboardInterrupt:
+            Color.BLUE.print("\nTerminating search.")
+        except Exception as e:
+            Color.RED.print("Terminated runAll on: %s" % e)
 
     return searches
 
 
-def test(parallelRequests=40, limit_time=30*60, limit_ans=float("inf")):
-    astar = [( q(w=1), q.__name__ ) for q in automatons]
-    bfs   = [( q(w=0), q.__name__ ) for q in automatons]  # w=0 turns A* into BFS (Dijkstra)
+def bench(parallelRequests=40,
+          limit_time=30*60, limit_ans=float("inf"), limit_triples=1e5):
+    astar = [q(w=1) for q in automatons]
+    bfs   = [q(w=0) for q in automatons]  # w=0 turns A* into BFS (Dijkstra)
 
     searches = []
     try:
         Color.BLUE.print("Running A*...")
-        print(runAll(astar, parallelRequests, limit_time, limit_ans))
+        searches.extend(runAll(astar,
+                               parallelRequests,
+                               limit_time, limit_ans, limit_triples))
 
         Color.BLUE.print("Running Dijkstra...")
-        print(runAll(  bfs, parallelRequests, limit_time, limit_ans))
+        searches.extend(runAll(bfs,
+                               parallelRequests,
+                               limit_time, limit_ans, limit_triples))
 
     except KeyboardInterrupt:
         Color.BLUE.print("\nTerminating search.")
     except Exception as e:
-        Color.RED.print("Terminated on: %s" % e)
+        Color.RED.print("Terminated bench on: %s" % e)
+
+    return searches
 

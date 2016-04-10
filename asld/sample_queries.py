@@ -57,7 +57,9 @@ dVroc    = DBLP_Authors["Domagoj_Vrgoc"   ]
 mysticRiver = LMDB_Films["942"]
 # LMDB Actors
 kBacon = LMDB_Actors["29539"]
-Color.GREEN.print("A few URIRefs were defined (mArenas, jBaier, jReutter, cRiveros, aSoto, dVroc;  mysticRiver;  kBacon)")
+
+if __name__=='__main__':
+    Color.GREEN.print("A few URIRefs were defined (mArenas, jBaier, jReutter, cRiveros, aSoto, dVroc;  mysticRiver;  kBacon)")
 
 
 NAME=set()
@@ -68,7 +70,7 @@ NAME.add(RDFS.label)
 
 # Queries
 # =======
-def name(n=jBaier, w=1):
+def Name(n=jBaier, w=1):
     b = QueryBuilder(n, "Person")
     b.frm("Person").through(FOAF["name"]).final("Name")
 
@@ -78,7 +80,7 @@ def name(n=jBaier, w=1):
     return a
 
 
-def journals(n=jBaier, w=1):
+def Journals(n=jBaier, w=1):
     """ dc:creator-/swrc:journal/rdfs:label """
 
     b = QueryBuilder(n, "Author")
@@ -94,7 +96,7 @@ def journals(n=jBaier, w=1):
     return a
 
 
-def conferences(n=jBaier, w=1):
+def Conferences(n=jBaier, w=1):
     """ dc:creator-/swrc:series/rdfs:label """
     b = QueryBuilder(n, "Author")
     b.frm("Author").through(DC.creator).backwards_to("Paper")
@@ -110,7 +112,7 @@ def conferences(n=jBaier, w=1):
 
 
 # Coauthors
-def coAuth(n=jBaier, w=1):
+def CoAuth(n=jBaier, w=1):
     # Works
     b = QueryBuilder(n, "Author")
     b.frm("Author").through(DC["creator"]).backwards_to("Paper")
@@ -126,7 +128,7 @@ def coAuth(n=jBaier, w=1):
     return a
 
 
-def coAuthStar(n=jBaier, w=1):
+def CoAuthStar(n=jBaier, w=1):
     # Works
     b = QueryBuilder(n, "Author")
     b.frm("Author").through(DC["creator"]).backwards_to("Paper")
@@ -150,7 +152,7 @@ def coAuthStar(n=jBaier, w=1):
 # LMDB
 # ----
 # Directors
-def directors(n=kBacon, w=1):
+def Directors(n=kBacon, w=1):
     """ Expected: {A dbo:starring^    -/      dbo:director/foaf:name ?x}
         Used:     {A lmdbMovie:actor^ -/lmdbMovie:director/foaf:name ?x} """
 
@@ -355,20 +357,21 @@ def Airports(n=YAGO["wikicat_Airports_in_the_Netherlands"], w=1):
 
 
 
-print("DBLP: examples")
-print("  * coAuthStar(jBaier)")
-print("  * coAuth(jReutter)")
-print("  * name(dVroc)")
-print("")
+if __name__=='__main__':
+    print("DBLP: examples")
+    print("  * coAuthStar(jBaier)")
+    print("  * coAuth(jReutter)")
+    print("  * name(dVroc)")
+    print("")
 
-print("LMDB examples:")
-print("  * directors(kBacon)")
-print("  * coActorStar(kBacon)")
-print("")
+    print("LMDB examples:")
+    print("  * directors(kBacon)")
+    print("  * coActorStar(kBacon)")
+    print("")
 
-print("YAGO examples:")
-print("  * NATO_business()")
-print("  * NATO()")
-print("  * Europe()")
-print("  * Airports()")
-print("")
+    print("YAGO examples:")
+    print("  * NATO_business()")
+    print("  * NATO()")
+    print("  * Europe()")
+    print("  * Airports()")
+    print("")

@@ -22,6 +22,13 @@ def _worker_ignore_SIGINT():
     signal(SIGINT, SIG_IGN)
 
 
+# Default limits
+# ==============
+_L_ANS = 1000
+_L_TIME = 30*60
+_L_TRIPLES = 1e5
+
+
 # Output Helpers
 # ==============
 term_size = get_terminal_size((80, 20))
@@ -130,8 +137,25 @@ class ASLDSearch:
 
             def __str__(self) -> str:
                 return "%5d (%3d) %7.2fs> goals: %3d; |Req|: %4d, t(Req): %5.2fs;  |DB| = %6d" % (self.expansions, self.batch, self.wallClock, self.goals, self.requestTriples, self.requestTime, self.triples)
-            def __repr__(self) -> str:
+
+            def __repr__(self):
                 return str(self)
+
+            def json(self) -> dict:
+                return {
+                    "wallClock": self.wallClock,
+                    "batchID": self.batch,
+
+                    "goalsFound": self.goals,
+                    "expansions": self.expansions,
+
+                    "triples": self.triples,
+
+                    "requestTriples":   self.requestTriples,
+                    "requestTime":      self.requestTime,
+                    "requestTotalTime": self.requestAccTime,
+                    "requestIRI":       self.requestIRI
+                }
 
             def __lt__(self, o):
                 return self.requestTime < o.requestTime
@@ -271,6 +295,11 @@ class ASLDSearch:
         # Enqueue child
         self._enqueue(cns)
 
+        if cns.q.accepts(cns.n):
+            return cns
+
+        return None
+
     def _expand(self, ns):
         """
         Reaches all the neighborhood.
@@ -280,13 +309,21 @@ class ASLDSearch:
         REVIEW: It may be better to force tie breaking on the heap
         """
 
+        goalsFound = []
+
         for t in ns.q.next_transitions_f:
             for _,P,O in self.g.query(ns.n):
-                self._reach(ns, P, cN=O,cQ=t.dst, t=t, d=Direction.forward)
+                g = self._reach(ns, P, cN=O,cQ=t.dst, t=t, d=Direction.forward)
+                if g:
+                    goalsFound.append(g)
 
         for t in ns.q.next_transitions_b:
             for S,P,_ in self.g.query(None, None, ns.n):
-                self._reach(ns, P, cN=S,cQ=t.dst, t=t, d=Direction.backward)
+                g = self._reach(ns, P, cN=S,cQ=t.dst, t=t, d=Direction.backward)
+                if g:
+                    goalsFound.append(g)
+
+        return goalsFound
 
 
     def _paths(self):
@@ -309,18 +346,14 @@ class ASLDSearch:
                     Color.RED.print("Discarding a closed node found on open")
                 continue
 
-            # Goal Check
-            # ==========
-            # REVIEW: allow blocking goal check
-            if ns.q.accepts(ns.n):
-                yield ns
-                continue
-
             # Blocking load
             (_, incr) = self.g.loadB(ns.n)
 
             # Local expand
-            self._expand(ns)
+            goalsFound = self._expand(ns)
+            for g in goalsFound:
+                yield g
+
             _t_localExpand = time() - _t0_localExpand
             self.stats.expand(ns.n, incr, _t_localExpand)
 
@@ -380,12 +413,17 @@ class ASLDSearch:
         return (rdy, pnd, gls, pendingExpansions)
 
 
-    def paths(self, parallelRequests=40, batchSize=160):
+    def paths(self, parallelRequests=40, batchSize=160,
+              limit_time=_L_TIME, limit_triples=_L_TRIPLES):
         """
         Performs search using parallel requests to expand top-f value NodeStates
         """
         if parallelRequests<2:
             return self._paths()
+
+        deadline = None
+        if limit_time:
+            deadline = time() + limit_time
 
         # Initialize search
         _t0_search = time()
@@ -394,13 +432,12 @@ class ASLDSearch:
 
         # Empty open...
         while self.open:
-            (rdy, pnd, gls, pendingExpansions) = self._extractTopF(batchSize)
-            self.stats.batch()
+            if deadline and time() > deadline:
+                Color.RED.print("%.2fs Time limit reached" % limit_time)
+                break
 
-            # Declare goals (building this list adds overhead :c)
-            # This is done ASAP, before expanding (it's issued on this batch)
-            for g in gls:
-                yield self._getPath(g)
+            (rdy, pnd, _, pendingExpansions) = self._extractTopF(batchSize)
+            self.stats.batch()
 
 
             # Local expand (no requests are needed)
@@ -413,8 +450,12 @@ class ASLDSearch:
                     print("\r  local expansions (%4d): %s" % (pendingExpansions, "."*pendingExpansions), end="")
 
                     # Expand nodes
+                    # Early declare goals (Unless we implement blocking filters :c)
                     _t0_localExpand = time()
-                    self._expand(ns)
+                    goalsFound = self._expand(ns)
+                    for g in goalsFound:
+                        yield g
+
                     self.stats.expand(ns.n, 0, time()-_t0_localExpand)
 
                 _t_end = time()
@@ -477,7 +518,8 @@ class ASLDSearch:
         Color.GREEN.print("\nOpen was emptied, there are no more paths")
         pool.close()
 
-    def run(self, parallelRequests=40, limit_time=float("inf"), limit_ans=float("inf")):
+    def run(self, parallelRequests=40,
+            limit_time=_L_TIME, limit_ans=_L_ANS):
         """Intended only for interactive CLI use"""
         term_size = get_terminal_size((80, 20))  # Update CLI width
 
@@ -504,8 +546,8 @@ class ASLDSearch:
 
         except KeyboardInterrupt:
             Color.BLUE.print("\nTerminating search.")
-        except Exception as e:
-            Color.RED.print("Terminated on: %s" % e)
+        #except Exception as e:
+            #Color.RED.print("Terminated Search.run on: %s" % e)
         t = time() - _t0
         Color.GREEN.print("\nSearch took %.2fs. Gathered %d triples and got back %d paths." % (t, len(self.g.g), len(r)))
         return (r, answers, time()-_t0)
@@ -540,7 +582,8 @@ class ASLDSearch:
 
         return _path
 
-    def test(self, parallelRequests=40, limit_time=30*60, limit_ans=float("inf")):
+    def test(self, parallelRequests=40,
+             limit_time=_L_TIME, limit_ans=_L_ANS, limit_triples=_L_TRIPLES):
         """ Non-interactive runs """
         if limit_time is None:
             limit_time = float("inf")
@@ -555,7 +598,8 @@ class ASLDSearch:
 
             answers = 0
             self.stats._marks()  # Adjust stats clock
-            for path in self.paths(parallelRequests, 4*parallelRequests):
+            for path in self.paths(parallelRequests, 4*parallelRequests,
+                                   limit_time, limit_triples):
                 _ans.append(path)
                 answers += 1
 
@@ -568,12 +612,17 @@ class ASLDSearch:
 
         except KeyboardInterrupt:
             Color.BLUE.print("\nTerminating search.")
-        except Exception as e:
-            Color.RED.print("Terminated on: %s" % e)
+        #except Exception as e:
+            #Color.RED.print("Terminated Search.test on: %s" % e)
         t = time() - _t0
 
         Color.GREEN.print("\nSearch took %.2fs. Gathered %d triples and got back %d paths." % (t, len(self.g.g), answers))
 
         ans = [ASLDSearch._native_path(path) for path in _ans]
 
-        return (ans, answers, t)
+        return {
+            "Paths": ans,
+            "PathCount": answers,
+            "StatsHistory": [h.json() for h in self.stats.history],
+            "Time": t
+        }

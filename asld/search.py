@@ -1,4 +1,5 @@
 import gc
+from sys import stdout
 from copy import copy
 from time import time
 
@@ -30,9 +31,10 @@ _L_TRIPLES = 1e5
 # ==============
 term_size = get_terminal_size((80, 20))
 
+tty = stdout.isatty()
 def clearLine():
-    print("\r\033[K", end="")
-    #print("\033[2K", end="")
+    if tty:
+        print("\r\033[K", end="")
 
 def rP(s, i=0):
     print("%*s" % (term_size.columns+9*i, s))
@@ -392,9 +394,11 @@ class ASLDSearch:
 
             expansions += 1
             pendingExpansions += 1
-            clearLine()
-            print("  expansions (%4d): " % pendingExpansions, end="")
-            print("#"*pendingExpansions, end="")
+
+            if tty:
+                clearLine()
+                print("  expansions (%4d): " % pendingExpansions, end="")
+                print("#"*pendingExpansions, end="")
 
             # Goal Check
             # ==========
@@ -467,9 +471,10 @@ class ASLDSearch:
                 for ns in rdy:
                     expansionsDone += 1
                     pendingExpansions -= 1
-                    print("\r  local expansions (%4d): " % pendingExpansions, end="")
-                    print("[%s" % ("#"*expansionsDone), end="")
-                    print("%s]" % ("."*pendingExpansions), end="")
+                    if tty:
+                        print("\r  local expansions (%4d): " % pendingExpansions, end="")
+                        print("[%s" % ("#"*expansionsDone), end="")
+                        print("%s]" % ("."*pendingExpansions), end="")
 
                     # Expand nodes
                     # Early declare goals (Unless we implement blocking filters :c)
@@ -483,6 +488,7 @@ class ASLDSearch:
 
                 _t_end = time()
                 _t_localExpansions = _t_end - _t0_localExpansions
+
                 clearLine()
                 print(" Sync expanded (%4.2fs) %3d nodes" % (_t_localExpansions, len(rdy)))
 
@@ -516,9 +522,10 @@ class ASLDSearch:
 
 
                     # Report progress
-                    print("\r  || expansions (%4d): " % pendingExpansions, end="")
-                    print("[%s" % ("#"*requestsFullfilled), end="")
-                    print("%s]" % ("."*pendingExpansions), end="")
+                    if tty:
+                        print("\r  || expansions (%4d): " % pendingExpansions, end="")
+                        print("[%s" % ("#"*requestsFullfilled), end="")
+                        print("%s]" % ("."*pendingExpansions), end="")
 
 
                     # Finish expansion on the node
@@ -544,11 +551,13 @@ class ASLDSearch:
 
                 _t_end = time()
                 _t_parallelExpand = _t_end - _t0_parallelExpand
+
                 clearLine()
                 print("Async expanded %3d nodes on %4.2fs" % (requestsCorrectlyFullfilled, _t_parallelExpand))
 
         _t_end = time()
         _t_search = time() - _t0_search
+
         clearLine()
         Color.BLUE.print("Search took %4.2fs" % _t_search)
         Color.GREEN.print("\nOpen was emptied, there are no more paths")

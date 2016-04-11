@@ -2,3 +2,4 @@ rdflib
 SPARQLWrapper
 numpy
 matplotlib
+jsonpickle

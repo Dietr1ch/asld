@@ -6,7 +6,6 @@ from rdflib.term import URIRef
 from SPARQLWrapper import SPARQLWrapper, JSON
 
 from asld.utils.color_print import Color
-from asld.query.direction import Direction
 
 
 # Document servers that are known to provide incomplete inverses, but have a SPARQL endpoint.
@@ -92,7 +91,7 @@ class ASLDGraph:
                 se.setQuery(queryString)
                 se.setReturnFormat(JSON)
 
-                for attempt in range(3):
+                for _ in range(3):
                     try:
                         results = se.query().convert()
                         results = results["results"]["bindings"]
@@ -110,8 +109,8 @@ class ASLDGraph:
                             Color.YELLOW.print(queryString)
                         return g
 
-                    except Exception as e:
-                        Color.YELLOW.print("SPARQL_Request-%d for '%s' failed: %s" % (attempt, iri, e))
+                    except Exception:
+                        pass
                 Color.RED.print("SPARQL Request '%s%s" % (Color.GREEN(queryString), Color.RED("' failed")))
                 Color.YELLOW.print("The server's SPARQL endpoint (%s) is unavailable" % endpoint)
         return g
@@ -137,13 +136,12 @@ class ASLDGraph:
             g = ASLDGraph.pure_load_evil_SPARQL_reverseB(iri, p)
 
         # Get the document
-        for attempt in range(3):
+        for _ in range(3):
             try:
                 g.load(iri)
                 break
-            except Exception as e:
-                print()
-                Color.YELLOW.print("Request-%d for '%s' failed: %s" % (attempt, iri, e))
+            except Exception:
+                pass
 
         return ASLDGraph.RequestAnswer(g, iri, i, time()-_t0)
 
@@ -153,6 +151,12 @@ class ASLDGraph:
         self.g      = Graph()
         self.loaded = set()
         self.failed = set()
+
+    def __len__(self):
+        return len(self.g)
+
+    def add(self, spo):
+        self.g.add(spo)
 
 
     def loadB(self, iri: URIRef) -> bool:

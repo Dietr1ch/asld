@@ -1,15 +1,10 @@
 import gc
 from copy import copy
 from time import time
-from multiprocessing import Pool
-from signal import SIGINT, SIG_IGN, signal
 
 from shutil import get_terminal_size
 
 from rdflib.term import URIRef, Literal
-
-from asld.utils.heap import Heap
-from asld.utils.color_print import Color
 
 from asld.graph import ASLDGraph
 from asld.query.direction import Direction
@@ -17,9 +12,11 @@ from asld.query.query import Query
 from asld.query.state import State
 from asld.query.transition import Transition
 
+from asld.utils.heap import Heap
+from asld.utils.color_print import Color
+from asld.utils.async_timeout_pool import AsyncTimeOutPool
 
-def _worker_ignore_SIGINT():
-    signal(SIGINT, SIG_IGN)
+
 
 
 # Default limits
@@ -33,6 +30,9 @@ _L_TRIPLES = 1e5
 # ==============
 term_size = get_terminal_size((80, 20))
 
+def clearLine():
+    print("\r\033[K", end="")
+    #print("\033[2K", end="")
 
 def rP(s, i=0):
     print("%*s" % (term_size.columns+9*i, s))
@@ -249,8 +249,10 @@ class ASLDSearch:
         k = (ns.g + ns.q.h, -ns.g)
         self.open.push(k, ns)
 
-        if __debug__ and ns.q.accepts(ns.n):
+        if ns.q.accepts(ns.n):
             self.stats.goal()
+            return ns
+        return None
 
 
     def _getPath(self, ns):
@@ -269,19 +271,19 @@ class ASLDSearch:
         """
 
         if not t(P):
-            return  # Predicate not allowed by t
+            return None  # Predicate not allowed by t
 
         if not cQ(cN):
-            return  # Destination Node not allowed by q
+            return None  # Destination Node not allowed by q
 
         cns = self._get(cN,cQ, parent=ns, P=P, t=t, d=d)
         if cns in self.closed:
-            return  # target node already expanded
+            return None  # target node already expanded
 
         # Reach
         newCost = ns.g + 1
         if newCost >= cns.g:
-            return  # Nothing to see here...
+            return None  # Nothing to see here...
 
         # Update child
         cns.parent = ns
@@ -293,12 +295,7 @@ class ASLDSearch:
         cns.d = d
 
         # Enqueue child
-        self._enqueue(cns)
-
-        if cns.q.accepts(cns.n):
-            return cns
-
-        return None
+        return self._enqueue(cns)
 
     def _expand(self, ns):
         """
@@ -352,15 +349,17 @@ class ASLDSearch:
             # Local expand
             goalsFound = self._expand(ns)
             for g in goalsFound:
-                yield g
+                yield self._getPath(g)
 
             _t_localExpand = time() - _t0_localExpand
             self.stats.expand(ns.n, incr, _t_localExpand)
 
-            print("\r Sync expanded (%5.2fs) %s" % (_t_localExpand, ns))
+            clearLine()
+            print(" Sync expanded (%5.2fs) %s" % (_t_localExpand, ns))
 
         _t_search = time() - _t0_search
-        Color.BLUE.print("\nSearch took %4.2fs" % _t_search)
+        clearLine()
+        Color.BLUE.print("Search took %4.2fs" % _t_search)
         Color.GREEN.print("Open was emptied, there are no more paths")
 
 
@@ -393,7 +392,9 @@ class ASLDSearch:
 
             expansions += 1
             pendingExpansions += 1
-            print("\r  expansions (%4d): %s" % (pendingExpansions, "."*pendingExpansions), end="")
+            clearLine()
+            print("  expansions (%4d): " % pendingExpansions, end="")
+            print("#"*pendingExpansions, end="")
 
             # Goal Check
             # ==========
@@ -414,9 +415,12 @@ class ASLDSearch:
 
 
     def paths(self, parallelRequests=40, batchSize=160,
-              limit_time=_L_TIME, limit_triples=_L_TRIPLES):
+              limit_time=_L_TIME, limit_ans=_L_ANS, limit_triples=_L_TRIPLES):
         """
         Performs search using parallel requests to expand top-f value NodeStates
+
+        Reaching limits causes the search to stop doing requests, but it may
+          find a few answers more with whats left.
         """
         if parallelRequests<2:
             return self._paths()
@@ -428,13 +432,27 @@ class ASLDSearch:
         # Initialize search
         _t0_search = time()
         self._enqueue(self.startNS)
-        pool = Pool(parallelRequests, _worker_ignore_SIGINT)  # Workaround python mp-bug
+        pool = AsyncTimeOutPool(parallelRequests, timeout=25)
+
+        answers = 0
+        requestsAllowed = True
 
         # Empty open...
         while self.open:
-            if deadline and time() > deadline:
-                Color.RED.print("%.2fs Time limit reached" % limit_time)
-                break
+            # Limits check
+            if requestsAllowed:
+                if answers>limit_ans:
+                    clearLine()
+                    Color.YELLOW.print("Reached the %d-goal-limit (%d)" % (limit_ans, answers))
+                    requestsAllowed = False
+                if len(self.g) > limit_triples:
+                    clearLine()
+                    Color.YELLOW.print("Reached the %d-triples limit (%d)" % (limit_triples, len(self.g)))
+                    requestsAllowed = False
+                if deadline and time() > deadline:
+                    clearLine()
+                    Color.YELLOW.print("Reached the %ds time limit" % (limit_time))
+                    requestsAllowed = False
 
             (rdy, pnd, _, pendingExpansions) = self._extractTopF(batchSize)
             self.stats.batch()
@@ -445,35 +463,45 @@ class ASLDSearch:
             # Blocking goal check will ruin this, also, goal states should rank further
             if rdy:
                 _t0_localExpansions = time()
+                expansionsDone = 0
                 for ns in rdy:
+                    expansionsDone += 1
                     pendingExpansions -= 1
-                    print("\r  local expansions (%4d): %s" % (pendingExpansions, "."*pendingExpansions), end="")
+                    print("\r  local expansions (%4d): " % pendingExpansions, end="")
+                    print("[%s" % ("#"*expansionsDone), end="")
+                    print("%s]" % ("."*pendingExpansions), end="")
 
                     # Expand nodes
                     # Early declare goals (Unless we implement blocking filters :c)
                     _t0_localExpand = time()
                     goalsFound = self._expand(ns)
                     for g in goalsFound:
-                        yield g
+                        answers += 1
+                        yield self._getPath(g)
 
                     self.stats.expand(ns.n, 0, time()-_t0_localExpand)
 
                 _t_end = time()
                 _t_localExpansions = _t_end - _t0_localExpansions
-                print("\r Sync expanded (%4.2fs) %3d nodes" % (_t_localExpansions, len(rdy)))
+                clearLine()
+                print(" Sync expanded (%4.2fs) %3d nodes" % (_t_localExpansions, len(rdy)))
 
 
             # Parallel expand
             # ===============
-            if pnd:
+            if requestsAllowed and pnd:
                 newTriples = 0
                 _t0_parallelExpand = time()
                 requests = [(ns.n, i, ns.q._next_P(), ns.q.hasBackwardTransition()) for (i, ns) in enumerate(pnd)]
 
-                Color.BLUE.print("\nMapping %d requests:" % len(pnd))
+                clearLine()
+                Color.BLUE.print("Mapping %d requests:" % len(pnd))
 
-                # Map requests to pool
-                for reqAns in pool.imap_unordered(ASLDGraph.pure_loadB, requests):
+                requestsFullfilled = 0
+                requestsCorrectlyFullfilled = 0
+                for reqAns in pool.map(ASLDGraph.pure_loadB, requests):
+                    requestsFullfilled += 1
+                    pendingExpansions -= 1
                     # Use answers as they become available
                     # Using the main thread seems better as it avoids most sync
 
@@ -488,33 +516,41 @@ class ASLDSearch:
 
 
                     # Report progress
-                    print("\r  || expansions (%4d): %s" % (pendingExpansions, "."*pendingExpansions), end="")
+                    print("\r  || expansions (%4d): " % pendingExpansions, end="")
+                    print("[%s" % ("#"*requestsFullfilled), end="")
+                    print("%s]" % ("."*pendingExpansions), end="")
 
 
                     # Finish expansion on the node
                     self.g.loaded.add(ns)
-                    pendingExpansions -= 1
 
                     if len(reqGraph) == 0:
                         # Nothing was obtained, nothing to do
-                        Color.RED.print("\nRequest for '%s' failed" % iri)
+                        clearLine()
+                        Color.RED.print("Request for '%s' failed" % iri)
                         continue
+                    requestsCorrectlyFullfilled += 1
 
                     # Add new data
                     newTriples += len(reqGraph)
                     for spo in reqGraph:
-                        self.g.g.add(spo)
+                        self.g.add(spo)
 
                     # Expand node
-                    self._expand(ns)
+                    goalsFound = self._expand(ns)
+                    for g in goalsFound:
+                        answers += 1
+                        yield self._getPath(g)
 
                 _t_end = time()
                 _t_parallelExpand = _t_end - _t0_parallelExpand
-                print("\rAsync expanded (%4.2fs) %3d nodes" % (_t_parallelExpand, len(pnd)))
+                clearLine()
+                print("Async expanded %3d nodes on %4.2fs" % (requestsCorrectlyFullfilled, _t_parallelExpand))
 
         _t_end = time()
         _t_search = time() - _t0_search
-        Color.BLUE.print("\nSearch took %4.2fs" % _t_search)
+        clearLine()
+        Color.BLUE.print("Search took %4.2fs" % _t_search)
         Color.GREEN.print("\nOpen was emptied, there are no more paths")
         pool.close()
 
@@ -549,7 +585,7 @@ class ASLDSearch:
         #except Exception as e:
             #Color.RED.print("Terminated Search.run on: %s" % e)
         t = time() - _t0
-        Color.GREEN.print("\nSearch took %.2fs. Gathered %d triples and got back %d paths." % (t, len(self.g.g), len(r)))
+        Color.GREEN.print("\nSearch took %.2fs. Gathered %d triples and got back %d paths." % (t, len(self.g), len(r)))
         return (r, answers, time()-_t0)
 
     @classmethod
@@ -596,19 +632,12 @@ class ASLDSearch:
         _t0 = time()
         try:
 
-            answers = 0
             self.stats._marks()  # Adjust stats clock
             for path in self.paths(parallelRequests, 4*parallelRequests,
-                                   limit_time, limit_triples):
+                                   limit_time=limit_time,
+                                   limit_ans=limit_ans,
+                                   limit_triples=limit_triples):
                 _ans.append(path)
-                answers += 1
-
-                if answers >= limit_ans:
-                    Color.BLUE.print("Reached the %d-Answer limit" % limit_ans)
-                    break
-                if time()-_t0 >= limit_time:
-                    Color.BLUE.print("Reached the %.2fs time limit" % limit_time)
-                    break
 
         except KeyboardInterrupt:
             Color.BLUE.print("\nTerminating search.")
@@ -616,13 +645,13 @@ class ASLDSearch:
             #Color.RED.print("Terminated Search.test on: %s" % e)
         t = time() - _t0
 
-        Color.GREEN.print("\nSearch took %.2fs. Gathered %d triples and got back %d paths." % (t, len(self.g.g), answers))
-
         ans = [ASLDSearch._native_path(path) for path in _ans]
+
+        Color.GREEN.print("\nSearch took %.2fs. Gathered %d triples and got back %d paths." % (t, len(self.g), len(ans)))
 
         return {
             "Paths": ans,
-            "PathCount": answers,
+            "PathCount": len(ans),
             "StatsHistory": [h.json() for h in self.stats.history],
             "Time": t
         }

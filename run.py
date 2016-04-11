@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import argparse
 import jsonpickle
+from pprint import pprint
 
 from asld.utils.color_print import Color
 from asld.search import ASLDSearch
@@ -44,6 +45,7 @@ limit_triples = args.triples
 
 (query, name) = automatons[query_number]
 
+data = None
 result = {
     "query": name,
     "weight": w,
@@ -55,7 +57,7 @@ result = {
         },
         "parallelRequests": parallel_requests
     },
-    "data": None
+    "data": data
 }
 
 try:
@@ -67,17 +69,25 @@ try:
         # Just for completeness
         Color.BLUE.print("Running A* with weight=%d on '%s..." % (w, name))
 
+    Color.BLUE.print("  Limits:")
+    Color.BLUE.print("    Time:    %ds" % limit_time)
+    Color.BLUE.print("    Answers: %d" % limit_ans)
+    Color.BLUE.print("    Triples: %d" % limit_triples)
+
     # Run search
     search = ASLDSearch(query(w=w))
 
-    result["data"] = search.test(parallel_requests,
-                                 limit_time, limit_ans, limit_triples)
+    data = search.test(parallelRequests=40,
+                       limit_time=limit_time,
+                       limit_ans=limit_ans,
+                       limit_triples=limit_triples)
+    result["data"] = data
 
 
 except KeyboardInterrupt:
     Color.BLUE.print("\nTerminating search.")
-except Exception as e:
-    Color.RED.print("Terminated run on: %s" % e)
+#except Exception as e:
+    #Color.RED.print("Terminated run on: %s" % e)
 
 finally:
     print("====")
@@ -93,3 +103,10 @@ finally:
 
     with open(fileName, 'w') as f:
         f.write(jsonpickle.dumps(result))
+
+    if data:
+        stats = data["StatsHistory"]
+        if stats:
+            lastStats = stats[-1]
+            Color.BLUE.print("Last stats:")
+            pprint(lastStats)

@@ -94,11 +94,12 @@ finally:
     print(result)
     print("====")
 
-    fileName = "last-q%d-w%d" % (query_number, w)
-    fileName += "--p%d" % (parallel_requests)
-    fileName += "--time%d--ans%d--triples%d" % (limit_time,
-                                                limit_ans,
-                                                limit_triples)
+    fileName = "last"
+    fileName += "-p%d" % (parallel_requests)
+    fileName += "-time%d-ans%d-triples%d" % (limit_time,
+                                             limit_ans,
+                                             limit_triples)
+    fileName += "---q%d-w%d" % (query_number, w)
     fileName += ".json"
 
     with open(fileName, 'w') as f:

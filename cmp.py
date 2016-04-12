@@ -18,21 +18,37 @@ parser.add_argument('--data', metavar='data', type=str, nargs='+',
 
 args = parser.parse_args()
 jsonFiles = args.files
+jsonFiles.sort()
 plotDataKeys  = args.data
 
 
-data = []
+runs = []
 for jf in jsonFiles:
     with open(jf) as f:
-        data.append(jsonpickle.decode(f.readline()))
+        runs.append(jsonpickle.decode(f.readline()))
 
 colors = ["red", "green"]
 
 
+keyErrors = False
 for pdk in plotDataKeys:
-    Color.GREEN.print("Showing %s" % pdk)
-    figure()
-    for (i, d) in enumerate(data):
-        Color.GREEN.print("  * %s: %s" % (jsonFiles[i], colors[i]))
-        plot([h[pdk] for h in d["data"]["StatsHistory"]], color=colors[i])
-    show()
+    try:
+        figure()
+        print("Showing %s" % pdk)
+        for (i, run) in enumerate(runs):
+            plot([h[pdk] for h in run["data"]["StatsHistory"]], color=colors[i])
+            Color.GREEN.print("  * %s: %s" % (jsonFiles[i], colors[i]))
+        show()
+    except KeyError as ke:
+        Color.RED.print("Invalid key (%s)" % ke)
+        keyErrors = True
+
+if keyErrors:
+    Color.RED.print("Invalid keys")
+    validKeys = runs[0]["data"]["StatsHistory"][0].keys()
+    for ik in [k for k in plotDataKeys if k not in validKeys]:
+        Color.RED.print("  * %s" % ik)
+
+    Color.YELLOW.print("Available keys:")
+    for k in validKeys:
+        Color.YELLOW.print("  * %s" % k)

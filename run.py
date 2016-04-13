@@ -1,17 +1,16 @@
 #!/usr/bin/env python
 import argparse
-import jsonpickle
 from pprint import pprint
+import jsonpickle
+
+from asld.search import ASLDSearch
+from asld.sample_queries import automatons
 
 from asld.utils.color_print import Color
-from asld.search import ASLDSearch
-
-from init import automatons
 
 
-
-
-
+# Parse arguments
+# ===============
 parser = argparse.ArgumentParser(description='Process some queries')
 
 # Query
@@ -21,7 +20,7 @@ parser.add_argument('-q', metavar='q', type=int, default=0,
                     help='query ID')
 
 # Search tuning
-parser.add_argument('--pool_size', metavar='p', type=int, default=40,
+parser.add_argument('--pool-size', metavar='p', type=int, default=40,
                     help='Process pool size to use')
 
 # Search limits
@@ -45,6 +44,9 @@ limit_triples = args.triples
 
 (query, name) = automatons[query_number]
 
+
+# Run query
+# =========
 data = None
 result = {
     "query": name,
@@ -62,17 +64,19 @@ result = {
 
 try:
     if w==0:
-        Color.BLUE.print("Running BFS (Dijkstra) on '%s'..." % name)
+        print("Running BFS (Dijkstra) on '%s'..." % name)
     elif w==1:
-        Color.BLUE.print("Running A* on '%s'..." % name)
+        print("Running A* on '%s'..." % name)
     else:
         # Just for completeness
-        Color.BLUE.print("Running A* with weight=%d on '%s..." % (w, name))
+        print("Running A* with weight=%d on '%s..." % (w, name))
 
-    Color.BLUE.print("  Limits:")
-    Color.BLUE.print("    Time:    %ds" % limit_time)
-    Color.BLUE.print("    Answers: %d" % limit_ans)
-    Color.BLUE.print("    Triples: %d" % limit_triples)
+    print("Parameters:")
+    print("  Pool Size:    %d" % parallel_requests)
+    print("  Limits:")
+    print("    Time:    %ds" % limit_time)
+    print("    Answers: %d" % limit_ans)
+    print("    Triples: %d" % limit_triples)
 
     # Run search
     search = ASLDSearch(query(w=w))
@@ -86,8 +90,6 @@ try:
 
 except KeyboardInterrupt:
     Color.BLUE.print("\nTerminating search.")
-#except Exception as e:
-    #Color.RED.print("Terminated run on: %s" % e)
 
 finally:
     print("====")
@@ -102,6 +104,7 @@ finally:
     fileName += "---q%d-w%d" % (query_number, w)
     fileName += ".json"
 
+    print("Writing log to %s" % fileName)
     with open(fileName, 'w') as f:
         f.write(jsonpickle.dumps(result))
 

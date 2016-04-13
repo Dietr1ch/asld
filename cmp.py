@@ -15,11 +15,19 @@ parser.add_argument('files', metavar='files', type=str, nargs='+',
 parser.add_argument('--data', metavar='data', type=str, nargs='+',
                     help='json data keys')
 
+parser.add_argument('--x', metavar='x', type=str, nargs='+',
+                    help='x axis key')
+
+colors = ["red", "green"]
+
 
 args = parser.parse_args()
 jsonFiles = args.files
 jsonFiles.sort()
 plotDataKeys  = args.data
+x = args.x
+if x:
+    x = x[0]
 
 
 runs = []
@@ -27,8 +35,9 @@ for jf in jsonFiles:
     with open(jf) as f:
         runs.append(jsonpickle.decode(f.readline()))
 
-colors = ["red", "green"]
-
+for (i, run) in enumerate(runs):
+    hist = run["data"]["StatsHistory"]
+    Color.BLUE.print(" -last log %s (%s)" % (hist[-1], colors[i]))
 
 keyErrors = False
 for pdk in plotDataKeys:
@@ -36,12 +45,19 @@ for pdk in plotDataKeys:
         figure()
         print("Showing %s" % pdk)
         for (i, run) in enumerate(runs):
-            plot([h[pdk] for h in run["data"]["StatsHistory"]], color=colors[i])
+            hist = run["data"]["StatsHistory"]
+            yData = [h[pdk] for h in hist]
+            if x:
+                xData = [h[x] for h in hist]
+                plot(xData, yData, color=colors[i])
+            else:
+                plot(yData, color=colors[i])
+
             Color.GREEN.print("  * %s: %s" % (jsonFiles[i], colors[i]))
         show()
     except KeyError as ke:
-        Color.RED.print("Invalid key (%s)" % ke)
         keyErrors = True
+        Color.RED.print("Invalid key (%s)" % ke)
 
 if keyErrors:
     Color.RED.print("Invalid keys")

@@ -2,22 +2,12 @@ from rdflib.term import URIRef
 from rdflib.namespace import Namespace, DC, FOAF, OWL, RDF, RDFS, XMLNS
 
 from asld.utils.color_print import Color
-from asld.query.direction import Direction
-from asld.query.query import Query
 from asld.query.query_builder import QueryBuilder
 
-from asld.query.filter import NodeFilter_any
 from asld.query.filter import NodeFilter_but
 from asld.query.filter import NodeFilter_only
-from asld.query.filter import NodeFilter_blacklist
-from asld.query.filter import NodeFilter_whitelist
 from asld.query.filter import NodeFilter_regex
 
-from asld.query.filter import ArcFilter
-from asld.query.filter import ArcFilter_blacklist
-from asld.query.filter import ArcFilter_whitelist
-
-from asld.search import ASLDSearch
 
 
 # Constants
@@ -353,6 +343,26 @@ def Airports(n=YAGO["wikicat_Airports_in_the_Netherlands"], w=1):
     assert a.states["airport"].h  == 1*w
     assert a.states["Place"].h    == 0*w
     return a
+
+
+automatons = [
+    (Name,                         "Node name"),
+    (Journals,                     "Journal papers"),
+    (Conferences,                  "Conferences"),
+    (CoAuth,                       "Coauthors"),
+    (CoAuthStar,                   "Coauthor*"),
+    (Directors,                    "Directors"),
+    (CoActor_LMDB,                 "Coauthor [LMDB]"),
+    (CoActorStar_LMDB,             "Coauthor* [LMDB]"),
+    (CoActorStar_DBpedia,          "Coauthor* [DBpedia]"),
+    (CoActorStar_director_DBpedia, "Coauthor*/Director [DBpedia]"),
+    (CoActorStar_YAGO,             "Coauthor* [YAGO]"),
+    (NATO_business,                "NATO business (Berlin)"),
+    (NATO_business_r,              "NATO business (reverse)"),
+    (NATO,                         "NATO"),
+    (Europe,                       "Europe Capitals"),
+    (Airports,                     "Airports in the Netherlands")
+]
 
 
 

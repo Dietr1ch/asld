@@ -1,4 +1,5 @@
 import gc
+import resource
 from sys import stdout
 from copy import copy
 from time import time
@@ -45,6 +46,12 @@ def printPath(path):
         if n.parent:  # has previous transition
             rP("%s    " % n.str_p(), 1)
         rP("%-69s: %21s" % (n.str_n(), n.str_q()), 2)
+
+
+def getMemory():
+    """ Returns memory usage in MB (after calling the GC) """
+    gc.collect()
+    return resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024/1024
 
 
 class ASLDSearch:
@@ -124,6 +131,8 @@ class ASLDSearch:
                 self.wallClock = 0
                 self.batch = 0
 
+                self.memory = 0
+
                 # Search
                 self.goals = 0       # Goals found
                 self.expansions = 0  # Expansions done
@@ -138,7 +147,7 @@ class ASLDSearch:
                 self.requestIRI = ""
 
             def __str__(self) -> str:
-                return "%5d (%3d) %7.2fs> goals: %3d; |Req|: %4d, t(Req): %5.2fs;  |DB| = %6d" % (self.expansions, self.batch, self.wallClock, self.goals, self.requestTriples, self.requestTime, self.triples)
+                return "%5d (%3d) %7.2fs> goals: %3d; |Req|: %4d, t(Req): %5.2fs;  |DB| = %6d;  Mem:%.1fMB" % (self.expansions, self.batch, self.wallClock, self.goals, self.requestTriples, self.requestTime, self.triples, self.memory)
 
             def __repr__(self):
                 return str(self)
@@ -147,6 +156,8 @@ class ASLDSearch:
                 return {
                     "wallClock": self.wallClock,
                     "batchID": self.batch,
+
+                    "memory": self.memory,
 
                     "goalsFound": self.goals,
                     "expansions": self.expansions,
@@ -181,6 +192,7 @@ class ASLDSearch:
 
 
         def snap(self):
+            self.status.memory = getMemory()
             self.status.triples = len(self.g)
             self.status.wallClock = time()-self.t0
             self.history.append(copy(self.status))
@@ -192,6 +204,7 @@ class ASLDSearch:
             self.status.batch += 1
 
         def expand(self, iri, lG, t):
+            """ Marks an expansion """
             self.status.expansions += 1
             self.status.requestIRI = str(iri)
             self.status.requestTriples = lG

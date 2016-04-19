@@ -15,7 +15,10 @@ parser.add_argument('files', metavar='files', type=str, nargs='+',
 parser.add_argument('--data', metavar='data', type=str, nargs='+',
                     help='json data keys')
 
-parser.add_argument('--x', metavar='x', type=str, nargs='+',
+parser.add_argument('--first-goals', metavar='first_goals', type=str, nargs='+',
+                    help='Print Snapshots reaching k goals first')
+
+parser.add_argument('--x', metavar='x', type=str, nargs=1,
                     help='x axis key')
 
 colors = ["red", "green"]
@@ -38,6 +41,29 @@ for jf in jsonFiles:
 for (i, run) in enumerate(runs):
     hist = run["data"]["StatsHistory"]
     Color.BLUE.print(" -last log %s (%s)" % (hist[-1], colors[i]))
+
+if args.first_goals:
+    try:
+        for (i, run) in enumerate(runs):
+            pending_marks = [int(x) for x in args.first_goals]
+            pending_marks.sort(reverse=True)
+            print()
+            Color.GREEN.print("Looking for marks on %d (%s)" % (i, colors[i]))
+            for snap in run["data"]["StatsHistory"]:
+                goalsFound = snap["goalsFound"]
+
+                while pending_marks  and  goalsFound>=pending_marks[-1]:
+                    mark = pending_marks.pop()
+                    Color.GREEN.print("  * Expansion %d reached %d-goals:" % (snap["expansions"], mark))
+                    print(snap)
+
+                if len(pending_marks) == 0:
+                    break
+    except KeyError as ke:
+        keyErrors = True
+        Color.RED.print("Invalid key (%s)  [--first-goals]" % ke)
+    print()
+
 
 keyErrors = False
 for pdk in plotDataKeys:

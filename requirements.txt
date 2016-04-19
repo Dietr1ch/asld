@@ -3,3 +3,4 @@ SPARQLWrapper
 numpy
 matplotlib
 jsonpickle
+psutil

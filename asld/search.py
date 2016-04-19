@@ -1,10 +1,12 @@
+import os
 import gc
-import resource
+
 from sys import stdout
 from copy import copy
 from time import time
-
 from shutil import get_terminal_size
+
+import psutil
 
 from rdflib.term import URIRef, Literal
 
@@ -48,10 +50,11 @@ def printPath(path):
         rP("%-69s: %21s" % (n.str_n(), n.str_q()), 2)
 
 
+_proc_self = psutil.Process(os.getpid())
 def getMemory():
     """ Returns memory usage in MB (after calling the GC) """
     gc.collect()
-    return resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024/1024
+    return _proc_self.memory_info().rss/1024/1024
 
 
 class ASLDSearch:

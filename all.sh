@@ -1,8 +1,12 @@
 #!/bin/sh
 
+
 b="$PWD"
 benchDir="bench/$(date -Ihours)"
-mkdir -p "$benchDir"
+mkdir -p "$benchDir/old"
+mv *.json "$benchDir/old"
+rmdir "$benchDir/old"
+
 
 queries="$(seq 0  15)"
 
@@ -20,3 +24,4 @@ for i in $queries; do
 	sleep 30
 done
 
+mv *.json "$benchDir"

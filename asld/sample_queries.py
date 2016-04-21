@@ -346,22 +346,22 @@ def Airports(n=YAGO["wikicat_Airports_in_the_Netherlands"], w=1):
 
 
 automatons = [
-    (Name,                         "Node name"),
-    (Journals,                     "Journal papers"),
-    (Conferences,                  "Conferences"),
-    (CoAuth,                       "Coauthors"),
-    (CoAuthStar,                   "Coauthor*"),
-    (Directors,                    "Directors"),
-    (CoActor_LMDB,                 "Coauthor [LMDB]"),
-    (CoActorStar_LMDB,             "Coauthor* [LMDB]"),
-    (CoActorStar_DBpedia,          "Coauthor* [DBpedia]"),
-    (CoActorStar_director_DBpedia, "Coauthor*/Director [DBpedia]"),
-    (CoActorStar_YAGO,             "Coauthor* [YAGO]"),
-    (NATO_business,                "NATO business (Berlin)"),
-    (NATO_business_r,              "NATO business (reverse)"),
-    (NATO,                         "NATO"),
-    (Europe,                       "Europe Capitals"),
-    (Airports,                     "Airports in the Netherlands")
+    (Name,                         "Node name"),                      # 0
+    (Journals,                     "Journal papers"),                 # 1
+    (Conferences,                  "Conferences"),                    # 2
+    (CoAuth,                       "Coauthors"),                      # 3
+    (CoAuthStar,                   "Coauthor*"),                      # 4  *
+    (Directors,                    "Directors"),                      # 5
+    (CoActor_LMDB,                 "Coauthor [LMDB]"),                # 6
+    (CoActorStar_LMDB,             "Coauthor* [LMDB]"),               # 7
+    (CoActorStar_DBpedia,          "Coauthor* [DBpedia]"),            # 8  *
+    (CoActorStar_director_DBpedia, "Coauthor*/Director [DBpedia]"),   # 9  *
+    (CoActorStar_YAGO,             "Coauthor* [YAGO]"),               #10  *
+    (NATO_business,                "NATO business (Berlin)"),         #11
+    (NATO_business_r,              "NATO business (reverse)"),        #12  *
+    (NATO,                         "NATO"),                           #13
+    (Europe,                       "Europe Capitals"),                #14  *
+    (Airports,                     "Airports in the Netherlands")     #15  *
 ]
 
 

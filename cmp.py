@@ -1,8 +1,10 @@
 #!/usr/bin/env python
+import os
+
 import argparse
 import jsonpickle
 
-from matplotlib.pyplot import show, figure, plot
+from matplotlib.pyplot import show, figure, plot, legend, title, xlabel, ylabel, savefig
 
 from asld.utils.color_print import Color
 
@@ -21,7 +23,16 @@ parser.add_argument('--first-goals', metavar='first_goals', type=str, nargs='+',
 parser.add_argument('--x', metavar='x', type=str, nargs=1,
                     help='x axis key')
 
+parser.add_argument('--no-show', dest='no_show', action='store_const',
+                   const=True, default=False,
+                    help='silent (non-interactive)')
+
+parser.add_argument('--png', dest='extension', action='store_const',
+                   const="png", default="pdf",
+                    help='silent (non-interactive)')
+
 colors = ["red", "green"]
+labels = ["Dijkstra", "A*"]
 
 
 args = parser.parse_args()
@@ -31,6 +42,8 @@ plotDataKeys  = args.data
 x = args.x
 if x:
     x = x[0]
+showPlot = not args.no_show
+plotExt = args.extension
 
 
 runs = []
@@ -66,21 +79,38 @@ if args.first_goals:
 
 
 keyErrors = False
+xLabel = "expansions"
+if x:
+    xLabel = x
+queryName = runs[0]["query"]
+srcPath = os.path.dirname(os.path.realpath(jsonFiles[0]))
+
 for pdk in plotDataKeys:
     try:
         figure()
+        yLabel = pdk
         print("Showing %s" % pdk)
+
         for (i, run) in enumerate(runs):
             hist = run["data"]["StatsHistory"]
             yData = [h[pdk] for h in hist]
             if x:
                 xData = [h[x] for h in hist]
-                plot(xData, yData, color=colors[i])
+                plot(xData, yData, color=colors[i], label=labels[i])
             else:
-                plot(yData, color=colors[i])
+                plot(yData, color=colors[i], label=labels[i])
 
             Color.GREEN.print("  * %s: %s" % (jsonFiles[i], colors[i]))
-        show()
+
+        xlabel(xLabel, fontsize=18)
+        ylabel(yLabel, fontsize=16)
+        legend(loc="best")
+        title(queryName, fontsize=20)
+
+        savefig("%s/%s-%s-%s.%s" % (srcPath, queryName, pdk, xLabel, plotExt))
+        if showPlot:
+            show()
+
     except KeyError as ke:
         keyErrors = True
         Color.RED.print("Invalid key (%s)" % ke)

@@ -592,7 +592,7 @@ class ASLDSearch:
         try:
             answers = 0
             self.stats._marks()  # Adjust stats clock
-            for p in self.paths(parallelRequests, 4*parallelRequests):
+            for p in self.paths(parallelRequests, parallelRequests):
                 r.append(p)
                 print()
                 printPath(p)
@@ -658,7 +658,7 @@ class ASLDSearch:
         try:
 
             self.stats._marks()  # Adjust stats clock
-            for path in self.paths(parallelRequests, 4*parallelRequests,
+            for path in self.paths(parallelRequests, parallelRequests,
                                    limit_time=limit_time,
                                    limit_ans=limit_ans,
                                    limit_triples=limit_triples):

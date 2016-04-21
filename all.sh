@@ -2,7 +2,7 @@
 
 
 b="$PWD"
-benchDir="bench/$(date -Ihours)"
+benchDir="bench/$(date -Iseconds)"
 mkdir -p "$benchDir/old"
 mv *.json "$benchDir/old"
 rmdir "$benchDir/old"

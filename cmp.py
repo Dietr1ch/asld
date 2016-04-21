@@ -89,7 +89,7 @@ for pdk in plotDataKeys:
     try:
         figure()
         yLabel = pdk
-        print("Showing %s" % pdk)
+        print("Showing %s vs %s" % (pdk, xLabel))
 
         for (i, run) in enumerate(runs):
             hist = run["data"]["StatsHistory"]
@@ -107,7 +107,9 @@ for pdk in plotDataKeys:
         legend(loc="best")
         title(queryName, fontsize=20)
 
-        savefig("%s/%s-%s-%s.%s" % (srcPath, queryName, pdk, xLabel, plotExt))
+        figPath = "%s/%s-%s-%s.%s" % (srcPath, queryName, pdk, xLabel, plotExt)
+        Color.BLUE.print("Saving figure to '%s'" % figPath)
+        savefig(figPath)
         if showPlot:
             show()
 

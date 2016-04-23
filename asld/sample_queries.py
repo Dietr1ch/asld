@@ -346,22 +346,22 @@ def Airports(n=YAGO["wikicat_Airports_in_the_Netherlands"], w=1):
 
 
 automatons = [
-    (Name,                         "Node name"),                      # 0
-    (Journals,                     "Journal papers"),                 # 1
+    (Name,                         "Node_name"),                      # 0
+    (Journals,                     "Journal_papers"),                 # 1
     (Conferences,                  "Conferences"),                    # 2
     (CoAuth,                       "Coauthors"),                      # 3
-    (CoAuthStar,                   "Coauthor*"),                      # 4  *
+    (CoAuthStar,                   "CoauthorsStar"),                  # 4  *
     (Directors,                    "Directors"),                      # 5
-    (CoActor_LMDB,                 "Coauthor [LMDB]"),                # 6
-    (CoActorStar_LMDB,             "Coauthor* [LMDB]"),               # 7
-    (CoActorStar_DBpedia,          "Coauthor* [DBpedia]"),            # 8  *
-    (CoActorStar_director_DBpedia, "Coauthor*/Director [DBpedia]"),   # 9  *
-    (CoActorStar_YAGO,             "Coauthor* [YAGO]"),               #10  *
-    (NATO_business,                "NATO business (Berlin)"),         #11
-    (NATO_business_r,              "NATO business (reverse)"),        #12  *
+    (CoActor_LMDB,                 "CoActor_LMDB"),                   # 6
+    (CoActorStar_LMDB,             "CoActorStar_LMDB"),               # 7
+    (CoActorStar_DBpedia,          "CoActorStar_DBpedia"),            # 8  *
+    (CoActorStar_director_DBpedia, "CoActorStar-Director_DBpedia"),   # 9  *
+    (CoActorStar_YAGO,             "CoActorStar_YAGO"),               #10  *
+    (NATO_business,                "NATO_business-Berlin"),           #11
+    (NATO_business_r,              "NATO_business-r-Berlin"),         #12  *
     (NATO,                         "NATO"),                           #13
-    (Europe,                       "Europe Capitals"),                #14  *
-    (Airports,                     "Airports in the Netherlands")     #15  *
+    (Europe,                       "Europe_Capitals"),                #14  *
+    (Airports,                     "Airports_in_the_Netherlands")     #15  *
 ]
 
 

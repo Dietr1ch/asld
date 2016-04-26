@@ -81,7 +81,7 @@ try:
     # Run search
     search = ASLDSearch(query(w=w))
 
-    data = search.test(parallelRequests=40,
+    data = search.test(parallel_requests,
                        limit_time=limit_time,
                        limit_ans=limit_ans,
                        limit_triples=limit_triples)

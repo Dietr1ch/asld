@@ -345,6 +345,57 @@ def Airports(n=YAGO["wikicat_Airports_in_the_Netherlands"], w=1):
     return a
 
 
+def CoActorStar2_DBpedia(n=DBR["Kevin_Bacon"], w=1):
+    """
+    Note that this query is NOT Kevin Bacon number 2, it's more than that.
+    """
+    b = QueryBuilder(n, "RootActor")
+    b.frm().through(DBO["starring"]).backwards_to("Movie")
+    b.frm("Movie").through(DBO["starring"]).to("CoActor1", NodeFilter_but(n))
+
+    b.frm("CoActor1").through(DBO["starring"]).backwards_to("Movie2")
+    b.frm("Movie2").through(DBO["starring"]).to("CoActor2", None, NodeFilter_but(n))
+
+    return b.build(w)
+
+
+def CoActorStar3_DBpedia(n=DBR["Kevin_Bacon"], w=1):
+    """
+    Note that this query is NOT Kevin Bacon number 3, it's more than that.
+    """
+    b = QueryBuilder(n, "RootActor")
+    b.frm().through(DBO["starring"]).backwards_to("Movie1")
+    b.frm("Movie1").through(DBO["starring"]).to("CoActor1", NodeFilter_but(n))
+
+    b.frm("CoActor1").through(DBO["starring"]).backwards_to("Movie2")
+    b.frm("Movie2").through(DBO["starring"]).to("CoActor2", NodeFilter_but(n))
+
+    b.frm("CoActor2").through(DBO["starring"]).backwards_to("Movie3")
+    b.frm("Movie3").through(DBO["starring"]).to("CoActor3", None, NodeFilter_but(n))
+
+    return b.build(w)
+
+
+def CoActorStar4_DBpedia(n=DBR["Kevin_Bacon"], w=1):
+    """
+    Note that this query is NOT Kevin Bacon number 4, it's more than that.
+    """
+    b = QueryBuilder(n, "RootActor")
+    b.frm().through(DBO["starring"]).backwards_to("Movie1")
+    b.frm("Movie1").through(DBO["starring"]).to("CoActor1", NodeFilter_but(n))
+
+    b.frm("CoActor1").through(DBO["starring"]).backwards_to("Movie2")
+    b.frm("Movie2").through(DBO["starring"]).to("CoActor2", NodeFilter_but(n))
+
+    b.frm("CoActor2").through(DBO["starring"]).backwards_to("Movie3")
+    b.frm("Movie3").through(DBO["starring"]).to("CoActor3", NodeFilter_but(n))
+
+    b.frm("CoActor3").through(DBO["starring"]).backwards_to("Movie4")
+    b.frm("Movie4").through(DBO["starring"]).to("CoActor4", None, NodeFilter_but(n))
+
+    return b.build(w)
+
+
 automatons = [
     (Name,                         "Node_name"),                      # 0
     (Journals,                     "Journal_papers"),                 # 1
@@ -361,10 +412,11 @@ automatons = [
     (NATO_business_r,              "NATO_business-r-Berlin"),         #12  *
     (NATO,                         "NATO"),                           #13
     (Europe,                       "Europe_Capitals"),                #14  *
-    (Airports,                     "Airports_in_the_Netherlands")     #15  *
+    (Airports,                     "Airports_in_the_Netherlands"),    #15  *
+    (CoActorStar2_DBpedia,         "CoActorStar2_DBPedia"),           #16  *
+    (CoActorStar3_DBpedia,         "CoActorStar3_DBPedia"),           #17  *
+    (CoActorStar4_DBpedia,         "CoActorStar4_DBPedia")            #18  *
 ]
-
-
 
 
 if __name__=='__main__':

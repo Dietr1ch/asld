@@ -65,10 +65,14 @@ if args.first_goals:
             for snap in run["data"]["StatsHistory"]:
                 goalsFound = snap["goalsFound"]
 
-                while pending_marks  and  goalsFound>=pending_marks[-1]:
+                while pending_marks and goalsFound>=pending_marks[-1]:
                     mark = pending_marks.pop()
-                    Color.GREEN.print("  * Expansion %d reached %d-goals:" % (snap["expansions"], mark))
-                    print(snap)
+
+                    print("  %d-goals:  " % mark, end="")
+                    print("Expansion: %d;   " % snap["expansions"], end="")
+                    print("mem: %5.2f MB;   " % snap["memory"], end="")
+                    print("triples: %5d;   " % snap["triples"], end="")
+                    print("time: %5.2fs" % snap["wallClock"])
 
                 if len(pending_marks) == 0:
                     break
@@ -83,7 +87,26 @@ xLabel = "expansions"
 if x:
     xLabel = x
 queryName = runs[0]["query"]
+pool_size = runs[0]["params"]["parallelRequests"]
+
+limit_ans     = runs[0]["params"]["limits"]["ans"]
+limit_triples = runs[0]["params"]["limits"]["triples"]
+limit_time    = runs[0]["params"]["limits"]["time"]
 srcPath = os.path.dirname(os.path.realpath(jsonFiles[0]))
+
+pLab = {
+    "requestTotalTime": "Total network time",
+    "triples": "Triples on DB",
+    "goalsFound": "Answers",
+    "requestTime": "Last Request Time",
+    "requestTriples": "Last Request Triples",
+    "wallClock": "Time (s)",
+    "memory": "Memory (MB)",
+    "requestIRI": "Last IRI",
+    "expansions": "Expansions",
+    "batchID": "Batch Number"
+}
+
 
 for pdk in plotDataKeys:
     try:
@@ -102,12 +125,15 @@ for pdk in plotDataKeys:
 
             Color.GREEN.print("  * %s: %s" % (jsonFiles[i], colors[i]))
 
-        xlabel(xLabel, fontsize=18)
-        ylabel(yLabel, fontsize=16)
+        xlabel(pLab[xLabel], fontsize=18)
+        ylabel(pLab[yLabel], fontsize=16)
         legend(loc="best")
         title(queryName, fontsize=20)
 
-        figPath = "%s/%s-%s-%s.%s" % (srcPath, queryName, pdk, xLabel, plotExt)
+        figPath = "%s/%s-%s_vs_%s" % (srcPath, queryName, yLabel, xLabel)
+        figPath += "--%dProcs--%dlAns-%dlTime-%dlTriples" % (pool_size, limit_ans, limit_time, limit_triples)
+        figPath += ".%s" % plotExt
+
         Color.BLUE.print("Saving figure to '%s'" % figPath)
         savefig(figPath)
         if showPlot:

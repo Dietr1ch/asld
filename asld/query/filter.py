@@ -176,5 +176,94 @@ class NodeFilter_blacklist(NodeFilter):
         return Color.GREEN("NodeFilter_blacklist<%s>" % self.s)
 
 
-if __name__ is "__main__":
-    Color.GREEN.print("=)")
+# Combiners
+# =========
+class AtLeast(Filter):
+    """
+    Combines filters requiring at least K acceptances to accept
+    """
+
+    def __init__(self, filters: [], required_acceptances: int):
+        assert len(filters > 0), "Some filters are required"
+        assert required_acceptances <= len(filters), "You can't require more acceptances than filters"
+
+        self.filters = filters
+        self.required_acceptances = required_acceptances
+
+    def __call__(self, node) -> bool:
+        acceptances = 0
+        for flt in self.filters:
+            if flt(node):
+                acceptances += 1
+                if acceptances >= self.required_acceptances:
+                    return True
+        return False
+
+    def __str__(self) -> str:
+        return Color.GREEN("AtLeast-%d-Filter<%s>" % (self.required_acceptances, self.filters))
+
+
+class AtMost(Filter):
+    """
+    Combines filters requiring at most K acceptances to accept.
+    """
+
+    def __init__(self, filters: [], maximum_acceptances: int):
+        assert len(filters > 0), "Some filters are required"
+        assert maximum_acceptances < len(filters), "You shouldn't require less than 1 failure, use an And filter instead"
+
+        self.filters = filters
+        self.maximum_acceptances = maximum_acceptances
+        self.needed_rejects = len(self.filters) - self.maximum_acceptances + 1  # The +1 finishes the 'proof'
+
+    def __call__(self, node) -> bool:
+        rejects = 0
+        for flt in self.filters:
+            if not flt(node):
+                rejects += 1
+                if rejects >= self.needed_rejects:
+                    return True
+        return False
+
+    def __str__(self) -> str:
+        return Color.GREEN("AtMost-%d-Filter<%s>" % (self.maximum_acceptances, self.filters))
+
+
+class And(Filter):
+    """
+    Combines filters requiring at least K acceptances to accept
+    """
+
+    def __init__(self, filters: []):
+        assert len(filters > 0), "Some filters are required"
+
+        self.filters = filters
+
+    def __call__(self, node) -> bool:
+        for flt in self.filters:
+            if not flt(node):
+                return False
+        return True
+
+    def __str__(self) -> str:
+        return Color.GREEN("And-Filter<%s>" % self.filters)
+
+
+class Or(Filter):
+    """
+    Combines filters requiring at least K acceptances to accept
+    """
+
+    def __init__(self, filters: []):
+        assert len(filters > 0), "Some filters are required"
+
+        self.filters = filters
+
+    def __call__(self, node) -> bool:
+        for flt in self.filters:
+            if flt(node):
+                return True
+        return False
+
+    def __str__(self) -> str:
+        return Color.GREEN("Or-Filter<%s>" % self.filters)

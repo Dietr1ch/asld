@@ -442,9 +442,6 @@ class ASLDSearch:
         Reaching limits causes the search to stop doing requests, but it may
           find a few answers more with whats left.
         """
-        if parallelRequests<2:
-            return self._paths()
-
         deadline = None
         if limit_time:
             deadline = time() + limit_time

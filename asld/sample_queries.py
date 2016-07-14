@@ -33,6 +33,9 @@ SWRC = Namespace(URIRef("http://swrc.ontoware.org/ontology#"))
 # YAGO
 YAGO = Namespace(URIRef("http://yago-knowledge.org/resource/"))
 
+# Framebase
+FRAMEBASE = Namespace(URIRef("http://framebase.org/ns/"))
+
 
 
 # DBLP Authors
@@ -231,12 +234,15 @@ def CoActorStar_YAGO(n=YAGO["Kevin_Bacon"], w=1):
     # PREFIX yago: <http://yago-knowledge.org/resource/>
     # select * where {?x (yago:actedIn/^yago:actedIn)* yago:Kevin_Bacon}
 
+    #acted_in = YAGO["actedIn"]
+    acted_in = FRAMEBASE["dereif-Performers_and_roles-playsInPerformance"]
+
     other = NodeFilter_but(n)
     b = QueryBuilder(n, "RootActor")
-    b.frm().through(YAGO["actedIn"]).to("Movie")
-    b.frm("Movie").through(YAGO["actedIn"]).backwards_final("CoActor", other)
+    b.frm().through(acted_in).to("Movie")
+    b.frm("Movie").through(acted_in).backwards_final("CoActor", other)
 
-    b.frm("CoActor").through(YAGO["actedIn"]).to("Movie")
+    b.frm("CoActor").through(acted_in).to("Movie")
 
     return b.build(w)
 

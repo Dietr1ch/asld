@@ -671,6 +671,10 @@ class ASLDSearch:
 
         Color.GREEN.print("\nSearch took %.2fs. Gathered %d triples and got back %d paths." % (t, len(self.g), len(ans)))
 
+        # if len(ans)==0:
+        #   for s, p, o in self.g.g:
+        #       ASLDGraph.print_triple(s, p, o)
+
         return {
             "Paths": ans,
             "PathCount": len(ans),

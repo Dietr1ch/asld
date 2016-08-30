@@ -10,7 +10,9 @@ from asld.utils.color_print import Color
 
 # Document servers that are known to provide incomplete inverses, but have a SPARQL endpoint.
 scumbag_servers = set()
-#scumbag_servers.add((regex_compile("^http://yago-knowledge.org/resource/.*"), "https://linkeddata1.calcul.u-psud.fr/sparql"))
+scumbag_servers.add((regex_compile("^http://yago-knowledge.org/resource/.*"), "https://linkeddata1.calcul.u-psud.fr/sparql"))
+scumbag_servers.add((regex_compile("^https://makemake.ing.puc.cl/resource/.*"), "https://localhost:8890/sparql"))
+#scumbag_servers.add((regex_compile("^http://yago-knowledge.org/resource/.*"), "http://rdf.framebase.org:82/sparql"))
 
 
 class ASLDGraph:

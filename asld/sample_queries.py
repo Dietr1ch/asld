@@ -9,7 +9,6 @@ from asld.query.filter import NodeFilter_only
 from asld.query.filter import NodeFilter_regex
 
 
-
 # Constants
 # =========
 # DBPedia
@@ -36,6 +35,10 @@ YAGO = Namespace(URIRef("http://yago-knowledge.org/resource/"))
 # Framebase
 FRAMEBASE = Namespace(URIRef("http://framebase.org/ns/"))
 
+
+# Predicates
+rdf_type = OWL["sameAs"]
+owl_same_as = RDF["type"]
 
 
 # DBLP Authors
@@ -208,6 +211,8 @@ def CoActorStar_DBpedia(n=DBR["Kevin_Bacon"], w=1):
     b.frm().through(DBO["starring"]).backwards_to("Movie")
     b.frm("Movie").through(DBO["starring"]).to("CoActor", None, NodeFilter_but(n))
 
+    #b.frm("Movie").through(owl_same_as).to("Movie")  # owl:sameAs loop
+
     b.frm("CoActor").through(DBO["starring"]).backwards_to("Movie")
 
     return b.build(w)
@@ -241,6 +246,8 @@ def CoActorStar_YAGO(n=YAGO["Kevin_Bacon"], w=1):
     b = QueryBuilder(n, "RootActor")
     b.frm().through(acted_in).to("Movie")
     b.frm("Movie").through(acted_in).backwards_final("CoActor", other)
+
+    b.frm("Movie").through(owl_same_as).to("Movie")
 
     b.frm("CoActor").through(acted_in).to("Movie")
 
@@ -401,6 +408,68 @@ def CoActorStar4_DBpedia(n=DBR["Kevin_Bacon"], w=1):
 
     return b.build(w)
 
+def forward_discovery(n=DBR["Kevin_Bacon"], w=1):
+    b = QueryBuilder(n, "Base")
+    b.frm().through_not(set()).final("Stuff")
+    b.frm("Stuff").through_not(set()).to("Stuff")
+
+    return b.build(w)
+
+def forward_discovery3(n=DBR["Kevin_Bacon"], w=1):
+    b = QueryBuilder(n, "Base")
+    b.frm().through_not(set()).to("Stuff1")
+    b.frm("Stuff1").through_not(set()).to("Stuff2")
+    b.frm("Stuff2").through_not(set()).final("Stuff3")
+
+    return b.build(w)
+
+
+
+def qBerlin_DBpedia(n=DBR["Berlin"], w=1):
+    """
+    PREFIX dbo: <http://dbpedia.org/ontology/>
+    PREFIX dbr: <http://dbpedia.org/resource/>
+    PREFIX dbc: <http://dbpedia.org/resource/Category:>
+    PREFIX dct: <http://purl.org/dc/terms/>
+
+    select * where {
+    dbr:Berlin (^dbo:locatedInArea/dbo:locatedInArea)*/dct:subject ?z
+    }
+    """
+    locatedIn = DBO["locatedInArea"]
+    subject   = URIRef("http://purl.org/dc/terms/subject")
+
+    b = QueryBuilder(n, "Berlin")
+    b.frm().through(locatedIn).backwards_to("Area")
+    b.frm("Area").through(locatedIn).to("Area2")
+
+    b.frm("Area2").through(subject).final("Subject")
+
+    return b.build(w)
+
+
+def qBerlin_YAGO(n=DBR["Berlin"], w=1):
+    """
+    PREFIX dbo: <http://dbpedia.org/ontology/>
+    PREFIX dbr: <http://dbpedia.org/resource/>
+    PREFIX dbc: <http://dbpedia.org/resource/Category:>
+    PREFIX dct: <http://purl.org/dc/terms/>
+
+    select * where {
+    dbr:Berlin (^dbo:locatedInArea/dbo:locatedInArea)*/dct:subject ?z
+    }
+    """
+    locatedIn = DBO["locatedInArea"]
+    subject   = URIRef("http://purl.org/dc/terms/subject")
+
+    b = QueryBuilder(n, "Berlin")
+    b.frm().through(locatedIn).backwards_to("Area")
+    b.frm("Area").through(locatedIn).to("Area2")
+
+    b.frm("Area2").through(subject).final("Subject")
+
+    return b.build(w)
+
 
 automatons = [
     (Name,                         "Node_name"),                      # 0
@@ -421,7 +490,10 @@ automatons = [
     (Airports,                     "Airports_in_the_Netherlands"),    #15  *
     (CoActorStar2_DBpedia,         "CoActorStar2_DBPedia"),           #16  *
     (CoActorStar3_DBpedia,         "CoActorStar3_DBPedia"),           #17  *
-    (CoActorStar4_DBpedia,         "CoActorStar4_DBPedia")            #18  *
+    (CoActorStar4_DBpedia,         "CoActorStar4_DBPedia"),           #18  *
+    (forward_discovery,            "forward_discovery"),              #19  *
+    (forward_discovery3,           "forward_discovery3"),             #20  *
+    (qBerlin_DBpedia,              "qBerlin_DBpedia")                 #21  *
 ]
 
 

@@ -8,7 +8,7 @@ from shutil import get_terminal_size
 
 import psutil
 
-from rdflib.term import URIRef, Literal
+from rdflib.term import URIRef, Literal, BNode
 
 from asld.graph import ASLDGraph
 from asld.query.direction import Direction
@@ -50,6 +50,7 @@ def printPath(path):
         rP("%-69s: %21s" % (n.str_n(), n.str_q()), 2)
 
 
+
 _proc_self = psutil.Process(os.getpid())
 def getMemory():
     """ Returns memory usage in MB (after calling the GC) """
@@ -70,7 +71,7 @@ class ASLDSearch:
                      t:      Transition,
                      d:      Direction,
                      g=float("inf")):
-            assert node.__class__ is URIRef  or  node.__class__ is Literal
+            assert node.__class__ is URIRef  or  node.__class__ is Literal or  node.__class__ is BNode, "node.__class__ == '%s' is not URIRef or Literal or BNode" % node.__class__
 
             self.n = node
             self.q = state
@@ -671,9 +672,12 @@ class ASLDSearch:
 
         Color.GREEN.print("\nSearch took %.2fs. Gathered %d triples and got back %d paths." % (t, len(self.g), len(ans)))
 
-        # if len(ans)==0:
-        #   for s, p, o in self.g.g:
-        #       ASLDGraph.print_triple(s, p, o)
+        with open("last-db", 'w') as f:
+            for s, p, o in self.g.g:
+                f.write("%-50s  (%50s)  %50s\n" % (s, p, o))
+        with open("last-ans", 'w') as f:
+            for p in _ans:
+                f.write("%s\n" % p)
 
         return {
             "Paths": ans,

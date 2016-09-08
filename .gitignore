@@ -4,5 +4,6 @@
 bench/*
 old/*
 exp/*
+doc/
 *.dat
 last-*

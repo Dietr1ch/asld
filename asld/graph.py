@@ -11,7 +11,7 @@ from asld.utils.color_print import Color
 # Document servers that are known to provide incomplete inverses, but have a SPARQL endpoint.
 scumbag_servers = set()
 scumbag_servers.add((regex_compile("^http://yago-knowledge.org/resource/.*"), "https://linkeddata1.calcul.u-psud.fr/sparql"))
-scumbag_servers.add((regex_compile("^https://makemake.ing.puc.cl/resource/.*"), "https://localhost:8890/sparql"))
+scumbag_servers.add((regex_compile("^https://makemake.ing.puc.cl/resource/.*"), "http://localhost:8890/sparql/"))
 #scumbag_servers.add((regex_compile("^http://yago-knowledge.org/resource/.*"), "http://rdf.framebase.org:82/sparql"))
 
 
@@ -56,20 +56,20 @@ class ASLDGraph:
             flt = "FILTER (%s)" % flt
 
         if o is None:
-            return """
+            return ("""
                 SELECT ?P, ?O
                 WHERE {
                     <%s> ?P ?O.
                     %s
                 }
-                """ % (s, flt)
+                """ % (s, flt)).strip()
         elif s is None:
-            return """
+            return ("""
                 SELECT ?S, ?P
                 WHERE {
                     ?S ?P <%s>.
                     %s
-                }""" % (o, flt)
+                }""" % (o, flt)).strip()
         assert False, "Unexpected query; Either S or O should be given (%s,%s,%s)" % (s, p, o)
 
     @classmethod
@@ -77,14 +77,55 @@ class ASLDGraph:
         print("%80s (%-40s) %50s" % (Color.RED(s), Color.GREEN(p), Color.YELLOW(o)))
 
     @classmethod
-    def pure_load_evil_SPARQL_reverseB(cls, iri, p):
+    def pure_load_evil_SPARQL(cls, iri, p):
         """
-        Expands reverse arcs from evil servers that have incomplete documents.
+        Expands forward arcs using SPARQL.
         """
         g = Graph()
         for r, endpoint in scumbag_servers:
             if r.match(iri):
-                Color.BLUE.print("Looking up on the SPARQL endpoint (server's documents tend to omit backward edges)")
+
+                (_, p) = p
+                # Color.BLUE.print("Looking up '%s' on the SPARQL endpoint" % iri)
+
+                se = SPARQLWrapper(endpoint)
+                queryString = ASLDGraph._sparql_query(iri, p, None)
+                se.setQuery(queryString)
+                se.setReturnFormat(JSON)
+
+                for _ in range(2):  # Try twice before failing
+                    try:
+                        results = se.query().convert()
+                        results = results["results"]["bindings"]
+
+                        for result in results:
+                            P = URIRef(result["P"]["value"])
+                            O = URIRef(result["O"]["value"])
+                            try:
+                                g.add((iri, P, O))
+                            except:
+                                pass
+                        #print("SPARQL forward query %s yielded %d triples back" % (iri, len(results)))
+                        #if len(results)==0:
+                            #Color.YELLOW.print("Empty query to %s:\n%s" % (endpoint, queryString))
+                        return g
+
+                    except Exception as e:
+                        Color.RED.print(e)
+                        pass
+                Color.RED.print("SPARQL Request '%s%s" % (Color.GREEN(queryString), Color.RED("' failed")))
+                Color.YELLOW.print("The server's SPARQL endpoint (%s) is unavailable" % endpoint)
+        return g
+
+    @classmethod
+    def pure_load_evil_SPARQL_reverseB(cls, iri, p):
+        """
+        Expands backward arcs using SPARQL.
+        """
+        g = Graph()
+        for r, endpoint in scumbag_servers:
+            if r.match(iri):
+                # Color.BLUE.print("Looking up '%s' on the SPARQL endpoint (server's documents tend to omit backward edges)" % iri)
 
                 (p_b, _) = p  # Descriptions for backward and forward predicates
 
@@ -93,7 +134,7 @@ class ASLDGraph:
                 se.setQuery(queryString)
                 se.setReturnFormat(JSON)
 
-                for _ in range(3):
+                for _ in range(2):  # Try twice before failing
                     try:
                         results = se.query().convert()
                         results = results["results"]["bindings"]
@@ -105,7 +146,7 @@ class ASLDGraph:
                                 g.add((S, P, iri))
                             except:
                                 pass
-                        print("SPARQL reverse query %s yielded %d triples back" % (iri, len(results)))
+                        #print("SPARQL reverse query %s yielded %d triples back" % (iri, len(results)))
                         if len(results)==0:
                             Color.YELLOW.print("Query to %s:" % endpoint)
                             Color.YELLOW.print(queryString)
@@ -136,9 +177,13 @@ class ASLDGraph:
             # Workaround for evil servers on backward transitions
             # This adds extra time on those servers :c
             g = ASLDGraph.pure_load_evil_SPARQL_reverseB(iri, p)
+        else:
+            g = ASLDGraph.pure_load_evil_SPARQL(iri, p)
+        #else:
+            #g = ASLDGraph.pure_load_evil_SPARQL(iri, p)
 
         # Get the document
-        for _ in range(3):
+        for _ in range(2):
             try:
                 g.load(iri)
                 break

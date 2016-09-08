@@ -30,7 +30,8 @@ LMDB_Movie   = Namespace(URIRef("http://data.linkedmdb.org/resource/movie/" ))
 SWRC = Namespace(URIRef("http://swrc.ontoware.org/ontology#"))
 
 # YAGO
-YAGO = Namespace(URIRef("http://yago-knowledge.org/resource/"))
+#YAGO = Namespace(URIRef("http://yago-knowledge.org/resource/"))
+YAGO = Namespace(URIRef("https://makemake.ing.puc.cl/resource/"))
 
 # Framebase
 FRAMEBASE = Namespace(URIRef("http://framebase.org/ns/"))
@@ -239,8 +240,8 @@ def CoActorStar_YAGO(n=YAGO["Kevin_Bacon"], w=1):
     # PREFIX yago: <http://yago-knowledge.org/resource/>
     # select * where {?x (yago:actedIn/^yago:actedIn)* yago:Kevin_Bacon}
 
-    #acted_in = YAGO["actedIn"]
-    acted_in = FRAMEBASE["dereif-Performers_and_roles-playsInPerformance"]
+    acted_in = YAGO["actedIn"]
+    #acted_in = FRAMEBASE["dereif-Performers_and_roles-playsInPerformance"]
 
     other = NodeFilter_but(n)
     b = QueryBuilder(n, "RootActor")

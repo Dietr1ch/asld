@@ -9,6 +9,7 @@ from asld.query.filter import NodeFilter_only
 from asld.query.filter import NodeFilter_regex
 
 
+
 # Constants
 # =========
 # DBPedia

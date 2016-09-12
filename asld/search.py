@@ -216,6 +216,9 @@ class ASLDSearch:
             self.status.requestAccTime += t
             self.snap()
 
+        def expansions(self):
+            return self.status.expansions
+
 
 
     def __init__(self, queryAutomaton: Query):
@@ -450,7 +453,7 @@ class ASLDSearch:
         # Initialize search
         _t0_search = time()
         self._enqueue(self.startNS)
-        pool = AsyncTimeOutPool(parallelRequests, timeout=25)
+        pool = AsyncTimeOutPool(parallelRequests, timeout=15)
 
         answers = 0
         requestsAllowed = True
@@ -515,7 +518,7 @@ class ASLDSearch:
                 requests = [(ns.n, i, ns.q._next_P(), ns.q.hasBackwardTransition()) for (i, ns) in enumerate(pnd)]
 
                 clearLine()
-                Color.BLUE.print("Mapping %d requests:" % len(pnd))
+                #Color.BLUE.print("Mapping %d requests:" % len(pnd))
 
                 requestsFullfilled = 0
                 requestsCorrectlyFullfilled = 0
@@ -567,7 +570,7 @@ class ASLDSearch:
                 _t_parallelExpand = _t_end - _t0_parallelExpand
 
                 clearLine()
-                print("Async expanded %3d nodes on %4.2fs" % (requestsCorrectlyFullfilled, _t_parallelExpand))
+                print("[ans:%4d, expansions: %6d] Expanded %3d nodes on %4.2fs" % (answers, self.stats.expansions(), requestsCorrectlyFullfilled, _t_parallelExpand))
 
         _t_end = time()
         _t_search = time() - _t0_search

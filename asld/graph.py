@@ -1,7 +1,7 @@
 from time import time, sleep
 from re import compile as regex_compile
 from json import load as json_load
-from bisect import bisect
+from bisect import bisect_right
 from random import randint
 
 from rdflib import Graph
@@ -22,15 +22,18 @@ SPARQL_ENDPOINTS.add((regex_compile("^https://makemake.ing.puc.cl/resource/.*"),
 # Set up delays
 DELAYS = None
 DELAY_MAX = None
-DELAY_RESOLUTION = 0.05
-with open("request-acc.json", 'r') as raf:
+DELAY_RESOLUTION = 0.01
+DELAY_FILE = "request-acc.json"
+
+with open(DELAY_FILE, 'r') as raf:
     DELAYS = json_load(raf)
     DELAY_MAX = DELAYS[-1]
+
 if DELAYS is None or len(DELAYS) <= 10:
     DELAYS = None
     DELAY_MAX = None
 else:
-    Color.YELLOW.print("Delay data loaded")
+    Color.YELLOW.print("Delay data loaded (resolution: %.3fs, samples: %d)" % (DELAY_RESOLUTION, DELAY_MAX))
 
 
 class ASLDGraph:
@@ -211,18 +214,18 @@ class ASLDGraph:
         # Simulate network delays (there is no compensation on longer delays)
         if DELAYS:
             # Pick a sample and wait for it's delay.
-            delay_simulated = randint(0, DELAY_MAX)
-            delay = bisect(DELAYS, delay_simulated)*DELAY_RESOLUTION
+            delay_simulated = randint(0, DELAY_MAX)+1
+            delay = bisect_right(DELAYS, delay_simulated)*DELAY_RESOLUTION
 
             spent_time = time() - _t0
             wait_time = delay - spent_time
 
             if wait_time > 0:
-                print("wating for %f.4s" % wait_time)
+                # print("wating for %5.2fs (%5.2fs)" % (delay, wait_time))
                 sleep(wait_time)
             else:
-                print("wating %.4s < spent %.4s" % (delay, spent_time))
-                print("wating failed (%f.4s)" % wait_time)
+                print("wating %7.4fs < spent %7.4fs" % (delay, spent_time))
+                print("wating failed (%.4fs)" % wait_time)
 
 
         return ASLDGraph.RequestAnswer(g, iri, i, time()-_t0)

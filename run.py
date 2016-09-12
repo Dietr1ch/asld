@@ -92,9 +92,9 @@ except KeyboardInterrupt:
     Color.BLUE.print("\nTerminating search.")
 
 finally:
-    print("====")
-    print(result)
-    print("====")
+    # print("====")
+    # print(result)
+    # print("====")
 
     fileName = "last"
     fileName += "-p%d" % (parallel_requests)

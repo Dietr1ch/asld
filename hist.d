@@ -23,7 +23,8 @@ void main() {
 		count(line);
 
 	int sum = 0;
+	writef("[\n");
 	foreach(int i, int c; hist)
-		if(c)
-			writef("%d, %d\n",i, sum+=c);
+		writef("%d,\n", sum+=c);
+	writef("]\n");
 }

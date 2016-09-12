@@ -1,5 +1,8 @@
-from time import time
+from time import time, sleep
 from re import compile as regex_compile
+from json import load as json_load
+from bisect import bisect
+from random import randint
 
 from rdflib import Graph
 from rdflib.term import URIRef
@@ -8,11 +11,26 @@ from SPARQLWrapper import SPARQLWrapper, JSON
 from asld.utils.color_print import Color
 
 
-# Document servers that are known to provide incomplete inverses, but have a SPARQL endpoint.
-scumbag_servers = set()
-scumbag_servers.add((regex_compile("^http://yago-knowledge.org/resource/.*"), "https://linkeddata1.calcul.u-psud.fr/sparql"))
-scumbag_servers.add((regex_compile("^https://makemake.ing.puc.cl/resource/.*"), "http://localhost:8890/sparql/"))
-#scumbag_servers.add((regex_compile("^http://yago-knowledge.org/resource/.*"), "http://rdf.framebase.org:82/sparql"))
+# Known SPARQL endpoint that provide incomplete inverses (unnecessary if documents are complete).
+SPARQL_ENDPOINTS = set()
+SPARQL_ENDPOINTS.add((regex_compile("^http://yago-knowledge.org/resource/.*"),
+                      "https://linkeddata1.calcul.u-psud.fr/sparql"))
+SPARQL_ENDPOINTS.add((regex_compile("^https://makemake.ing.puc.cl/resource/.*"),
+                      "http://localhost:8890/sparql/"))
+
+
+# Set up delays
+DELAYS = None
+DELAY_MAX = None
+DELAY_RESOLUTION = 0.05
+with open("request-acc.json", 'r') as raf:
+    DELAYS = json_load(raf)
+    DELAY_MAX = DELAYS[-1]
+if DELAYS is None or len(DELAYS) <= 10:
+    DELAYS = None
+    DELAY_MAX = None
+else:
+    Color.YELLOW.print("Delay data loaded")
 
 
 class ASLDGraph:
@@ -82,7 +100,7 @@ class ASLDGraph:
         Expands forward arcs using SPARQL.
         """
         g = Graph()
-        for r, endpoint in scumbag_servers:
+        for r, endpoint in SPARQL_ENDPOINTS:
             if r.match(iri):
 
                 (_, p) = p
@@ -123,7 +141,7 @@ class ASLDGraph:
         Expands backward arcs using SPARQL.
         """
         g = Graph()
-        for r, endpoint in scumbag_servers:
+        for r, endpoint in SPARQL_ENDPOINTS:
             if r.match(iri):
                 # Color.BLUE.print("Looking up '%s' on the SPARQL endpoint (server's documents tend to omit backward edges)" % iri)
 
@@ -187,8 +205,25 @@ class ASLDGraph:
             try:
                 g.load(iri)
                 break
-            except Exception:
+            except:
                 pass
+
+        # Simulate network delays (there is no compensation on longer delays)
+        if DELAYS:
+            # Pick a sample and wait for it's delay.
+            delay_simulated = randint(0, DELAY_MAX)
+            delay = bisect(DELAYS, delay_simulated)*DELAY_RESOLUTION
+
+            spent_time = time() - _t0
+            wait_time = delay - spent_time
+
+            if wait_time > 0:
+                print("wating for %f.4s" % wait_time)
+                sleep(wait_time)
+            else:
+                print("wating %.4s < spent %.4s" % (delay, spent_time))
+                print("wating failed (%f.4s)" % wait_time)
+
 
         return ASLDGraph.RequestAnswer(g, iri, i, time()-_t0)
 

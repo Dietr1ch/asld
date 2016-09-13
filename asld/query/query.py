@@ -24,6 +24,7 @@ class Query:
 
     def __str__(self) -> str:
         return "Automaton-Query with states {%s}" % self.states.keys()
+
     def __repr__(self):
         return str(self)
 

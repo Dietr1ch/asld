@@ -23,7 +23,7 @@ SPARQL_ENDPOINTS.add((regex_compile("^https://makemake.ing.puc.cl/resource/.*"),
 DELAYS = None
 DELAY_MAX = None
 DELAY_RESOLUTION = 0.01
-DELAY_FILE = "request-acc.json"
+DELAY_FILE = "data/request-acc.json"
 
 with open(DELAY_FILE, 'r') as raf:
     DELAYS = json_load(raf)

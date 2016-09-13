@@ -94,7 +94,7 @@ class ASLDSearch:
             return self.n == other.n  and  self.q == other.q
 
         def __hash__(self):
-            return hash(self.n)^(hash(self.q)+1)
+            return hash(self.n) ^ (hash(self.q)+1)
 
 
         def str_n(self):
@@ -118,7 +118,7 @@ class ASLDSearch:
 
 
         def __str__(self):
-            return "(%21s: %s)" % (self.str_q(), self.str_n())
+            return "(%21s: %-80s)" % (self.str_q(), self.str_n())
 
         def __repr__(self):
             return str(self)
@@ -191,6 +191,7 @@ class ASLDSearch:
 
         def __str__(self) -> str:
             return "LastStatus: %s" % str(self.status)
+
         def __repr__(self) -> str:
             return str(self)
 
@@ -677,7 +678,7 @@ class ASLDSearch:
 
         with open("last-db", 'w') as f:
             for s, p, o in self.g.g:
-                f.write("%-50s  (%50s)  %50s\n" % (s, p, o))
+                f.write("%-80s  (%80s)  %80s\n" % (s, p, o))
         with open("last-ans", 'w') as f:
             for p in _ans:
                 f.write("%s\n" % p)

@@ -126,6 +126,8 @@ class ASLDSearch:
         def default(self, o):
             pass
 
+        def isGoal(self):
+            return self.q.accepts(self.n)
 
 
     class Stats:
@@ -222,11 +224,18 @@ class ASLDSearch:
 
 
 
-    def __init__(self, queryAutomaton: Query):
+    def __init__(self, queryAutomaton: Query, quickGoal=True):
         self.query = queryAutomaton
         self.g = None
         self.stats = None
         self._reset()
+        self.quickGoal = quickGoal
+
+        if(self.quickGoal):
+            Color.BLUE.print("Using quick goal declaration")
+            self._advanceHeuristic()
+        else:
+            Color.BLUE.print("Using regular goal declaration")
 
     def _reset(self):
         """ Clears all search info and call the GC """
@@ -248,6 +257,16 @@ class ASLDSearch:
         self.startNS   = ns
         self.startNS.g = 0
 
+    def _advanceHeuristic(self):
+        for s in self.query.states.values():
+            h = float("inf")
+            for ns in s._next():
+                if ns._h < h:
+                    h = ns._h
+            s.h = h
+        Color.GREEN.print("Queue-Skipping Heuristic:")
+        for s in self.query.states.values():
+            Color.GREEN.print("  * %s" % s)
 
 
     def _get(self, n, q, parent, P, t, d):
@@ -272,7 +291,7 @@ class ASLDSearch:
         k = (ns.g + ns.q.h, -ns.g)
         self.open.push(k, ns)
 
-        if ns.q.accepts(ns.n):
+        if self.quickGoal and ns.isGoal():
             self.stats.goal()
             return ns
         return None
@@ -322,7 +341,8 @@ class ASLDSearch:
 
     def _expand(self, ns):
         """
-        Reaches all the neighborhood.
+        Reaches all the neighborhood and does early goal check.
+
         It prefers Forward Transitions as they may bring data
           for computing the backward transitions.
 
@@ -330,17 +350,20 @@ class ASLDSearch:
         """
 
         goalsFound = []
+        if not self.quickGoal:
+            if ns.isGoal():
+                goalsFound = [ns]
 
         for t in ns.q.next_transitions_f:
             for _,P,O in self.g.query(ns.n):
                 g = self._reach(ns, P, cN=O,cQ=t.dst, t=t, d=Direction.forward)
-                if g:
+                if g and self.quickGoal:
                     goalsFound.append(g)
 
         for t in ns.q.next_transitions_b:
             for S,P,_ in self.g.query(None, None, ns.n):
                 g = self._reach(ns, P, cN=S,cQ=t.dst, t=t, d=Direction.backward)
-                if g:
+                if g and self.quickGoal:
                     goalsFound.append(g)
 
         return goalsFound
@@ -390,8 +413,8 @@ class ASLDSearch:
         # Extract at most batchSize from top-f nodes
         (topF, _) = self.open.peekKey()  # key: (f, -g)
 
-        rdy = []
-        pnd = []
+        netFreeNodes = []
+        netNodes = []
         gls = []
         expansions = 0
 
@@ -424,19 +447,19 @@ class ASLDSearch:
             # Goal Check
             # ==========
             # REVIEW: allow blocking goal check
-            if ns.q.accepts(ns.n):
+            if ns.isGoal():
                 gls.append(ns)
 
             # Add to batch
             if isinstance(ns.n, URIRef):
-                if ns not in self.g.loaded:
-                    pnd.append(ns)
+                if ns in self.g.loaded:
+                    netFreeNodes.append(ns)  # Already gathered IRIs are faster to expand locally
                 else:
-                    rdy.append(ns)  # It will make sense on query re-runs over local data (ensures optimal order)
+                    netNodes.append(ns)
             else:
-                rdy.append(ns)
+                netFreeNodes.append(ns)
 
-        return (rdy, pnd, gls, pendingExpansions)
+        return (netFreeNodes, netNodes, gls, pendingExpansions)
 
 
     def paths(self, parallelRequests=40, batchSize=160,
@@ -476,17 +499,17 @@ class ASLDSearch:
                     Color.YELLOW.print("Reached the %ds time limit" % (limit_time))
                     requestsAllowed = False
 
-            (rdy, pnd, _, pendingExpansions) = self._extractTopF(batchSize)
+            (netFreeNodes, netNodes, _, pendingExpansions) = self._extractTopF(batchSize)
             self.stats.batch()
 
 
             # Local expand (no requests are needed)
             # ============
             # Blocking goal check will ruin this, also, goal states should rank further
-            if rdy:
-                _t0_localExpansions = time()
+            if netFreeNodes:
                 expansionsDone = 0
-                for ns in rdy:
+                _t0_localExpansions = time()
+                for ns in netFreeNodes:
                     expansionsDone += 1
                     pendingExpansions -= 1
                     if tty:
@@ -498,9 +521,10 @@ class ASLDSearch:
                     # Early declare goals (Unless we implement blocking filters :c)
                     _t0_localExpand = time()
                     goalsFound = self._expand(ns)
-                    for g in goalsFound:
-                        answers += 1
-                        yield self._getPath(g)
+                    if self.quickGoal:
+                        for g in goalsFound:
+                            answers += 1
+                            yield self._getPath(g)
 
                     self.stats.expand(ns.n, 0, time()-_t0_localExpand)
 
@@ -508,18 +532,18 @@ class ASLDSearch:
                 _t_localExpansions = _t_end - _t0_localExpansions
 
                 clearLine()
-                print(" Sync expanded (%4.2fs) %3d nodes" % (_t_localExpansions, len(rdy)))
+                print(" Sync expanded (%4.2fs) %3d nodes" % (_t_localExpansions, len(netFreeNodes)))
 
 
             # Parallel expand
             # ===============
-            if requestsAllowed and pnd:
+            if requestsAllowed and netNodes:
                 newTriples = 0
                 _t0_parallelExpand = time()
-                requests = [(ns.n, i, ns.q._next_P(), ns.q.hasBackwardTransition()) for (i, ns) in enumerate(pnd)]
+                requests = [(ns.n, i, ns.q._next_P(), ns.q.hasBackwardTransition()) for (i, ns) in enumerate(netNodes)]
 
                 clearLine()
-                #Color.BLUE.print("Mapping %d requests:" % len(pnd))
+                #Color.BLUE.print("Mapping %d requests:" % len(netNodes))
 
                 requestsFullfilled = 0
                 requestsCorrectlyFullfilled = 0
@@ -534,7 +558,7 @@ class ASLDSearch:
                     reqGraph = reqAns.g
                     t = reqAns.reqTime
                     iri = reqAns.iri
-                    ns = pnd[reqAns.index]
+                    ns = netNodes[reqAns.index]
                     assert ns not in self.g.loaded, "No loads should be issued to loaded NodeStates (%s)" % ns
                     self.stats.expand(iri, len(reqGraph), t)
 

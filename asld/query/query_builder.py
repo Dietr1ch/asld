@@ -149,4 +149,7 @@ class QueryBuilder:
             for (h, s) in reached:
                 Color.GREEN.print("  * %d: %s" % (h, s))
 
+        for s in states:
+            s._h = s.h
+
         return self.a

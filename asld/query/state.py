@@ -21,6 +21,7 @@ class State:
             Color.GREEN("Creating State(name: '%s', ff:%s, af:%s)" % (name, f, a))
         self.name = name
         self.h = float("inf")
+        self._h = float("inf")
 
         self.filterFunction = f
         self.acceptingFunction = a
@@ -118,7 +119,7 @@ class State:
 
 
     def __str__(self) -> str:
-        return "State '%s'" % self.name
+        return "State (%2d) '%12s'" % (self.h, self.name)
 
     def __repr__(self) -> str:
         return str(self)

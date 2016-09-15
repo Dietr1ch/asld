@@ -119,6 +119,8 @@ class State:
 
 
     def __str__(self) -> str:
+        if self.h == float("inf"):
+            return "State (oo) '%12s'" % (self.name)
         return "State (%2d) '%12s'" % (self.h, self.name)
 
     def __repr__(self) -> str:

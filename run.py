@@ -97,6 +97,7 @@ except KeyboardInterrupt:
 
 finally:
     results_directory = "bench/last/"
+
     results_directory += "p%d/" % parallel_requests
     if QUICK_GOAL:
         results_directory += "quick/"

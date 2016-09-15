@@ -1,7 +1,6 @@
 #!/bin/sh
-
 mkdir -p  "bench/crap"
-mv *.json "bench/crap"
+mv "bench/last/*" "bench/crap/"
 
 benchDir="bench/$(date -Iseconds)/"
 mkdir -p  "$benchDir"
@@ -21,7 +20,6 @@ killTime="4100"
 
 
 for poolSize in $batchSizes; do
-
 	echo "Running A* b=$b"
 	for queryID in $queries; do
 		timeout --kill-after $killTime $timeGiven ./run.py -q $queryID --pool-size $poolSize --time $timeLimit  $@
@@ -37,4 +35,5 @@ for poolSize in $batchSizes; do
 	done
 done
 
-mv *.json "$benchDir"
+
+mv "bench/last/" "$benchDir"

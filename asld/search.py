@@ -224,14 +224,14 @@ class ASLDSearch:
 
 
 
-    def __init__(self, queryAutomaton: Query, quickGoal=True):
+    def __init__(self, queryAutomaton: Query, quick_goal=True):
         self.query = queryAutomaton
         self.g = None
         self.stats = None
         self._reset()
-        self.quickGoal = quickGoal
+        self.quick_goal = quick_goal
 
-        if(self.quickGoal):
+        if(self.quick_goal):
             Color.BLUE.print("Using quick goal declaration")
             self._advanceHeuristic()
         else:
@@ -291,7 +291,7 @@ class ASLDSearch:
         k = (ns.g + ns.q.h, -ns.g)
         self.open.push(k, ns)
 
-        if self.quickGoal and ns.isGoal():
+        if self.quick_goal and ns.isGoal():
             self.stats.goal()
             return ns
         return None
@@ -350,20 +350,20 @@ class ASLDSearch:
         """
 
         goalsFound = []
-        if not self.quickGoal:
+        if not self.quick_goal:
             if ns.isGoal():
                 goalsFound = [ns]
 
         for t in ns.q.next_transitions_f:
             for _,P,O in self.g.query(ns.n):
                 g = self._reach(ns, P, cN=O,cQ=t.dst, t=t, d=Direction.forward)
-                if g and self.quickGoal:
+                if g and self.quick_goal:
                     goalsFound.append(g)
 
         for t in ns.q.next_transitions_b:
             for S,P,_ in self.g.query(None, None, ns.n):
                 g = self._reach(ns, P, cN=S,cQ=t.dst, t=t, d=Direction.backward)
-                if g and self.quickGoal:
+                if g and self.quick_goal:
                     goalsFound.append(g)
 
         return goalsFound
@@ -521,7 +521,7 @@ class ASLDSearch:
                     # Early declare goals (Unless we implement blocking filters :c)
                     _t0_localExpand = time()
                     goalsFound = self._expand(ns)
-                    if self.quickGoal:
+                    if self.quick_goal:
                         for g in goalsFound:
                             answers += 1
                             yield self._getPath(g)

@@ -20,6 +20,7 @@ parser.add_argument('-q', metavar='q', type=int, default=0,
                     help='query ID')
 
 # Search tuning
+parser.add_argument("--slow-goal", help="Use regular goal declaration", action="store_true")
 parser.add_argument('--pool-size', metavar='p', type=int, default=40,
                     help='Process pool size to use')
 
@@ -34,6 +35,7 @@ parser.add_argument('--triples', metavar='s', type=int, default=1e5,
 args = parser.parse_args()
 
 w            = args.w
+QUICK_GOAL   = not args.slow_goal
 query_number = args.q
 
 parallel_requests = args.pool_size
@@ -51,6 +53,7 @@ data = None
 result = {
     "query": name,
     "weight": w,
+    "quickGoal": QUICK_GOAL,
     "params": {
         "limits": {
             "time": limit_time,
@@ -79,7 +82,7 @@ try:
     print("    Triples: %d" % limit_triples)
 
     # Run search
-    search = ASLDSearch(query(w=w))
+    search = ASLDSearch(query(w=w), quick_goal=QUICK_GOAL)
 
     data = search.test(parallel_requests,
                        limit_time=limit_time,
@@ -92,11 +95,11 @@ except KeyboardInterrupt:
     Color.BLUE.print("\nTerminating search.")
 
 finally:
-    # print("====")
-    # print(result)
-    # print("====")
-
     fileName = "last"
+    if QUICK_GOAL:
+        fileName += "-quickGoal"
+    else:
+        fileName += "-slowGoal"
     fileName += "-p%d" % (parallel_requests)
     fileName += "-time%d-ans%d-triples%d" % (limit_time,
                                              limit_ans,

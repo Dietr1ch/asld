@@ -60,6 +60,7 @@ if __name__=='__main__':
     Color.GREEN.print("A few URIRefs were defined (mArenas, jBaier, jReutter, cRiveros, aSoto, dVroc;  mysticRiver;  kBacon)")
 
 
+# Use  foaf:name and rdfs:label as names
 NAME=set()
 NAME.add(FOAF.name)
 NAME.add(RDFS.label)
@@ -84,7 +85,7 @@ def Journals(n=jBaier, w=1):
     b = QueryBuilder(n, "Author")
     b.frm("Author").through(DC.creator).backwards_to("jPaper", NodeFilter_regex(".*journal.*"))
     b.frm("jPaper").through(SWRC.journal).to("Journal")
-    b.frm("Journal").through(RDFS.label).final("Name")
+    b.frm("Journal").through(NAME).final("Name")
 
     a = b.build(w)
     assert a.states["Author"].h  == 3*w
@@ -99,7 +100,7 @@ def Conferences(n=jBaier, w=1):
     b = QueryBuilder(n, "Author")
     b.frm("Author").through(DC.creator).backwards_to("Paper")
     b.frm("Paper").through(SWRC.series).to("Conference")
-    b.frm("Conference").through(RDFS.label).final("Name")
+    b.frm("Conference").through(NAME).final("Name")
 
     a = b.build(w)
     assert a.states["Author"].h      == 3*w
@@ -246,12 +247,18 @@ def CoActorStar_YAGO(n=YAGO["Kevin_Bacon"], w=1):
 
     other = NodeFilter_but(n)
     b = QueryBuilder(n, "RootActor")
+
+    # Root --> Movie
     b.frm().through(acted_in).to("Movie")
+    #          Movie ==> CoActor
     b.frm("Movie").through(acted_in).backwards_final("CoActor", other)
-
+    #b.frm("Movie").through(acted_in).backwards_to("CoActor", other)
     b.frm("Movie").through(owl_same_as).to("Movie")
-
+    #          Movie <-- CoActor
     b.frm("CoActor").through(acted_in).to("Movie")
+
+    #                    CoActor --> Name
+    #b.frm("CoActor").through(NAME).final("Name")
 
     return b.build(w)
 

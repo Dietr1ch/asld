@@ -700,12 +700,12 @@ class ASLDSearch:
 
         Color.GREEN.print("\nSearch took %.2fs. Gathered %d triples and got back %d paths." % (t, len(self.g), len(ans)))
 
-        with open("last-db", 'w') as f:
-            for s, p, o in self.g.g:
-                f.write("%-80s  (%80s)  %80s\n" % (s, p, o))
-        with open("last-ans", 'w') as f:
-            for p in _ans:
-                f.write("%s\n" % p)
+        # with open("last-db", 'w') as f:
+        #     for s, p, o in self.g.g:
+        #         f.write("%-80s  (%80s)  %80s\n" % (s, p, o))
+        # with open("last-ans", 'w') as f:
+        #     for p in _ans:
+        #         f.write("%s\n" % p)
 
         return {
             "Paths": ans,

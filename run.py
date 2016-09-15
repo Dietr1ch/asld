@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import os
 import argparse
 from pprint import pprint
 import jsonpickle
@@ -95,7 +96,18 @@ except KeyboardInterrupt:
     Color.BLUE.print("\nTerminating search.")
 
 finally:
-    fileName = "last"
+    results_directory = "bench/last/"
+    results_directory += "p%d/" % parallel_requests
+    if QUICK_GOAL:
+        results_directory += "quick/"
+    else:
+        results_directory += "slow/"
+
+
+    os.makedirs(results_directory, mode=0o777, exist_ok=True)
+
+    fileName = results_directory
+    fileName += "last"
     if QUICK_GOAL:
         fileName += "-quickGoal"
     else:

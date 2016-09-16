@@ -1,3 +1,6 @@
+"""
+Wrapper over `rdflib` Graph with support for SPARQL
+"""
 from time import time, sleep
 from re import compile as regex_compile
 from json import load as json_load
@@ -205,6 +208,7 @@ class ASLDGraph:
 
         # Get the document
         for _ in range(2):
+            # pylint: disable=bare-except
             try:
                 g.load(iri)
                 break
@@ -224,8 +228,7 @@ class ASLDGraph:
                 # print("wating for %5.2fs (%5.2fs)" % (delay, wait_time))
                 sleep(wait_time)
             else:
-                print("wating %7.4fs < spent %7.4fs" % (delay, spent_time))
-                print("wating failed (%.4fs)" % wait_time)
+                print("waiting %7.4fs < spent %7.4fs" % (delay, spent_time))
 
 
         return ASLDGraph.RequestAnswer(g, iri, i, time()-_t0)

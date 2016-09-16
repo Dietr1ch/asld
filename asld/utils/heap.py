@@ -1,3 +1,6 @@
+"""
+Wrapper for heap
+"""
 import heapq
 
 

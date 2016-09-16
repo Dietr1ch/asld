@@ -1,12 +1,14 @@
-from asld.query.direction import Direction
+"""
+Property-Automata States
+"""
 from asld.query.filter import NodeFilter
 from asld.utils.color_print import Color
 
 
 class State:
 
-    _explain_allowance         = False
-    _explain_allowance_trivial = False
+    _explain_allowance          = False
+    _explain_allowance_trivial  = False
     _explain_acceptance         = False
     _explain_acceptance_trivial = False
 

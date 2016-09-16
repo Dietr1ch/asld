@@ -1,8 +1,18 @@
+"""
+Property-Automata Transitions
+"""
+from enum import Enum
+
 from rdflib.term import URIRef
 
 from asld.query.state import State
-from asld.query.direction import Direction
 from asld.utils.color_print import Color
+
+
+class Direction(Enum):
+    """Arc direction"""
+    forward  = True,
+    backward = False
 
 
 class Transition:
@@ -14,6 +24,7 @@ class Transition:
     src -- P --> dst   (src, p', dst)
     src ~~ P ~~> dst   (dst, p', src)
     """
+    # pylint: disable=too-few-public-methods
 
     _explain_allowance  = False
 

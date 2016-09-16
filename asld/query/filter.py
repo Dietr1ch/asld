@@ -1,3 +1,6 @@
+"""
+Filters (predicates) and combiners
+"""
 from re import compile as regex_compile
 
 from ..utils.color_print import Color
@@ -7,6 +10,7 @@ class Filter:
     """
     A Filter is a function that accepts or rejects something.
     """
+    # pylint: disable=too-few-public-methods
 
     def __call__(self, _) -> bool:
         """
@@ -34,6 +38,7 @@ class ArcFilter(Filter):
     """
     An ArcFilter is a function that accepts or rejects IRI arcs.
     """
+    # pylint: disable=too-few-public-methods
 
     def __call__(self, _) -> bool:
         """Checks if a IRI (or string) is allowed by the ArcFilter"""
@@ -45,6 +50,7 @@ class ArcFilter(Filter):
 
 class ArcFilter_any(ArcFilter):
     """ Dummy filter """
+    # pylint: disable=too-few-public-methods
 
     def __call__(self, node) -> bool:
         return True
@@ -54,6 +60,7 @@ class ArcFilter_any(ArcFilter):
 
 
 class ArcFilter_whitelist(ArcFilter):
+    # pylint: disable=too-few-public-methods
 
     def __init__(self, s: set):
         assert isinstance(s, set)
@@ -70,6 +77,7 @@ class ArcFilter_whitelist(ArcFilter):
 
 
 class ArcFilter_blacklist(ArcFilter):
+    # pylint: disable=too-few-public-methods
 
     def __init__(self, s: set):
         assert isinstance(s, set)
@@ -88,6 +96,7 @@ class NodeFilter(Filter):
     """
     An NodeFilter is a function that accepts or rejects IRI or String Nodes.
     """
+    # pylint: disable=too-few-public-methods
 
     def __call__(self, _) -> bool:
         """Checks if a IRI (or string) is allowed by the NodeFilter"""
@@ -99,6 +108,7 @@ class NodeFilter(Filter):
 
 class NodeFilter_any(NodeFilter):
     """Not really a filter D:"""
+    # pylint: disable=too-few-public-methods
 
     def __call__(self, _) -> bool:
         return True
@@ -108,6 +118,7 @@ class NodeFilter_any(NodeFilter):
 
 
 class NodeFilter_only(NodeFilter):
+    # pylint: disable=too-few-public-methods
 
     def __init__(self, n):
         self.n = n
@@ -125,6 +136,7 @@ class NodeFilter_only(NodeFilter):
 
 
 class NodeFilter_but(NodeFilter):
+    # pylint: disable=too-few-public-methods
 
     def __init__(self, n):
         self.n = n
@@ -137,6 +149,7 @@ class NodeFilter_but(NodeFilter):
 
 
 class NodeFilter_regex(NodeFilter):
+    # pylint: disable=too-few-public-methods
 
     def __init__(self, regex: str):
         self.expr = regex
@@ -150,6 +163,7 @@ class NodeFilter_regex(NodeFilter):
 
 
 class NodeFilter_whitelist(NodeFilter):
+    # pylint: disable=too-few-public-methods
 
     def __init__(self, s: set):
         self.s = s
@@ -165,6 +179,7 @@ class NodeFilter_whitelist(NodeFilter):
 
 
 class NodeFilter_blacklist(NodeFilter):
+    # pylint: disable=too-few-public-methods
 
     def __init__(self, s: set):
         self.s = s
@@ -182,6 +197,7 @@ class AtLeast(Filter):
     """
     Combines filters requiring at least K acceptances to accept
     """
+    # pylint: disable=too-few-public-methods
 
     def __init__(self, filters: [], required_acceptances: int):
         assert len(filters > 0), "Some filters are required"
@@ -233,6 +249,7 @@ class And(Filter):
     """
     Combines filters requiring at least K acceptances to accept
     """
+    # pylint: disable=too-few-public-methods
 
     def __init__(self, filters: []):
         assert len(filters > 0), "Some filters are required"
@@ -253,6 +270,7 @@ class Or(Filter):
     """
     Combines filters requiring at least K acceptances to accept
     """
+    # pylint: disable=too-few-public-methods
 
     def __init__(self, filters: []):
         assert len(filters > 0), "Some filters are required"

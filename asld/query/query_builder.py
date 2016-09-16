@@ -1,5 +1,8 @@
+"""
+Helper classes to build Property-Automata
+"""
 from rdflib.term import URIRef
-from asld.query.direction import Direction
+from asld.query.transition import Direction
 from asld.query.query import Query
 from asld.query.filter import Filter
 from asld.query.filter import NodeFilter, NodeFilter_any

@@ -1,8 +1,12 @@
+"""
+An RDF Property-Automata Query
+
+Automaton and a starting Node
+"""
 from rdflib.term import URIRef
 
 from asld.query.state import State
-from asld.query.transition import Transition
-from asld.query.direction import Direction
+from asld.query.transition import Transition, Direction
 from asld.query.filter import ArcFilter, ArcFilter_whitelist
 from asld.utils.color_print import Color
 

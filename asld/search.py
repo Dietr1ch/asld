@@ -16,10 +16,9 @@ import psutil
 from rdflib.term import URIRef, Literal, BNode
 
 from asld.graph import ASLDGraph
-from asld.query.direction import Direction
 from asld.query.query import Query
 from asld.query.state import State
-from asld.query.transition import Transition
+from asld.query.transition import Transition, Direction
 
 from asld.utils.heap import Heap
 from asld.utils.color_print import Color

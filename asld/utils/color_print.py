@@ -1,4 +1,8 @@
 #!/bin/python
+"""
+Wrapper for basic command-line color escape sequences
+"""
+
 from enum import Enum
 
 
@@ -28,6 +32,9 @@ class Color(Enum):
 
 
 def color_test():
+    """
+    Showoff
+    """
     Color.BLACK  .print("BLACK  ")
     Color.RED    .print("RED    ")
     Color.GREEN  .print("GREEN  ")

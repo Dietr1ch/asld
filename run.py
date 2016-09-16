@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+"""
+Command line interface for running sample queries
+"""
+
 import os
 import argparse
 from pprint import pprint
@@ -36,7 +40,7 @@ parser.add_argument('--triples', metavar='s', type=int, default=1e5,
 args = parser.parse_args()
 
 w            = args.w
-QUICK_GOAL   = not args.slow_goal
+quick_goal   = not args.slow_goal
 query_number = args.q
 
 parallel_requests = args.pool_size
@@ -54,12 +58,12 @@ data = None
 result = {
     "query": name,
     "weight": w,
-    "quickGoal": QUICK_GOAL,
+    "quickGoal": quick_goal,
     "params": {
         "limits": {
-            "time": limit_time,
+            "time":    limit_time,
             "triples": limit_triples,
-            "ans": limit_ans,
+            "ans":     limit_ans,
         },
         "parallelRequests": parallel_requests
     },
@@ -79,16 +83,16 @@ try:
     print("  Pool Size:    %d" % parallel_requests)
     print("  Limits:")
     print("    Time:    %ds" % limit_time)
-    print("    Answers: %d" % limit_ans)
-    print("    Triples: %d" % limit_triples)
+    print("    Answers: %d"  % limit_ans)
+    print("    Triples: %d"  % limit_triples)
 
     # Run search
-    search = ASLDSearch(query(w=w), quick_goal=QUICK_GOAL)
+    search = ASLDSearch(query(w=w), quick_goal=quick_goal)
 
     data = search.test(parallel_requests,
-                       limit_time=limit_time,
-                       limit_ans=limit_ans,
-                       limit_triples=limit_triples)
+                       limit_time    = limit_time,
+                       limit_ans     = limit_ans,
+                       limit_triples = limit_triples)
     result["data"] = data
 
 
@@ -100,7 +104,7 @@ finally:
     results_directory += "q%d/" % query_number
 
     results_directory += "p%d/" % parallel_requests
-    if QUICK_GOAL:
+    if quick_goal:
         results_directory += "quick/"
     else:
         results_directory += "slow/"
@@ -110,7 +114,7 @@ finally:
 
     fileName = results_directory
     fileName += "last"
-    if QUICK_GOAL:
+    if quick_goal:
         fileName += "-quickGoal"
     else:
         fileName += "-slowGoal"
@@ -128,6 +132,5 @@ finally:
     if data:
         stats = data["StatsHistory"]
         if stats:
-            lastStats = stats[-1]
             Color.BLUE.print("Last stats:")
-            pprint(lastStats)
+            pprint(stats[-1])

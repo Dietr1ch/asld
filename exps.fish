@@ -1,96 +1,42 @@
 #!/usr/bin/env fish
 
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 4 --pool-size  5 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 4 --pool-size  5 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 4 --pool-size 10 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 4 --pool-size 10 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 4 --pool-size 20 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 4 --pool-size 20 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 4 --pool-size 40 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 4 --pool-size 40 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 4 --pool-size 80 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 4 --pool-size 80 --time 3000
+# Setup
+# =====
+set timeLimit 3600
+set timeGiven 3700
+set killTime  3800
 
-
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 8 --pool-size  5 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 8 --pool-size  5 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 8 --pool-size 10 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 8 --pool-size 10 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 8 --pool-size 20 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 8 --pool-size 20 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 8 --pool-size 40 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 8 --pool-size 40 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 8 --pool-size 80 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 8 --pool-size 80 --time 3000
-
-
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 9 --pool-size  5 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 9 --pool-size  5 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 9 --pool-size 10 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 9 --pool-size 10 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 9 --pool-size 20 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 9 --pool-size 20 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 9 --pool-size 40 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 9 --pool-size 40 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 9 --pool-size 80 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 9 --pool-size 80 --time 3000
-
-
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 10 --pool-size  5 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 10 --pool-size  5 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 10 --pool-size 10 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 10 --pool-size 10 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 10 --pool-size 20 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 10 --pool-size 20 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 10 --pool-size 40 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 10 --pool-size 40 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 10 --pool-size 80 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 10 --pool-size 80 --time 3000
-
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 10 --pool-size  5 --time 3000  --slow-goal
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 10 --pool-size  5 --time 3000  --slow-goal
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 10 --pool-size 10 --time 3000  --slow-goal
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 10 --pool-size 10 --time 3000  --slow-goal
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 10 --pool-size 20 --time 3000  --slow-goal
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 10 --pool-size 20 --time 3000  --slow-goal
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 10 --pool-size 40 --time 3000  --slow-goal
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 10 --pool-size 40 --time 3000  --slow-goal
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 10 --pool-size 80 --time 3000  --slow-goal
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 10 --pool-size 80 --time 3000  --slow-goal
+set -l weights   1 0
+set -l queries   4 8 9 10 12 14 15
+set -l poolSizes 5 10 20 40 80
 
 
 
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 12 --pool-size  5 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 12 --pool-size  5 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 12 --pool-size 10 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 12 --pool-size 10 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 12 --pool-size 20 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 12 --pool-size 20 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 12 --pool-size 40 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 12 --pool-size 40 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 12 --pool-size 80 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 12 --pool-size 80 --time 3000
+# Run experiments
+# ===============
+
+# Move old data in bench/last/  to  bench/old/
+mkdir -p bench/old
+mv bench/last/* bench/old/;  or  exit
+
+# Create new directory to hold results
+set benchDir "bench/"(date -Iseconds)"/"
+mkdir -p  $benchDir
+
+for w in $weights
+	for p in $poolSizes
+		for q in $queries
+			timeout --kill-after $killTime $timeGiven  ./run.py --time $timeLimit  -w $w -q $q --pool-size $p $argv
+		end
+	end
+end
+
+# Move all the output to the new directory
+mv bench/last/ $benchDir
 
 
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 14 --pool-size  5 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 14 --pool-size  5 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 14 --pool-size 10 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 14 --pool-size 10 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 14 --pool-size 20 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 14 --pool-size 20 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 14 --pool-size 40 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 14 --pool-size 40 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 14 --pool-size 80 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 14 --pool-size 80 --time 3000
 
-
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 15 --pool-size  5 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 15 --pool-size  5 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 15 --pool-size 10 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 15 --pool-size 10 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 15 --pool-size 20 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 15 --pool-size 20 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 15 --pool-size 40 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 15 --pool-size 40 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 1 -q 15 --pool-size 80 --time 3000
-timeout --kill-after 4100 3600  ./run.py -w 0 -q 15 --pool-size 80 --time 3000
+# Run analysis
+# ============
+#                bench/E/q/p/s
+./analyze.fish $benchDir/*/*/*

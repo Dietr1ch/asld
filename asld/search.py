@@ -1,3 +1,8 @@
+"""
+Search
+
+A search, with it's own query and database
+"""
 import os
 import gc
 
@@ -32,22 +37,34 @@ _L_TRIPLES = 1e5
 
 # Output Helpers
 # ==============
-term_size = get_terminal_size((80, 20))
+TERM_SIZE = get_terminal_size((80, 20))
 
-tty = stdout.isatty()
+IS_TTY = stdout.isatty()
 def clearLine():
-    if tty:
+    """
+    Clears current line on TTYs
+    """
+    if IS_TTY:
         print("\r\033[K", end="")
 
 def rP(s, i=0):
-    print("%*s" % (term_size.columns+9*i, s))
+    """
+    Prints string to the right of the TTY.
+
+    Accepts an optional offset to account for escape sequences
+    """
+    print("%*s" % (TERM_SIZE.columns+9*i, s))
 
 
 def printPath(path):
-    for n in path:
-        if n.parent:  # has previous transition
-            rP("%s    " % n.str_p(), 1)
-        rP("%-69s: %21s" % (n.str_n(), n.str_q()), 2)
+    """
+    Pretty prints a path on the Right of the TTY
+    """
+    if IS_TTY:
+        for n in path:
+            if n.parent:  # has previous transition
+                rP("%s    " % n.str_p(), 1)
+            rP("%-69s: %21s" % (n.str_n(), n.str_q()), 2)
 
 
 
@@ -59,6 +76,22 @@ def getMemory():
 
 
 class ASLDSearch:
+    """
+    Search
+
+    Holds:
+      - query:  Query
+      - g:      ASLDGraph
+      - stats:  ASLDSearch.Stats
+
+      - open:   Heap<NodeState>
+      - closed: Set<NodeState>
+      - states: (Node, State) -> NodeState
+
+      - Setup:
+         - w:           Weight to use on the heuristic
+         - quick_goal:  Use quick goal declaration
+    """
 
     class NodeState:
         """Search Node, a (Node, State) pair"""
@@ -98,11 +131,13 @@ class ASLDSearch:
 
 
         def str_n(self):
+            """Pretty prints the Node"""
             if isinstance(self.n, URIRef):
                 return Color.GREEN(self.n)
             return Color.RED(self.n)
 
         def str_p(self):
+            """Pretty prints the Predicate"""
             # Forward
             st = "--"
             nd = "->"
@@ -114,6 +149,7 @@ class ASLDSearch:
             return "%s(%s)%s" % (st, Color.YELLOW(self.P), nd)
 
         def str_q(self):
+            """Pretty prints the State"""
             return Color.YELLOW(self.q.name)
 
 
@@ -188,7 +224,8 @@ class ASLDSearch:
             self.g = s.g
             self.snap()
 
-        def _marks(self):
+        def tick(self):
+            """Start timing"""
             self.t0 = time()
 
         def __str__(self) -> str:
@@ -231,7 +268,13 @@ class ASLDSearch:
         self._reset()
         self.quick_goal = quick_goal
 
-        if(self.quick_goal):
+        # Search
+        self.open   = Heap()
+        self.closed = set()
+        self.states = {}
+        self.startNS = None
+
+        if self.quick_goal:
             Color.BLUE.print("Using quick goal declaration")
             self._advanceHeuristic()
         else:
@@ -258,8 +301,13 @@ class ASLDSearch:
         self.startNS.g = 0
 
     def _advanceHeuristic(self):
+        """
+        Shift heuristic to avoid computing best children on every expansion
+        """
         for s in self.query.states.values():
             h = float("inf")
+
+            # pylint: disable=protected-access
             for ns in s._next():
                 if ns._h < h:
                     h = ns._h
@@ -274,6 +322,8 @@ class ASLDSearch:
         Gets the *Unique* NodeState for a (node, state) pair.
         It builds new NodeStates as needed.
         """
+        # pylint: disable=too-many-arguments
+
         if (n, q) not in self.states:
             if P is None  or  t is None  or  d is None:
                 raise Exception("First get MUST init the new NodeState")
@@ -311,6 +361,8 @@ class ASLDSearch:
         Reaches (cN, cQ) from ns using t on direction d
         Updates target node if it's reached in a better way
         """
+        # pylint: disable=too-many-arguments
+
 
         if not t(P):
             return None  # Predicate not allowed by t
@@ -376,7 +428,7 @@ class ASLDSearch:
         self._enqueue(self.startNS)
 
         # Empty open...
-        self.stats._marks()  # Adjust stats clock
+        self.stats.tick()  # Adjust stats clock
         while self.open:
             _t0_localExpand = time()
 
@@ -439,7 +491,7 @@ class ASLDSearch:
             expansions += 1
             pendingExpansions += 1
 
-            if tty:
+            if IS_TTY:
                 clearLine()
                 print("  expansions (%4d): " % pendingExpansions, end="")
                 print("#"*pendingExpansions, end="")
@@ -512,7 +564,7 @@ class ASLDSearch:
                 for ns in netFreeNodes:
                     expansionsDone += 1
                     pendingExpansions -= 1
-                    if tty:
+                    if IS_TTY:
                         print("\r  local expansions (%4d): " % pendingExpansions, end="")
                         print("[%s" % ("#"*expansionsDone), end="")
                         print("%s]" % ("."*pendingExpansions), end="")
@@ -564,7 +616,7 @@ class ASLDSearch:
 
 
                     # Report progress
-                    if tty:
+                    if IS_TTY:
                         print("\r  || expansions (%4d): " % pendingExpansions, end="")
                         print("[%s" % ("#"*requestsFullfilled), end="")
                         print("%s]" % ("."*pendingExpansions), end="")
@@ -608,7 +660,7 @@ class ASLDSearch:
     def run(self, parallelRequests=40,
             limit_time=_L_TIME, limit_ans=_L_ANS):
         """Intended only for interactive CLI use"""
-        term_size = get_terminal_size((80, 20))  # Update CLI width
+        TERM_SIZE = get_terminal_size((80, 20))  # Update CLI width
 
         r = []
         if self.closed:
@@ -617,7 +669,7 @@ class ASLDSearch:
         _t0 = time()
         try:
             answers = 0
-            self.stats._marks()  # Adjust stats clock
+            self.stats.tick()  # Adjust stats clock
             for p in self.paths(parallelRequests, parallelRequests):
                 r.append(p)
                 print()
@@ -683,7 +735,7 @@ class ASLDSearch:
         _t0 = time()
         try:
 
-            self.stats._marks()  # Adjust stats clock
+            self.stats.tick()  # Adjust stats clock
             for path in self.paths(parallelRequests, parallelRequests,
                                    limit_time=limit_time,
                                    limit_ans=limit_ans,

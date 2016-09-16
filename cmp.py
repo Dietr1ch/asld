@@ -1,4 +1,9 @@
 #!/usr/bin/env python
+"""
+Script for producing comparison plots from search data
+
+Currently it requires runs from A* end Dijkstra on the same setup
+"""
 import os
 
 import argparse
@@ -24,11 +29,11 @@ parser.add_argument('--x', metavar='x', type=str, nargs=1,
                     help='x axis key')
 
 parser.add_argument('--no-show', dest='no_show', action='store_const',
-                   const=True, default=False,
+                    const=True, default=False,
                     help='silent (non-interactive)')
 
 parser.add_argument('--png', dest='extension', action='store_const',
-                   const="png", default="pdf",
+                    const="png", default="pdf",
                     help='silent (non-interactive)')
 
 colors = ["red", "green"]
@@ -131,7 +136,10 @@ for pdk in plotDataKeys:
         title(queryName, fontsize=20)
 
         figPath = "%s/%s-%s_vs_%s" % (srcPath, queryName, yLabel, xLabel)
-        figPath += "--%dProcs--%dlAns-%dlTime-%dlTriples" % (pool_size, limit_ans, limit_time, limit_triples)
+        figPath += "--%dProcs--%dlAns-%dlTime-%dlTriples" % (pool_size,
+                                                             limit_ans,
+                                                             limit_time,
+                                                             limit_triples)
         figPath += ".%s" % plotExt
 
         Color.BLUE.print("Saving figure to '%s'" % figPath)

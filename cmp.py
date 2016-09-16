@@ -92,7 +92,9 @@ xLabel = "expansions"
 if x:
     xLabel = x
 queryName = runs[0]["query"]
+quickGoal = runs[0]["quickGoal"]
 pool_size = runs[0]["params"]["parallelRequests"]
+
 
 limit_ans     = runs[0]["params"]["limits"]["ans"]
 limit_triples = runs[0]["params"]["limits"]["triples"]
@@ -133,7 +135,8 @@ for pdk in plotDataKeys:
         xlabel(pLab[xLabel], fontsize=18)
         ylabel(pLab[yLabel], fontsize=16)
         legend(loc="best")
-        title(queryName, fontsize=20)
+        titleHeader =  "%s (p%d, q%s)" % (queryName, pool_size, quickGoal)
+        title(titleHeader, fontsize=20)
 
         figPath = "%s/%s-%s_vs_%s" % (srcPath, queryName, yLabel, xLabel)
         figPath += "--%dProcs--%dlAns-%dlTime-%dlTriples" % (pool_size,

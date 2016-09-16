@@ -17,7 +17,8 @@ set -l poolSizes 5 10 20 40 80
 
 # Move old data in bench/last/  to  bench/old/
 mkdir -p bench/old
-mv bench/last/* bench/old/;  or  exit
+mv bench/last/* bench/old/
+
 
 # Create new directory to hold results
 set benchDir "bench/"(date -Iseconds)"/"
@@ -32,7 +33,7 @@ for p in $poolSizes
 end
 
 # Move all the output to the new directory
-mv bench/last/ $benchDir
+mv bench/last/* $benchDir
 
 
 

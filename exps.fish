@@ -23,9 +23,9 @@ mv bench/last/* bench/old/;  or  exit
 set benchDir "bench/"(date -Iseconds)"/"
 mkdir -p  $benchDir
 
-for w in $weights
-	for p in $poolSizes
-		for q in $queries
+for p in $poolSizes
+	for q in $queries
+		for w in $weights
 			timeout --kill-after $killTime $timeGiven  ./run.py --time $timeLimit  -w $w -q $q --pool-size $p $argv
 		end
 	end

@@ -421,46 +421,6 @@ class ASLDSearch:
         return goalsFound
 
 
-    def _paths(self):
-        """Performs search using a single process"""
-        # Initialize search
-        _t0_search = time()
-        self._enqueue(self.startNS)
-
-        # Empty open...
-        self.stats.tick()  # Adjust stats clock
-        while self.open:
-            _t0_localExpand = time()
-
-            # Extract a single top-F node
-            self.stats.batch()
-            ns = self._pop()
-
-            if ns in self.closed:
-                if __debug__:
-                    Color.RED.print("Discarding a closed node found on open")
-                continue
-
-            # Blocking load
-            (_, incr) = self.g.loadB(ns.n)
-
-            # Local expand
-            goalsFound = self._expand(ns)
-            for g in goalsFound:
-                yield self._getPath(g)
-
-            _t_localExpand = time() - _t0_localExpand
-            self.stats.expand(ns.n, incr, _t_localExpand)
-
-            clearLine()
-            print(" Sync expanded (%5.2fs) %s" % (_t_localExpand, ns))
-
-        _t_search = time() - _t0_search
-        clearLine()
-        Color.BLUE.print("Search took %4.2fs" % _t_search)
-        Color.GREEN.print("Open was emptied, there are no more paths")
-
-
     def _extractTopF(self, batchSize):
         # Extract at most batchSize from top-f nodes
         (topF, _) = self.open.peekKey()  # key: (f, -g)

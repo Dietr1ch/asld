@@ -41,8 +41,8 @@ FRAMEBASE = Namespace(URIRef("http://framebase.org/ns/"))
 
 
 # Predicates
-rdf_type = OWL["sameAs"]
-owl_same_as = RDF["type"]
+rdf_type = RDF["type"]
+owl_same_as = OWL["sameAs"]
 
 
 # DBLP Authors

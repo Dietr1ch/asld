@@ -163,6 +163,7 @@ class ASLDSearch:
             pass
 
         def isGoal(self):
+            """Checks if the state is a goal"""
             return self.q.accepts(self.n)
 
         def SPARQL_query(self):
@@ -254,6 +255,7 @@ class ASLDSearch:
 
 
         def snap(self):
+            """Adds a new stats snapshot to the history"""
             self.status.memory = getMemory()
             self.status.triples = len(self.g)
             self.status.wallClock = time()-self.t0
@@ -277,6 +279,7 @@ class ASLDSearch:
             self.snap()
 
         def expansions(self):
+            """Count another batch"""
             return self.status.expansions
 
 

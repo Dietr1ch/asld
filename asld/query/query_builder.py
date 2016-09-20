@@ -31,6 +31,8 @@ class QueryBuilder:
                 _set = set()
                 _set.add(arc_set)
                 arc_set = _set
+
+            # pylint: disable=protected-access
             return QueryBuilder._SP(self, ArcFilter_whitelist(arc_set))
 
         def through_not(self, arc_set):
@@ -38,6 +40,8 @@ class QueryBuilder:
                 _set = set()
                 _set.add(arc_set)
                 arc_set = _set
+
+            # pylint: disable=protected-access
             return QueryBuilder._SP(self, ArcFilter_blacklist(arc_set))
 
 
@@ -45,17 +49,19 @@ class QueryBuilder:
             if destName in self.a.states.keys():
                 assert ff is None, "State was already defined"
                 assert af is None, "State was already defined"
-            self.a._addTriple(self.originName,
-                              ArcFilter_any(), Direction.forward,
-                              destName, ff, af)
+
+            self.a.add_transition(self.originName,
+                                  ArcFilter_any(), Direction.forward,
+                                  destName, ff, af)
 
         def backwards_to(self, destName, ff=None, af=None):
             if destName in self.a.states.keys():
                 assert ff is None, "State was already defined"
                 assert af is None, "State was already defined"
-            self.a._addTriple(self.originName,
-                              ArcFilter_any(), Direction.backward,
-                              destName, ff, af)
+
+            self.a.add_transition(self.originName,
+                                  ArcFilter_any(), Direction.backward,
+                                  destName, ff, af)
 
         def loop(self, arc_set=None):
             if not isinstance(arc_set, set):
@@ -63,9 +69,11 @@ class QueryBuilder:
                 _set.add(arc_set)
                 arc_set = _set
             ff = ArcFilter_whitelist(arc_set)
-            self.a._addTriple(self.originName,
-                              ff, Direction.forward,
-                              self.originName)
+
+            # pylint: disable=protected-access
+            self.a.add_transition(self.originName,
+                                  ff, Direction.forward,
+                                  self.originName)
 
         def final(self, destName, flt=None):
             self.to(destName, flt, NodeFilter_any())
@@ -90,17 +98,21 @@ class QueryBuilder:
             if destName in self.a.states.keys():
                 assert ff is None
                 assert af is None
-            self.a._addTriple(self.originName,
-                              self.arc_filter, Direction.forward,
-                              destName, ff, af)
+
+            # pylint: disable=protected-access
+            self.a.add_transition(self.originName,
+                                  self.arc_filter, Direction.forward,
+                                  destName, ff, af)
 
         def backwards_to(self, destName, ff=None, af=None):
             if destName in self.a.states.keys():
                 assert ff is None
                 assert af is None
-            self.a._addTriple(self.originName,
-                              self.arc_filter, Direction.backward,
-                              destName, ff, af)
+
+            # pylint: disable=protected-access
+            self.a.add_transition(self.originName,
+                                  self.arc_filter, Direction.backward,
+                                  destName, ff, af)
 
 
         def final(self, destName, flt=None):

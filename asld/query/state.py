@@ -118,8 +118,10 @@ class State:
         r = self.filterFunction(node)
         if State._explain_acceptance:
             if r:
+                #pylint: disable=line-too-long
                 Color.YELLOW.print("  State '%s' (%s)    allows '%s'" % (self.name, self.filterFunction, node))
             else:
+                #pylint: disable=line-too-long
                 Color.RED.print(   "  State '%s' (%s) disallows '%s'" % (self.name, self.filterFunction, node))
         return r
 
@@ -127,6 +129,7 @@ class State:
         """ Accepting function """
         if self.acceptingFunction is None:
             if State._explain_acceptance_trivial:
+                #pylint: disable=line-too-long
                 Color.RED.print(   "  State '%s' (%s)   rejects '%s'" % (self.name, self.acceptingFunction, node))
             return False
 
@@ -134,8 +137,10 @@ class State:
         r = self.acceptingFunction(node)
         if State._explain_acceptance:
             if r:
+                #pylint: disable=line-too-long
                 Color.GREEN.print( "  State '%s' (%s) accepts '%s'" % (self.name, self.acceptingFunction, node))
             else:
+                #pylint: disable=line-too-long
                 Color.YELLOW.print("  State '%s' (%s) rejects '%s'" % (self.name, self.acceptingFunction, node))
         return r
 

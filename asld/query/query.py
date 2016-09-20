@@ -22,7 +22,7 @@ class Query:
 
     def __init__(self, iri: URIRef, name="s0", ff=None, af=None):
         self.states = {}
-        self.startState = self._addState(name, ff, af)
+        self.startState = self.add_state(name, ff, af)
         self.startNode  = iri
 
 
@@ -33,28 +33,28 @@ class Query:
         return str(self)
 
 
-    def addState(self, name, ff=None, af=None):
-        """Interactive state add"""
-        if name in self.states:
-            Color.RED.print("State '%s' already exists, it won't be updated!!" % name)
-        return self._addState(name, ff, af)
-
-    def _addState(self, name, ff=None, af=None):
+    def add_state(self, name, ff=None, af=None):
         """Adds a new state or returns the old one (unchanged)"""
         if name not in self.states:
             self.states[name] = State(name, ff, af)
 
+        Color.RED.print("State '%s' already exists, it won't be updated!!" % name)
         return self.states[name]
 
 
-    def _addTriple(self,
-                   originName,
-                   arc_filter:  ArcFilter,
+    def add_transition(self,
+                   originName:     str,
+                   arc_filter:     ArcFilter,
                    arc_direction:  Direction,
-                   destName,
+                   destName:       str,
                    dff = None,
-                   daf = None):
-        """Creates a Transition to a possibly new State"""
+                   daf = None) -> Transition:
+        """
+        Creates a Transition to a possibly new State
+
+        Returns the newly added transition
+        """
+        # pylint: disable=too-many-arguments
 
         assert isinstance(originName, str)
         assert isinstance(  destName, str)
@@ -74,6 +74,6 @@ class Query:
 
         # Get states
         o = self.states[originName]
-        d = self._addState(destName, dff, daf)  # (gracefully create new states =))
+        d = self.add_state(destName, dff, daf)  # (gracefully create new states =))
 
         return Transition(o, arc_filter, arc_direction, d)

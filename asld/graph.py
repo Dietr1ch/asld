@@ -11,7 +11,6 @@ from rdflib import Graph
 from rdflib.term import URIRef
 from SPARQLWrapper import SPARQLWrapper, JSON
 
-from asld.query.state import State
 from asld.utils.color_print import Color
 
 
@@ -37,6 +36,7 @@ if DELAYS is None or len(DELAYS) <= 10:
     DELAYS = None
     DELAY_MAX = None
 else:
+    # pylint: disable=line-too-long
     Color.YELLOW.print("Delay data loaded (resolution: %.3fs, samples: %d)" % (DELAY_RESOLUTION, DELAY_MAX))
 
 
@@ -52,6 +52,8 @@ class ASLDGraph:
         Answer for a iri request
         Acts as a named tuple
         """
+        # pylint: disable=too-few-public-methods
+
         def __init__(self, g, iri, index, reqTime):
             self.g = g
             self.iri = iri
@@ -64,8 +66,10 @@ class ASLDGraph:
         def __str__(self):
             return "RequestAnswer<%s>" % self.iri
 
+
     @classmethod
     def print_triple(cls, s, p, o):
+        """Pretty prints an RDF triple"""
         print("%80s (%-40s) %50s" % (Color.RED(s), Color.GREEN(p), Color.YELLOW(o)))
 
     @classmethod
@@ -101,6 +105,7 @@ class ASLDGraph:
                     except Exception as e:
                         Color.RED.print("Query failed '%s'" % e)
 
+                #pylint: disable=line-too-long
                 Color.RED.print("SPARQL Request '%s%s" % (Color.GREEN(queryString), Color.RED("' failed")))
                 Color.YELLOW.print("The server's SPARQL endpoint (%s) is unavailable" % endpoint)
         return g
@@ -160,6 +165,7 @@ class ASLDGraph:
         return len(self.g)
 
     def add(self, spo):
+        """Add an RDF triple to the graph"""
         self.g.add(spo)
 
 
@@ -172,6 +178,7 @@ class ASLDGraph:
         if iri in self.loaded:
             return (False, 0)
 
+        # pylint: disable=broad-except
         try:
             old = len(self.g)
             self.g.load(iri)
@@ -202,9 +209,12 @@ class ASLDGraph:
             ASLDGraph.print_triple(s, p, o)
 
     def print_query(self, s=None, p=None, o=None):
+        """Queries the current graph and prints the result"""
         self.print(self.query(s, p, o))
 
     def print_queryB(self, s=None, p=None, o=None):
+        """Queries the graph and prints the result after requesting s or o"""
+
         self.print(self.queryB(s, p, o))
 
     def query(self, s=None, p=None, o=None):

@@ -28,9 +28,9 @@ DELAY_MAX = None
 DELAY_RESOLUTION = 0.01
 DELAY_FILE = "data/request-acc.json"
 
-with open(DELAY_FILE, 'r') as raf:
-    DELAYS = json_load(raf)
-    DELAY_MAX = DELAYS[-1]
+#with open(DELAY_FILE, 'r') as raf:
+#    DELAYS = json_load(raf)
+#    DELAY_MAX = DELAYS[-1]
 
 if DELAYS is None or len(DELAYS) <= 10:
     DELAYS = None

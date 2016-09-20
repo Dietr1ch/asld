@@ -15,6 +15,7 @@ from asld.query.filter import NodeFilter_regex
 # DBPedia
 DB  = Namespace(URIRef("http://dbpedia.org/"         ))
 DBO = Namespace(URIRef("http://dbpedia.org/ontology/"))
+DBP = Namespace(URIRef("http://dbpedia.org/property/"))
 DBR = Namespace(URIRef("http://dbpedia.org/resource/"))
 
 # DBLP
@@ -32,7 +33,8 @@ SWRC = Namespace(URIRef("http://swrc.ontoware.org/ontology#"))
 
 # YAGO
 #YAGO = Namespace(URIRef("http://yago-knowledge.org/resource/"))
-YAGO = Namespace(URIRef("https://makemake.ing.puc.cl/resource/"))
+YAGO = Namespace(URIRef("http://yago-knowledge.org/resource/"))
+#YAGO = Namespace(URIRef("https://makemake.ing.puc.cl/resource/"))
 
 # Framebase
 FRAMEBASE = Namespace(URIRef("http://framebase.org/ns/"))
@@ -480,6 +482,34 @@ def qBerlin_YAGO(n=DBR["Berlin"], w=1):
     return b.build(w)
 
 
+
+
+# Crossing
+# ----
+def CoActorStar_YAGO_DBpedia(n=YAGO["Kevin_Bacon"], w=1):
+    acted_in = set()
+    acted_in.add(YAGO["actedIn"])
+    acted_in.add(DBO["starring"])
+    acted_in.add(DBP["starring"])
+
+    other = NodeFilter_but(n)
+    b = QueryBuilder(n, "RootActor")
+    b.frm("RootActor").through(owl_same_as).to("RootActor")
+
+    # Root --> Movie
+    b.frm().through(acted_in).to("Movie")
+    #          Movie ==> CoActor
+    b.frm("Movie").through(acted_in).backwards_final("CoActor", other)
+    #b.frm("Movie").through(acted_in).backwards_to("CoActor", other)
+    b.frm("Movie").through(owl_same_as).to("Movie")
+    #          Movie <-- CoActor
+    b.frm("CoActor").through(acted_in).to("Movie")
+
+    #                    CoActor --> Name
+    #b.frm("CoActor").through(NAME).final("Name")
+
+    return b.build(w)
+
 automatons = [
     (Name,                         "Node_name"),                      # 0
     (Journals,                     "Journal_papers"),                 # 1
@@ -502,7 +532,8 @@ automatons = [
     (CoActorStar4_DBpedia,         "CoActorStar4_DBPedia"),           #18  *
     (forward_discovery,            "forward_discovery"),              #19  *
     (forward_discovery3,           "forward_discovery3"),             #20  *
-    (qBerlin_DBpedia,              "qBerlin_DBpedia")                 #21  *
+    (qBerlin_DBpedia,              "qBerlin_DBpedia"),                #21  *
+    (CoActorStar_YAGO_DBpedia,     "CoActorStar_YAGO_DBPedia")        #22  *
 ]
 
 

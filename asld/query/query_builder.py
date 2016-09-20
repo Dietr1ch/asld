@@ -13,10 +13,14 @@ from asld.utils.color_print import Color
 
 
 class QueryBuilder:
-
+    """
+    Partial Automaton data
+    """
 
     class _S:
-
+        """
+        Partial Transition data (S, ?, ?)
+        """
         def __init__(self, a, originName: str):
             self.a = a
             self.originName = originName
@@ -53,6 +57,15 @@ class QueryBuilder:
                               ArcFilter_any(), Direction.backward,
                               destName, ff, af)
 
+        def loop(self, arc_set=None):
+            if not isinstance(arc_set, set):
+                _set = set()
+                _set.add(arc_set)
+                arc_set = _set
+            ff = ArcFilter_whitelist(arc_set)
+            self.a._addTriple(self.originName,
+                              ff, Direction.forward,
+                              self.originName)
 
         def final(self, destName, flt=None):
             self.to(destName, flt, NodeFilter_any())
@@ -62,6 +75,9 @@ class QueryBuilder:
 
 
     class _SP:
+        """
+        Partial Transition data (S, P, ?)
+        """
 
         def __init__(self, _s, arc_filter: ArcFilter):
             self.a = _s.a
@@ -100,6 +116,9 @@ class QueryBuilder:
         self.a = Query(n, name, ff, af)
 
     def frm(self, nodeName=None):
+        """
+        Creates a partial transition from a named State
+        """
         if nodeName is None:
             nodeName = self.startName
         return QueryBuilder._S(self.a, nodeName)
@@ -153,6 +172,6 @@ class QueryBuilder:
                 Color.GREEN.print("  * %d: %s" % (h, s))
 
         for s in states:
-            s._h = s.h
+            s.prepare()
 
         return self.a

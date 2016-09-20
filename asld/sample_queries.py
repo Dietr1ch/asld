@@ -483,32 +483,41 @@ def qBerlin_YAGO(n=DBR["Berlin"], w=1):
 
 
 
-
 # Crossing
 # ----
 def CoActorStar_YAGO_DBpedia(n=YAGO["Kevin_Bacon"], w=1):
     acted_in = set()
     acted_in.add(YAGO["actedIn"])
-    acted_in.add(DBO["starring"])
-    acted_in.add(DBP["starring"])
+    acted_in_r = set()
+    acted_in_r.add(DBO["starring"])
+    acted_in_r.add(DBP["starring"])
 
-    other = NodeFilter_but(n)
+    #(Root)
     b = QueryBuilder(n, "RootActor")
-    b.frm("RootActor").through(owl_same_as).to("RootActor")
+    b.frm("RootActor").loop(owl_same_as)
 
     # Root --> Movie
     b.frm().through(acted_in).to("Movie")
+    b.frm().through(acted_in_r).backwards_to("Movie")
+
+    #         (Movie)
+    b.frm("Movie").loop(owl_same_as)
+
     #          Movie ==> CoActor
+    other = NodeFilter_but(n)
     b.frm("Movie").through(acted_in).backwards_final("CoActor", other)
+    b.frm("Movie").through(acted_in_r).to("CoActor")
+
     #b.frm("Movie").through(acted_in).backwards_to("CoActor", other)
-    b.frm("Movie").through(owl_same_as).to("Movie")
     #          Movie <-- CoActor
     b.frm("CoActor").through(acted_in).to("Movie")
+    b.frm("CoActor").through(acted_in_r).backwards_to("Movie")
 
     #                    CoActor --> Name
     #b.frm("CoActor").through(NAME).final("Name")
 
     return b.build(w)
+
 
 automatons = [
     (Name,                         "Node_name"),                      # 0

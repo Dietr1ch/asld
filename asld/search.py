@@ -91,6 +91,7 @@ class ASLDSearch:
          - w:           Weight to use on the heuristic
          - quick_goal:  Use quick goal declaration
     """
+    # pylint: disable=too-many-instance-attributes
 
     class NodeState:
         """Search Node, a (Node, State) pair"""
@@ -164,11 +165,25 @@ class ASLDSearch:
         def isGoal(self):
             return self.q.accepts(self.n)
 
+        def SPARQL_query(self):
+            """
+            Returns the SPARQL query to expand this NodeState
+            """
+            return self.q.SPARQL_query(self.n)
+
 
     class Stats:
-        class Snapshot:
+        """
+        Manages the series of statistics for a search run
+        """
 
-            def __init__(self, snap=None):
+        class Snapshot:
+            """
+            Statistics of a currently running search
+            """
+            # pylint: disable=too-many-instance-attributes,too-few-public-methods
+
+            def __init__(self):
                 self.wallClock = 0
                 self.batch = 0
 
@@ -188,12 +203,16 @@ class ASLDSearch:
                 self.requestIRI = ""
 
             def __str__(self) -> str:
+                # pylint: disable=line-too-long
                 return "%5d (%3d) %7.2fs> goals: %3d; |Req|: %4d, t(Req): %5.2fs;  |DB| = %6d;  Mem:%.1fMB" % (self.expansions, self.batch, self.wallClock, self.goals, self.requestTriples, self.requestTime, self.triples, self.memory)
 
-            def __repr__(self):
+            def __repr__(self) -> str:
                 return str(self)
 
             def json(self) -> dict:
+                """
+                Returns the json object representation of the Snapshot
+                """
                 return {
                     "wallClock": self.wallClock,
                     "batchID": self.batch,
@@ -211,7 +230,7 @@ class ASLDSearch:
                     "requestIRI":       self.requestIRI
                 }
 
-            def __lt__(self, o):
+            def __lt__(self, o) -> bool:
                 return self.requestTime < o.requestTime
 
 
@@ -241,9 +260,11 @@ class ASLDSearch:
             self.history.append(copy(self.status))
 
         def goal(self):
+            """Count another goal found"""
             self.status.goals += 1
 
         def batch(self):
+            """Count another batch"""
             self.status.batch += 1
 
         def expand(self, iri, lG, t):
@@ -346,7 +367,13 @@ class ASLDSearch:
         return None
 
 
-    def _getPath(self, ns):
+    @classmethod
+    def getPath(cls, ns):
+        """
+        Retrieves a path by following parent nodes
+
+        Assumes that no loops exist
+        """
         path = []
         while ns is not None:
             path.append(ns)
@@ -440,6 +467,8 @@ class ASLDSearch:
                 break
 
             ns = self._pop()
+            assert isinstance(ns, ASLDSearch.NodeState), "ns should be a NodeState"
+
             if ns in self.closed:
                 if __debug__:
                     Color.RED.print("Discarding a closed node found on open")
@@ -535,7 +564,7 @@ class ASLDSearch:
                     if self.quick_goal:
                         for g in goalsFound:
                             answers += 1
-                            yield self._getPath(g)
+                            yield ASLDSearch.getPath(g)
 
                     self.stats.expand(ns.n, 0, time()-_t0_localExpand)
 
@@ -551,10 +580,8 @@ class ASLDSearch:
             if requestsAllowed and netNodes:
                 newTriples = 0
                 _t0_parallelExpand = time()
-                requests = [(ns.n, i, ns.q._next_P(), ns.q.hasBackwardTransition()) for (i, ns) in enumerate(netNodes)]
 
-                clearLine()
-                #Color.BLUE.print("Mapping %d requests:" % len(netNodes))
+                requests = [(ns.n, i, ns.SPARQL_query()) for (i, ns) in enumerate(netNodes)]
 
                 requestsFullfilled = 0
                 requestsCorrectlyFullfilled = 0
@@ -570,12 +597,13 @@ class ASLDSearch:
                     t = reqAns.reqTime
                     iri = reqAns.iri
                     ns = netNodes[reqAns.index]
-                    assert ns not in self.g.loaded, "No loads should be issued to loaded NodeStates (%s)" % ns
+                    assert ns not in self.g.loaded, "%s was already loaded." % ns
                     self.stats.expand(iri, len(reqGraph), t)
 
 
                     # Report progress
                     if IS_TTY:
+                        clearLine()
                         print("\r  || expansions (%4d): " % pendingExpansions, end="")
                         print("[%s" % ("#"*requestsFullfilled), end="")
                         print("%s]" % ("."*pendingExpansions), end="")
@@ -600,7 +628,7 @@ class ASLDSearch:
                     goalsFound = self._expand(ns)
                     for g in goalsFound:
                         answers += 1
-                        yield self._getPath(g)
+                        yield ASLDSearch.getPath(g)
 
                 _t_end = time()
                 _t_parallelExpand = _t_end - _t0_parallelExpand
@@ -700,6 +728,7 @@ class ASLDSearch:
                                    limit_ans=limit_ans,
                                    limit_triples=limit_triples):
                 _ans.append(path)
+                # printPath(path)
 
         except KeyboardInterrupt:
             Color.BLUE.print("\nTerminating search.")

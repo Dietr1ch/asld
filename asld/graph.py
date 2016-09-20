@@ -11,6 +11,7 @@ from rdflib import Graph
 from rdflib.term import URIRef
 from SPARQLWrapper import SPARQLWrapper, JSON
 
+from asld.query.state import State
 from asld.utils.color_print import Color
 
 
@@ -28,9 +29,9 @@ DELAY_MAX = None
 DELAY_RESOLUTION = 0.01
 DELAY_FILE = "data/request-acc.json"
 
-#with open(DELAY_FILE, 'r') as raf:
-#    DELAYS = json_load(raf)
-#    DELAY_MAX = DELAYS[-1]
+with open(DELAY_FILE, 'r') as raf:
+    DELAYS = json_load(raf)
+    DELAY_MAX = DELAYS[-1]
 
 if DELAYS is None or len(DELAYS) <= 10:
     DELAYS = None
@@ -63,127 +64,50 @@ class ASLDGraph:
         def __str__(self):
             return "RequestAnswer<%s>" % self.iri
 
-
-    @classmethod
-    def _sparql_query(cls, s, P, o):
-        """
-        Builds a SPARQL query to expand a node (s or o) over a set of predicates P
-
-        There is NO support for complemented Arcs. (they are marginally easier than getting all arcs)
-        Is there even a real query that needs complement? It seems a non-invertable ArcFilter is plain useless
-        """
-
-        # Disjunction of sameTERMs of P elements   ("sT(?P, p_0) || sT(?P, p_1) || ..." \forall p_i \in P)
-        flt = ""
-        if P:  # P exists and is non-empty
-            flt = " || ".join(  map(lambda p: "sameTERM(?P, <%s>)"%p, P)  )
-            flt = "FILTER (%s)" % flt
-
-        if o is None:
-            return ("""
-                SELECT ?P, ?O
-                WHERE {
-                    <%s> ?P ?O.
-                    %s
-                }
-                """ % (s, flt)).strip()
-        elif s is None:
-            return ("""
-                SELECT ?S, ?P
-                WHERE {
-                    ?S ?P <%s>.
-                    %s
-                }""" % (o, flt)).strip()
-        assert False, "Unexpected query; Either S or O should be given (%s,%s,%s)" % (s, p, o)
-
     @classmethod
     def print_triple(cls, s, p, o):
         print("%80s (%-40s) %50s" % (Color.RED(s), Color.GREEN(p), Color.YELLOW(o)))
 
     @classmethod
-    def pure_load_evil_SPARQL(cls, iri, p):
+    def pure_load_SPARQL(cls, iri, queryString: str) -> Graph:
         """
-        Expands forward arcs using SPARQL.
+        Expands using SPARQL query against a known endpoint.
         """
         g = Graph()
         for r, endpoint in SPARQL_ENDPOINTS:
             if r.match(iri):
-
-                (_, p) = p
-                # Color.BLUE.print("Looking up '%s' on the SPARQL endpoint" % iri)
-
                 se = SPARQLWrapper(endpoint)
-                queryString = ASLDGraph._sparql_query(iri, p, None)
                 se.setQuery(queryString)
                 se.setReturnFormat(JSON)
 
                 for _ in range(2):  # Try twice before failing
+                    # pylint: disable=broad-except
+
                     try:
                         results = se.query().convert()
                         results = results["results"]["bindings"]
 
                         for result in results:
-                            P = URIRef(result["P"]["value"])
-                            O = URIRef(result["O"]["value"])
+                            # pylint: disable=bare-except
                             try:
-                                g.add((iri, P, O))
+                                S = URIRef(result["s"]["value"])
+                                P = URIRef(result["p"]["value"])
+                                O = URIRef(result["o"]["value"])
+                                g.add((S, P, O))
                             except:
                                 pass
-                        #print("SPARQL forward query %s yielded %d triples back" % (iri, len(results)))
-                        #if len(results)==0:
-                            #Color.YELLOW.print("Empty query to %s:\n%s" % (endpoint, queryString))
                         return g
 
                     except Exception as e:
-                        Color.RED.print(e)
-                        pass
+                        Color.RED.print("Query failed '%s'" % e)
+
                 Color.RED.print("SPARQL Request '%s%s" % (Color.GREEN(queryString), Color.RED("' failed")))
                 Color.YELLOW.print("The server's SPARQL endpoint (%s) is unavailable" % endpoint)
         return g
 
-    @classmethod
-    def pure_load_evil_SPARQL_reverseB(cls, iri, p):
-        """
-        Expands backward arcs using SPARQL.
-        """
-        g = Graph()
-        for r, endpoint in SPARQL_ENDPOINTS:
-            if r.match(iri):
-                # Color.BLUE.print("Looking up '%s' on the SPARQL endpoint (server's documents tend to omit backward edges)" % iri)
-
-                (p_b, _) = p  # Descriptions for backward and forward predicates
-
-                se = SPARQLWrapper(endpoint)
-                queryString = ASLDGraph._sparql_query(None, p_b, iri)
-                se.setQuery(queryString)
-                se.setReturnFormat(JSON)
-
-                for _ in range(2):  # Try twice before failing
-                    try:
-                        results = se.query().convert()
-                        results = results["results"]["bindings"]
-
-                        for result in results:
-                            S = URIRef(result["S"]["value"])
-                            P = URIRef(result["P"]["value"])
-                            try:
-                                g.add((S, P, iri))
-                            except:
-                                pass
-                        #print("SPARQL reverse query %s yielded %d triples back" % (iri, len(results)))
-                        if len(results)==0:
-                            Color.YELLOW.print("Query to %s:" % endpoint)
-                            Color.YELLOW.print(queryString)
-                        return g
-
-                    except Exception:
-                        pass
-                Color.RED.print("SPARQL Request '%s%s" % (Color.GREEN(queryString), Color.RED("' failed")))
-                Color.YELLOW.print("The server's SPARQL endpoint (%s) is unavailable" % endpoint)
-        return g
 
     @classmethod
-    def pure_loadB(cls, iri__i__p__hBT):
+    def pure_loadB(cls, iri__i__qf):
         """
         Expands an IRI.
         Uses a neighbor description for narrowing SPARQL inverses
@@ -191,20 +115,12 @@ class ASLDGraph:
         Returns a RequestAnswer (~named tuple)
         """
         # Unwrap parameters
-        (iri, i, p, hBT) = iri__i__p__hBT
+        (iri, i, sparqlFormat) = iri__i__qf
         assert isinstance(iri, URIRef)
 
         _t0 = time()
         # Get new triples
-        g = Graph()
-        if hBT:
-            # Workaround for evil servers on backward transitions
-            # This adds extra time on those servers :c
-            g = ASLDGraph.pure_load_evil_SPARQL_reverseB(iri, p)
-        else:
-            g = ASLDGraph.pure_load_evil_SPARQL(iri, p)
-        #else:
-            #g = ASLDGraph.pure_load_evil_SPARQL(iri, p)
+        g = ASLDGraph.pure_load_SPARQL(iri, sparqlFormat)
 
         # Get the document
         for _ in range(2):

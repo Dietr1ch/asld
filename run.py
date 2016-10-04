@@ -6,7 +6,7 @@ Command line interface for running sample queries
 import os
 import argparse
 from pprint import pprint
-import jsonpickle
+from json import dump
 
 from asld.search import ASLDSearch
 from asld.sample_queries import automatons
@@ -100,6 +100,7 @@ except KeyboardInterrupt:
     Color.BLUE.print("\nTerminating search.")
 
 finally:
+    # Make sub-directory
     results_directory = "bench/last/"
     results_directory += "q%d/" % query_number
 
@@ -108,10 +109,9 @@ finally:
         results_directory += "quick/"
     else:
         results_directory += "slow/"
-
-
     os.makedirs(results_directory, mode=0o777, exist_ok=True)
 
+    # Save files
     fileName = results_directory
     fileName += "last"
     if quick_goal:
@@ -127,7 +127,7 @@ finally:
 
     print("Writing log to %s" % fileName)
     with open(fileName, 'w') as f:
-        f.write(jsonpickle.dumps(result))
+        dump(result, f, indent=2)
 
     if data:
         stats = data["StatsHistory"]

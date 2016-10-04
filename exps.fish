@@ -16,6 +16,7 @@ set -l poolSizes 5 10 20 40 80
 # ===============
 
 # Move old data in bench/last/  to  bench/old/
+echo mkdir -p bench/old
 mkdir -p bench/old
 mv bench/last/* bench/old/
 

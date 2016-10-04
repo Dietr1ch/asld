@@ -53,8 +53,9 @@ plotExt = args.extension
 
 runs = []
 for jf in jsonFiles:
+    print("Reading '%s'" % jf)
     with open(jf) as f:
-        runs.append(jsonpickle.decode(f.readline()))
+        runs.append(jsonpickle.decode(f.read()))
 
 for (i, run) in enumerate(runs):
     hist = run["data"]["StatsHistory"]

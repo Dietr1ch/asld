@@ -10,6 +10,7 @@ from sys import stdout
 from copy import copy
 from time import time
 from shutil import get_terminal_size
+from json import dump
 
 import psutil
 
@@ -26,6 +27,7 @@ from asld.utils.async_timeout_pool import AsyncTimeOutPool
 
 
 
+DUMP_DATA = True
 
 # Default limits
 # ==============
@@ -154,7 +156,7 @@ class ASLDSearch:
 
 
         def __str__(self):
-            return "(%21s: %-80s)" % (self.str_q(), self.str_n())
+            return "(%21s: %-90s)" % (self.str_q(), self.str_n())
 
         def __repr__(self):
             return str(self)
@@ -359,16 +361,6 @@ class ASLDSearch:
         (_, ns) = self.open.pop()
         return ns
 
-    def _enqueue(self, ns):
-        # Put cns on open
-        k = (ns.g + ns.q.h, -ns.g)
-        self.open.push(k, ns)
-
-        if self.quick_goal and ns.isGoal():
-            self.stats.goal()
-            return ns
-        return None
-
 
     @classmethod
     def getPath(cls, ns):
@@ -384,6 +376,15 @@ class ASLDSearch:
         path.reverse()
         return path
 
+
+    def _enqueue(self, ns):
+        # Put cns on open
+        k = (ns.g + ns.q.h, -ns.g)
+        self.open.push(k, ns)
+
+        if self.quick_goal and ns.isGoal():
+            return ns
+        return None
 
     def _reach(self, ns, P, cN,cQ, t, d):
         """
@@ -564,10 +565,10 @@ class ASLDSearch:
                     # Early declare goals (Unless we implement blocking filters :c)
                     _t0_localExpand = time()
                     goalsFound = self._expand(ns)
-                    if self.quick_goal:
-                        for g in goalsFound:
-                            answers += 1
-                            yield ASLDSearch.getPath(g)
+                    for g in goalsFound:
+                        answers += 1
+                        self.stats.goal()
+                        yield ASLDSearch.getPath(g)
 
                     self.stats.expand(ns.n, 0, time()-_t0_localExpand)
 
@@ -631,6 +632,7 @@ class ASLDSearch:
                     goalsFound = self._expand(ns)
                     for g in goalsFound:
                         answers += 1
+                        self.stats.goal()
                         yield ASLDSearch.getPath(g)
 
                 _t_end = time()
@@ -743,12 +745,12 @@ class ASLDSearch:
 
         Color.GREEN.print("\nSearch took %.2fs. Gathered %d triples and got back %d paths." % (t, len(self.g), len(ans)))
 
-        # with open("last-db", 'w') as f:
-        #     for s, p, o in self.g.g:
-        #         f.write("%-80s  (%80s)  %80s\n" % (s, p, o))
-        # with open("last-ans", 'w') as f:
-        #     for p in _ans:
-        #         f.write("%s\n" % p)
+        if DUMP_DATA:
+            with open("last-db.json", 'w') as f:
+                db = [{"s": s, "p": p, "o": o} for (s,p,o) in self.g.g]
+                dump(db, f, indent=2)
+            with open("last-ans.json", 'w') as f:
+                dump(ans, f, indent=2)
 
         return {
             "Paths": ans,

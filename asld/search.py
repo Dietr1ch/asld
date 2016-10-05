@@ -530,7 +530,7 @@ class ASLDSearch:
         while self.open:
             # Limits check
             if requestsAllowed:
-                if answers>limit_ans:
+                if answers > limit_ans:
                     clearLine()
                     Color.YELLOW.print("Reached the %d-goal-limit (%d)" % (limit_ans, answers))
                     requestsAllowed = False

@@ -46,12 +46,13 @@ owl_same_as = OWL["sameAs"]
 
 
 # DBLP Authors
-mArenas  = DBLP_Authors["Marcelo_Arenas"  ]
-jBaier   = DBLP_Authors["Jorge_A._Baier"  ]
-jReutter = DBLP_Authors["Juan_L._Reutter" ]
-cRiveros = DBLP_Authors["Cristian_Riveros"]
-aSoto    = DBLP_Authors["Adri%C3%A1n_Soto"]
-dVroc    = DBLP_Authors["Domagoj_Vrgoc"   ]
+mArenas       = DBLP_Authors["Marcelo_Arenas"     ]
+jBaier        = DBLP_Authors["Jorge_A._Baier"     ]
+mStonebraker  = DBLP_Authors["Michael_Stonebraker"]
+jReutter      = DBLP_Authors["Juan_L._Reutter"    ]
+cRiveros      = DBLP_Authors["Cristian_Riveros"   ]
+aSoto         = DBLP_Authors["Adri%C3%A1n_Soto"   ]
+dVroc         = DBLP_Authors["Domagoj_Vrgoc"      ]
 
 # LMDB Movies
 mysticRiver = LMDB_Films["942"]
@@ -59,7 +60,7 @@ mysticRiver = LMDB_Films["942"]
 kBacon = LMDB_Actors["29539"]
 
 if __name__=='__main__':
-    Color.GREEN.print("A few URIRefs were defined (mArenas, jBaier, jReutter, cRiveros, aSoto, dVroc;  mysticRiver;  kBacon)")
+    Color.GREEN.print("A few URIRefs were defined (mArenas, mStonebraker, jBaier, jReutter, cRiveros, aSoto, dVroc;  mysticRiver;  kBacon)")
 
 
 # Use  foaf:name and rdfs:label as names
@@ -71,7 +72,7 @@ NAME.add(RDFS.label)
 
 # Queries
 # =======
-def Name(n=jBaier, w=1):
+def Name(n=mStonebraker, w=1):
     b = QueryBuilder(n, "Person")
     b.frm("Person").through(FOAF["name"]).final("Name")
 
@@ -81,7 +82,7 @@ def Name(n=jBaier, w=1):
     return a
 
 
-def Journals(n=jBaier, w=1):
+def Journals(n=mStonebraker, w=1):
     """ dc:creator-/swrc:journal/rdfs:label """
 
     b = QueryBuilder(n, "Author")
@@ -97,7 +98,7 @@ def Journals(n=jBaier, w=1):
     return a
 
 
-def Conferences(n=jBaier, w=1):
+def Conferences(n=mStonebraker, w=1):
     """ dc:creator-/swrc:series/rdfs:label """
     b = QueryBuilder(n, "Author")
     b.frm("Author").through(DC.creator).backwards_to("Paper")
@@ -113,7 +114,7 @@ def Conferences(n=jBaier, w=1):
 
 
 # Coauthors
-def CoAuth(n=jBaier, w=1):
+def CoAuth(n=mStonebraker, w=1):
     # Works
     b = QueryBuilder(n, "Author")
     b.frm("Author").through(DC["creator"]).backwards_to("Paper")
@@ -129,7 +130,7 @@ def CoAuth(n=jBaier, w=1):
     return a
 
 
-def CoAuthStar(n=jBaier, w=1):
+def CoAuthStar(n=mStonebraker, w=1):
     # Works
     b = QueryBuilder(n, "Author")
     b.frm("Author").through(DC["creator"]).backwards_to("Paper")

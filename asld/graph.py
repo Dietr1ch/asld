@@ -36,8 +36,8 @@ if DELAYS is None or len(DELAYS) <= 10:
     DELAYS = None
     DELAY_MAX = None
 else:
-    # pylint: disable=line-too-long
-    Color.YELLOW.print("Delay data loaded (resolution: %.3fs, samples: %d)" % (DELAY_RESOLUTION, DELAY_MAX))
+    Color.YELLOW.print("Delay data loaded (resolution: %.3fs, samples: %d)" % (DELAY_RESOLUTION,
+                                                                               DELAY_MAX))
 
 
 class ASLDGraph:

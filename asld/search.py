@@ -76,6 +76,13 @@ def getMemory():
     return _proc_self.memory_info().rss/1024/1024
 
 
+def valid_node(node):
+    """ Checks whether an object is a valid RDF Node """
+    c = node.__class__
+    return c is URIRef  or  c is Literal  or  c is BNode
+
+
+
 class ASLDSearch:
     """
     Search
@@ -106,7 +113,9 @@ class ASLDSearch:
                      t:      Transition,
                      d:      Direction,
                      g=float("inf")):
-            assert node.__class__ is URIRef  or  node.__class__ is Literal or  node.__class__ is BNode, "node.__class__ == '%s' is not URIRef or Literal or BNode" % node.__class__
+            # pylint: disable=too-many-arguments
+
+            assert valid_node(node), "%s not a valid node" % node
 
             self.n = node
             self.q = state
@@ -514,6 +523,8 @@ class ASLDSearch:
         Reaching limits causes the search to stop doing requests, but it may
           find a few answers more with whats left.
         """
+        # pylint: disable=too-many-arguments,too-many-statements,too-many-locals,too-many-branches
+
         deadline = None
         if limit_time:
             deadline = time() + limit_time
@@ -532,11 +543,13 @@ class ASLDSearch:
             if requestsAllowed:
                 if answers > limit_ans:
                     clearLine()
-                    Color.YELLOW.print("Reached the %d-goal-limit (%d)" % (limit_ans, answers))
+                    Color.YELLOW.print("Reached the %d-goal-limit (%d)" % (limit_ans,
+                                                                           answers))
                     requestsAllowed = False
                 if len(self.g) > limit_triples:
                     clearLine()
-                    Color.YELLOW.print("Reached the %d-triples limit (%d)" % (limit_triples, len(self.g)))
+                    Color.YELLOW.print("Reached the %d-triples limit (%d)" % (limit_triples,
+                                                                              len(self.g)))
                     requestsAllowed = False
                 if deadline and time() > deadline:
                     clearLine()
@@ -639,21 +652,25 @@ class ASLDSearch:
                 _t_parallelExpand = _t_end - _t0_parallelExpand
 
                 clearLine()
-                print("[ans:%4d, expansions: %6d] Expanded %3d nodes on %4.2fs" % (answers, self.stats.expansions(), requestsCorrectlyFullfilled, _t_parallelExpand))
+                print("[ans:%4d, expansions: %6d] Expanded %3d nodes on %4.2fs" %
+                      (answers,
+                       self.stats.expansions(),
+                       requestsCorrectlyFullfilled,
+                       _t_parallelExpand)
+                     )
 
         _t_end = time()
         _t_search = time() - _t0_search
 
         clearLine()
         Color.BLUE.print("Search took %4.2fs" % _t_search)
-        Color.GREEN.print("\nOpen was emptied, there are no more paths")
+        print()
+        Color.GREEN.print("Open was emptied, there are no more paths")
         pool.close()
 
     def run(self, parallelRequests=40,
             limit_time=_L_TIME, limit_ans=_L_ANS):
         """Intended only for interactive CLI use"""
-        TERM_SIZE = get_terminal_size((80, 20))  # Update CLI width
-
         r = []
         if self.closed:
             self._setup_search()
@@ -676,11 +693,14 @@ class ASLDSearch:
                     break
 
         except KeyboardInterrupt:
-            Color.BLUE.print("\nTerminating search.")
+            print()
+            Color.BLUE.print("Terminating search.")
         #except Exception as e:
             #Color.RED.print("Terminated Search.run on: %s" % e)
         t = time() - _t0
-        Color.GREEN.print("\nSearch took %.2fs. Gathered %d triples and got back %d paths." % (t, len(self.g), len(r)))
+        Color.GREEN.print("\nSearch took %.2fs. Gathered %d triples and got back %d paths." %
+                          (t,
+                           len(self.g), len(r)))
         return (r, answers, time()-_t0)
 
     @classmethod
@@ -743,7 +763,9 @@ class ASLDSearch:
 
         ans = [ASLDSearch._native_path(path) for path in _ans]
 
-        Color.GREEN.print("\nSearch took %.2fs. Gathered %d triples and got back %d paths." % (t, len(self.g), len(ans)))
+        Color.GREEN.print("\nSearch took %.2fs. Gathered %d triples and got back %d paths." %
+                          (t,
+                           len(self.g), len(ans)))
 
         if DUMP_DATA:
             with open("last-db.json", 'w') as f:

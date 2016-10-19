@@ -43,6 +43,7 @@ parser.add_argument('--alg', metavar='t', type=str, default="a*",
 args = parser.parse_args()
 
 ALGORITHM    = Algorithm.parse(args.alg)
+ALGORITHM_N  = Algorithm.to_string(ALGORITHM)
 w            = args.w
 quick_goal   = not args.slow_goal
 query_number = args.q
@@ -69,6 +70,7 @@ result = {
             "triples": limit_triples,
             "ans":     limit_ans,
         },
+        "algorithm": ALGORITHM_N,
         "parallelRequests": parallel_requests
     },
     "data": data
@@ -84,6 +86,7 @@ try:
         print("Running A* with weight=%d on '%s..." % (w, name))
 
     print("Parameters:")
+    print("  Algorithm:    %s" % ALGORITHM_N)
     print("  Pool Size:    %d" % parallel_requests)
     print("  Limits:")
     print("    Time:    %ds" % limit_time)
@@ -117,16 +120,17 @@ finally:
 
     # Save files
     fileName = results_directory
-    fileName += "last"
+    fileName += "q%d--" % query_number
+    fileName += "%s" % ALGORITHM_N
+    fileName += "-w%d" % w
+    fileName += "-p%d" % parallel_requests
     if quick_goal:
         fileName += "-quickGoal"
     else:
         fileName += "-slowGoal"
-    fileName += "-p%d" % (parallel_requests)
     fileName += "-time%d-ans%d-triples%d" % (limit_time,
                                              limit_ans,
                                              limit_triples)
-    fileName += "---q%d-w%d" % (query_number, w)
     fileName += ".json"
 
     print("Writing log to %s" % fileName)

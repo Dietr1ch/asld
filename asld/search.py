@@ -114,6 +114,17 @@ class Algorithm(Enum):
 
         return Algorithm.AStar
 
+    @classmethod
+    def to_string(cls, alg):
+        """ Alg enum -> string """
+        if alg == Algorithm.AStar:
+            return "AStar"
+        elif alg == Algorithm.Dijkstra:
+            return "Dijkstra"
+        elif alg == Algorithm.DFS:
+            return "DFS"
+
+        return "(Alg)"
 
 class ASLDSearch:
     """
@@ -434,18 +445,18 @@ class ASLDSearch:
         BFS could also be lighter (no tie-breaking), but on the web, CPU use
           is negligible when considering the communication delay.
         """
-        if   self.alg == ASLDSearch.Algorithm.AStar:
+        if   self.alg == Algorithm.AStar:
             # Least f
             # Tie break towards greater g
             k = (ns.g + ns.q.h, -ns.g)
-        elif self.alg == ASLDSearch.Algorithm.Dijkstra:
+        elif self.alg == Algorithm.Dijkstra:
             # Least g
             # Tie break towards lower h
-            k = (ns.g, ns.h)
-        elif self.alg == ASLDSearch.Algorithm.DFS:
+            k = (ns.g, ns.q.h)
+        elif self.alg == Algorithm.DFS:
             # Most g
             # Tie break towards lower h
-            k = (-ns.g, ns.h)
+            k = (-ns.g, ns.q.h)
         self.open.push(k, ns)
 
         if self.quick_goal and ns.isGoal():

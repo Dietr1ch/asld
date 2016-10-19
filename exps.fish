@@ -6,9 +6,10 @@ set timeLimit 3600
 set timeGiven 3700
 set killTime  3800
 
-set -l weights   1 0
 set -l queries   4 8 9 10 12 14 15
 set -l poolSizes 5 10 20 40 80
+set -l algorithms "AStar" "Dijkstra" "DFS"
+set -l weights   1
 
 
 
@@ -27,9 +28,11 @@ mkdir -p  $benchDir
 
 for p in $poolSizes
 	for q in $queries
-		for w in $weights
-			timeout --kill-after $killTime $timeGiven  ./run.py --time $timeLimit  -w $w -q $q --pool-size $p $argv
-		end
+    for w in $weights
+      for a in $algorithms
+        timeout --kill-after $killTime $timeGiven  ./run.py --time $timeLimit  --alg=$a -w $w -q $q --pool-size $p $argv
+      end
+    end
 	end
 end
 

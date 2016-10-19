@@ -21,6 +21,9 @@ SPARQL_ENDPOINTS.add((regex_compile("^http://yago-knowledge.org/resource/.*"),
 SPARQL_ENDPOINTS.add((regex_compile("^https://makemake.ing.puc.cl/resource/.*"),
                       "http://localhost:8890/sparql/"))
 
+DELAY_IRI_REGEX = set()
+DELAY_IRI_REGEX.add(regex_compile("^https://makemake.ing.puc.cl/resource/.*"))
+
 
 # Set up delays
 DELAYS = None
@@ -110,6 +113,26 @@ class ASLDGraph:
                 Color.YELLOW.print("The server's SPARQL endpoint (%s) is unavailable" % endpoint)
         return g
 
+    @classmethod
+    def delay(cls, _t0):
+        """
+        Samples a lower bound on request time and enforces it
+        """
+
+        # pick sample
+        delay_simulated = randint(0, DELAY_MAX)+1
+        delay = bisect_right(DELAYS, delay_simulated)*DELAY_RESOLUTION
+
+        spent_time = time() - _t0
+        wait_time = delay - spent_time
+
+        if wait_time > 0:
+            # wait
+            # print("wating for %5.2fs (%5.2fs)" % (delay, wait_time))
+            sleep(wait_time)
+        else:
+            # no wait was needed
+            print("waiting %7.4fs < spent %7.4fs" % (delay, spent_time))
 
     @classmethod
     def pure_loadB(cls, iri__i__qf):
@@ -138,18 +161,10 @@ class ASLDGraph:
 
         # Simulate network delays (there is no compensation on longer delays)
         if DELAYS:
-            # Pick a sample and wait for it's delay.
-            delay_simulated = randint(0, DELAY_MAX)+1
-            delay = bisect_right(DELAYS, delay_simulated)*DELAY_RESOLUTION
-
-            spent_time = time() - _t0
-            wait_time = delay - spent_time
-
-            if wait_time > 0:
-                # print("wating for %5.2fs (%5.2fs)" % (delay, wait_time))
-                sleep(wait_time)
-            else:
-                print("waiting %7.4fs < spent %7.4fs" % (delay, spent_time))
+            for r in DELAY_IRI_REGEX:
+                if r.match(iri):
+                    ASLDGraph.delay(_t0)
+                    break
 
 
         return ASLDGraph.RequestAnswer(g, iri, i, time()-_t0)

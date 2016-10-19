@@ -8,7 +8,7 @@ import argparse
 from pprint import pprint
 from json import dump
 
-from asld.search import ASLDSearch
+from asld.search import ASLDSearch, Algorithm
 from asld.sample_queries import automatons
 
 from asld.utils.color_print import Color
@@ -37,8 +37,12 @@ parser.add_argument('--ans', metavar='a', type=int, default=1e3,
 parser.add_argument('--triples', metavar='s', type=int, default=1e5,
                     help='Triples limit')
 
+parser.add_argument('--alg', metavar='t', type=str, default="a*",
+                    help='A* | Dijkstra | BFS | DFS')
+
 args = parser.parse_args()
 
+ALGORITHM    = Algorithm.parse(args.alg)
 w            = args.w
 quick_goal   = not args.slow_goal
 query_number = args.q
@@ -87,7 +91,7 @@ try:
     print("    Triples: %d"  % limit_triples)
 
     # Run search
-    search = ASLDSearch(query(w=w), quick_goal=quick_goal)
+    search = ASLDSearch(query(w=w), quick_goal=quick_goal, alg=ALGORITHM)
 
     data = search.test(parallel_requests,
                        limit_time    = limit_time,

@@ -11,6 +11,7 @@ from copy import copy
 from time import time
 from shutil import get_terminal_size
 from json import dump
+from enum import Enum
 
 import psutil
 
@@ -81,6 +82,37 @@ def valid_node(node):
     c = node.__class__
     return c is URIRef  or  c is Literal  or  c is BNode
 
+
+
+class Algorithm(Enum):
+    """
+    Sets up the algorithm used for the search
+    """
+    AStar    = 0
+    Dijkstra = 1
+    DFS      = 2
+
+    @classmethod
+    def parse(cls, alg: str):
+        """
+        String -> Algorithm enum
+        """
+        alg = alg.lower()
+
+        if alg == "a*":
+            return Algorithm.AStar
+        elif "astar".startswith(alg):
+            return Algorithm.AStar
+
+        elif "dijkstra".startswith(alg):
+            return Algorithm.Dijkstra
+        elif "bfs".startswith(alg):
+            return Algorithm.Dijkstra
+
+        elif "dfs".startswith(alg):
+            return Algorithm.DFS
+
+        return Algorithm.AStar
 
 
 class ASLDSearch:
@@ -295,11 +327,15 @@ class ASLDSearch:
 
 
 
-    def __init__(self, queryAutomaton: Query, quick_goal=True):
+    def __init__(self, queryAutomaton: Query, quick_goal=True, alg=Algorithm.AStar):
+        # Search setup
         self.query = queryAutomaton
         self.g = None
         self.stats = None
         self._reset()
+
+        # Options
+        self.alg = alg
         self.quick_goal = quick_goal
 
         # Search
@@ -387,8 +423,29 @@ class ASLDSearch:
 
 
     def _enqueue(self, ns):
-        # Put cns on open
-        k = (ns.g + ns.q.h, -ns.g)
+        """
+        Adds a NodeState to Open
+
+        This function sets the priority used which defines the algorithm's
+          behavior.
+
+        DFS can be implemented with only a stack, but loop prevention requires
+          similar overhead.
+        BFS could also be lighter (no tie-breaking), but on the web, CPU use
+          is negligible when considering the communication delay.
+        """
+        if   self.alg == ASLDSearch.Algorithm.AStar:
+            # Least f
+            # Tie break towards greater g
+            k = (ns.g + ns.q.h, -ns.g)
+        elif self.alg == ASLDSearch.Algorithm.Dijkstra:
+            # Least g
+            # Tie break towards lower h
+            k = (ns.g, ns.h)
+        elif self.alg == ASLDSearch.Algorithm.DFS:
+            # Most g
+            # Tie break towards lower h
+            k = (-ns.g, ns.h)
         self.open.push(k, ns)
 
         if self.quick_goal and ns.isGoal():

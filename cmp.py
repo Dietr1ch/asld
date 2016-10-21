@@ -39,9 +39,9 @@ parser.add_argument('--png', dest='extension', action='store_const',
 colors = ["red", "blue", "green"]
 labels = ["Dijkstra", "A*"]
 STYLE = {
-    "AStar":    ("green",  "dotted"),
-    "Dijkstra": ("red",    "dotted"),
-    "DFS":      ("blue",   "dotted"),
+    "AStar":    ("green",  "-"),
+    "Dijkstra": ("red",    "--"),
+    "DFS":      ("blue",   ":"),
 
     # Default style
     "":         ("black",  "dotted"),
@@ -55,6 +55,9 @@ plotDataKeys  = args.data
 x = args.x
 if x:
     x = x[0]
+else:
+    x = "remote_expansions"
+
 showPlot = not args.no_show
 plotExt = args.extension
 
@@ -144,9 +147,9 @@ def sample_runs(runs, marks):
             print()
             Color.GREEN.print("Looking for marks on (%s)" % alg)
             for snap in run["data"]["StatsHistory"]:
-                goalsFound = snap["goalsFound"]
+                goals_found = snap["goals_found"]
 
-                while marks and goalsFound>=marks[-1]:
+                while marks and goals_found>=marks[-1]:
                     mark = marks.pop()
 
                     print("  %d-goals:  " % mark, end="")
@@ -166,17 +169,47 @@ def sample_runs(runs, marks):
         print()
 
 
+def use_last_x(hist, xKey, yKey):
+    """
+    Trims points where x-value is unchanged'
+    """
+    xs = [h[xKey] for h in hist]
+    ys = [h[yKey] for h in hist]
+
+    last_x = xs[0]
+    last_y = ys[0]
+    fx = [last_x]
+    fy = [last_y]
+
+    for (_x, _y) in zip(xs, ys):
+        if _x == last_x:
+            fx[-1] = _x
+            fy[-1] = _y
+        else:
+            fx.append(_x)
+            fy.append(_y)
+
+        last_x = _x
+        last_y = _y
+
+    if len(xs) != len(fx):
+        print("Trimmed %d %s snapshots" % ((len(xs) - len(fx)), xKey))
+
+    return (fx, fy)
+
+
 def plot_runs(runs):
     """
     (=
     """
-    xLabel = "expansions"
+    xLabel = "remote_expansions"
     if x:
         xLabel = x
 
     # Get some run
     first_run = next(iter(runs.values()))
 
+    weight    = first_run["weight"]
     queryName = first_run["query"]
     quickGoal = first_run["quickGoal"]
     pool_size = first_run["params"]["parallelRequests"]
@@ -191,13 +224,15 @@ def plot_runs(runs):
         "algorithm":         "Algorithm used",
         "requestTotalTime":  "Total network time",
         "triples":           "Triples on DB",
-        "goalsFound":        "Answers",
+        "goals_found":        "Answers",
         "requestTime":       "Last Request Time",
         "requestTriples":    "Last Request Triples",
         "wallClock":         "Time (s)",
         "memory":            "Memory (MB)",
         "requestIRI":        "Last IRI",
         "expansions":        "Expansions",
+        "local_expansions":  "Local expansions",
+        "remote_expansions": "Requests",
         "batchID":           "Batch Number"
     }
 
@@ -212,18 +247,14 @@ def plot_runs(runs):
                 style = STYLE[""]
                 if alg in STYLE.keys():
                     style = STYLE[alg]
-                (color, _) = style
+                (color, line_style) = style
 
                 Color.GREEN.print("  * %8s: %s" % (alg, color))
 
-                label = alg+""
+                alg_label = "%s-%dp-%dw" % (alg, pool_size, weight)
                 hist = run["data"]["StatsHistory"]
-                yData = [h[pdk] for h in hist]
-                if x:
-                    xData = [h[x] for h in hist]
-                    plot(xData, yData, color=color, label=label)
-                else:
-                    plot(yData, color=color, label=label)
+                (xData, yData) = use_last_x(hist, x, pdk)
+                plot(xData, yData, line_style, color=color, label=alg_label)
 
             xlabel(pLab[xLabel], fontsize=18)
             ylabel(pLab[yLabel], fontsize=16)
@@ -258,11 +289,16 @@ plot_runs(RUNS)
 
 
 if KEY_ERRORS:
+    # Get some run
+    first_run = next(iter(RUNS.values()))
+
+    # Get available keys
     Color.RED.print("Invalid keys")
-    validKeys = RUNS[0]["data"]["StatsHistory"][0].keys()
-    for ik in [k for k in plotDataKeys if k not in validKeys]:
+    valid_keys = first_run["data"]["StatsHistory"][0].keys()
+
+    for ik in [k for k in plotDataKeys if k not in valid_keys]:
         Color.RED.print("  * %s" % ik)
 
     Color.YELLOW.print("Available keys:")
-    for k in validKeys:
+    for k in valid_keys:
         Color.YELLOW.print("  * %s" % k)

@@ -22,30 +22,27 @@ mkdir -p bench/old
 mv bench/last/* bench/old/
 
 
-# Create new directory to hold results
-set benchDir "bench/"(date -Iseconds)"/"
-mkdir -p  $benchDir
+set benchDir "bench/"(date -Iseconds)
 
 for p in $poolSizes
 	for q in $queries
-    for w in $weights
-      for a in $algorithms
-        timeout --kill-after $killTime $timeGiven  ./run.py --time $timeLimit  --alg=$a -w $w -q $q --pool-size $p $argv
-      end
-    end
+		for w in $weights
+			for a in $algorithms
+				timeout --kill-after $killTime $timeGiven  ./run.py --time $timeLimit  --alg=$a -w $w -q $q --pool-size $p $argv
+			end
+		end
 	end
 end
 
 # Move all the output to the new directory
-mv bench/last/* $benchDir
+mv bench/last/ $benchDir
 
 
 
 # Run analysis
 # ============
-if xset -q > /dev/null ^ /dev/null
-  # If X server is reachable, make graphs
-  ./analyze.fish $benchDir/*/*/*
+if xset -q > /dev/null ^ /dev/null;  and ./analyze.fish $benchDir/*/*/*
+  echo "Graphs ready"
 else
   echo "Please run ./analyze.fish $benchDir/*/*/*"
 end

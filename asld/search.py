@@ -247,9 +247,11 @@ class ASLDSearch:
                 # Search
                 self.goals = 0       # Goals found
                 self.expansions = 0  # Expansions done
+                self.local_expansions = 0
+                self.remote_expansions = 0
 
                 # DB
-                self.triples = 0     # Triples on the Main DB
+                self.triples = 0  # Triples on the Main DB
 
                 # Last request
                 self.requestTriples = 0
@@ -269,13 +271,16 @@ class ASLDSearch:
                 Returns the json object representation of the Snapshot
                 """
                 return {
+
                     "wallClock": self.wallClock,
                     "batchID": self.batch,
 
                     "memory": self.memory,
 
-                    "goalsFound": self.goals,
+                    "goals_found": self.goals,
                     "expansions": self.expansions,
+                    "local_expansions": self.local_expansions,
+                    "remote_expansions": self.remote_expansions,
 
                     "triples": self.triples,
 
@@ -323,9 +328,13 @@ class ASLDSearch:
             """Count another batch"""
             self.status.batch += 1
 
-        def expand(self, iri, lG, t):
+        def expand(self, iri, lG, t, local):
             """ Marks an expansion """
             self.status.expansions += 1
+            if local:
+                self.status.local_expansions += 1
+            else:
+                self.status.remote_expansions += 1
             self.status.requestIRI = str(iri)
             self.status.requestTriples = lG
             self.status.requestTime = t
@@ -452,15 +461,18 @@ class ASLDSearch:
         elif self.alg == Algorithm.Dijkstra:
             # Least g
             # Tie break towards lower h
-            k = (ns.g, ns.q.h)
+            #k = (ns.g, ns.q.h)
+            k = (ns.g, 0)
         elif self.alg == Algorithm.DFS:
             # Most g
             # Tie break towards lower h
-            k = (-ns.g, ns.q.h)
-        self.open.push(k, ns)
+            #k = (-ns.g, ns.q.h)
+            k = (-ns.g, 0)
 
         if self.quick_goal and ns.isGoal():
             return ns
+
+        self.open.push(k, ns)
         return None
 
     def _reach(self, ns, P, cN,cQ, t, d):
@@ -651,7 +663,8 @@ class ASLDSearch:
                         self.stats.goal()
                         yield ASLDSearch.getPath(g)
 
-                    self.stats.expand(ns.n, 0, time()-_t0_localExpand)
+                    #assert ns in self.g.loaded, "%s was already loaded." % ns
+                    self.stats.expand(ns.n, 0, time()-_t0_localExpand, local=True)
 
                 _t_end = time()
                 _t_localExpansions = _t_end - _t0_localExpansions
@@ -683,7 +696,7 @@ class ASLDSearch:
                     iri = reqAns.iri
                     ns = netNodes[reqAns.index]
                     assert ns not in self.g.loaded, "%s was already loaded." % ns
-                    self.stats.expand(iri, len(reqGraph), t)
+                    self.stats.expand(iri, len(reqGraph), t, local=False)
 
 
                     # Report progress

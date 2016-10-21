@@ -27,6 +27,7 @@ from asld.utils.color_print import Color
 from asld.utils.async_timeout_pool import AsyncTimeOutPool
 
 
+INFTY = float("inf")
 
 DUMP_DATA = True
 
@@ -395,7 +396,7 @@ class ASLDSearch:
         Shift heuristic to avoid computing best children on every expansion
         """
         for s in self.query.states.values():
-            h = float("inf")
+            h = INFTY
 
             # pylint: disable=protected-access
             for ns in s._next():
@@ -469,10 +470,13 @@ class ASLDSearch:
             #k = (-ns.g, ns.q.h)
             k = (-ns.g, 0)
 
+        if ns.q.h < INFTY:
+            # quick_goal marks useless expansions with h=INFTY
+            self.open.push(k, ns)
+
         if self.quick_goal and ns.isGoal():
             return ns
 
-        self.open.push(k, ns)
         return None
 
     def _reach(self, ns, P, cN,cQ, t, d):

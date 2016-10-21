@@ -99,14 +99,16 @@ class ASLDGraph:
                             try:
                                 S = URIRef(result["s"]["value"])
                                 P = URIRef(result["p"]["value"])
-                                O = URIRef(result["o"]["value"])
+                                O =       (result["o"]["value"])
+                                if O.startswith("http"):
+                                    O = URIRef(O)
                                 g.add((S, P, O))
                             except:
                                 pass
                         return g
 
                     except Exception as e:
-                        Color.RED.print("Query failed '%s'" % e)
+                        Color.RED.print("SPARQL Query failed '%s'" % e)
 
                 #pylint: disable=line-too-long
                 Color.RED.print("SPARQL Request '%s%s" % (Color.GREEN(queryString), Color.RED("' failed")))

@@ -7,7 +7,7 @@ set timeGiven 3700
 set killTime  3800
 
 set -l queries   4 8 9 10 12 14 15
-set -l poolSizes 5 10 20 40 80
+set -l poolSizes 1 3 5 10 20 40 80
 set -l algorithms "AStar" "Dijkstra" "DFS"
 set -l weights   1
 
@@ -43,5 +43,9 @@ mv bench/last/* $benchDir
 
 # Run analysis
 # ============
-#                bench/E/q/p/s
-./analyze.fish $benchDir/*/*/*
+if xset -q > /dev/null ^ /dev/null
+  # If X server is reachable, make graphs
+  ./analyze.fish $benchDir/*/*/*
+else
+  echo "Please run ./analyze.fish $benchDir/*/*/*"
+end

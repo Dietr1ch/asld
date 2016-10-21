@@ -46,13 +46,14 @@ owl_same_as = OWL["sameAs"]
 
 
 # DBLP Authors
-mArenas       = DBLP_Authors["Marcelo_Arenas"     ]
-jBaier        = DBLP_Authors["Jorge_A._Baier"     ]
-mStonebraker  = DBLP_Authors["Michael_Stonebraker"]
-jReutter      = DBLP_Authors["Juan_L._Reutter"    ]
-cRiveros      = DBLP_Authors["Cristian_Riveros"   ]
-aSoto         = DBLP_Authors["Adri%C3%A1n_Soto"   ]
-dVroc         = DBLP_Authors["Domagoj_Vrgoc"      ]
+mArenas       = DBLP_Authors["Marcelo_Arenas"      ]
+jBaier        = DBLP_Authors["Jorge_A._Baier"      ]
+mStonebraker  = DBLP_Authors["Michael_Stonebraker" ]
+jReutter      = DBLP_Authors["Juan_L._Reutter"     ]
+cRiveros      = DBLP_Authors["Cristian_Riveros"    ]
+aSoto         = DBLP_Authors["Adri%C3%A1n_Soto"    ]
+mUgarte       = DBLP_Authors["Ugarte-Mart=iacute=n"]
+dVroc         = DBLP_Authors["Domagoj_Vrgoc"       ]
 
 # LMDB Movies
 mysticRiver = LMDB_Films["942"]
@@ -485,7 +486,7 @@ def qBerlin_YAGO(n=DBR["Berlin"], w=1):
 
 
 # Crossing
-# ----
+# --------
 def CoActorStar_YAGO_DBpedia(n=YAGO["Kevin_Bacon"], w=1):
     acted_in = set()
     acted_in.add(YAGO["actedIn"])
@@ -520,6 +521,41 @@ def CoActorStar_YAGO_DBpedia(n=YAGO["Kevin_Bacon"], w=1):
     return b.build(w)
 
 
+# Easy
+# ----
+def CoAuth_easy(n=dVroc, w=1):
+    """
+    """
+    # Works
+    b = QueryBuilder(n, "Author")
+    b.frm("Author").through(DC["creator"]).backwards_to("Paper")
+    b.frm("Paper").through(DC["creator"]).final("CoAuth", NodeFilter_but(n))
+
+    a = b.build(w)
+    assert a.states["Author"].h == 2*w
+    assert a.states["Paper"].h  == 1*w
+    assert a.states["CoAuth"].h == 0*w
+    return a
+
+
+def CoAuth_name_easy(n=dVroc, w=1):
+    """
+    """
+    # Works
+    b = QueryBuilder(n, "Author")
+    b.frm("Author").through(DC["creator"]).backwards_to("Paper")
+    b.frm("Paper").through(DC["creator"]).to("CoAuth", NodeFilter_but(n))
+
+    b.frm("CoAuth").through(NAME).final("Name")
+
+    a = b.build(w)
+    assert a.states["Author"].h == 3*w
+    assert a.states["Paper"].h  == 2*w
+    assert a.states["CoAuth"].h == 1*w
+    assert a.states["Name"].h   == 0*w
+    return a
+
+
 automatons = [
     (Name,                         "Node_name"),                      # 0
     (Journals,                     "Journal_papers"),                 # 1
@@ -543,7 +579,9 @@ automatons = [
     (forward_discovery,            "forward_discovery"),              #19  *
     (forward_discovery3,           "forward_discovery3"),             #20  *
     (qBerlin_DBpedia,              "qBerlin_DBpedia"),                #21  *
-    (CoActorStar_YAGO_DBpedia,     "CoActorStar_YAGO_DBPedia")        #22  *
+    (CoActorStar_YAGO_DBpedia,     "CoActorStar_YAGO_DBPedia"),       #22  *
+    (CoAuth_easy,                  "Coauth_easy"),                    #23  --
+    (CoAuth_name_easy,             "Coauth_name_easy")                #24  --
 ]
 
 

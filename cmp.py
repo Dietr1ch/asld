@@ -188,17 +188,17 @@ def plot_runs(runs):
     srcPath = os.path.dirname(os.path.realpath(jsonFiles[0]))
 
     pLab = {
-        "algorithm": "Algorithm used",
-        "requestTotalTime": "Total network time",
-        "triples": "Triples on DB",
-        "goalsFound": "Answers",
-        "requestTime": "Last Request Time",
-        "requestTriples": "Last Request Triples",
-        "wallClock": "Time (s)",
-        "memory": "Memory (MB)",
-        "requestIRI": "Last IRI",
-        "expansions": "Expansions",
-        "batchID": "Batch Number"
+        "algorithm":         "Algorithm used",
+        "requestTotalTime":  "Total network time",
+        "triples":           "Triples on DB",
+        "goalsFound":        "Answers",
+        "requestTime":       "Last Request Time",
+        "requestTriples":    "Last Request Triples",
+        "wallClock":         "Time (s)",
+        "memory":            "Memory (MB)",
+        "requestIRI":        "Last IRI",
+        "expansions":        "Expansions",
+        "batchID":           "Batch Number"
     }
 
 

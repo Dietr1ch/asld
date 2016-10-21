@@ -30,8 +30,8 @@ parser.add_argument('--pool-size', metavar='p', type=int, default=40,
                     help='Process pool size to use')
 
 # Search limits
-parser.add_argument('--time', metavar='t', type=int, default=30*60,
-                    help='Time limit')
+parser.add_argument('--time', metavar='t', type=int, default=10*60,
+                    help='Time limit [s]')
 parser.add_argument('--ans', metavar='a', type=int, default=1e3,
                     help='Answer limit')
 parser.add_argument('--triples', metavar='s', type=int, default=1e5,

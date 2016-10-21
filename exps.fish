@@ -2,9 +2,9 @@
 
 # Setup
 # =====
-set timeLimit 3600
-set timeGiven 3700
-set killTime  3800
+set timeLimit 620
+set timeGiven 660
+set killTime  700
 
 set -l queries   4 8 9 10 12 14 15
 set -l poolSizes 1 3 5 10 20 40 80

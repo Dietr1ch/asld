@@ -57,88 +57,87 @@ limit_triples = args.triples
 (query, name) = automatons[query_number]
 
 
-# Run query
-# =========
-data = None
-result = {
-    "query": name,
-    "weight": w,
-    "quickGoal": quick_goal,
-    "params": {
-        "limits": {
-            "time":    limit_time,
-            "triples": limit_triples,
-            "ans":     limit_ans,
+if query is None:
+    print("Review the query number")
+else:
+    # Run query
+    # =========
+    data = None
+    result = {
+        "query": name,
+        "params": {
+            "limits": {
+                "time":    limit_time,
+                "triples": limit_triples,
+                "ans":     limit_ans,
+            },
+            "algorithm":        ALGORITHM_N,
+            "parallelRequests": parallel_requests,
+            "quickGoal":        quick_goal,
+            "weight":           w
         },
-        "algorithm": ALGORITHM_N,
-        "parallelRequests": parallel_requests
-    },
-    "data": data
-}
+        "data": data
+    }
 
-try:
-    if w==0:
-        print("Running BFS (Dijkstra) on '%s'..." % name)
-    elif w==1:
-        print("Running A* on '%s'..." % name)
-    else:
-        # Just for completeness
-        print("Running A* with weight=%d on '%s..." % (w, name))
+    try:
+        print("Solving %s..." % name)
 
-    print("Parameters:")
-    print("  Algorithm:    %s" % ALGORITHM_N)
-    print("  Pool Size:    %d" % parallel_requests)
-    print("  Limits:")
-    print("    Time:    %ds" % limit_time)
-    print("    Answers: %d"  % limit_ans)
-    print("    Triples: %d"  % limit_triples)
+        print("Parameters:")
+        print("  Algorithm:      %s" % ALGORITHM_N)
+        print("  Quick-Goal:     %s" % quick_goal)
+        print("  Weight:         %d" % w)
+        print("  Pool Size:      %d" % parallel_requests)
+        print("  Limits:")
+        print("    Time:    %ds" % limit_time)
+        print("    Answers: %d"  % limit_ans)
+        print("    Triples: %d"  % limit_triples)
 
-    # Run search
-    search = ASLDSearch(query(w=w), quick_goal=quick_goal, alg=ALGORITHM)
+        # Run search
+        search = ASLDSearch(query(w=w), quick_goal=quick_goal, alg=ALGORITHM)
 
-    data = search.test(parallel_requests,
-                       limit_time    = limit_time,
-                       limit_ans     = limit_ans,
-                       limit_triples = limit_triples)
-    result["data"] = data
+        data = search.test(parallel_requests,
+                           limit_time    = limit_time,
+                           limit_ans     = limit_ans,
+                           limit_triples = limit_triples)
+        result["data"] = data
 
 
-except KeyboardInterrupt:
-    Color.BLUE.print("\nTerminating search.")
+    except KeyboardInterrupt:
+        Color.BLUE.print("\nTerminating search.")
 
-finally:
-    # Make sub-directory
-    results_directory = "bench/last/"
-    results_directory += "q%d/" % query_number
+    finally:
+        # Make sub-directory
+        results_directory = "bench/last/"
+        results_directory += "q%d/" % query_number
 
-    results_directory += "p%d/" % parallel_requests
-    if quick_goal:
-        results_directory += "quick/"
-    else:
-        results_directory += "slow/"
-    os.makedirs(results_directory, mode=0o777, exist_ok=True)
+        results_directory += "p%d/" % parallel_requests
+        if quick_goal:
+            results_directory += "quick/"
+        else:
+            results_directory += "slow/"
+        os.makedirs(results_directory, mode=0o777, exist_ok=True)
 
-    # Save files
-    fileName = results_directory
-    fileName += "q%d--" % query_number
-    fileName += "%s" % ALGORITHM_N
-    fileName += "-w%d" % w
-    fileName += "-p%d" % parallel_requests
-    if quick_goal:
-        fileName += "-quickGoal"
-    else:
-        fileName += "-slowGoal"
-    fileName += "-time%d-ans%d-triples%d" % (limit_time,
-                                             limit_ans,
-                                             limit_triples)
-    fileName += ".json"
+        # Save files
+        fileName = results_directory
+        fileName += "q%d--" % query_number
+        fileName += "%s" % ALGORITHM_N
+        fileName += "-w%d" % w
+        fileName += "-p%d" % parallel_requests
+        if quick_goal:
+            fileName += "-quickGoal"
+        else:
+            fileName += "-slowGoal"
+        fileName += "-time%d-ans%d-triples%d" % (limit_time,
+                                                 limit_ans,
+                                                 limit_triples)
+        fileName += ".json"
 
-    print("Writing log to %s" % fileName)
-    with open(fileName, 'w') as f:
-        dump(result, f, indent=2)
+        print("Writing log to %s" % fileName)
+        with open(fileName, 'w') as f:
+            dump(result, f, indent=2)
 
-    if data:
-        stats = data["StatsHistory"]
-        if stats:
-            Color.BLUE.print("Last stats:")
-            pprint(stats[-1])
+        if data:
+            stats = data["StatsHistory"]
+            if stats:
+                Color.BLUE.print("Last stats:")
+                pprint(stats[-1])

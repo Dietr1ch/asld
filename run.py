@@ -54,7 +54,7 @@ limit_time    = args.time
 limit_ans     = args.ans
 limit_triples = args.triples
 
-(query, name) = automatons[query_number]
+(query, query_name) = automatons[query_number]
 
 
 if query is None:
@@ -64,7 +64,7 @@ else:
     # =========
     data = None
     result = {
-        "query": name,
+        "query": query_name,
         "params": {
             "limits": {
                 "time":    limit_time,
@@ -80,7 +80,7 @@ else:
     }
 
     try:
-        print("Solving %s..." % name)
+        print("Solving %s..." % query_name)
 
         print("Parameters:")
         print("  Algorithm:      %s" % ALGORITHM_N)
@@ -108,7 +108,7 @@ else:
     finally:
         # Make sub-directory
         results_directory = "bench/last/"
-        results_directory += "q%d/" % query_number
+        results_directory += "q%d-%s/" % (query_number, query_name)
 
         results_directory += "p%d/" % parallel_requests
         if quick_goal:

@@ -70,7 +70,8 @@ DIRECTOR.add(DBO["director"])
 DIRECTOR.add(LMDB_Movie["director"])
 
 # TODO: Director (YAGO)
-DIRECTED_BY=set()
+IS_DIRECTOR=set()
+IS_DIRECTOR.add(LMDB_Movie["director"])
 
 
 # Queries
@@ -229,7 +230,7 @@ def movies_by_coactor_ANY(n=kBacon, w=1):
     b.frm("Movie").through(ACTED_IN).backwards_to("CoActor", NodeFilter_but(n))
     b.frm("Movie").through(ACTOR).to(             "CoActor")
 
-    b.frm("CoActor").through(DIRECTOR).backwards_to("Directed_Movie")
+    b.frm("CoActor").through(IS_DIRECTOR).backwards_to("Directed_Movie")
 
     b.frm("Directed_Movie").through(NAME).final("Name")
 
@@ -252,7 +253,7 @@ def movies_by_coactor_star_ANY(n=kBacon, w=1):
     b.frm("CoActor").through(ACTOR).backwards_to("Movie")
 
     # CoActor => Directed_Movie
-    b.frm("CoActor").through(DIRECTOR).backwards_to("Directed_Movie")
+    b.frm("CoActor").through(IS_DIRECTOR).backwards_to("Directed_Movie")
 
     # Directed_Movie -> name
     b.frm("Directed_Movie").through(NAME).final("Name")
@@ -330,7 +331,7 @@ automatons = [
     (journals,                     "Journals"),                #11
     (conferences,                  "Conferences"),             #12
     (coauthors,                    "Direct_Coauthors"),        #13
-    (coauthors_star_IRI,           "CoauthorStar_IRI"),        #14
+    (coauthors_star_IRI,           "CoauthorStar_IRI"),        #14 ** IRIs of Stonebraker's coauthors*
     (coauthors_star,               "CoauthorStar"),            #15
     (None, ""),                                                #16
     (None, ""),                                                #17
@@ -341,9 +342,9 @@ automatons = [
     (coactor_star__DBPEDIA,        "CoactorStar__DBPEDIA"),    #20
     (coactor_star__LMDB,           "CoactorStar__LMDB"),       #21
     (coactor_star_IRI__YAGO,       "CoactorStar_IRI__YAGO"),   #22
-    (coactor_star_sameAs_ANY,      "CoactorStar__ANY"),        #23
+    (coactor_star_sameAs_ANY,      "CoactorStar__ANY"),        #23 ** Names of actors with Bacon-number across the Internet
     (movies_by_coactor_ANY,        "Coactor_movies__ANY"),     #24
-    (movies_by_coactor_star_ANY,   "CoactorStar__ANY"),        #25
+    (movies_by_coactor_star_ANY,   "CoactorStar__ANY"),        #25 ** Directors having Bacon-number
     (None, ""),                                                #26
     (None, ""),                                                #27
     (None, ""),                                                #28

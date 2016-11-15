@@ -201,9 +201,11 @@ def coactor_star_IRI__YAGO(n=YAGO["Kevin_Bacon"], w=1):
     return b.build(w)
 
 
-def coactor_star_sameAs_ANY(n=kBacon, w=1):
+def coactor_star_sameAs_ANY(n=YAGO["Kevin_Bacon"], w=1):
     """Coactor* (sameAs)"""
     b = QueryBuilder(n, "Actor")
+    b.frm("Actor").loop(SAME_AS)
+
     b.frm("Actor").through(ACTED_IN).to(       "Movie")
     b.frm("Actor").through(ACTOR).backwards_to("Movie")
 
@@ -221,7 +223,7 @@ def coactor_star_sameAs_ANY(n=kBacon, w=1):
     return b.build(w)
 
 
-def movies_by_coactor_ANY(n=kBacon, w=1):
+def movies_by_coactor_ANY(n=YAGO["Kevin_Bacon"], w=1):
     """Movies by coactor"""
     b = QueryBuilder(n, "Actor")
     b.frm("Actor").through(ACTED_IN).to(       "Movie")
@@ -237,7 +239,7 @@ def movies_by_coactor_ANY(n=kBacon, w=1):
     return b.build(w)
 
 
-def movies_by_coactor_star_ANY(n=kBacon, w=1):
+def movies_by_coactor_star_ANY(n=YAGO["Kevin_Bacon"], w=1):
     """Movies by coactor"""
     b = QueryBuilder(n, "Actor")
     # Actor   => Movie

@@ -97,7 +97,6 @@ def Dereference(n=mStonebraker, w=1):
 def publications(n=mStonebraker, w=1):
     """Publications by an author"""
     b = QueryBuilder(n, "Author")
-    b.frm("Root").through("").final("Data")
     b.frm("Author").through(DC.creator).backwards_to("Paper")
 
     b.frm("Paper").through(NAME).final("Title")
@@ -162,7 +161,7 @@ def coauthors_star(n=mStonebraker, w=1):
 
 
 # Acting
-def coactor_star_DBPEDIA(n=DBR["Kevin_Bacon"], w=1):
+def coactor_star__DBPEDIA(n=DBR["Kevin_Bacon"], w=1):
     """Coactor* (dbPedia)"""
     b = QueryBuilder(n, "Actor")
     b.frm("Actor").through(DBO["starring"]).backwards_to("Movie")
@@ -175,7 +174,7 @@ def coactor_star_DBPEDIA(n=DBR["Kevin_Bacon"], w=1):
     return b.build(w)
 
 
-def coactor_star_LMDB(n=kBacon, w=1):
+def coactor_star__LMDB(n=kBacon, w=1):
     """Coactor* (LMDB)"""
     b = QueryBuilder(n, "Actor")
     b.frm("Actor").through(LMDB_Movie["actor"]).backwards_to("Movie")
@@ -188,14 +187,15 @@ def coactor_star_LMDB(n=kBacon, w=1):
     return b.build(w)
 
 
-def coactor_star_YAGO(n=YAGO["Kevin_Bacon"], w=1):
+def coactor_star_IRI__YAGO(n=YAGO["Kevin_Bacon"], w=1):
     """Coactor* (YAGO)"""
     b = QueryBuilder(n, "Actor")
     b.frm("Actor").through(ACTED_IN).to("Movie")
-    b.frm("Movie").through(ACTED_IN).backwards_to("CoActor", NodeFilter_but(n))
+    b.frm("Movie").through(ACTED_IN).backwards_final("CoActor", NodeFilter_but(n))
     b.frm("CoActor").through(ACTED_IN).to("Movie")
 
-    b.frm("CoActor").through(NAME).final("Name")
+    #b.frm("CoActor").loop(SAME_AS)  # YAGO has no foaf:name or rdfs:label
+    #b.frm("CoActor").through(NAME).final("Name")
 
     return b.build(w)
 
@@ -338,10 +338,10 @@ automatons = [
     (None, ""),                                                #19
 
     # Acting
-    (coactor_star_DBPEDIA,         "CoactorStar__DBPEDIA"),    #20
-    (coactor_star_LMDB,            "CoactorrStar__LMDB"),      #21
-    (coactor_star_YAGO,            "CoactorrStar__YAGO"),      #22
-    (coactor_star_sameAs_ANY,      "CoactorrStar__ANY"),       #23
+    (coactor_star__DBPEDIA,        "CoactorStar__DBPEDIA"),    #20
+    (coactor_star__LMDB,           "CoactorStar__LMDB"),       #21
+    (coactor_star_IRI__YAGO,       "CoactorStar_IRI__YAGO"),   #22
+    (coactor_star_sameAs_ANY,      "CoactorStar__ANY"),        #23
     (movies_by_coactor_ANY,        "Coactor_movies__ANY"),     #24
     (movies_by_coactor_star_ANY,   "CoactorStar__ANY"),        #25
     (None, ""),                                                #26

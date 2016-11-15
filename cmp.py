@@ -99,7 +99,7 @@ def validate_runs(runs):
     limit_time    = set()
     for run in runs.values():
         queryName.add(    run["query"])
-        quickGoal.add(    run["quickGoal"])
+        quickGoal.add(    run["params"]["quickGoal"])
         pool_size.add(    run["params"]["parallelRequests"])
 
         limit_ans.add(    run["params"]["limits"]["ans"])
@@ -138,7 +138,11 @@ def sample_runs(runs, marks):
         print("No samples given")
         return
 
-    for (alg, run) in runs.items():
+
+    algorithms = [k for k in runs.keys()]
+    algorithms.sort()
+    for alg in algorithms:
+        run = runs[alg]
         try:
             hist = run["data"]["StatsHistory"]
             Color.BLUE.print(" -last %s log: %s" % (alg, hist[-1]))
@@ -198,6 +202,41 @@ def use_last_x(hist, xKey, yKey):
     return (fx, fy)
 
 
+TITLE = {
+    # Easy
+    "Node_name":        "Node name",
+    "Dereference":      "Gather node",
+
+
+    # Authorship
+    "Publications":     "Publications",
+    "Journals":         "Journals",
+    "Conferences":      "Conferences",
+    "Direct_Coauthors": "Coauthors",
+    "CoauthorStar_IRI": "Coauthor* (IRIs)",
+    "CoauthorStar":     "Coauthor* Names",
+
+
+    # Acting
+    "CoactorStar__DBPEDIA":  "Coactor* [dbPedia]",
+    "CoactorStar__LMDB":     "Coactor* [LMDB]",
+    "CoactorStar_IRI__YAGO": "Coactor* IRIs [YAGO]",
+    "CoactorStar__ANY":      "Coactor* [dbPedia/LMDB/YAGO]",
+    "Coactor_movies__ANY":   "Movies directed by coactor* [dbPedia/LMDB/YAGO]",
+    "CoactorStar__ANY":      "Movies directed by coactor* [dbPedia/LMDB/YAGO]",
+
+
+    # Gubichev's queries
+    "NATO_Business":           "NATO Business [Gubichev]",
+    "EuropeCapitals":          "Europe Capitals  [Gubichev]",
+    "AirportsInNetherlands":   "Airports in the Netherlads [Gubichev]",
+
+
+    "":    "(empty)",
+    None:  "(None)"
+}
+
+
 def plot_runs(runs):
     """
     (=
@@ -209,9 +248,9 @@ def plot_runs(runs):
     # Get some run
     first_run = next(iter(runs.values()))
 
-    weight    = first_run["weight"]
     queryName = first_run["query"]
-    quickGoal = first_run["quickGoal"]
+    weight    = first_run["params"]["weight"]
+    quickGoal = first_run["params"]["quickGoal"]
     pool_size = first_run["params"]["parallelRequests"]
 
 
@@ -243,7 +282,11 @@ def plot_runs(runs):
             yLabel = pdk
             print("Plotting %s vs %s" % (pdk, xLabel))
 
-            for (alg, run) in runs.items():
+            algorithms = [k for k in runs.keys()]
+            algorithms.sort()
+            for alg in algorithms:
+                run = runs[alg]
+
                 style = STYLE[""]
                 if alg in STYLE.keys():
                     style = STYLE[alg]
@@ -251,7 +294,12 @@ def plot_runs(runs):
 
                 Color.GREEN.print("  * %8s: %s" % (alg, color))
 
-                alg_label = "%s-%dp-%dw" % (alg, pool_size, weight)
+                alg_label = alg
+                if pool_size>1:
+                    alg_label += "-%dp" % pool_size
+                if weight!=1:
+                    alg_label += "-%dw" % weight
+
                 hist = run["data"]["StatsHistory"]
                 (xData, yData) = use_last_x(hist, x, pdk)
                 plot(xData, yData, line_style, color=color, label=alg_label)
@@ -259,10 +307,12 @@ def plot_runs(runs):
             xlabel(pLab[xLabel], fontsize=18)
             ylabel(pLab[yLabel], fontsize=16)
             legend(loc="best")
-            titleHeader =  "%s (p%d, q%s)" % (queryName, pool_size, quickGoal)
+            titleHeader =  "%s" % TITLE[queryName]
+            if pool_size>1 or not quickGoal:
+                titleHeader =  "(p%d, q%s)" % (pool_size, quickGoal)
             title(titleHeader, fontsize=20)
 
-            figPath = "%s/%s-%s_vs_%s" % (srcPath, queryName, yLabel, xLabel)
+            figPath = "%s/%s_vs_%s" % (srcPath, yLabel, xLabel)
             figPath += "--%dProcs--%dlAns-%dlTime-%dlTriples" % (pool_size,
                                                                  limit_ans,
                                                                  limit_time,

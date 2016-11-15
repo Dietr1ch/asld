@@ -10,6 +10,5 @@ for d in $argv
   ./cmp.py $d/*.json   --no-show --data goals_found
   ./cmp.py $d/*.json   --no-show --data goals_found --x wallClock
 
-  ./cmp.py $d/*.json   --no-show --data expansions
-  ./cmp.py $d/*.json   --no-show --data expansions  --x wallClock
+	./cmp.py $d/*.json   --no-show --data expansions  --x wallClock
 end

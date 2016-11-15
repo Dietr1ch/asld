@@ -7,11 +7,15 @@ set timeGiven 660
 set killTime  700
 
 
-set -l queries  10 11 12 13 14 15  20 21 22 23 24 25  30 31 32
+#set -l queries  10 11 12 13 14 15  20 21 22 23 24 25  30 31 32
+set -l queries  10 11 12 13 14 15  20 21 22 23           31 32
+#set -l queries  24 25  30
 
 #set -l poolSizes 1 3 5 10 20 40 80 160 500
 set -l poolSizes 1
+
 set -l algorithms "AStar" "Dijkstra" "DFS"
+
 set -l weights   1
 
 

@@ -1,7 +1,9 @@
+"""
+Queries used on experiments
+"""
 from rdflib.term import URIRef
 from rdflib.namespace import Namespace, DC, FOAF, OWL, RDF, RDFS, XMLNS
 
-from asld.utils.color_print import Color
 from asld.query.query_builder import QueryBuilder
 
 from asld.query.filter import NodeFilter_but
@@ -263,6 +265,21 @@ def movies_by_coactor_star_ANY(n=YAGO["Kevin_Bacon"], w=1):
     return b.build(w)
 
 
+def movies_by_coactor_star__dbPedia(n=YAGO["Kevin_Bacon"], w=1):
+    """
+    Finds directors that have Bacon-number
+    """
+    b = QueryBuilder(n, "Actor")
+    b.frm("Actor").through(DBO["starring"]).backwards_to("Movie")
+    b.frm("Movie").through(DBO["starring"]).to("Actor")
+
+
+    # We can be lazy about finding out the correct direction for dbo:director (=
+    b.frm("Actor").through(DBO["director"]).final("DirectedMovie")
+    b.frm("Actor").through(DBO["director"]).backwards_to("DirectedMovie")
+
+    return b.build(w)
+
 
 # Gubichev's queries
 def gubichev_NATO_business_r(n=YAGO["Berlin"], w=1):
@@ -317,47 +334,47 @@ def gubichev_airports(n=YAGO["wikicat_Airports_in_the_Netherlands"], w=1):
 
 automatons = [
     # Test
-    (Name,                         "Node_name"),               # 0
-    (Dereference,                  "Dereference"),             # 1
-    (None, ""),                                                # 2
-    (None, ""),                                                # 3
-    (None, ""),                                                # 4
-    (None, ""),                                                # 5
-    (None, ""),                                                # 6
-    (None, ""),                                                # 7
-    (None, ""),                                                # 8
-    (None, ""),                                                # 9
+    (Name,                         "Node_name"),                       # 0
+    (Dereference,                  "Dereference"),                     # 1
+    (None, ""),                                                        # 2
+    (None, ""),                                                        # 3
+    (None, ""),                                                        # 4
+    (None, ""),                                                        # 5
+    (None, ""),                                                        # 6
+    (None, ""),                                                        # 7
+    (None, ""),                                                        # 8
+    (None, ""),                                                        # 9
 
-    # Authorship
-    (publications,                 "Publications"),            #10
-    (journals,                     "Journals"),                #11
-    (conferences,                  "Conferences"),             #12
-    (coauthors,                    "Direct_Coauthors"),        #13
-    (coauthors_star_IRI,           "CoauthorStar_IRI"),        #14 ** IRIs of Stonebraker's coauthors*
-    (coauthors_star,               "CoauthorStar"),            #15
-    (None, ""),                                                #16
-    (None, ""),                                                #17
-    (None, ""),                                                #18
-    (None, ""),                                                #19
+    # Authorship [DBLP]
+    (publications,                 "Publications"),                    #10
+    (journals,                     "Journals"),                        #11
+    (conferences,                  "Conferences"),                     #12
+    (coauthors,                    "Direct_Coauthors"),                #13
+    (coauthors_star_IRI,           "CoauthorStar_IRI"),                #14  * IRIs of Stonebraker's coauthors*
+    (coauthors_star,               "CoauthorStar"),                    #15
+    (None, ""),                                                        #16
+    (None, ""),                                                        #17
+    (None, ""),                                                        #18
+    (None, ""),                                                        #19
 
-    # Acting
-    (coactor_star__DBPEDIA,        "CoactorStar__DBPEDIA"),    #20
-    (coactor_star__LMDB,           "CoactorStar__LMDB"),       #21
-    (coactor_star_IRI__YAGO,       "CoactorStar_IRI__YAGO"),   #22
-    (coactor_star_sameAs_ANY,      "CoactorStar__ANY"),        #23 ** Names of actors with Bacon-number across the Internet
-    (movies_by_coactor_ANY,        "Coactor_movies__ANY"),     #24
-    (movies_by_coactor_star_ANY,   "CoactorStar__ANY"),        #25 ** Directors having Bacon-number
-    (None, ""),                                                #26
-    (None, ""),                                                #27
-    (None, ""),                                                #28
-    (None, ""),                                                #29
+    # Acting [dbPedia, LMDB, YAGO]
+    (coactor_star__DBPEDIA,            "CoactorStar__DBPEDIA"),        #20
+    (coactor_star__LMDB,               "CoactorStar__LMDB"),           #21
+    (coactor_star_IRI__YAGO,           "CoactorStar_IRI__YAGO"),       #22
+    (coactor_star_sameAs_ANY,          "CoactorStar__ANY"),            #23  * Names of actors with Bacon-number across the Internet
+    (movies_by_coactor_ANY,            "Coactor_movies__ANY"),         #24x
+    (movies_by_coactor_star_ANY,       "CoactorStar_movies__ANY"),     #25x * Directors having Bacon-number
+    (movies_by_coactor_star__dbPedia,  "CoactorStar_movies__dbPedia"), #26
+    (None, ""),                                                        #27
+    (None, ""),                                                        #28
+    (None, ""),                                                        #29
 
 
-    # Gubichev's queries
-    (gubichev_NATO_business_r,      "NATO_Business"),          #30
-    (gubichev_europe,               "EuropeCapitals"),         #31
-    (gubichev_airports,             "AirportsInNetherlands"),  #32
+    # Gubichev's queries [YAGO]
+    (gubichev_NATO_business_r,      "NATO_Business"),                  #30x
+    (gubichev_europe,               "EuropeCapitals"),                 #31
+    (gubichev_airports,             "AirportsInNetherlands"),          #32
 
-    # End
+
     (None, "")
 ]

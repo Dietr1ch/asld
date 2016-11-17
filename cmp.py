@@ -308,8 +308,10 @@ def plot_runs(runs):
             ylabel(pLab[yLabel], fontsize=16)
             legend(loc="best")
             titleHeader =  "%s" % TITLE[queryName]
-            if pool_size>1 or not quickGoal:
-                titleHeader =  "(p%d, q%s)" % (pool_size, quickGoal)
+            if pool_size>1:
+                titleHeader +=  " (p%d)" % pool_size
+            if not quickGoal:
+                titleHeader +=  " regularGoalDeclaration"
             title(titleHeader, fontsize=20)
 
             figPath = "%s/%s_vs_%s" % (srcPath, yLabel, xLabel)

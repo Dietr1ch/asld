@@ -2,9 +2,9 @@
 
 # Setup
 # =====
-set timeLimit 620
-set timeGiven 660
-set killTime  700
+set timeLimit 600
+set timeGiven 610
+set killTime  620
 
 
 #set -l queries  10 11 12 13 14 15  20 21 22 23 24 25  30 31 32

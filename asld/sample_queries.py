@@ -67,12 +67,15 @@ ACTED_IN.add(YAGO["actedIn"])
 ACTED_IN.add(FRAMEBASE["dereif-Performers_and_roles-playsInPerformance"])
 
 # Director (dbPedia & LMDB)
-DIRECTOR=set()
-DIRECTOR.add(DBO["director"])
-DIRECTOR.add(LMDB_Movie["director"])
+DIRECTED=set()
+DIRECTED.add(YAGO["directed"])
+#DIRECTED.add(DBO["director"])
+#DIRECTED.add(LMDB_Movie["director"])
 
 # TODO: Director (YAGO)
 IS_DIRECTOR=set()
+IS_DIRECTOR.add(DBO["director"])
+IS_DIRECTOR.add(DBP["director"])
 IS_DIRECTOR.add(LMDB_Movie["director"])
 
 
@@ -204,7 +207,7 @@ def coactor_star_IRI__YAGO(n=YAGO["Kevin_Bacon"], w=1):
 
 
 def coactor_star_sameAs_ANY(n=YAGO["Kevin_Bacon"], w=1):
-    """Coactor* (sameAs)"""
+    """ Q23: Coactor* (sameAs)"""
     b = QueryBuilder(n, "Actor")
     b.frm("Actor").loop(SAME_AS)
 
@@ -234,6 +237,7 @@ def movies_by_coactor_ANY(n=YAGO["Kevin_Bacon"], w=1):
     b.frm("Movie").through(ACTED_IN).backwards_to("CoActor", NodeFilter_but(n))
     b.frm("Movie").through(ACTOR).to(             "CoActor")
 
+    b.frm("CoActor").through(DIRECTED).to("Directed_Movie")
     b.frm("CoActor").through(IS_DIRECTOR).backwards_to("Directed_Movie")
 
     b.frm("Directed_Movie").through(NAME).final("Name")
@@ -257,6 +261,7 @@ def movies_by_coactor_star_ANY(n=YAGO["Kevin_Bacon"], w=1):
     b.frm("CoActor").through(ACTOR).backwards_to("Movie")
 
     # CoActor => Directed_Movie
+    b.frm("CoActor").through(DIRECTED).to("Directed_Movie")
     b.frm("CoActor").through(IS_DIRECTOR).backwards_to("Directed_Movie")
 
     # Directed_Movie -> name
@@ -361,7 +366,7 @@ automatons = [
     (coactor_star__DBPEDIA,            "CoactorStar__DBPEDIA"),        #20
     (coactor_star__LMDB,               "CoactorStar__LMDB"),           #21
     (coactor_star_IRI__YAGO,           "CoactorStar_IRI__YAGO"),       #22
-    (coactor_star_sameAs_ANY,          "CoactorStar__ANY"),            #23  * Names of actors with Bacon-number across the Internet
+    (coactor_star_sameAs_ANY,          "CoactorStar__ANY"),            #23? * Names of actors with Bacon-number across the Internet
     (movies_by_coactor_ANY,            "Coactor_movies__ANY"),         #24x
     (movies_by_coactor_star_ANY,       "CoactorStar_movies__ANY"),     #25x * Directors having Bacon-number
     (movies_by_coactor_star__dbPedia,  "CoactorStar_movies__dbPedia"), #26
@@ -372,7 +377,7 @@ automatons = [
 
     # Gubichev's queries [YAGO]
     (gubichev_NATO_business_r,      "NATO_Business"),                  #30x
-    (gubichev_europe,               "EuropeCapitals"),                 #31
+    (gubichev_europe,               "EuropeCapitals"),                 #31  -- Query requires too few requests
     (gubichev_airports,             "AirportsInNetherlands"),          #32
 
 

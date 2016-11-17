@@ -39,12 +39,12 @@ TITLE = {
 
 
     # Authorship
-    "Publications":     "Publications",
-    "Journals":         "Journals",
-    "Conferences":      "Conferences",
-    "Direct_Coauthors": "Coauthors",
-    "CoauthorStar_IRI": "Coauthor* (IRIs)",
-    "CoauthorStar":     "Coauthor* Names",
+    "Publications":     "Publications [DBLP]",
+    "Journals":         "Journals [DBLP]",
+    "Conferences":      "Conferences [DBLP]",
+    "Direct_Coauthors": "Coauthors [DBLP]",
+    "CoauthorStar_IRI": "Coauthor* (IRIs) [DBLP]",
+    "CoauthorStar":     "Coauthor* Names [DBLP]",
 
 
     # Acting
@@ -60,9 +60,9 @@ TITLE = {
 
 
     # Gubichev's queries
-    "NATO_Business":           "NATO Business [Gubichev]",
-    "EuropeCapitals":          "Europe Capitals  [Gubichev]",
-    "AirportsInNetherlands":   "Airports in the Netherlads [Gubichev]",
+    "NATO_Business":           "NATO Business [YAGO] (Gubichev)",
+    "EuropeCapitals":          "Europe Capitals [YAGO] (Gubichev)",
+    "AirportsInNetherlands":   "Airports in the Netherlads [YAGO] (Gubichev)",
 
 
     "":    "(empty)",
@@ -459,13 +459,11 @@ def dominate_benchs__by_queries(bench_dir, x_key, y_key, dominance_level=0.6):
     print(algs)
     print(K)
 
-    table = ""
-    table += "\\begin{table}\n"
-    table += "\\begin{tabular}{l|lll}\n"
-    table += "parallelism & " + " & ".join(algs) + "\n"
+    table =  "\\begin{table}\n"
     table += "%s"
     table += "\\end{tabular}\n"
     table += "\\end{table}\n"
+    table += "\\caption{%s vs %s}\n" % (str(y_key), str(x_key))
 
 
     domination = dict()
@@ -558,15 +556,14 @@ def dominate_benchs__by_queries(bench_dir, x_key, y_key, dominance_level=0.6):
                     json.dump(result, f, indent=2)
                 print()
     table_data = ""
-    print(domination)
+    table_data += "Parallel Requests  & " + " & ".join([alg for alg in algs]) + "\n"
     for k in K:
-        table_data += "%s & " % k
-        table_data += " & ".join([str(domination[k][alg]) for alg in algs]) + "\n"
+        table_data += ("%d & " % k) +  " & ".join([str(domination[k][alg]) for alg in algs]) + "\n"
 
     table = table % table_data
-    print(table)
 
     table_filename = bench_dir + "dom_%.2f.tex" % dominance_level
+    print("writing table to '%s" % table_filename)
     with open(table_filename, 'w') as f:
         f.write(table)
 
@@ -583,7 +580,9 @@ def plot_benchs(bench_directories, x_key, y_key):
         print("Analyzing '%s'" % bench_dir)
         plot_bench__by_queries(bench_dir, x_key, y_key)
         plot_bench__query_by_parallelism(bench_dir, x_key, y_key)
-        dominate_benchs__by_queries(bench_dir, x_key, y_key)
+
+        # Dominates is better computed by visual inspection, "ties" are not easy to define
+        #dominate_benchs__by_queries(bench_dir, x_key, y_key)
         print()
     print("Done")
 

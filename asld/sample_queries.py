@@ -83,6 +83,7 @@ IS_DIRECTOR.add(LMDB_Movie["director"])
 # =======
 
 # Simple
+# Q0
 def Name(n=mStonebraker, w=1):
     """Node name"""
     b = QueryBuilder(n, "Root")
@@ -91,6 +92,7 @@ def Name(n=mStonebraker, w=1):
     return b.build(w)
 
 
+# Q1
 def Dereference(n=mStonebraker, w=1):
     """Dereference"""
     b = QueryBuilder(n, "Root")
@@ -99,7 +101,12 @@ def Dereference(n=mStonebraker, w=1):
     return b.build(w)
 
 
+
+
 # Authorship
+# ----------
+
+# Q10
 def publications(n=mStonebraker, w=1):
     """Publications by an author"""
     b = QueryBuilder(n, "Author")
@@ -109,6 +116,7 @@ def publications(n=mStonebraker, w=1):
     return b.build(w)
 
 
+# Q11
 def journals(n=mStonebraker, w=1):
     """Published in journal"""
     b = QueryBuilder(n, "Author")
@@ -119,6 +127,7 @@ def journals(n=mStonebraker, w=1):
     return b.build(w)
 
 
+# Q12
 def conferences(n=mStonebraker, w=1):
     """ dc:creator-/swrc:series/rdfs:label """
     b = QueryBuilder(n, "Author")
@@ -129,6 +138,7 @@ def conferences(n=mStonebraker, w=1):
     return b.build(w)
 
 
+# Q13
 def coauthors(n=mStonebraker, w=1):
     """Direct Coauthors"""
     b = QueryBuilder(n, "Author")
@@ -140,6 +150,7 @@ def coauthors(n=mStonebraker, w=1):
     return b.build(w)
 
 
+# Q14
 def coauthors_star_IRI(n=mStonebraker, w=1):
     """Coauthors* [IRI only]"""
     b = QueryBuilder(n, "Author")
@@ -152,6 +163,7 @@ def coauthors_star_IRI(n=mStonebraker, w=1):
     return b.build(w)
 
 
+# Q15
 def coauthors_star(n=mStonebraker, w=1):
     """Coauthors*"""
     b = QueryBuilder(n, "Author")
@@ -166,7 +178,12 @@ def coauthors_star(n=mStonebraker, w=1):
     return b.build(w)
 
 
+
+
 # Acting
+# ------
+
+# Q20
 def coactor_star__DBPEDIA(n=DBR["Kevin_Bacon"], w=1):
     """Coactor* (dbPedia)"""
     b = QueryBuilder(n, "Actor")
@@ -180,6 +197,7 @@ def coactor_star__DBPEDIA(n=DBR["Kevin_Bacon"], w=1):
     return b.build(w)
 
 
+# Q21
 def coactor_star__LMDB(n=kBacon, w=1):
     """Coactor* (LMDB)"""
     b = QueryBuilder(n, "Actor")
@@ -193,6 +211,7 @@ def coactor_star__LMDB(n=kBacon, w=1):
     return b.build(w)
 
 
+# Q22
 def coactor_star_IRI__YAGO(n=YAGO["Kevin_Bacon"], w=1):
     """Coactor* (YAGO)"""
     b = QueryBuilder(n, "Actor")
@@ -206,6 +225,7 @@ def coactor_star_IRI__YAGO(n=YAGO["Kevin_Bacon"], w=1):
     return b.build(w)
 
 
+# Q23
 def coactor_star_sameAs_ANY(n=DBR["Kevin_Bacon"], w=1):
     """ Q23: Coactor* (sameAs)"""
     b = QueryBuilder(n, "Actor")
@@ -228,6 +248,7 @@ def coactor_star_sameAs_ANY(n=DBR["Kevin_Bacon"], w=1):
     return b.build(w)
 
 
+# Q24
 def movies_by_coactor_ANY(n=YAGO["Kevin_Bacon"], w=1):
     """Movies by coactor"""
     b = QueryBuilder(n, "Actor")
@@ -245,6 +266,7 @@ def movies_by_coactor_ANY(n=YAGO["Kevin_Bacon"], w=1):
     return b.build(w)
 
 
+# Q25
 def movies_by_coactor_star_ANY(n=YAGO["Kevin_Bacon"], w=1):
     """Movies by coactor"""
     b = QueryBuilder(n, "Actor")
@@ -270,6 +292,7 @@ def movies_by_coactor_star_ANY(n=YAGO["Kevin_Bacon"], w=1):
     return b.build(w)
 
 
+# Q26
 def movies_by_coactor_star__dbPedia(n=YAGO["Kevin_Bacon"], w=1):
     """
     Finds directors that have Bacon-number
@@ -286,7 +309,13 @@ def movies_by_coactor_star__dbPedia(n=YAGO["Kevin_Bacon"], w=1):
     return b.build(w)
 
 
+
+
 # Gubichev's queries
+# ------------------
+
+
+# Q30
 def gubichev_NATO_business_r(n=YAGO["Berlin"], w=1):
     """
     prefix yago: <http://yago-knowledge.org/resource/>
@@ -310,6 +339,7 @@ def gubichev_NATO_business_r(n=YAGO["Berlin"], w=1):
     return b.build(w)
 
 
+# Q31
 def gubichev_europe(n=YAGO["wikicat_Capitals_in_Europe"], w=1):
     """Europe"""
     # Using wikicat_* instead of wikicategory_*
@@ -323,6 +353,7 @@ def gubichev_europe(n=YAGO["wikicat_Capitals_in_Europe"], w=1):
     return b.build(w)
 
 
+# Q32
 def gubichev_airports(n=YAGO["wikicat_Airports_in_the_Netherlands"], w=1):
     """Netherlands airports"""
     b = QueryBuilder(n, "Airports")
@@ -339,46 +370,46 @@ def gubichev_airports(n=YAGO["wikicat_Airports_in_the_Netherlands"], w=1):
 
 automatons = [
     # Test
-    (Name,                         "Node_name"),                       # 0
-    (Dereference,                  "Dereference"),                     # 1
-    (None, ""),                                                        # 2
-    (None, ""),                                                        # 3
-    (None, ""),                                                        # 4
-    (None, ""),                                                        # 5
-    (None, ""),                                                        # 6
-    (None, ""),                                                        # 7
-    (None, ""),                                                        # 8
-    (None, ""),                                                        # 9
+    (Name,                         "Node_name"),    # 0
+    (Dereference,                  "Dereference"),  # 1
+    (None, ""),                                     # 2
+    (None, ""),                                     # 3
+    (None, ""),                                     # 4
+    (None, ""),                                     # 5
+    (None, ""),                                     # 6
+    (None, ""),                                     # 7
+    (None, ""),                                     # 8
+    (None, ""),                                     # 9
 
     # Authorship [DBLP]
-    (publications,                 "Publications"),                    #10
-    (journals,                     "Journals"),                        #11
-    (conferences,                  "Conferences"),                     #12
-    (coauthors,                    "Direct_Coauthors"),                #13
-    (coauthors_star_IRI,           "CoauthorStar_IRI"),                #14  * IRIs of Stonebraker's coauthors*
-    (coauthors_star,               "CoauthorStar"),                    #15
-    (None, ""),                                                        #16
-    (None, ""),                                                        #17
-    (None, ""),                                                        #18
-    (None, ""),                                                        #19
+    (publications,                 "Publications"),      #10
+    (journals,                     "Journals"),          #11
+    (conferences,                  "Conferences"),       #12
+    (coauthors,                    "Direct_Coauthors"),  #13
+    (coauthors_star_IRI,           "CoauthorStar_IRI"),  #14  * query2
+    (coauthors_star,               "CoauthorStar"),      #15
+    (None, ""),                                          #16
+    (None, ""),                                          #17
+    (None, ""),                                          #18
+    (None, ""),                                          #19
 
     # Acting [dbPedia, LMDB, YAGO]
-    (coactor_star__DBPEDIA,            "CoactorStar__DBPEDIA"),        #20
-    (coactor_star__LMDB,               "CoactorStar__LMDB"),           #21
-    (coactor_star_IRI__YAGO,           "CoactorStar_IRI__YAGO"),       #22
-    (coactor_star_sameAs_ANY,          "CoactorStar__ANY"),            #23? * Names of actors with Bacon-number across the Internet
-    (movies_by_coactor_ANY,            "Coactor_movies__ANY"),         #24x
-    (movies_by_coactor_star_ANY,       "CoactorStar_movies__ANY"),     #25x * Directors having Bacon-number
-    (movies_by_coactor_star__dbPedia,  "CoactorStar_movies__dbPedia"), #26
-    (None, ""),                                                        #27
-    (None, ""),                                                        #28
-    (None, ""),                                                        #29
+    (coactor_star__DBPEDIA,            "CoactorStar__DBPEDIA"),         #20
+    (coactor_star__LMDB,               "CoactorStar__LMDB"),            #21
+    (coactor_star_IRI__YAGO,           "CoactorStar_IRI__YAGO"),        #22
+    (coactor_star_sameAs_ANY,          "CoactorStar__ANY"),             #23   ** query3
+    (movies_by_coactor_ANY,            "Coactor_movies__ANY"),          #24x
+    (movies_by_coactor_star_ANY,       "CoactorStar_movies__ANY"),      #25x  ** query1
+    (movies_by_coactor_star__dbPedia,  "CoactorStar_movies__dbPedia"),  #26
+    (None, ""),                                                         #27
+    (None, ""),                                                         #28
+    (None, ""),                                                         #29
 
 
     # Gubichev's queries [YAGO]
-    (gubichev_NATO_business_r,      "NATO_Business"),                  #30x
-    (gubichev_europe,               "EuropeCapitals"),                 #31  -- Query requires too few requests
-    (gubichev_airports,             "AirportsInNetherlands"),          #32
+    (gubichev_NATO_business_r,      "NATO_Business"),          #30x
+    (gubichev_europe,               "EuropeCapitals"),         #31  -- Query requires too few requests
+    (gubichev_airports,             "AirportsInNetherlands"),  #32
 
 
     (None, "")

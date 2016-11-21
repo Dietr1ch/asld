@@ -206,7 +206,7 @@ def coactor_star_IRI__YAGO(n=YAGO["Kevin_Bacon"], w=1):
     return b.build(w)
 
 
-def coactor_star_sameAs_ANY(n=YAGO["Kevin_Bacon"], w=1):
+def coactor_star_sameAs_ANY(n=DBR["Kevin_Bacon"], w=1):
     """ Q23: Coactor* (sameAs)"""
     b = QueryBuilder(n, "Actor")
     b.frm("Actor").loop(SAME_AS)

@@ -615,8 +615,9 @@ def main():
 
     for y_key in y_keys:
         for x_key in x_keys:
-            print("plotting %s vs %s" % (y_key, x_key))
-            plot_benchs(bench_directories, x_key, y_key)
+            if y_key != x_key:
+                print("plotting %s vs %s" % (y_key, x_key))
+                plot_benchs(bench_directories, x_key, y_key)
 
 
 if __name__ == '__main__':

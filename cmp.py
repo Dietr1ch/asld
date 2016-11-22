@@ -229,7 +229,7 @@ TITLE = {
     # Gubichev's queries
     "NATO_Business":           "NATO Business [Gubichev]",
     "EuropeCapitals":          "Europe Capitals  [Gubichev]",
-    "AirportsInNetherlands":   "Airports in the Netherlads [Gubichev]",
+    "AirportsInNetherlands":   "Airports in the Netherlands [Gubichev]",
 
 
     "":    "(empty)",

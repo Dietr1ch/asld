@@ -60,9 +60,9 @@ TITLE = {
 
 
     # Gubichev's queries
-    "NATO_Business":           "NATO Business [YAGO] (Gubichev)",               # 30
-    "EuropeCapitals":          "Europe Capitals [YAGO] (Gubichev)",             # 31
-    "AirportsInNetherlands":   "Airports in the Netherlads [YAGO] (Gubichev)",  # 32
+    "NATO_Business":           "NATO Business [YAGO] (Gubichev)",                # 30
+    "EuropeCapitals":          "Europe Capitals [YAGO] (Gubichev)",              # 31
+    "AirportsInNetherlands":   "Airports in the Netherlands [YAGO] (Gubichev)",  # 32
 
 
     "":    "(empty)",

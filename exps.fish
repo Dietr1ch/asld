@@ -35,6 +35,7 @@ for p in $poolSizes
 	for q in $queries
 		for w in $weights
 			for a in $algorithms
+				notify-send -t 2000 "Running q$q k=$p $a"
 				timeout --kill-after $killTime $timeGiven  ./run.py --time $timeLimit  --alg=$a -w $w -q $q --pool-size $p $argv
 			end
 		end

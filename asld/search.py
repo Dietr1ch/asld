@@ -343,8 +343,20 @@ class ASLDSearch:
             self.snap()
 
         def expansions(self):
-            """Count another batch"""
+            """Expansions performed"""
             return self.status.expansions
+
+        def db_triples(self):
+            """Triples stored on the search's DB"""
+            return self.status.triples
+
+        def memory(self):
+            """Memory used"""
+            return self.status.memory
+
+        def wallClock(self):
+            """Time executing"""
+            return self.status.wallClock
 
 
 
@@ -709,6 +721,7 @@ class ASLDSearch:
                         print("\r  || expansions (%4d): " % pendingExpansions, end="")
                         print("[%s" % ("#"*requestsFullfilled), end="")
                         print("%s]" % ("."*pendingExpansions), end="")
+                        stdout.flush()
 
 
                     # Finish expansion on the node
@@ -737,12 +750,17 @@ class ASLDSearch:
                 _t_parallelExpand = _t_end - _t0_parallelExpand
 
                 clearLine()
-                print("[ans:%4d, expansions: %6d] Expanded %3d nodes on %4.2fs" %
-                      (answers,
+                print("[%8s| ans:%5d  expansions: %6d  db:%7d (%3dMB)  t:%6.2fs] Expanded %3d nodes on %4.2fs" %
+                      (self.alg,
+                       answers,
                        self.stats.expansions(),
+                       self.stats.db_triples(),
+                       self.stats.memory(),
+                       self.stats.wallClock(),
                        requestsCorrectlyFullfilled,
                        _t_parallelExpand)
                      )
+                stdout.flush()
 
         _t_end = time()
         _t_search = time() - _t0_search

@@ -34,35 +34,35 @@ ALG_LINES = {
 }
 TITLE = {
     # Easy
-    "Node_name":        "Node name",
-    "Dereference":      "Gather node",
+    "Node_name":        "Node name",    # 0
+    "Dereference":      "Gather node",  # 1
 
 
     # Authorship
-    "Publications":     "Publications [DBLP]",
-    "Journals":         "Journals [DBLP]",
-    "Conferences":      "Conferences [DBLP]",
-    "Direct_Coauthors": "Coauthors [DBLP]",
-    "CoauthorStar_IRI": "Coauthor* (IRIs) [DBLP]",
-    "CoauthorStar":     "Coauthor* Names [DBLP]",
+    "Publications":     "Publications [DBLP]",      # 10
+    "Journals":         "Journals [DBLP]",          # 11
+    "Conferences":      "Conferences [DBLP]",       # 12
+    "Direct_Coauthors": "Coauthors [DBLP]",         # 13
+    "CoauthorStar_IRI": "Coauthor* (IRIs) [DBLP]",  # 14
+    "CoauthorStar":     "Coauthor* Names [DBLP]",   # 15
 
 
     # Acting
-    "CoactorStar__DBPEDIA":  "Coactor* [dbPedia]",
-    "CoactorStar__LMDB":     "Coactor* [LMDB]",
-    "CoactorStar_IRI__YAGO": "Coactor* IRIs [YAGO]",
+    "CoactorStar__DBPEDIA":  "Coactor* [dbPedia]",    # 20
+    "CoactorStar__LMDB":     "Coactor* [LMDB]",       # 21
+    "CoactorStar_IRI__YAGO": "Coactor* IRIs [YAGO]",  # 22
 
-    "CoactorStar__ANY":        "Coactor* [dbPedia/LMDB/YAGO]",
-    "Coactor_movies__ANY":     "Movies directed by coactor* [dbPedia/LMDB/YAGO]",
-    "CoactorStar_movies__ANY": "Movies directed by coactor* [dbPedia/LMDB/YAGO]",
+    "CoactorStar__ANY":        "Coactor* [dbPedia/LMDB/YAGO]",  # 23
+    "Coactor_movies_IRI__ANY": "IRIs of Movies directed by coactor* [dbPedia/LMDB/YAGO]",  # 24
+    "CoactorStar_movies__ANY": "Movies directed by coactor* [dbPedia/LMDB/YAGO]",          # 25
 
-    "CoactorStar_movies__dbPedia": "Movies directed by coactor* [dbPedia]",
+    "CoactorStar_movies__dbPedia": "Movies directed by coactor* [dbPedia]",                # 26
 
 
     # Gubichev's queries
-    "NATO_Business":           "NATO Business [YAGO] (Gubichev)",
-    "EuropeCapitals":          "Europe Capitals [YAGO] (Gubichev)",
-    "AirportsInNetherlands":   "Airports in the Netherlads [YAGO] (Gubichev)",
+    "NATO_Business":           "NATO Business [YAGO] (Gubichev)",               # 30
+    "EuropeCapitals":          "Europe Capitals [YAGO] (Gubichev)",             # 31
+    "AirportsInNetherlands":   "Airports in the Netherlads [YAGO] (Gubichev)",  # 32
 
 
     "":    "(empty)",

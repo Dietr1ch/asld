@@ -49,8 +49,9 @@ mv bench/last/ $benchDir
 
 # Run analysis
 # ============
-if xset -q > /dev/null ^ /dev/null;  and ./analyze.fish $benchDir/*/*/*
-  echo "Graphs ready"
+if xset -q > /dev/null ^ /dev/null;  and  ./analyze.fish $benchDir
+	echo "Graphs ready"
+	xdg-open "$benchDir"
 else
   echo "Please run ./analyze.fish $benchDir/*/*/*"
 end

@@ -249,19 +249,16 @@ def coactor_star_sameAs_ANY(n=DBR["Kevin_Bacon"], w=1):
 
 
 # Q24
-def movies_by_coactor_ANY(n=YAGO["Kevin_Bacon"], w=1):
-    """Movies by coactor"""
+def movies_by_coactor_IRI__ANY(n=YAGO["Kevin_Bacon"], w=1):
+    """IRIs of Movies by coactor"""
     b = QueryBuilder(n, "Actor")
+    directed = YAGO["directed"]
     b.frm("Actor").through(ACTED_IN).to(       "Movie")
-    b.frm("Actor").through(ACTOR).backwards_to("Movie")
-
     b.frm("Movie").through(ACTED_IN).backwards_to("CoActor", NodeFilter_but(n))
-    b.frm("Movie").through(ACTOR).to(             "CoActor")
 
-    b.frm("CoActor").through(DIRECTED).to("Directed_Movie")
-    b.frm("CoActor").through(IS_DIRECTOR).backwards_to("Directed_Movie")
-
-    b.frm("Directed_Movie").through(NAME).final("Name")
+    b.frm("CoActor").through(directed).final("Directed_Movie")
+    #b.frm("Directed_Movie").loop(SAME_AS)
+    #b.frm("Directed_Movie").through(NAME).final("Name")
 
     return b.build(w)
 
@@ -398,7 +395,7 @@ automatons = [
     (coactor_star__LMDB,               "CoactorStar__LMDB"),            #21
     (coactor_star_IRI__YAGO,           "CoactorStar_IRI__YAGO"),        #22
     (coactor_star_sameAs_ANY,          "CoactorStar__ANY"),             #23   ** query3
-    (movies_by_coactor_ANY,            "Coactor_movies__ANY"),          #24x
+    (movies_by_coactor_IRI__ANY,       "Coactor_movies_IRI__ANY"),      #24x
     (movies_by_coactor_star_ANY,       "CoactorStar_movies__ANY"),      #25x  ** query1
     (movies_by_coactor_star__dbPedia,  "CoactorStar_movies__dbPedia"),  #26
     (None, ""),                                                         #27

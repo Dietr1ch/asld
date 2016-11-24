@@ -30,7 +30,7 @@ mkdir -p bench/old
 mv bench/last/* bench/old/
 
 
-set benchDir "bench/"(date -Iseconds)
+set benchDir "bench/"(hostname)"-"(date -Iseconds)
 
 for p in $poolSizes
 	for q in $queries

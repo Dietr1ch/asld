@@ -152,14 +152,15 @@ class ASLDGraph:
         # Get new triples
         g = ASLDGraph.pure_load_SPARQL(iri, sparqlFormat)
 
-        # Get the document
-        for _ in range(2):
-            # pylint: disable=bare-except
-            try:
-                g.load(iri)
-                break
-            except:
-                pass
+        # Get the document if SPARQL failed
+        if len(g) == 0:
+            for _ in range(2):
+                # pylint: disable=bare-except
+                try:
+                    g.load(iri)
+                    break
+                except:
+                    pass
 
         # Simulate network delays (there is no compensation on longer delays)
         if DELAYS:

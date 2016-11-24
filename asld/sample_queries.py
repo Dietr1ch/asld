@@ -158,7 +158,7 @@ def coauthors_star_IRI(n=mStonebraker, w=1):
     b.frm("Paper").through(DC["creator"]).final("CoAuth", NodeFilter_but(n))
 
     b.frm("CoAuth").through(DC["creator"]).backwards_to("Paper'")
-    b.frm("Paper'").through(DC["creator"]).to("CoAuth")
+    b.frm("Paper'").through(DC["creator"]).to("CoAuth")  # useless transition?
 
     return b.build(w)
 

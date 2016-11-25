@@ -15,14 +15,17 @@ from asld.utils.color_print import Color
 
 
 # Known SPARQL endpoint that provide incomplete inverses (unnecessary if documents are complete).
+#pylint: disable=line-too-long
 SPARQL_ENDPOINTS = []
-SPARQL_ENDPOINTS.append((regex_compile("^http://yago-knowledge.org/resource/.*"),
-                         "https://linkeddata1.calcul.u-psud.fr/sparql"))
-SPARQL_ENDPOINTS.append((regex_compile("^https://makemake.ing.puc.cl/resource/.*"),
-                         "http://localhost:8890/sparql/"))
+SPARQL_ENDPOINTS.append((regex_compile("^http://yago-knowledge.org/resource/.*"),   "https://linkeddata1.calcul.u-psud.fr/sparql"))
+#SPARQL_ENDPOINTS.append((regex_compile("^http://yago-knowledge.org/resource/.*"),   "http://localhost:8890/sparql/"))
+
 
 DELAY_IRI_REGEX = []
-DELAY_IRI_REGEX.append(regex_compile("^https://makemake.ing.puc.cl/resource/.*"))
+
+# Use nearby yago mirror
+#SPARQL_ENDPOINTS.append((regex_compile("^https://makemake.ing.puc.cl/resource/.*"), "http://localhost:8890/sparql/"))
+#DELAY_IRI_REGEX.append(regex_compile("^https://makemake.ing.puc.cl/resource/.*"))
 
 
 # Set up delays

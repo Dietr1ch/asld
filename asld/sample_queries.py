@@ -178,6 +178,35 @@ def coauthors_star(n=mStonebraker, w=1):
     return b.build(w)
 
 
+# Q16
+def coauthors_star_papers_IRI(n=mStonebraker, w=1):
+    """Coauthors*"""
+    b = QueryBuilder(n, "Author")
+    b.frm("Author").through(DC["creator"]).backwards_final("Paper")
+    b.frm("Paper").through(DC["creator"]).to("CoAuth", NodeFilter_but(n))
+
+    b.frm("CoAuth").through(DC["creator"]).backwards_to("Paper'")
+    b.frm("Paper'").through(DC["creator"]).to("CoAuth")
+    b.frm("Paper").through(DC["title"]).final("PaperTitle")
+
+    return b.build(w)
+
+
+# Q17
+def coauthors_star_papers(n=mStonebraker, w=1):
+    """Coauthors*"""
+    b = QueryBuilder(n, "Author")
+    b.frm("Author").through(DC["creator"]).backwards_to("Paper")
+    b.frm("Paper").through(DC["creator"]).to("CoAuth", NodeFilter_but(n))
+
+    b.frm("CoAuth").through(DC["creator"]).backwards_to("Paper'")
+    b.frm("Paper'").through(DC["creator"]).to("CoAuth")
+
+    b.frm("Paper").through(DC["title"]).final("PaperTitle")
+
+    return b.build(w)
+
+
 
 
 # Acting
@@ -379,16 +408,16 @@ automatons = [
     (None, ""),                                     # 9
 
     # Authorship [DBLP]
-    (publications,                 "Publications"),      #10
-    (journals,                     "Journals"),          #11
-    (conferences,                  "Conferences"),       #12
-    (coauthors,                    "Direct_Coauthors"),  #13
-    (coauthors_star_IRI,           "CoauthorStar_IRI"),  #14  * query2
-    (coauthors_star,               "CoauthorStar"),      #15
-    (None, ""),                                          #16
-    (None, ""),                                          #17
-    (None, ""),                                          #18
-    (None, ""),                                          #19
+    (publications,                 "Publications"),         #10
+    (journals,                     "Journals"),             #11
+    (conferences,                  "Conferences"),          #12
+    (coauthors,                    "Direct_Coauthors"),     #13
+    (coauthors_star_IRI,           "CoauthorStar_IRI"),     #14  * query2
+    (coauthors_star,               "CoauthorStar"),         #15
+    (coauthors_star_papers_IRI,    "CoAuthStarPapers_IRI"), #16
+    (coauthors_star_papers,        "CoAuthStarPapers"),     #17
+    (None, ""),                                             #18
+    (None, ""),                                             #19
 
     # Acting [dbPedia, LMDB, YAGO]
     (coactor_star__DBPEDIA,            "CoactorStar__DBPEDIA"),         #20

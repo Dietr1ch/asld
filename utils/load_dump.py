@@ -39,13 +39,14 @@ TITLE = {
 
 
     # Authorship
-    "Publications":     "Publications [DBLP]",      # 10
-    "Journals":         "Journals [DBLP]",          # 11
-    "Conferences":      "Conferences [DBLP]",       # 12
-    "Direct_Coauthors": "Coauthors [DBLP]",         # 13
-    "CoauthorStar_IRI": "Coauthor* (IRIs) [DBLP]",  # 14
-    "CoauthorStar":     "Coauthor* Names [DBLP]",   # 15
-
+    "Publications":         "Publications [DBLP]",      # 10
+    "Journals":             "Journals [DBLP]",          # 11
+    "Conferences":          "Conferences [DBLP]",       # 12
+    "Direct_Coauthors":     "Coauthors [DBLP]",         # 13
+    "CoauthorStar_IRI":     "Coauthor* (IRIs) [DBLP]",  # 14
+    "CoauthorStar":         "Coauthor* Names [DBLP]",   # 15
+    "CoAuthStarPapers_IRI": "Papers IRIs of Coauthor*", # 16
+    "CoAuthStarPapers":     "Papers of Coauthor*",      # 17
 
     # Acting
     "CoactorStar__DBPEDIA":  "Coactor* [dbPedia]",    # 20

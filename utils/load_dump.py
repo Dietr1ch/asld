@@ -17,6 +17,13 @@ EXTENSION = "pdf"
 ALGORITHMS = ["AStar", "Dijkstra", "DFS"]
 LIMIT_KEYS = ["ans", "triples", "time"]
 PARALLELISM_SHOWN = [1, 20]
+ALG_NAME = {
+    "AStar":     "A*",
+    "Dijkstra":  "BFS",
+    "DFS":       "DFS",
+
+    None: "black"
+}
 ALG_COLORS = {
     "AStar":     "green",
     "Dijkstra":  "red",
@@ -304,7 +311,9 @@ def dump_alg_name(dump):
     weight = dump["params"]["weight"]
     pool_size = dump["params"]["parallelRequests"]
 
-    alg_label = alg_name
+    alg_label = "'%s'" % alg_name
+    if alg_name in ALG_NAME:
+        alg_label = ALG_NAME[alg_name]
     if pool_size > 1:
         alg_label += "-%dp" % pool_size
     if weight != 1:
@@ -349,15 +358,15 @@ def dumps_plot(json_dumps, x_key, y_key, ttl=None, x_label=None, y_label=None, c
     if empty_plot:
         raise Exception("No dumps given")
 
-    xlabel(x_label, fontsize=18)
-    ylabel(y_label, fontsize=16)
+    xlabel(x_label, fontsize=20)
+    ylabel(y_label, fontsize=18)
 
     if ttl is None:
         ttl = json_dumps[0][0]["query"]
         if ttl in TITLE.keys():
             ttl = TITLE[ttl]
 
-    title(ttl, fontsize=20)
+    title(ttl, fontsize=22)
 
 
 def plot_query_parallelism(query_path, x_key, y_key, alg="AStar"):

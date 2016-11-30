@@ -51,7 +51,8 @@ TITLE = {
     "Conferences":          "Conferences [DBLP]",       # 12
     "Direct_Coauthors":     "Coauthors [DBLP]",         # 13
     "CoauthorStar_IRI":     "Coauthor* (IRIs) [DBLP]",  # 14
-    "CoauthorStar":         "Coauthor* Names [DBLP]",   # 15
+    #"CoauthorStar":         "Coauthor* Names [DBLP]",   # 15
+    "CoauthorStar":         "q_Coauthor",   # 15
     "CoAuthStarPapers_IRI": "Papers IRIs of Coauthor*", # 16
     "CoAuthStarPapers":     "Papers of Coauthor*",      # 17
 
@@ -60,7 +61,8 @@ TITLE = {
     "CoactorStar__LMDB":     "Coactor* [LMDB]",       # 21
     "CoactorStar_IRI__YAGO": "Coactor* IRIs [YAGO]",  # 22
 
-    "CoactorStar__ANY":        "Coactor* [dbPedia/LMDB/YAGO]",  # 23
+    #"CoactorStar__ANY":        "Coactor* [dbPedia/LMDB/YAGO]",  # 23
+    "CoactorStar__ANY":        "q_Bacon",  # 23
     "Coactor_movies_IRI__ANY": "IRIs of Movies directed by coactor* [dbPedia/LMDB/YAGO]",  # 24
     "CoactorStar_movies__ANY": "Movies directed by coactor* [dbPedia/LMDB/YAGO]",          # 25
 
@@ -68,7 +70,8 @@ TITLE = {
 
 
     # Gubichev's queries
-    "NATO_Business":           "NATO Business [YAGO] (Gubichev)",                # 30
+    #"NATO_Business":           "NATO Business [YAGO] (Gubichev)",                # 30
+    "NATO_Business":           "q_NATO",                # 30
     "EuropeCapitals":          "Europe Capitals [YAGO] (Gubichev)",              # 31
     "AirportsInNetherlands":   "Airports in the Netherlands [YAGO] (Gubichev)",  # 32
 
@@ -258,7 +261,7 @@ def print_iter(it, allowed=20):
 def save_fig(figure_path: str):
     """Saves figure"""
     print("    Saving figure to '%s'" % figure_path)
-    legend(loc="best")
+    legend(loc="best", prop={'size':18})
     savefig(figure_path)
 
 
@@ -348,11 +351,12 @@ def dumps_plot(json_dumps, x_key, y_key, ttl=None, x_label=None, y_label=None, c
         line_style = ALG_LINES[""]
         if alg in ALG_LINES.keys():
             line_style = ALG_LINES[alg]
+        line_width = 3.0
 
         if colorize_function is None:
-            plot(x_data, y_data, line_style, label=alg_label)
+            plot(x_data, y_data, line_style, linewidth=line_width, label=alg_label)
         else:
-            plot(x_data, y_data, line_style, label=alg_label, color=colorize_function(dump))
+            plot(x_data, y_data, line_style, linewidth=line_width, label=alg_label, color=colorize_function(dump))
         empty_plot = False
 
     if empty_plot:

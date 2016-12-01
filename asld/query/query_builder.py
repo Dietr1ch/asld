@@ -130,6 +130,7 @@ class QueryBuilder:
     def frm(self, nodeName=None):
         """
         Creates a partial transition from a named State
+        TODO: add state filter to enable goal starting states
         """
         if nodeName is None:
             nodeName = self.startName

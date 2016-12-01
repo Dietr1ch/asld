@@ -180,26 +180,25 @@ def coauthors_star(n=mStonebraker, w=1):
 
 # Q16
 def coauthors_star_papers_IRI(n=mStonebraker, w=1):
-    """Coauthors*"""
+    """Papers from Coauthors*"""
     b = QueryBuilder(n, "Author")
-    b.frm("Author").through(DC["creator"]).backwards_final("Paper")
+    b.frm("Author").through(DC["creator"]).backwards_to("Paper")
+    b.frm("Paper").through(DC["creator"]).to("Author")
 
-    b.frm("Paper").through(DC["creator"]).to("CoAuth", NodeFilter_but(n))
-    b.frm("CoAuth").through(DC["creator"]).backwards_to("Paper")
+    b.frm("Author").through(DC["creator"]).backwards_final("Paper'")
 
     return b.build(w)
 
 
 # Q17
 def coauthors_star_papers(n=mStonebraker, w=1):
-    """Coauthors*"""
+    """Paper IRIs from Coauthors*"""
     b = QueryBuilder(n, "Author")
     b.frm("Author").through(DC["creator"]).backwards_to("Paper")
+    b.frm("Paper").through(DC["creator"]).to("Author")
 
-    b.frm("Paper").through(DC["creator"]).to("CoAuth", NodeFilter_but(n))
-    b.frm("CoAuth").through(DC["creator"]).backwards_to("Paper")
-
-    b.frm("Paper").through(DC["title"]).final("PaperTitle")
+    b.frm("Author").through(DC["creator"]).backwards_to("Paper'")
+    b.frm("Paper'").through(DC["title"]).final("PaperTitle")
 
     return b.build(w)
 

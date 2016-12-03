@@ -1,0 +1,49 @@
+* A* on linked data
+This is the project behind the VLDB submission /Evaluating navigational RDF queries over the Web/.
+
+This projects aims to show how search can be improved by using A* instead of DFS and BFS.
+A* takes an edge over blind search algorithms by using the query automaton, to induce a heuristic.
+
+The induced heuristic is /consistent/, (and thus /admissible/, properties that ensure that A* runs smoothly.
+
+** Dependencies
+This project requires ~python3~, ~pip~ and a set of python packages.
+To install the python packages run
+#+begin_src bash
+pip install -r requirements.txt
+#+end_src bash
+
+
+Optionally, ~fish-shell~ is required, but it's only used to call a python script that does the work.
+
+** Basic usage
+
+Previously defined queries can be run from `run.py` by running it with the `-q` parameter set.
+Optional parameters for the /time-limit/, /algorithm/ to use and /parallelism-degree/ exist.
+#+begin_src bash
+./run.py  -q $q  [--pool-size $p] [--alg=$a] [--time $timeLimit]
+#+end_src bash
+
+*** Running experiments
+There is a `fish-shell` script that runs the previous script with multiple configurations.
+#+begin_src bash
+./exps.fish
+#+end_src bash
+
+*** Getting plots
+While experiments run, dumps with data about the run are generated.
+Those dumps can be used to generate plots after the runs complete.
+
+An utility for generating plots from dumps is provided, and can be ran onto per-run directories
+#+begin_src bash
+./utils/load_dump.py RUN_DIRECTORIES  [--x KEYS for x-axis] [--y KEYS for y-axis]
+#+end_src bash
+
+A typical execution looks like this,
+#+begin_src bash
+./utils/load_dump.py bench/machine-2016-12-24T23:59:59-03:00/  --x remote_expansions wallClock --y goals_found remote_expansions wallClock memory
+#+end_src bash
+
+** TODO Usage as a library
+*** Defining your own queries
+*** Navigating queries

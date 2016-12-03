@@ -7,9 +7,8 @@ set timeGiven 610
 set killTime  620
 
 
-#set -l queries  10 11 12 13 14 15  20 21 22 23 24 25  30 31 32  # All queries
-set -l queries  10 11    13 14     20    22 23 24     30    32  # Selected queries
-#set -l queries  30  # TODO
+#set -l queries  10 11 12 13 14 15 16 17  20 21 22 23 24 25  30 31 32  # All queries
+set -l queries  10 11 12 13 14           20    22 23 24     30    32  # Selected queries
 
 set -l poolSizes 1 10 20 40
 #set -l poolSizes 1

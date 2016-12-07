@@ -1,0 +1,1995 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2016-12-07 Wed 14:15 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Evaluating navigational RDF queries over the Web</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Your name" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Evaluating navigational RDF queries over the Web</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgfd0d35d">1. Introduction</a></li>
+<li><a href="#orgb23a890">2. Results</a>
+<ul>
+<li><a href="#org85b60b8">2.1. Selected queries</a>
+<ul>
+<li><a href="#org5983f92">2.1.1. Q10  Publications&#xa0;&#xa0;&#xa0;<span class="tag"><span class="dbpedia">dbpedia</span>&#xa0;<span class="selected">selected</span></span></a></li>
+<li><a href="#orgf188d5a">2.1.2. Q11  Journals&#xa0;&#xa0;&#xa0;<span class="tag"><span class="dbpedia">dbpedia</span>&#xa0;<span class="selected">selected</span></span></a></li>
+<li><a href="#org138f748">2.1.3. Q12  Conferences&#xa0;&#xa0;&#xa0;<span class="tag"><span class="dbpedia">dbpedia</span>&#xa0;<span class="selected">selected</span></span></a></li>
+<li><a href="#orgad62dff">2.1.4. Q13  CoAuthor&#xa0;&#xa0;&#xa0;<span class="tag"><span class="dbpedia">dbpedia</span>&#xa0;<span class="selected">selected</span></span></a></li>
+<li><a href="#org367325a">2.1.5. Q14  CoAuthor* IRIs&#xa0;&#xa0;&#xa0;<span class="tag"><span class="dbpedia">dbpedia</span>&#xa0;<span class="selected">selected</span></span></a></li>
+<li><a href="#org114af02">2.1.6. Q20  CoActor*&#xa0;&#xa0;&#xa0;<span class="tag"><span class="dbpedia">dbpedia</span>&#xa0;<span class="selected">selected</span></span></a></li>
+<li><a href="#org50a35a8">2.1.7. Q22  CoActor* IRIs&#xa0;&#xa0;&#xa0;<span class="tag"><span class="yago">yago</span>&#xa0;<span class="selected">selected</span></span></a></li>
+<li><a href="#org33e5323">2.1.8. Q23  CoActor* sameAs&#xa0;&#xa0;&#xa0;<span class="tag"><span class="any">any</span>&#xa0;<span class="yago">yago</span>&#xa0;<span class="dbpedia">dbpedia</span>&#xa0;<span class="lmdb">lmdb</span>&#xa0;<span class="selected">selected</span></span></a></li>
+<li><a href="#org25a3122">2.1.9. Q24  Movies-IRIs by CoActor*&#xa0;&#xa0;&#xa0;<span class="tag"><span class="yago">yago</span>&#xa0;<span class="selected">selected</span></span></a></li>
+<li><a href="#org90e9f5e">2.1.10. Q30  NATO Business&rsquo;&#xa0;&#xa0;&#xa0;<span class="tag"><span class="yago">yago</span>&#xa0;<span class="selected">selected</span>&#xa0;<span class="gubichev">gubichev</span></span></a></li>
+<li><a href="#org3342502">2.1.11. Q32  Airports in Netherlands&#xa0;&#xa0;&#xa0;<span class="tag"><span class="yago">yago</span>&#xa0;<span class="selected">selected</span>&#xa0;<span class="gubichev">gubichev</span></span></a></li>
+</ul>
+</li>
+<li><a href="#org6ae96c1">2.2. Other queries used</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgfd0d35d" class="outline-2">
+<h2 id="orgfd0d35d"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+This is better than uninformed search.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb23a890" class="outline-2">
+<h2 id="orgb23a890"><span class="section-number-2">2</span> Results</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-org85b60b8" class="outline-3">
+<h3 id="org85b60b8"><span class="section-number-3">2.1</span> Selected queries</h3>
+<div class="outline-text-3" id="text-2-1">
+</div><div id="outline-container-org5983f92" class="outline-4">
+<h4 id="org5983f92"><span class="section-number-4">2.1.1</span> Q10  Publications&#xa0;&#xa0;&#xa0;<span class="tag"><span class="dbpedia">dbpedia</span>&#xa0;<span class="selected">selected</span></span></h4>
+<div class="outline-text-4" id="text-2-1-1">
+<div class="org-src-container">
+<pre class="src src-sparql"><span style="color: #4f97d7; font-weight: bold;">prefix</span> dc:         <span style="color: #a45bad;"><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/">&lt;http://purl.org/dc/elements/1.1/&gt;</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/">
+</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/">prefix</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/"> dblpAuthor: </a><span style="color: #a45bad;"><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/">&lt;http://dblp.l3s.de/d2r/resource/authors/&gt;</a></span>
+
+<span style="color: #4f97d7; font-weight: bold;">select</span> * <span style="color: #4f97d7; font-weight: bold;">where</span> <span style="color: #4f97d7;">{</span>
+  dblpAuthor:Michael_Stonebraker  ^dc:creator/dc:title  <span style="color: #7590db;">?paper</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgf188d5a" class="outline-4">
+<h4 id="orgf188d5a"><span class="section-number-4">2.1.2</span> Q11  Journals&#xa0;&#xa0;&#xa0;<span class="tag"><span class="dbpedia">dbpedia</span>&#xa0;<span class="selected">selected</span></span></h4>
+<div class="outline-text-4" id="text-2-1-2">
+<div class="org-src-container">
+<pre class="src src-sparql"><span style="color: #4f97d7; font-weight: bold;">prefix</span> dc:         <span style="color: #a45bad;"><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">&lt;http://purl.org/dc/elements/1.1/&gt;</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">
+</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">prefix</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix swrc:    &lt;http://swrc.ontoware.org/ontology#"> dblpAuthor: </a><span style="color: #a45bad;"><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">&lt;http://dblp.l3s.de/d2r/resource/authors/&gt;</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">
+</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">prefix</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix swrc:    &lt;http://swrc.ontoware.org/ontology#"> rdfs: </a><span style="color: #a45bad;"><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">
+</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">prefix</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix swrc:    &lt;http://swrc.ontoware.org/ontology#"> swrc:    </a><span style="color: #a45bad;"><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">&lt;http://swrc.ontoware.org/ontology#&gt;</a></span>
+
+<span style="color: #4f97d7; font-weight: bold;">select</span> * <span style="color: #4f97d7; font-weight: bold;">where</span> <span style="color: #4f97d7;">{</span>
+  dblpAuthor:Michael_Stonebraker  ^dc:creator/swrc:journal/rdfs:label  <span style="color: #7590db;">?paper</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org138f748" class="outline-4">
+<h4 id="org138f748"><span class="section-number-4">2.1.3</span> Q12  Conferences&#xa0;&#xa0;&#xa0;<span class="tag"><span class="dbpedia">dbpedia</span>&#xa0;<span class="selected">selected</span></span></h4>
+<div class="outline-text-4" id="text-2-1-3">
+<div class="org-src-container">
+<pre class="src src-sparql"><span style="color: #4f97d7; font-weight: bold;">prefix</span> dc:         <span style="color: #a45bad;"><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">&lt;http://purl.org/dc/elements/1.1/&gt;</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">
+</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">prefix</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix swrc:    &lt;http://swrc.ontoware.org/ontology#"> dblpAuthor: </a><span style="color: #a45bad;"><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">&lt;http://dblp.l3s.de/d2r/resource/authors/&gt;</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">
+</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">prefix</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix swrc:    &lt;http://swrc.ontoware.org/ontology#"> rdfs: </a><span style="color: #a45bad;"><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">
+</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">prefix</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix swrc:    &lt;http://swrc.ontoware.org/ontology#"> swrc:    </a><span style="color: #a45bad;"><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">&lt;http://swrc.ontoware.org/ontology#&gt;</a></span>
+
+<span style="color: #4f97d7; font-weight: bold;">select</span> * <span style="color: #4f97d7; font-weight: bold;">where</span> <span style="color: #4f97d7;">{</span>
+  dblpAuthor:Michael_Stonebraker  ^dc:creator/swrc:series/rdfs:label  <span style="color: #7590db;">?paper</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgad62dff" class="outline-4">
+<h4 id="orgad62dff"><span class="section-number-4">2.1.4</span> Q13  CoAuthor&#xa0;&#xa0;&#xa0;<span class="tag"><span class="dbpedia">dbpedia</span>&#xa0;<span class="selected">selected</span></span></h4>
+<div class="outline-text-4" id="text-2-1-4">
+<div class="org-src-container">
+<pre class="src src-sparql"><span style="color: #4f97d7; font-weight: bold;">prefix</span> dc:         <span style="color: #a45bad;"><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">&lt;http://purl.org/dc/elements/1.1/&gt;</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">
+</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">prefix</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#"> dblpAuthor: </a><span style="color: #a45bad;"><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">&lt;http://dblp.l3s.de/d2r/resource/authors/&gt;</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">
+</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">prefix</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#"> rdfs: </a><span style="color: #a45bad;"><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</a></span>
+
+<span style="color: #4f97d7; font-weight: bold;">select</span> * <span style="color: #4f97d7; font-weight: bold;">where</span> <span style="color: #4f97d7;">{</span>
+  dblpAuthor:Michael_Stonebraker  ^dc:creator/dc:creator/rdfs:label  <span style="color: #7590db;">?paper</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org367325a" class="outline-4">
+<h4 id="org367325a"><span class="section-number-4">2.1.5</span> Q14  CoAuthor* IRIs&#xa0;&#xa0;&#xa0;<span class="tag"><span class="dbpedia">dbpedia</span>&#xa0;<span class="selected">selected</span></span></h4>
+<div class="outline-text-4" id="text-2-1-5">
+<div class="org-src-container">
+<pre class="src src-sparql"><span style="color: #4f97d7; font-weight: bold;">prefix</span> dc:         <span style="color: #a45bad;"><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/">&lt;http://purl.org/dc/elements/1.1/&gt;</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/">
+</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/">prefix</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/"> dblpAuthor: </a><span style="color: #a45bad;"><a href="http://purl.org/dc/elements/1.1/&gt;
+prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/">&lt;http://dblp.l3s.de/d2r/resource/authors/&gt;</a></span>
+
+<span style="color: #4f97d7; font-weight: bold;">select</span> * <span style="color: #4f97d7; font-weight: bold;">where</span> <span style="color: #4f97d7;">{</span>
+  dblpAuthor:Michael_Stonebraker  <span style="color: #bc6ec5;">(</span>^dc:creator/dc:creator<span style="color: #bc6ec5;">)</span>*  <span style="color: #7590db;">?paper</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org114af02" class="outline-4">
+<h4 id="org114af02"><span class="section-number-4">2.1.6</span> Q20  CoActor*&#xa0;&#xa0;&#xa0;<span class="tag"><span class="dbpedia">dbpedia</span>&#xa0;<span class="selected">selected</span></span></h4>
+<div class="outline-text-4" id="text-2-1-6">
+<div class="org-src-container">
+<pre class="src src-sparql"><span style="color: #4f97d7; font-weight: bold;">prefix</span> dbr: <span style="color: #a45bad;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">&lt;http://dbpedia.org/resource/&gt;</a></span><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">
+</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">prefix</a></span><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#"> dbo: </a><span style="color: #a45bad;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">&lt;http://dbpedia.org/ontology/&gt;</a></span><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">
+</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">prefix</a></span><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#"> rdfs: </a><span style="color: #a45bad;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</a></span>
+
+<span style="color: #4f97d7; font-weight: bold;">select</span> * <span style="color: #4f97d7; font-weight: bold;">where</span> <span style="color: #4f97d7;">{</span>
+  dbr:Kevin_Bacon  <span style="color: #bc6ec5;">(</span>^dbo:starring/dbo:starring<span style="color: #bc6ec5;">)</span>*/rdfs:label  <span style="color: #7590db;">?coActorName</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org50a35a8" class="outline-4">
+<h4 id="org50a35a8"><span class="section-number-4">2.1.7</span> Q22  CoActor* IRIs&#xa0;&#xa0;&#xa0;<span class="tag"><span class="yago">yago</span>&#xa0;<span class="selected">selected</span></span></h4>
+<div class="outline-text-4" id="text-2-1-7">
+<div class="org-src-container">
+<pre class="src src-sparql"><span style="color: #4f97d7; font-weight: bold;">prefix</span> yago: <span style="color: #a45bad;"><a href="http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">&lt;http://yago-knowledge.org/resource/&gt;</a></span><a href="http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">
+</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">prefix</a></span><a href="http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/"> frmb: </a><span style="color: #a45bad;"><a href="http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">&lt;http://framebase.org/ns/&gt;</a></span>
+
+<span style="color: #4f97d7; font-weight: bold;">select</span> * <span style="color: #4f97d7; font-weight: bold;">where</span> <span style="color: #4f97d7;">{</span>
+  <span style="color: #2aa1ae; background-color: #292e34;"># ((frmb:plays|yago:actedIn)/(^frmb:plays|^yago:actedIn))* was used on navigation, it's harder</span>
+  yago:Kevin_Bacon  <span style="color: #bc6ec5;">(</span>frmb:dereif-Performers_and_roles-playsInPerformance/^frmb:dereif-Performers_and_roles-playsInPerformance<span style="color: #bc6ec5;">)</span>* <span style="color: #7590db;">?coActorIRI</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org33e5323" class="outline-4">
+<h4 id="org33e5323"><span class="section-number-4">2.1.8</span> Q23  CoActor* sameAs&#xa0;&#xa0;&#xa0;<span class="tag"><span class="any">any</span>&#xa0;<span class="yago">yago</span>&#xa0;<span class="dbpedia">dbpedia</span>&#xa0;<span class="lmdb">lmdb</span>&#xa0;<span class="selected">selected</span></span></h4>
+<div class="outline-text-4" id="text-2-1-8">
+<p>
+Any
+Huge query!!
+</p>
+<div class="org-src-container">
+<pre class="src src-sparql"><span style="color: #4f97d7; font-weight: bold;">prefix</span> dbr: <span style="color: #a45bad;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">&lt;http://dbpedia.org/resource/&gt;</a></span><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">
+</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">prefix</a></span><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/"> dbo: </a><span style="color: #a45bad;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">&lt;http://dbpedia.org/ontology/&gt;</a></span><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">
+</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">prefix</a></span><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/"> rdfs: </a><span style="color: #a45bad;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</a></span><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">
+
+</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">select</a></span><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/"> * </a><span style="color: #4f97d7; font-weight: bold;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">where</a></span><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/"> </a><span style="color: #4f97d7;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">{</a></span><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">
+</a>  <span style="color: #2aa1ae; background-color: #292e34;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/"># It's a mess!!</a></span><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">
+</a><span style="color: #2aa1ae; background-color: #292e34;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">#</a> <a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">dbr:Kevin_Bacon  owl:sameAs*/</a></span><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">
+</a><span style="color: #2aa1ae; background-color: #292e34;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">#</a>                 <a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">(</a></span><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">
+</a><span style="color: #2aa1ae; background-color: #292e34;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">#</a>                   <a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">( (  ^dbo:starring</a></span><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">
+</a><span style="color: #2aa1ae; background-color: #292e34;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">#</a>                       <a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">|^dbo:starring</a></span><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">
+</a><span style="color: #2aa1ae; background-color: #292e34;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">#</a>                     <a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">)</a></span><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">
+</a><span style="color: #2aa1ae; background-color: #292e34;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">#</a>                   <a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">)/</a></span><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">
+</a><span style="color: #2aa1ae; background-color: #292e34;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">#</a>                 <a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/"> owl:sameAs*/</a></span><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">
+</a><span style="color: #2aa1ae; background-color: #292e34;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">#</a></span><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">
+</a><span style="color: #2aa1ae; background-color: #292e34;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">#(  (^dbo:starring/dbo:starring)</a></span><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">
+</a><span style="color: #2aa1ae; background-color: #292e34;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">#</a>                   <a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">| (^dbo:starring/dbo:starring)</a></span><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">
+</a><span style="color: #2aa1ae; background-color: #292e34;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">#</a>                   <a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">| (owl:sameAs)</a></span><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">
+</a><span style="color: #2aa1ae; background-color: #292e34;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">#</a>                 <a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">)*</a></span><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">
+</a><span style="color: #2aa1ae; background-color: #292e34;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">#</a>                 <a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">/rdfs:label  ?coActorName</a></span><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">
+</a><span style="color: #4f97d7;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">}</a></span><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">
+</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">prefix</a></span><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/"> yago: </a><span style="color: #a45bad;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">&lt;http://yago-knowledge.org/resource/&gt;</a></span><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">
+</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">prefix</a></span><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/"> frmb: </a><span style="color: #a45bad;"><a href="http://dbpedia.org/resource/&gt;
+prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
+prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select * where {
+	# It's a mess!!
+#	dbr:Kevin_Bacon  owl:sameAs*/
+#									(
+#										( (  ^dbo:starring
+#												|^dbo:starring
+#											)
+#										)/
+#									 owl:sameAs*/
+#
+#(  (^dbo:starring/dbo:starring)
+#										| (^dbo:starring/dbo:starring)
+#										| (owl:sameAs)
+#									)*
+#									/rdfs:label  ?coActorName
+}
+prefix yago: &lt;http://yago-knowledge.org/resource/&gt;
+prefix frmb: &lt;http://framebase.org/ns/">&lt;http://framebase.org/ns/&gt;</a></span>
+
+<span style="color: #4f97d7; font-weight: bold;">select</span> * <span style="color: #4f97d7; font-weight: bold;">where</span> <span style="color: #4f97d7;">{</span>
+  <span style="color: #2aa1ae; background-color: #292e34;"># ((frmb:plays|yago:actedIn)/(^frmb:plays|^yago:actedIn))* was used on navigation, it's harder</span>
+  yago:Kevin_Bacon  <span style="color: #bc6ec5;">(</span>frmb:dereif-Performers_and_roles-playsInPerformance/^frmb:dereif-Performers_and_roles-playsInPerformance<span style="color: #bc6ec5;">)</span>* <span style="color: #7590db;">?coActorIRI</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org25a3122" class="outline-4">
+<h4 id="org25a3122"><span class="section-number-4">2.1.9</span> Q24  Movies-IRIs by CoActor*&#xa0;&#xa0;&#xa0;<span class="tag"><span class="yago">yago</span>&#xa0;<span class="selected">selected</span></span></h4>
+<div class="outline-text-4" id="text-2-1-9">
+<p>
+Any
+</p>
+</div>
+</div>
+<div id="outline-container-org90e9f5e" class="outline-4">
+<h4 id="org90e9f5e"><span class="section-number-4">2.1.10</span> Q30  NATO Business&rsquo;&#xa0;&#xa0;&#xa0;<span class="tag"><span class="yago">yago</span>&#xa0;<span class="selected">selected</span>&#xa0;<span class="gubichev">gubichev</span></span></h4>
+<div class="outline-text-4" id="text-2-1-10">
+<p>
+Similar to Gubichev&rsquo;s Q1  (does not ends in <code>yago:Berlin</code>)
+</p>
+
+<p>
+Works on Make-make.  2502 answers in negligible time
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #7590db;">b</span> = QueryBuilder<span style="color: #4f97d7;">(</span>YAGO<span style="color: #bc6ec5;">[</span><span style="color: #2d9574;">"wikicat_Member_states_of_NATO"</span><span style="color: #bc6ec5;">]</span><span style="color: #4f97d7;">)</span>
+
+b.frm<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"s0"</span><span style="color: #4f97d7;">)</span>.through<span style="color: #4f97d7;">(</span>RDF<span style="color: #bc6ec5;">[</span><span style="color: #2d9574;">"type"</span><span style="color: #bc6ec5;">]</span><span style="color: #4f97d7;">)</span>.backwards_to<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"Area"</span><span style="color: #4f97d7;">)</span>
+
+b.frm<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"Area"</span><span style="color: #4f97d7;">)</span>.through<span style="color: #4f97d7;">(</span>YAGO<span style="color: #bc6ec5;">[</span><span style="color: #2d9574;">"dealsWith"</span><span style="color: #bc6ec5;">]</span><span style="color: #4f97d7;">)</span>.backwards_to<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"Place"</span>, <span style="color: #a45bad;">None</span>, NodeFilter_but<span style="color: #bc6ec5;">(</span>n<span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
+
+b.frm<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"Place"</span><span style="color: #4f97d7;">)</span>.through<span style="color: #4f97d7;">(</span>YAGO<span style="color: #bc6ec5;">[</span><span style="color: #2d9574;">"isLocatedIn"</span><span style="color: #bc6ec5;">]</span><span style="color: #4f97d7;">)</span>.to<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"Place"</span><span style="color: #4f97d7;">)</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-sparql"><span style="color: #4f97d7; font-weight: bold;">PREFIX</span> yago: <span style="color: #a45bad;"><a href="http://yago-knowledge.org/resource/">&lt;http://yago-knowledge.org/resource/&gt;</a></span>
+
+<span style="color: #4f97d7; font-weight: bold;">select</span> * <span style="color: #4f97d7; font-weight: bold;">where</span> <span style="color: #4f97d7;">{</span>
+  yago:wikicat_Member_states_of_NATO ^rdf:type/^yago:dealsWith/<span style="color: #bc6ec5;">(</span>yago:isLocatedIn*<span style="color: #bc6ec5;">)</span> <span style="color: #7590db;">?place</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org3342502" class="outline-4">
+<h4 id="org3342502"><span class="section-number-4">2.1.11</span> Q32  Airports in Netherlands&#xa0;&#xa0;&#xa0;<span class="tag"><span class="yago">yago</span>&#xa0;<span class="selected">selected</span>&#xa0;<span class="gubichev">gubichev</span></span></h4>
+<div class="outline-text-4" id="text-2-1-11">
+<p>
+Similar to Gubichev&rsquo;s Q2, but yago:dealsWith was removed
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Using wikicat_* instead of wikicategory_*</span>
+
+<span style="color: #7590db;">b</span> = QueryBuilder<span style="color: #4f97d7;">(</span>n, <span style="color: #2d9574;">"EuropeCapitals"</span><span style="color: #4f97d7;">)</span>
+b.from_<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"Airports"</span><span style="color: #4f97d7;">)</span>.through<span style="color: #4f97d7;">(</span> RDF<span style="color: #bc6ec5;">[</span><span style="color: #2d9574;">"type"</span><span style="color: #bc6ec5;">]</span>       <span style="color: #4f97d7;">)</span>.backwards_to<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"airport"</span><span style="color: #4f97d7;">)</span>  <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">AirportList ~&gt; airport</span>
+b.from_<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"airport"</span> <span style="color: #4f97d7;">)</span>.through<span style="color: #4f97d7;">(</span>YAGO<span style="color: #bc6ec5;">[</span><span style="color: #2d9574;">"isLocatedIn"</span><span style="color: #bc6ec5;">]</span><span style="color: #4f97d7;">)</span>.final<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"Place"</span><span style="color: #4f97d7;">)</span>           <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">airport     -&gt; Place</span>
+b.from_<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"Place"</span>   <span style="color: #4f97d7;">)</span>.through<span style="color: #4f97d7;">(</span>YAGO<span style="color: #bc6ec5;">[</span><span style="color: #2d9574;">"isLocatedIn"</span><span style="color: #bc6ec5;">]</span><span style="color: #4f97d7;">)</span>.to<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"Place"</span><span style="color: #4f97d7;">)</span>              <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Place       -&gt; Place</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-sparql"><span style="color: #4f97d7; font-weight: bold;">PREFIX</span> yago: <span style="color: #a45bad;"><a href="http://yago-knowledge.org/resource/">&lt;http://yago-knowledge.org/resource/&gt;</a></span>
+
+<span style="color: #4f97d7; font-weight: bold;">select</span> * <span style="color: #4f97d7; font-weight: bold;">where</span> <span style="color: #4f97d7;">{</span>
+  yago:wikicat_Capitals_in_Europe ^rdf:type/yago:isLocatedIn* <span style="color: #7590db;">?place</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org6ae96c1" class="outline-3">
+<h3 id="org6ae96c1"><span class="section-number-3">2.2</span> Other queries used</h3>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2013-06-04 Tue&gt;</span></span></p>
+<p class="author">Author: Your name</p>
+<p class="date">Created: 2016-12-07 Wed 14:15</p>
+<p class="creator">Emacs 24.3.50.3 (Org mode 8.0.3)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

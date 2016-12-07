@@ -120,61 +120,62 @@ This is better than uninformed search.
 
 
 *** Q23  CoActor* sameAs                     :any:yago:dbpedia:lmdb:selected:
- Any
- Huge query!!
- #+begin_src sparql
- prefix dbr: <http://dbpedia.org/resource/>
- prefix dbo: <http://dbpedia.org/ontology/>
- prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+This query has no sane, readable SPARQL equivalent, as it has too many optional edges.
 
- select * where {
-	 # It's a mess!!
- #	dbr:Kevin_Bacon  owl:sameAs*/
- #									(
- #										( (  ^dbo:starring
- #												|^dbo:starring
- #											)
- #										)/
- #									 owl:sameAs*/
- #
- #(  (^dbo:starring/dbo:starring)
- #										| (^dbo:starring/dbo:starring)
- #										| (owl:sameAs)
- #									)*
- #									/rdfs:label  ?coActorName
- }
- prefix yago: <http://yago-knowledge.org/resource/>
- prefix frmb: <http://framebase.org/ns/>
+From each State, any of these Predicates can be used,
+	- ~dbo:starring~
+	- ~yago:actedIn~
+	- ~frmb:dereif-Performers_and_roles-playsInPerformance~
+	- ~owl:sameAs~
 
- select * where {
-	 # ((frmb:plays|yago:actedIn)/(^frmb:plays|^yago:actedIn))* was used on navigation, it's harder
-	 yago:Kevin_Bacon  (frmb:dereif-Performers_and_roles-playsInPerformance/^frmb:dereif-Performers_and_roles-playsInPerformance)* ?coActorIRI
- }
- #+end_src
+And the final state can be reached through any of
+	- ~foaf:name~
+	- ~rdfs:label~
+
 *** Q24  Movies-IRIs by CoActor*                              :yago:selected:
- Any
+
+#+begin_src sparql
+prefix yago: <http://yago-knowledge.org/resource/>
+
+select * where {
+	yago:Kevin_Bacon
+		(yago:actedIn/^yago:actedIn)+/yago:directed
+	?movieIRI
+}
+#+end_src
+
+
+#+begin_src python
+b = QueryBuilder(n, "Actor")
+directed = YAGO["directed"]
+b.frm("Actor").through(ACTED_IN).to("Movie")
+b.frm("Movie").through(ACTED_IN).backwards_to("CoActor", NodeFilter_but(n))
+
+b.frm("CoActor").through(directed).final("Directed_Movie")
+#+end_src
+
 *** Q30  NATO Business'                              :yago:selected:gubichev:
  Similar to Gubichev's Q1  (does not ends in ~yago:Berlin~)
 
  Works on Make-make.  2502 answers in negligible time
 
- #+begin_src python
- b = QueryBuilder(YAGO["wikicat_Member_states_of_NATO"])
+#+begin_src python
+b = QueryBuilder(YAGO["wikicat_Member_states_of_NATO"])
 
- b.frm("s0").through(RDF["type"]).backwards_to("Area")
+b.frm("s0").through(RDF["type"]).backwards_to("Area")
 
- b.frm("Area").through(YAGO["dealsWith"]).backwards_to("Place", None, NodeFilter_but(n))
+b.frm("Area").through(YAGO["dealsWith"]).backwards_to("Place", None, NodeFilter_but(n))
 
- b.frm("Place").through(YAGO["isLocatedIn"]).to("Place")
- #+end_src
+b.frm("Place").through(YAGO["isLocatedIn"]).to("Place")
+#+end_src
 
- #+begin_src sparql
- PREFIX yago: <http://yago-knowledge.org/resource/>
+#+begin_src sparql
+PREFIX yago: <http://yago-knowledge.org/resource/>
 
- select * where {
-	 yago:wikicat_Member_states_of_NATO ^rdf:type/^yago:dealsWith/(yago:isLocatedIn*) ?place
- }
- #+end_src
+select * where {
+	yago:wikicat_Member_states_of_NATO ^rdf:type/^yago:dealsWith/(yago:isLocatedIn*) ?place
+}
+#+end_src
 
 
 *** Q32  Airports in Netherlands                     :yago:selected:gubichev:

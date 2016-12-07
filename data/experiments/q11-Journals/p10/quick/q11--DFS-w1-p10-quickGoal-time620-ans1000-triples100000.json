@@ -1,0 +1,2892 @@
+{
+  "params": {
+    "weight": 1,
+    "limits": {
+      "triples": 100000.0,
+      "ans": 1000.0,
+      "time": 620
+    },
+    "parallelRequests": 10,
+    "algorithm": "DFS",
+    "quickGoal": true
+  },
+  "query": "Journals",
+  "data": {
+    "StatsHistory": [
+      {
+        "triples": 0,
+        "requestTime": 0,
+        "local_expansions": 0,
+        "requestIRI": "",
+        "remote_expansions": 0,
+        "memory": 24.796875,
+        "requestTotalTime": 0,
+        "goals_found": 0,
+        "wallClock": 0.0051991939544677734,
+        "expansions": 0,
+        "batchID": 0,
+        "requestTriples": 0
+      },
+      {
+        "triples": 0,
+        "requestTime": 1.7460057735443115,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/authors/Michael_Stonebraker",
+        "remote_expansions": 1,
+        "memory": 25.84375,
+        "requestTotalTime": 1.7460057735443115,
+        "goals_found": 0,
+        "wallClock": 1.7715725898742676,
+        "expansions": 1,
+        "batchID": 1,
+        "requestTriples": 609
+      },
+      {
+        "triples": 609,
+        "requestTime": 1.0844380855560303,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/cacm/BarrS15",
+        "remote_expansions": 2,
+        "memory": 26.12109375,
+        "requestTotalTime": 2.830443859100342,
+        "goals_found": 0,
+        "wallClock": 2.891120195388794,
+        "expansions": 2,
+        "batchID": 2,
+        "requestTriples": 35
+      },
+      {
+        "triples": 642,
+        "requestTime": 1.0834543704986572,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/cacm/BarrS15a",
+        "remote_expansions": 3,
+        "memory": 26.12109375,
+        "requestTotalTime": 3.913898229598999,
+        "goals_found": 0,
+        "wallClock": 2.9015159606933594,
+        "expansions": 3,
+        "batchID": 2,
+        "requestTriples": 35
+      },
+      {
+        "triples": 672,
+        "requestTime": 1.1146478652954102,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/cacm/AgrawalABBCCDFFGGGHHHIKKMMOORSSSW09",
+        "remote_expansions": 4,
+        "memory": 26.12109375,
+        "requestTotalTime": 5.028546094894409,
+        "goals_found": 0,
+        "wallClock": 2.9157843589782715,
+        "expansions": 4,
+        "batchID": 2,
+        "requestTriples": 85
+      },
+      {
+        "triples": 752,
+        "requestTime": 1.1318941116333008,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/cacm/AbiteboulABCCCDFGGGHHHIKPLMNSSSSSUWWZ05",
+        "remote_expansions": 5,
+        "memory": 26.12109375,
+        "requestTotalTime": 6.16044020652771,
+        "goals_found": 0,
+        "wallClock": 2.9319558143615723,
+        "expansions": 5,
+        "batchID": 2,
+        "requestTriples": 89
+      },
+      {
+        "triples": 836,
+        "requestTime": 1.4432079792022705,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/cacm/Stonebraker08",
+        "remote_expansions": 6,
+        "memory": 26.3203125,
+        "requestTotalTime": 7.6036481857299805,
+        "goals_found": 0,
+        "wallClock": 3.2561593055725098,
+        "expansions": 6,
+        "batchID": 2,
+        "requestTriples": 33
+      },
+      {
+        "triples": 864,
+        "requestTime": 1.46132230758667,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/cacm/Stonebraker10a",
+        "remote_expansions": 7,
+        "memory": 26.3203125,
+        "requestTotalTime": 9.06497049331665,
+        "goals_found": 0,
+        "wallClock": 3.271972179412842,
+        "expansions": 7,
+        "batchID": 2,
+        "requestTriples": 33
+      },
+      {
+        "triples": 892,
+        "requestTime": 1.4719696044921875,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/cacm/HeldS78",
+        "remote_expansions": 8,
+        "memory": 26.3203125,
+        "requestTotalTime": 10.536940097808838,
+        "goals_found": 0,
+        "wallClock": 3.281177043914795,
+        "expansions": 8,
+        "batchID": 2,
+        "requestTriples": 44
+      },
+      {
+        "triples": 931,
+        "requestTime": 1.4816665649414062,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/cacm/SilberschatzSU91",
+        "remote_expansions": 9,
+        "memory": 26.3203125,
+        "requestTotalTime": 12.018606662750244,
+        "goals_found": 0,
+        "wallClock": 3.291278839111328,
+        "expansions": 9,
+        "batchID": 2,
+        "requestTriples": 64
+      },
+      {
+        "triples": 990,
+        "requestTime": 1.4885904788970947,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/cacm/AbadiAABBCCDDFG16",
+        "remote_expansions": 10,
+        "memory": 26.3203125,
+        "requestTotalTime": 13.507197141647339,
+        "goals_found": 0,
+        "wallClock": 3.300830841064453,
+        "expansions": 10,
+        "batchID": 2,
+        "requestTriples": 91
+      },
+      {
+        "triples": 1076,
+        "requestTime": 1.6949126720428467,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/cacm/Stonebraker10",
+        "remote_expansions": 11,
+        "memory": 26.3203125,
+        "requestTotalTime": 15.202109813690186,
+        "goals_found": 0,
+        "wallClock": 3.5041141510009766,
+        "expansions": 11,
+        "batchID": 2,
+        "requestTriples": 33
+      },
+      {
+        "triples": 1104,
+        "requestTime": 5.1929121017456055,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/journals/cacm",
+        "remote_expansions": 12,
+        "memory": 40.37890625,
+        "requestTotalTime": 20.39502191543579,
+        "goals_found": 0,
+        "wallClock": 8.787541627883911,
+        "expansions": 12,
+        "batchID": 3,
+        "requestTriples": 10009
+      },
+      {
+        "triples": 11103,
+        "requestTime": 1.088984489440918,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/cacm/Stonebraker12",
+        "remote_expansions": 13,
+        "memory": 38.65625,
+        "requestTotalTime": 21.48400640487671,
+        "goals_found": 1,
+        "wallClock": 10.182078123092651,
+        "expansions": 13,
+        "batchID": 4,
+        "requestTriples": 33
+      },
+      {
+        "triples": 11130,
+        "requestTime": 1.1022260189056396,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/cacm/StonebrakerH12",
+        "remote_expansions": 14,
+        "memory": 38.65625,
+        "requestTotalTime": 22.58623242378235,
+        "goals_found": 1,
+        "wallClock": 10.201565027236938,
+        "expansions": 14,
+        "batchID": 4,
+        "requestTriples": 35
+      },
+      {
+        "triples": 11159,
+        "requestTime": 1.105771780014038,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/cacm/StonebrakerADMPPR10",
+        "remote_expansions": 15,
+        "memory": 38.65625,
+        "requestTotalTime": 23.692004203796387,
+        "goals_found": 1,
+        "wallClock": 10.218994140625,
+        "expansions": 15,
+        "batchID": 4,
+        "requestTriples": 45
+      },
+      {
+        "triples": 11198,
+        "requestTime": 1.1090335845947266,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/cacm/StonebrakerH09",
+        "remote_expansions": 16,
+        "memory": 38.65625,
+        "requestTotalTime": 24.801037788391113,
+        "goals_found": 1,
+        "wallClock": 10.236901998519897,
+        "expansions": 16,
+        "batchID": 4,
+        "requestTriples": 35
+      },
+      {
+        "triples": 11227,
+        "requestTime": 1.1091690063476562,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/cacm/Stonebraker11a",
+        "remote_expansions": 17,
+        "memory": 38.65625,
+        "requestTotalTime": 25.91020679473877,
+        "goals_found": 1,
+        "wallClock": 10.253123760223389,
+        "expansions": 17,
+        "batchID": 4,
+        "requestTriples": 33
+      },
+      {
+        "triples": 11254,
+        "requestTime": 1.1132597923278809,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/cacm/Stonebraker11",
+        "remote_expansions": 18,
+        "memory": 38.65625,
+        "requestTotalTime": 27.02346658706665,
+        "goals_found": 1,
+        "wallClock": 10.268852233886719,
+        "expansions": 18,
+        "batchID": 4,
+        "requestTriples": 33
+      },
+      {
+        "triples": 11281,
+        "requestTime": 1.1140458583831787,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/cacm/Stonebraker16",
+        "remote_expansions": 19,
+        "memory": 38.65625,
+        "requestTotalTime": 28.13751244544983,
+        "goals_found": 1,
+        "wallClock": 10.283347606658936,
+        "expansions": 19,
+        "batchID": 4,
+        "requestTriples": 33
+      },
+      {
+        "triples": 11308,
+        "requestTime": 1.1186468601226807,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/cacm/StonebrakerD08",
+        "remote_expansions": 20,
+        "memory": 38.65625,
+        "requestTotalTime": 29.25615930557251,
+        "goals_found": 1,
+        "wallClock": 10.295875310897827,
+        "expansions": 20,
+        "batchID": 4,
+        "requestTriples": 35
+      },
+      {
+        "triples": 11337,
+        "requestTime": 1.3384413719177246,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/cacm/StonebrakerC11",
+        "remote_expansions": 21,
+        "memory": 38.65625,
+        "requestTotalTime": 30.594600677490234,
+        "goals_found": 1,
+        "wallClock": 10.40234661102295,
+        "expansions": 21,
+        "batchID": 4,
+        "requestTriples": 35
+      },
+      {
+        "triples": 11366,
+        "requestTime": 1.3739385604858398,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/cacm/Stonebraker81",
+        "remote_expansions": 22,
+        "memory": 38.65625,
+        "requestTotalTime": 31.968539237976074,
+        "goals_found": 1,
+        "wallClock": 10.437347412109375,
+        "expansions": 22,
+        "batchID": 4,
+        "requestTriples": 103
+      },
+      {
+        "triples": 11463,
+        "requestTime": 1.0992648601531982,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/corr/cs-DB-9811013",
+        "remote_expansions": 23,
+        "memory": 38.65625,
+        "requestTotalTime": 33.06780409812927,
+        "goals_found": 1,
+        "wallClock": 11.566057682037354,
+        "expansions": 23,
+        "batchID": 5,
+        "requestTriples": 58
+      },
+      {
+        "triples": 11516,
+        "requestTime": 1.1027612686157227,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/cse/StonebrakerBZB13",
+        "remote_expansions": 24,
+        "memory": 38.65625,
+        "requestTotalTime": 34.170565366744995,
+        "goals_found": 1,
+        "wallClock": 11.582622766494751,
+        "expansions": 24,
+        "batchID": 5,
+        "requestTriples": 39
+      },
+      {
+        "triples": 11550,
+        "requestTime": 1.1042015552520752,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/corr/cs-DB-0310006",
+        "remote_expansions": 25,
+        "memory": 38.65625,
+        "requestTotalTime": 35.27476692199707,
+        "goals_found": 1,
+        "wallClock": 11.59789490699768,
+        "expansions": 25,
+        "batchID": 5,
+        "requestTriples": 84
+      },
+      {
+        "triples": 11629,
+        "requestTime": 1.110504388809204,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/corr/GadepallyDEKMMS16",
+        "remote_expansions": 26,
+        "memory": 39.9375,
+        "requestTotalTime": 36.385271310806274,
+        "goals_found": 1,
+        "wallClock": 11.615802526473999,
+        "expansions": 26,
+        "batchID": 5,
+        "requestTriples": 40
+      },
+      {
+        "triples": 11664,
+        "requestTime": 1.1124589443206787,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/cacm/StonebrakerR13",
+        "remote_expansions": 27,
+        "memory": 39.9375,
+        "requestTotalTime": 37.49773025512695,
+        "goals_found": 1,
+        "wallClock": 11.635025024414062,
+        "expansions": 27,
+        "batchID": 5,
+        "requestTriples": 35
+      },
+      {
+        "triples": 11693,
+        "requestTime": 1.1140012741088867,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/corr/GadepallyCDEHKM16",
+        "remote_expansions": 28,
+        "memory": 39.9375,
+        "requestTotalTime": 38.61173152923584,
+        "goals_found": 1,
+        "wallClock": 11.656042098999023,
+        "expansions": 28,
+        "batchID": 5,
+        "requestTriples": 44
+      },
+      {
+        "triples": 11732,
+        "requestTime": 1.1063549518585205,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/computer/AllmanS82",
+        "remote_expansions": 29,
+        "memory": 39.9375,
+        "requestTotalTime": 39.71808648109436,
+        "goals_found": 1,
+        "wallClock": 11.674665212631226,
+        "expansions": 29,
+        "batchID": 5,
+        "requestTriples": 35
+      },
+      {
+        "triples": 11762,
+        "requestTime": 1.1167774200439453,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/corr/MeehanTZACDKMMP15",
+        "remote_expansions": 30,
+        "memory": 39.9375,
+        "requestTotalTime": 40.834863901138306,
+        "goals_found": 1,
+        "wallClock": 11.690149068832397,
+        "expansions": 30,
+        "batchID": 5,
+        "requestTriples": 52
+      },
+      {
+        "triples": 11809,
+        "requestTime": 1.118882656097412,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/computer/OgleS95",
+        "remote_expansions": 31,
+        "memory": 39.9375,
+        "requestTotalTime": 41.95374655723572,
+        "goals_found": 1,
+        "wallClock": 11.706858158111572,
+        "expansions": 31,
+        "batchID": 5,
+        "requestTriples": 43
+      },
+      {
+        "triples": 11847,
+        "requestTime": 1.3676679134368896,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/cacm/StonebrakerK91",
+        "remote_expansions": 32,
+        "memory": 39.9375,
+        "requestTotalTime": 43.32141447067261,
+        "goals_found": 1,
+        "wallClock": 11.822777271270752,
+        "expansions": 32,
+        "batchID": 5,
+        "requestTriples": 102
+      },
+      {
+        "triples": 11943,
+        "requestTime": 2.235132932662964,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/journals/cse",
+        "remote_expansions": 33,
+        "memory": 40.9609375,
+        "requestTotalTime": 45.55654740333557,
+        "goals_found": 1,
+        "wallClock": 14.088179111480713,
+        "expansions": 33,
+        "batchID": 6,
+        "requestTriples": 1462
+      },
+      {
+        "triples": 13403,
+        "requestTime": 4.256986141204834,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/journals/computer",
+        "remote_expansions": 34,
+        "memory": 50.1171875,
+        "requestTotalTime": 49.813533544540405,
+        "goals_found": 2,
+        "wallClock": 16.152768850326538,
+        "expansions": 34,
+        "batchID": 6,
+        "requestTriples": 6543
+      },
+      {
+        "triples": 19943,
+        "requestTime": 5.248423337936401,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/journals/corr",
+        "remote_expansions": 35,
+        "memory": 60.31640625,
+        "requestTotalTime": 55.06195688247681,
+        "goals_found": 3,
+        "wallClock": 17.192106246948242,
+        "expansions": 35,
+        "batchID": 6,
+        "requestTriples": 10009
+      },
+      {
+        "triples": 29951,
+        "requestTime": 1.0918657779693604,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/debu/KatzOPS88",
+        "remote_expansions": 36,
+        "memory": 61.859375,
+        "requestTotalTime": 56.15382266044617,
+        "goals_found": 4,
+        "wallClock": 18.598411321640015,
+        "expansions": 36,
+        "batchID": 7,
+        "requestTriples": 39
+      },
+      {
+        "triples": 29985,
+        "requestTime": 1.1085257530212402,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/debu/HellersteinSC99",
+        "remote_expansions": 37,
+        "memory": 61.859375,
+        "requestTotalTime": 57.26234841346741,
+        "goals_found": 4,
+        "wallClock": 18.626306772232056,
+        "expansions": 37,
+        "batchID": 7,
+        "requestTriples": 43
+      },
+      {
+        "triples": 30023,
+        "requestTime": 1.0947225093841553,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/debu/Stonebraker90",
+        "remote_expansions": 38,
+        "memory": 61.859375,
+        "requestTotalTime": 58.35707092285156,
+        "goals_found": 4,
+        "wallClock": 18.652361154556274,
+        "expansions": 38,
+        "batchID": 7,
+        "requestTriples": 32
+      },
+      {
+        "triples": 30050,
+        "requestTime": 1.1099936962127686,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/debu/Stonebraker85",
+        "remote_expansions": 39,
+        "memory": 61.859375,
+        "requestTotalTime": 59.46706461906433,
+        "goals_found": 4,
+        "wallClock": 18.678054809570312,
+        "expansions": 39,
+        "batchID": 7,
+        "requestTriples": 31
+      },
+      {
+        "triples": 30076,
+        "requestTime": 1.0938410758972168,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/debu/Stonebraker93",
+        "remote_expansions": 40,
+        "memory": 61.859375,
+        "requestTotalTime": 60.56090569496155,
+        "goals_found": 4,
+        "wallClock": 18.703758716583252,
+        "expansions": 40,
+        "batchID": 7,
+        "requestTriples": 37
+      },
+      {
+        "triples": 30107,
+        "requestTime": 1.1132533550262451,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/debu/StonebrakerBH98",
+        "remote_expansions": 41,
+        "memory": 61.859375,
+        "requestTotalTime": 61.67415904998779,
+        "goals_found": 4,
+        "wallClock": 18.729783535003662,
+        "expansions": 41,
+        "batchID": 7,
+        "requestTriples": 37
+      },
+      {
+        "triples": 30139,
+        "requestTime": 1.114868402481079,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/debu/GuttmanS82",
+        "remote_expansions": 42,
+        "memory": 61.859375,
+        "requestTotalTime": 62.78902745246887,
+        "goals_found": 4,
+        "wallClock": 18.755704879760742,
+        "expansions": 42,
+        "batchID": 7,
+        "requestTriples": 45
+      },
+      {
+        "triples": 30179,
+        "requestTime": 1.1053190231323242,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/debu/StonebrakerAH87",
+        "remote_expansions": 43,
+        "memory": 61.859375,
+        "requestTotalTime": 63.894346475601196,
+        "goals_found": 4,
+        "wallClock": 18.781765460968018,
+        "expansions": 43,
+        "batchID": 7,
+        "requestTriples": 43
+      },
+      {
+        "triples": 30216,
+        "requestTime": 1.1145517826080322,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/debu/OlsonHUS96",
+        "remote_expansions": 44,
+        "memory": 61.859375,
+        "requestTotalTime": 65.00889825820923,
+        "goals_found": 4,
+        "wallClock": 18.807870149612427,
+        "expansions": 44,
+        "batchID": 7,
+        "requestTriples": 44
+      },
+      {
+        "triples": 30255,
+        "requestTime": 1.3735735416412354,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/debu/Stonebraker86",
+        "remote_expansions": 45,
+        "memory": 61.859375,
+        "requestTotalTime": 66.38247179985046,
+        "goals_found": 4,
+        "wallClock": 18.860114812850952,
+        "expansions": 45,
+        "batchID": 7,
+        "requestTriples": 103
+      },
+      {
+        "triples": 30353,
+        "requestTime": 2.317732572555542,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/journals/debu",
+        "remote_expansions": 46,
+        "memory": 61.859375,
+        "requestTotalTime": 68.700204372406,
+        "goals_found": 4,
+        "wallClock": 21.221797466278076,
+        "expansions": 46,
+        "batchID": 8,
+        "requestTriples": 1384
+      },
+      {
+        "triples": 31726,
+        "requestTime": 1.0714538097381592,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/debu/StonebrakerK86",
+        "remote_expansions": 47,
+        "memory": 61.859375,
+        "requestTotalTime": 69.77165818214417,
+        "goals_found": 6,
+        "wallClock": 22.371280908584595,
+        "expansions": 47,
+        "batchID": 9,
+        "requestTriples": 32
+      },
+      {
+        "triples": 31752,
+        "requestTime": 1.0758748054504395,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/debu/StonebrakerWA83",
+        "remote_expansions": 48,
+        "memory": 61.859375,
+        "requestTotalTime": 70.8475329875946,
+        "goals_found": 6,
+        "wallClock": 22.398241758346558,
+        "expansions": 48,
+        "batchID": 9,
+        "requestTriples": 37
+      },
+      {
+        "triples": 31783,
+        "requestTime": 1.0794684886932373,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/debu/StonebrakerG84",
+        "remote_expansions": 49,
+        "memory": 61.859375,
+        "requestTotalTime": 71.92700147628784,
+        "goals_found": 6,
+        "wallClock": 22.42514705657959,
+        "expansions": 49,
+        "batchID": 9,
+        "requestTriples": 34
+      },
+      {
+        "triples": 31811,
+        "requestTime": 1.081024169921875,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/debu/StonebrakerWRMKCA82",
+        "remote_expansions": 50,
+        "memory": 61.859375,
+        "requestTotalTime": 73.00802564620972,
+        "goals_found": 6,
+        "wallClock": 22.452045440673828,
+        "expansions": 50,
+        "batchID": 9,
+        "requestTriples": 50
+      },
+      {
+        "triples": 31855,
+        "requestTime": 1.0813112258911133,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/debu/ZdonikSCCBB03",
+        "remote_expansions": 51,
+        "memory": 61.859375,
+        "requestTotalTime": 74.08933687210083,
+        "goals_found": 6,
+        "wallClock": 22.47924518585205,
+        "expansions": 51,
+        "batchID": 9,
+        "requestTriples": 40
+      },
+      {
+        "triples": 31889,
+        "requestTime": 1.0835058689117432,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/debu/StonebrakerDBP13",
+        "remote_expansions": 52,
+        "memory": 61.859375,
+        "requestTotalTime": 75.17284274101257,
+        "goals_found": 6,
+        "wallClock": 22.511516094207764,
+        "expansions": 52,
+        "batchID": 9,
+        "requestTriples": 36
+      },
+      {
+        "triples": 31919,
+        "requestTime": 1.0841670036315918,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/debu/StonebrakerW13",
+        "remote_expansions": 53,
+        "memory": 61.859375,
+        "requestTotalTime": 76.25700974464417,
+        "goals_found": 6,
+        "wallClock": 22.539462327957153,
+        "expansions": 53,
+        "batchID": 9,
+        "requestTriples": 32
+      },
+      {
+        "triples": 31945,
+        "requestTime": 1.0849332809448242,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/dpd/HongS93",
+        "remote_expansions": 54,
+        "memory": 61.859375,
+        "requestTotalTime": 77.34194302558899,
+        "goals_found": 6,
+        "wallClock": 22.566718578338623,
+        "expansions": 54,
+        "batchID": 9,
+        "requestTriples": 48
+      },
+      {
+        "triples": 31988,
+        "requestTime": 1.085275650024414,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/debu/TatbulZMASTGQ15",
+        "remote_expansions": 55,
+        "memory": 61.859375,
+        "requestTotalTime": 78.4272186756134,
+        "goals_found": 6,
+        "wallClock": 22.595019340515137,
+        "expansions": 55,
+        "batchID": 9,
+        "requestTriples": 44
+      },
+      {
+        "triples": 32026,
+        "requestTime": 1.3174054622650146,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/dtj/Stonebraker95",
+        "remote_expansions": 56,
+        "memory": 61.859375,
+        "requestTotalTime": 79.74462413787842,
+        "goals_found": 6,
+        "wallClock": 22.621854543685913,
+        "expansions": 56,
+        "batchID": 9,
+        "requestTriples": 29
+      },
+      {
+        "triples": 32050,
+        "requestTime": 1.7079226970672607,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/journals/dtj",
+        "remote_expansions": 57,
+        "memory": 61.859375,
+        "requestTotalTime": 81.45254683494568,
+        "goals_found": 6,
+        "wallClock": 24.363487243652344,
+        "expansions": 57,
+        "batchID": 10,
+        "requestTriples": 265
+      },
+      {
+        "triples": 32313,
+        "requestTime": 1.7505533695220947,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/journals/dpd",
+        "remote_expansions": 58,
+        "memory": 61.859375,
+        "requestTotalTime": 83.20310020446777,
+        "goals_found": 7,
+        "wallClock": 24.403787851333618,
+        "expansions": 58,
+        "batchID": 10,
+        "requestTriples": 435
+      },
+      {
+        "triples": 32746,
+        "requestTime": 1.0811243057250977,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/pvldb/AbedjanAOPS15",
+        "remote_expansions": 59,
+        "memory": 61.859375,
+        "requestTotalTime": 84.28422451019287,
+        "goals_found": 8,
+        "wallClock": 25.542243242263794,
+        "expansions": 59,
+        "batchID": 11,
+        "requestTriples": 38
+      },
+      {
+        "triples": 32779,
+        "requestTime": 1.088813066482544,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/ijpp/Stonebraker74",
+        "remote_expansions": 60,
+        "memory": 61.859375,
+        "requestTotalTime": 85.37303757667542,
+        "goals_found": 8,
+        "wallClock": 25.57566237449646,
+        "expansions": 60,
+        "batchID": 11,
+        "requestTriples": 33
+      },
+      {
+        "triples": 32807,
+        "requestTime": 1.0972256660461426,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/pvldb/DeBrabantPTSZ13",
+        "remote_expansions": 61,
+        "memory": 61.859375,
+        "requestTotalTime": 86.47026324272156,
+        "goals_found": 8,
+        "wallClock": 25.606886386871338,
+        "expansions": 61,
+        "batchID": 11,
+        "requestTriples": 38
+      },
+      {
+        "triples": 32840,
+        "requestTime": 1.108400583267212,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/pvldb/Cudre-MaurouxKLRSSVWBBDHMMPSZ09",
+        "remote_expansions": 62,
+        "memory": 61.859375,
+        "requestTotalTime": 87.57866382598877,
+        "goals_found": 8,
+        "wallClock": 25.636990308761597,
+        "expansions": 62,
+        "batchID": 11,
+        "requestTriples": 62
+      },
+      {
+        "triples": 32897,
+        "requestTime": 1.1116347312927246,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/ercim/Stonebraker12",
+        "remote_expansions": 63,
+        "memory": 61.859375,
+        "requestTotalTime": 88.6902985572815,
+        "goals_found": 8,
+        "wallClock": 25.667047262191772,
+        "expansions": 63,
+        "batchID": 11,
+        "requestTriples": 29
+      },
+      {
+        "triples": 32921,
+        "requestTime": 1.1125025749206543,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/ftdb/HellersteinSH07",
+        "remote_expansions": 64,
+        "memory": 61.859375,
+        "requestTotalTime": 89.80280113220215,
+        "goals_found": 8,
+        "wallClock": 25.694814443588257,
+        "expansions": 64,
+        "batchID": 11,
+        "requestTriples": 37
+      },
+      {
+        "triples": 32953,
+        "requestTime": 1.1141412258148193,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/pvldb/AbedjanCDFIOPST16",
+        "remote_expansions": 65,
+        "memory": 61.859375,
+        "requestTotalTime": 90.91694235801697,
+        "goals_found": 8,
+        "wallClock": 25.722281217575073,
+        "expansions": 65,
+        "batchID": 11,
+        "requestTriples": 46
+      },
+      {
+        "triples": 32994,
+        "requestTime": 1.115433931350708,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/pvldb/CetintemelDKMMMPSSTTWZ14",
+        "remote_expansions": 66,
+        "memory": 61.859375,
+        "requestTotalTime": 92.03237628936768,
+        "goals_found": 8,
+        "wallClock": 25.749929189682007,
+        "expansions": 66,
+        "batchID": 11,
+        "requestTriples": 54
+      },
+      {
+        "triples": 33043,
+        "requestTime": 1.115431785583496,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/pvldb/KallmanKNPRZJMSZHA08",
+        "remote_expansions": 67,
+        "memory": 61.859375,
+        "requestTotalTime": 93.14780807495117,
+        "goals_found": 8,
+        "wallClock": 25.77773141860962,
+        "expansions": 67,
+        "batchID": 11,
+        "requestTriples": 52
+      },
+      {
+        "triples": 33090,
+        "requestTime": 1.1076467037200928,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/pe/StonebrakerWRKAA84",
+        "remote_expansions": 68,
+        "memory": 61.859375,
+        "requestTotalTime": 94.25545477867126,
+        "goals_found": 8,
+        "wallClock": 25.805470943450928,
+        "expansions": 68,
+        "batchID": 11,
+        "requestTriples": 43
+      },
+      {
+        "triples": 33128,
+        "requestTime": 1.0720188617706299,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/journals/ftdb",
+        "remote_expansions": 69,
+        "memory": 61.859375,
+        "requestTotalTime": 95.3274736404419,
+        "goals_found": 8,
+        "wallClock": 26.917306423187256,
+        "expansions": 69,
+        "batchID": 12,
+        "requestTriples": 26
+      },
+      {
+        "triples": 33152,
+        "requestTime": 2.177582025527954,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/journals/ijpp",
+        "remote_expansions": 70,
+        "memory": 61.859375,
+        "requestTotalTime": 97.50505566596985,
+        "goals_found": 9,
+        "wallClock": 28.028717517852783,
+        "expansions": 70,
+        "batchID": 12,
+        "requestTriples": 1133
+      },
+      {
+        "triples": 34283,
+        "requestTime": 2.1954126358032227,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/journals/ercim",
+        "remote_expansions": 71,
+        "memory": 61.859375,
+        "requestTotalTime": 99.70046830177307,
+        "goals_found": 10,
+        "wallClock": 28.089473009109497,
+        "expansions": 71,
+        "batchID": 12,
+        "requestTriples": 1250
+      },
+      {
+        "triples": 35531,
+        "requestTime": 2.4298923015594482,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/journals/pe",
+        "remote_expansions": 72,
+        "memory": 61.859375,
+        "requestTotalTime": 102.13036060333252,
+        "goals_found": 11,
+        "wallClock": 28.283000469207764,
+        "expansions": 72,
+        "batchID": 12,
+        "requestTriples": 1715
+      },
+      {
+        "triples": 37244,
+        "requestTime": 2.454620122909546,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/journals/pvldb",
+        "remote_expansions": 73,
+        "memory": 64.109375,
+        "requestTotalTime": 104.58498072624207,
+        "goals_found": 12,
+        "wallClock": 28.36693525314331,
+        "expansions": 73,
+        "batchID": 12,
+        "requestTriples": 1812
+      },
+      {
+        "triples": 39049,
+        "requestTime": 1.0803296566009521,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/AndersonS94",
+        "remote_expansions": 74,
+        "memory": 64.109375,
+        "requestTotalTime": 105.66531038284302,
+        "goals_found": 13,
+        "wallClock": 29.568188428878784,
+        "expansions": 74,
+        "batchID": 13,
+        "requestTriples": 36
+      },
+      {
+        "triples": 39080,
+        "requestTime": 1.1064157485961914,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/BernsteinBCDFGGHHJLMNPSU98",
+        "remote_expansions": 75,
+        "memory": 64.109375,
+        "requestTotalTime": 106.77172613143921,
+        "goals_found": 13,
+        "wallClock": 29.60034942626953,
+        "expansions": 75,
+        "batchID": 13,
+        "requestTriples": 78
+      },
+      {
+        "triples": 39153,
+        "requestTime": 1.1090574264526367,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/BarbaraBFLS94",
+        "remote_expansions": 76,
+        "memory": 64.109375,
+        "requestTotalTime": 107.88078355789185,
+        "goals_found": 13,
+        "wallClock": 29.632256746292114,
+        "expansions": 76,
+        "batchID": 13,
+        "requestTriples": 41
+      },
+      {
+        "triples": 39189,
+        "requestTime": 1.1060428619384766,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/pvldb/WuMS12",
+        "remote_expansions": 77,
+        "memory": 64.109375,
+        "requestTotalTime": 108.98682641983032,
+        "goals_found": 13,
+        "wallClock": 29.66300129890442,
+        "expansions": 77,
+        "batchID": 13,
+        "requestTriples": 34
+      },
+      {
+        "triples": 39217,
+        "requestTime": 1.1108264923095703,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/pvldb/YuBPDS14",
+        "remote_expansions": 78,
+        "memory": 64.109375,
+        "requestTotalTime": 110.09765291213989,
+        "goals_found": 13,
+        "wallClock": 29.693451404571533,
+        "expansions": 78,
+        "batchID": 13,
+        "requestTriples": 38
+      },
+      {
+        "triples": 39249,
+        "requestTime": 1.1119410991668701,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/pvldb/TaftMSDEAPS14",
+        "remote_expansions": 79,
+        "memory": 64.109375,
+        "requestTotalTime": 111.20959401130676,
+        "goals_found": 13,
+        "wallClock": 29.72408652305603,
+        "expansions": 79,
+        "batchID": 13,
+        "requestTriples": 44
+      },
+      {
+        "triples": 39287,
+        "requestTime": 1.1124143600463867,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/pvldb/MeehanTZACDKMMP15",
+        "remote_expansions": 80,
+        "memory": 64.109375,
+        "requestTotalTime": 112.32200837135315,
+        "goals_found": 13,
+        "wallClock": 29.755791425704956,
+        "expansions": 80,
+        "batchID": 13,
+        "requestTriples": 54
+      },
+      {
+        "triples": 39335,
+        "requestTime": 1.1183950901031494,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/AgrawalABBCCDFFGGGHHHIKKMMOORSSSW08",
+        "remote_expansions": 81,
+        "memory": 64.109375,
+        "requestTotalTime": 113.4404034614563,
+        "goals_found": 13,
+        "wallClock": 29.786949157714844,
+        "expansions": 81,
+        "batchID": 13,
+        "requestTriples": 85
+      },
+      {
+        "triples": 39415,
+        "requestTime": 1.1216034889221191,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/AbadiAABBCCDDFGHHHIJKMMMNRMOORSSWW14",
+        "remote_expansions": 82,
+        "memory": 64.109375,
+        "requestTotalTime": 114.56200695037842,
+        "goals_found": 13,
+        "wallClock": 29.819023847579956,
+        "expansions": 82,
+        "batchID": 13,
+        "requestTriples": 91
+      },
+      {
+        "triples": 39501,
+        "requestTime": 1.124532699584961,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/BernsteinDDGGJLLMNRRSSSS89",
+        "remote_expansions": 83,
+        "memory": 64.109375,
+        "requestTotalTime": 115.68653964996338,
+        "goals_found": 13,
+        "wallClock": 29.851487636566162,
+        "expansions": 83,
+        "batchID": 13,
+        "requestTriples": 78
+      },
+      {
+        "triples": 39574,
+        "requestTime": 2.4659488201141357,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/journals/sigmod",
+        "remote_expansions": 84,
+        "memory": 64.3671875,
+        "requestTotalTime": 118.15248847007751,
+        "goals_found": 13,
+        "wallClock": 32.368772983551025,
+        "expansions": 84,
+        "batchID": 14,
+        "requestTriples": 1778
+      },
+      {
+        "triples": 41345,
+        "requestTime": 1.0994131565093994,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/Stonebraker81",
+        "remote_expansions": 85,
+        "memory": 64.5234375,
+        "requestTotalTime": 119.25190162658691,
+        "goals_found": 16,
+        "wallClock": 33.5772967338562,
+        "expansions": 85,
+        "batchID": 15,
+        "requestTriples": 27
+      },
+      {
+        "triples": 41366,
+        "requestTime": 1.1017999649047852,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/Stonebraker08",
+        "remote_expansions": 86,
+        "memory": 64.5234375,
+        "requestTotalTime": 120.3537015914917,
+        "goals_found": 16,
+        "wallClock": 33.616297006607056,
+        "expansions": 86,
+        "batchID": 15,
+        "requestTriples": 33
+      },
+      {
+        "triples": 41393,
+        "requestTime": 1.1000337600708008,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/Stonebraker02",
+        "remote_expansions": 87,
+        "memory": 64.5234375,
+        "requestTotalTime": 121.4537353515625,
+        "goals_found": 16,
+        "wallClock": 33.65297055244446,
+        "expansions": 87,
+        "batchID": 15,
+        "requestTriples": 33
+      },
+      {
+        "triples": 41420,
+        "requestTime": 1.112642765045166,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/DugganESBHKMMMZ15",
+        "remote_expansions": 88,
+        "memory": 64.5234375,
+        "requestTotalTime": 122.56637811660767,
+        "goals_found": 16,
+        "wallClock": 33.68820571899414,
+        "expansions": 88,
+        "batchID": 15,
+        "requestTriples": 51
+      },
+      {
+        "triples": 41465,
+        "requestTime": 1.114610195159912,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/OvermyerS82",
+        "remote_expansions": 89,
+        "memory": 64.5234375,
+        "requestTotalTime": 123.68098831176758,
+        "goals_found": 16,
+        "wallClock": 33.72267484664917,
+        "expansions": 89,
+        "batchID": 15,
+        "requestTriples": 46
+      },
+      {
+        "triples": 41505,
+        "requestTime": 1.1179759502410889,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/RoweS81",
+        "remote_expansions": 90,
+        "memory": 64.5234375,
+        "requestTotalTime": 124.79896426200867,
+        "goals_found": 16,
+        "wallClock": 33.75586748123169,
+        "expansions": 90,
+        "batchID": 15,
+        "requestTriples": 36
+      },
+      {
+        "triples": 41535,
+        "requestTime": 1.1219184398651123,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/OngFS84",
+        "remote_expansions": 91,
+        "memory": 64.5234375,
+        "requestTotalTime": 125.92088270187378,
+        "goals_found": 16,
+        "wallClock": 33.78796982765198,
+        "expansions": 91,
+        "batchID": 15,
+        "requestTriples": 59
+      },
+      {
+        "triples": 41588,
+        "requestTime": 1.1242413520812988,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/KumarS87",
+        "remote_expansions": 92,
+        "memory": 64.5234375,
+        "requestTotalTime": 127.04512405395508,
+        "goals_found": 16,
+        "wallClock": 33.82010579109192,
+        "expansions": 92,
+        "batchID": 15,
+        "requestTriples": 39
+      },
+      {
+        "triples": 41621,
+        "requestTime": 1.128258228302002,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/SilberschatzSU96",
+        "remote_expansions": 93,
+        "memory": 64.5234375,
+        "requestTotalTime": 128.17338228225708,
+        "goals_found": 16,
+        "wallClock": 33.85179090499878,
+        "expansions": 93,
+        "batchID": 15,
+        "requestTriples": 41
+      },
+      {
+        "triples": 41656,
+        "requestTime": 1.1295151710510254,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/SilberschatzSU90",
+        "remote_expansions": 94,
+        "memory": 64.5234375,
+        "requestTotalTime": 129.3028974533081,
+        "goals_found": 16,
+        "wallClock": 33.88358283042908,
+        "expansions": 94,
+        "batchID": 15,
+        "requestTriples": 51
+      },
+      {
+        "triples": 41701,
+        "requestTime": 1.0777757167816162,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/Stonebraker81d",
+        "remote_expansions": 95,
+        "memory": 64.5234375,
+        "requestTotalTime": 130.38067317008972,
+        "goals_found": 16,
+        "wallClock": 35.015395641326904,
+        "expansions": 95,
+        "batchID": 16,
+        "requestTriples": 27
+      },
+      {
+        "triples": 41722,
+        "requestTime": 1.0848431587219238,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/Stonebraker81a",
+        "remote_expansions": 96,
+        "memory": 64.5234375,
+        "requestTotalTime": 131.46551632881165,
+        "goals_found": 16,
+        "wallClock": 35.04863953590393,
+        "expansions": 96,
+        "batchID": 16,
+        "requestTriples": 27
+      },
+      {
+        "triples": 41743,
+        "requestTime": 1.087571382522583,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/Stonebraker82c",
+        "remote_expansions": 97,
+        "memory": 64.5234375,
+        "requestTotalTime": 132.55308771133423,
+        "goals_found": 16,
+        "wallClock": 35.0800096988678,
+        "expansions": 97,
+        "batchID": 16,
+        "requestTriples": 27
+      },
+      {
+        "triples": 41764,
+        "requestTime": 1.0930705070495605,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/Stonebraker82b",
+        "remote_expansions": 98,
+        "memory": 64.5234375,
+        "requestTotalTime": 133.6461582183838,
+        "goals_found": 16,
+        "wallClock": 35.111485719680786,
+        "expansions": 98,
+        "batchID": 16,
+        "requestTriples": 27
+      },
+      {
+        "triples": 41785,
+        "requestTime": 1.0948302745819092,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/Stonebraker81c",
+        "remote_expansions": 99,
+        "memory": 64.5234375,
+        "requestTotalTime": 134.7409884929657,
+        "goals_found": 16,
+        "wallClock": 35.143030405044556,
+        "expansions": 99,
+        "batchID": 16,
+        "requestTriples": 27
+      },
+      {
+        "triples": 41806,
+        "requestTime": 1.0987474918365479,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/Stonebraker82a",
+        "remote_expansions": 100,
+        "memory": 64.5234375,
+        "requestTotalTime": 135.83973598480225,
+        "goals_found": 16,
+        "wallClock": 35.174628257751465,
+        "expansions": 100,
+        "batchID": 16,
+        "requestTriples": 27
+      },
+      {
+        "triples": 41827,
+        "requestTime": 1.0996191501617432,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/Stonebraker81b",
+        "remote_expansions": 101,
+        "memory": 64.5234375,
+        "requestTotalTime": 136.939355134964,
+        "goals_found": 16,
+        "wallClock": 35.206008434295654,
+        "expansions": 101,
+        "batchID": 16,
+        "requestTriples": 27
+      },
+      {
+        "triples": 41848,
+        "requestTime": 1.100487232208252,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/Stonebraker83",
+        "remote_expansions": 102,
+        "memory": 64.5234375,
+        "requestTotalTime": 138.03984236717224,
+        "goals_found": 16,
+        "wallClock": 35.23748540878296,
+        "expansions": 102,
+        "batchID": 16,
+        "requestTriples": 27
+      },
+      {
+        "triples": 41869,
+        "requestTime": 1.1017091274261475,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/Stonebraker82",
+        "remote_expansions": 103,
+        "memory": 64.5234375,
+        "requestTotalTime": 139.1415514945984,
+        "goals_found": 16,
+        "wallClock": 35.26890468597412,
+        "expansions": 103,
+        "batchID": 16,
+        "requestTriples": 27
+      },
+      {
+        "triples": 41890,
+        "requestTime": 1.102290391921997,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/Stonebraker83a",
+        "remote_expansions": 104,
+        "memory": 64.5234375,
+        "requestTotalTime": 140.24384188652039,
+        "goals_found": 16,
+        "wallClock": 35.30032396316528,
+        "expansions": 104,
+        "batchID": 16,
+        "requestTriples": 27
+      },
+      {
+        "triples": 41911,
+        "requestTime": 1.123006820678711,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/Stonebraker94",
+        "remote_expansions": 105,
+        "memory": 64.5234375,
+        "requestTotalTime": 141.3668487071991,
+        "goals_found": 16,
+        "wallClock": 36.4831907749176,
+        "expansions": 105,
+        "batchID": 17,
+        "requestTriples": 33
+      },
+      {
+        "triples": 41938,
+        "requestTime": 1.1373426914215088,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/StonebrakerMD13",
+        "remote_expansions": 106,
+        "memory": 64.5234375,
+        "requestTotalTime": 142.5041913986206,
+        "goals_found": 16,
+        "wallClock": 36.52584981918335,
+        "expansions": 106,
+        "batchID": 17,
+        "requestTriples": 37
+      },
+      {
+        "triples": 41969,
+        "requestTime": 1.1395819187164307,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/tkde/Stonebraker89",
+        "remote_expansions": 107,
+        "memory": 64.5234375,
+        "requestTotalTime": 143.64377331733704,
+        "goals_found": 16,
+        "wallClock": 36.559242486953735,
+        "expansions": 107,
+        "batchID": 17,
+        "requestTriples": 62
+      },
+      {
+        "triples": 42026,
+        "requestTime": 1.1612324714660645,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/StonebrakerRLGCBBB90",
+        "remote_expansions": 108,
+        "memory": 64.5234375,
+        "requestTotalTime": 144.8050057888031,
+        "goals_found": 16,
+        "wallClock": 36.59224486351013,
+        "expansions": 108,
+        "batchID": 17,
+        "requestTriples": 70
+      },
+      {
+        "triples": 42089,
+        "requestTime": 1.1624155044555664,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/Stonebraker90",
+        "remote_expansions": 109,
+        "memory": 64.5234375,
+        "requestTotalTime": 145.96742129325867,
+        "goals_found": 16,
+        "wallClock": 36.625412702560425,
+        "expansions": 109,
+        "batchID": 17,
+        "requestTriples": 33
+      },
+      {
+        "triples": 42116,
+        "requestTime": 1.1676301956176758,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/StonebrakerCZ05",
+        "remote_expansions": 110,
+        "memory": 64.5234375,
+        "requestTotalTime": 147.13505148887634,
+        "goals_found": 16,
+        "wallClock": 36.669352769851685,
+        "expansions": 110,
+        "batchID": 17,
+        "requestTriples": 37
+      },
+      {
+        "triples": 42147,
+        "requestTime": 1.1680231094360352,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigops/Stonebraker84",
+        "remote_expansions": 111,
+        "memory": 64.5234375,
+        "requestTotalTime": 148.30307459831238,
+        "goals_found": 16,
+        "wallClock": 36.7062623500824,
+        "expansions": 111,
+        "batchID": 17,
+        "requestTriples": 37
+      },
+      {
+        "triples": 42179,
+        "requestTime": 1.1691439151763916,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigops/StonebrakerDE85",
+        "remote_expansions": 112,
+        "memory": 64.5234375,
+        "requestTotalTime": 149.47221851348877,
+        "goals_found": 16,
+        "wallClock": 36.746763467788696,
+        "expansions": 112,
+        "batchID": 17,
+        "requestTriples": 45
+      },
+      {
+        "triples": 42219,
+        "requestTime": 1.173539638519287,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/Stonebraker89",
+        "remote_expansions": 113,
+        "memory": 64.5234375,
+        "requestTotalTime": 150.64575815200806,
+        "goals_found": 16,
+        "wallClock": 36.78036570549011,
+        "expansions": 113,
+        "batchID": 17,
+        "requestTriples": 41
+      },
+      {
+        "triples": 42254,
+        "requestTime": 1.178873062133789,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/StonebrakerHP89",
+        "remote_expansions": 114,
+        "memory": 64.5234375,
+        "requestTotalTime": 151.82463121414185,
+        "goals_found": 16,
+        "wallClock": 36.81276988983154,
+        "expansions": 114,
+        "batchID": 17,
+        "requestTriples": 52
+      },
+      {
+        "triples": 42300,
+        "requestTime": 2.20351243019104,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/journals/sigops",
+        "remote_expansions": 115,
+        "memory": 65.03125,
+        "requestTotalTime": 154.02814364433289,
+        "goals_found": 16,
+        "wallClock": 39.06015348434448,
+        "expansions": 115,
+        "batchID": 18,
+        "requestTriples": 1303
+      },
+      {
+        "triples": 43600,
+        "requestTime": 3.068338632583618,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/journals/tkde",
+        "remote_expansions": 116,
+        "memory": 68.23828125,
+        "requestTotalTime": 157.0964822769165,
+        "goals_found": 17,
+        "wallClock": 39.94257712364197,
+        "expansions": 116,
+        "batchID": 18,
+        "requestTriples": 3277
+      },
+      {
+        "triples": 46875,
+        "requestTime": 1.0976920127868652,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/tods/StonebrakerWRMMA83",
+        "remote_expansions": 117,
+        "memory": 74.015625,
+        "requestTotalTime": 158.19417428970337,
+        "goals_found": 18,
+        "wallClock": 41.18579626083374,
+        "expansions": 117,
+        "batchID": 19,
+        "requestTriples": 57
+      },
+      {
+        "triples": 46926,
+        "requestTime": 1.101553201675415,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/tods/BalazinskaBMS08",
+        "remote_expansions": 118,
+        "memory": 74.015625,
+        "requestTotalTime": 159.29572749137878,
+        "goals_found": 18,
+        "wallClock": 41.229865074157715,
+        "expansions": 118,
+        "batchID": 19,
+        "requestTriples": 39
+      },
+      {
+        "triples": 46960,
+        "requestTime": 1.112574815750122,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/tkde/Stonebraker90",
+        "remote_expansions": 119,
+        "memory": 74.015625,
+        "requestTotalTime": 160.4083023071289,
+        "goals_found": 18,
+        "wallClock": 41.26988244056702,
+        "expansions": 119,
+        "batchID": 19,
+        "requestTriples": 45
+      },
+      {
+        "triples": 46998,
+        "requestTime": 1.1268181800842285,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/tkde/Stonebraker92",
+        "remote_expansions": 120,
+        "memory": 74.015625,
+        "requestTotalTime": 161.53512048721313,
+        "goals_found": 18,
+        "wallClock": 41.30857038497925,
+        "expansions": 120,
+        "batchID": 19,
+        "requestTriples": 79
+      },
+      {
+        "triples": 47071,
+        "requestTime": 1.1279988288879395,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/tods/Stonebraker80",
+        "remote_expansions": 121,
+        "memory": 74.015625,
+        "requestTotalTime": 162.66311931610107,
+        "goals_found": 18,
+        "wallClock": 41.34654498100281,
+        "expansions": 121,
+        "batchID": 19,
+        "requestTriples": 65
+      },
+      {
+        "triples": 47129,
+        "requestTime": 1.1334373950958252,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/tods/RiesS79",
+        "remote_expansions": 122,
+        "memory": 74.015625,
+        "requestTotalTime": 163.7965567111969,
+        "goals_found": 18,
+        "wallClock": 41.3831582069397,
+        "expansions": 122,
+        "batchID": 19,
+        "requestTriples": 77
+      },
+      {
+        "triples": 47200,
+        "requestTime": 1.1346347332000732,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/tods/RiesS77",
+        "remote_expansions": 123,
+        "memory": 74.015625,
+        "requestTotalTime": 164.93119144439697,
+        "goals_found": 18,
+        "wallClock": 41.42137885093689,
+        "expansions": 123,
+        "batchID": 19,
+        "requestTriples": 77
+      },
+      {
+        "triples": 47270,
+        "requestTime": 1.3701391220092773,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/tods/StonebrakerAH87",
+        "remote_expansions": 124,
+        "memory": 74.015625,
+        "requestTotalTime": 166.30133056640625,
+        "goals_found": 18,
+        "wallClock": 41.45959496498108,
+        "expansions": 124,
+        "batchID": 19,
+        "requestTriples": 92
+      },
+      {
+        "triples": 47356,
+        "requestTime": 1.385240077972412,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/tkde/StonebrakerRH90",
+        "remote_expansions": 125,
+        "memory": 74.015625,
+        "requestTotalTime": 167.68657064437866,
+        "goals_found": 18,
+        "wallClock": 41.497013568878174,
+        "expansions": 125,
+        "batchID": 19,
+        "requestTriples": 125
+      },
+      {
+        "triples": 47471,
+        "requestTime": 1.672295331954956,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/tods/StonebrakerWKH76",
+        "remote_expansions": 126,
+        "memory": 74.015625,
+        "requestTotalTime": 169.35886597633362,
+        "goals_found": 18,
+        "wallClock": 41.749810457229614,
+        "expansions": 126,
+        "batchID": 19,
+        "requestTriples": 286
+      },
+      {
+        "triples": 47746,
+        "requestTime": 2.0392491817474365,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/journals/tods",
+        "remote_expansions": 127,
+        "memory": 74.015625,
+        "requestTotalTime": 171.39811515808105,
+        "goals_found": 18,
+        "wallClock": 43.84206795692444,
+        "expansions": 127,
+        "batchID": 20,
+        "requestTriples": 944
+      },
+      {
+        "triples": 48682,
+        "requestTime": 1.0934348106384277,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/tse/KumarS89",
+        "remote_expansions": 128,
+        "memory": 74.015625,
+        "requestTotalTime": 172.49154996871948,
+        "goals_found": 19,
+        "wallClock": 45.0128288269043,
+        "expansions": 128,
+        "batchID": 21,
+        "requestTriples": 37
+      },
+      {
+        "triples": 48714,
+        "requestTime": 1.1003191471099854,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/tsmc/Stonebraker72",
+        "remote_expansions": 129,
+        "memory": 74.015625,
+        "requestTotalTime": 173.59186911582947,
+        "goals_found": 19,
+        "wallClock": 45.05650043487549,
+        "expansions": 129,
+        "batchID": 21,
+        "requestTriples": 33
+      },
+      {
+        "triples": 48742,
+        "requestTime": 1.1033918857574463,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/tois/StonebrakerSLKG83",
+        "remote_expansions": 130,
+        "memory": 74.015625,
+        "requestTotalTime": 174.6952610015869,
+        "goals_found": 19,
+        "wallClock": 45.09735608100891,
+        "expansions": 130,
+        "batchID": 21,
+        "requestTriples": 65
+      },
+      {
+        "triples": 48802,
+        "requestTime": 1.1045222282409668,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/vldb/AbadiCCCCLSTZ03",
+        "remote_expansions": 131,
+        "memory": 74.015625,
+        "requestTotalTime": 175.79978322982788,
+        "goals_found": 19,
+        "wallClock": 45.13792824745178,
+        "expansions": 131,
+        "batchID": 21,
+        "requestTriples": 50
+      },
+      {
+        "triples": 48847,
+        "requestTime": 1.1118123531341553,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/vldb/BalakrishnanBCCCCGSSTTZ04",
+        "remote_expansions": 132,
+        "memory": 74.015625,
+        "requestTotalTime": 176.91159558296204,
+        "goals_found": 19,
+        "wallClock": 45.176910400390625,
+        "expansions": 132,
+        "batchID": 21,
+        "requestTriples": 56
+      },
+      {
+        "triples": 48898,
+        "requestTime": 1.1128392219543457,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/vlc/WoodruffOACELSS01",
+        "remote_expansions": 133,
+        "memory": 74.015625,
+        "requestTotalTime": 178.02443480491638,
+        "goals_found": 19,
+        "wallClock": 45.21485662460327,
+        "expansions": 133,
+        "batchID": 21,
+        "requestTriples": 47
+      },
+      {
+        "triples": 48940,
+        "requestTime": 1.1169915199279785,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/tse/SkeenS83",
+        "remote_expansions": 134,
+        "memory": 74.015625,
+        "requestTotalTime": 179.14142632484436,
+        "goals_found": 19,
+        "wallClock": 45.25558805465698,
+        "expansions": 134,
+        "batchID": 21,
+        "requestTriples": 58
+      },
+      {
+        "triples": 48993,
+        "requestTime": 1.357379674911499,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/vldb/StonebrakerALPSSSY96",
+        "remote_expansions": 135,
+        "memory": 74.015625,
+        "requestTotalTime": 180.49880599975586,
+        "goals_found": 19,
+        "wallClock": 45.29363441467285,
+        "expansions": 135,
+        "batchID": 21,
+        "requestTriples": 74
+      },
+      {
+        "triples": 49060,
+        "requestTime": 1.370223045349121,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/tse/StonebrakerHP88",
+        "remote_expansions": 136,
+        "memory": 74.015625,
+        "requestTotalTime": 181.86902904510498,
+        "goals_found": 19,
+        "wallClock": 45.332101583480835,
+        "expansions": 136,
+        "batchID": 21,
+        "requestTriples": 78
+      },
+      {
+        "triples": 49131,
+        "requestTime": 1.378389835357666,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/publications/journals/tse/Stonebraker79",
+        "remote_expansions": 137,
+        "memory": 74.015625,
+        "requestTotalTime": 183.24741888046265,
+        "goals_found": 19,
+        "wallClock": 45.3709135055542,
+        "expansions": 137,
+        "batchID": 21,
+        "requestTriples": 92
+      },
+      {
+        "triples": 49218,
+        "requestTime": 1.9510953426361084,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/journals/tois",
+        "remote_expansions": 138,
+        "memory": 74.015625,
+        "requestTotalTime": 185.19851422309875,
+        "goals_found": 19,
+        "wallClock": 47.388672828674316,
+        "expansions": 138,
+        "batchID": 22,
+        "requestTriples": 653
+      },
+      {
+        "triples": 49869,
+        "requestTime": 1.971247911453247,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/journals/vldb",
+        "remote_expansions": 139,
+        "memory": 74.52734375,
+        "requestTotalTime": 187.169762134552,
+        "goals_found": 20,
+        "wallClock": 47.45865488052368,
+        "expansions": 139,
+        "batchID": 22,
+        "requestTriples": 748
+      },
+      {
+        "triples": 50613,
+        "requestTime": 1.9855523109436035,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/journals/vlc",
+        "remote_expansions": 140,
+        "memory": 74.52734375,
+        "requestTotalTime": 189.1553144454956,
+        "goals_found": 21,
+        "wallClock": 47.52151012420654,
+        "expansions": 140,
+        "batchID": 22,
+        "requestTriples": 818
+      },
+      {
+        "triples": 51429,
+        "requestTime": 3.0707995891571045,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/journals/tse",
+        "remote_expansions": 141,
+        "memory": 77.36328125,
+        "requestTotalTime": 192.2261140346527,
+        "goals_found": 22,
+        "wallClock": 48.50880575180054,
+        "expansions": 141,
+        "batchID": 22,
+        "requestTriples": 3405
+      },
+      {
+        "triples": 54829,
+        "requestTime": 4.683441877365112,
+        "local_expansions": 0,
+        "requestIRI": "http://dblp.l3s.de/d2r/resource/journals/tsmc",
+        "remote_expansions": 142,
+        "memory": 87.203125,
+        "requestTotalTime": 196.90955591201782,
+        "goals_found": 23,
+        "wallClock": 50.1635684967041,
+        "expansions": 142,
+        "batchID": 22,
+        "requestTriples": 7741
+      }
+    ],
+    "Time": 50.36530566215515,
+    "Paths": [
+      [
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/authors/Michael_Stonebraker",
+          "transition": null,
+          "state": "Author"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/publications/journals/cacm/BarrS15",
+          "transition": {
+            "P": "http://purl.org/dc/elements/1.1/creator",
+            "d": "<"
+          },
+          "state": "jPaper"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/journals/cacm",
+          "transition": {
+            "P": "http://swrc.ontoware.org/ontology#journal",
+            "d": ">"
+          },
+          "state": "Journal"
+        },
+        {
+          "node": "Commun. ACM",
+          "transition": {
+            "P": "http://www.w3.org/2000/01/rdf-schema#label",
+            "d": ">"
+          },
+          "state": "Name"
+        }
+      ],
+      [
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/authors/Michael_Stonebraker",
+          "transition": null,
+          "state": "Author"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/publications/journals/cse/StonebrakerBZB13",
+          "transition": {
+            "P": "http://purl.org/dc/elements/1.1/creator",
+            "d": "<"
+          },
+          "state": "jPaper"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/journals/cse",
+          "transition": {
+            "P": "http://swrc.ontoware.org/ontology#journal",
+            "d": ">"
+          },
+          "state": "Journal"
+        },
+        {
+          "node": "Computing in Science and Engineering",
+          "transition": {
+            "P": "http://www.w3.org/2000/01/rdf-schema#label",
+            "d": ">"
+          },
+          "state": "Name"
+        }
+      ],
+      [
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/authors/Michael_Stonebraker",
+          "transition": null,
+          "state": "Author"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/publications/journals/computer/AllmanS82",
+          "transition": {
+            "P": "http://purl.org/dc/elements/1.1/creator",
+            "d": "<"
+          },
+          "state": "jPaper"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/journals/computer",
+          "transition": {
+            "P": "http://swrc.ontoware.org/ontology#journal",
+            "d": ">"
+          },
+          "state": "Journal"
+        },
+        {
+          "node": "IEEE Computer",
+          "transition": {
+            "P": "http://www.w3.org/2000/01/rdf-schema#label",
+            "d": ">"
+          },
+          "state": "Name"
+        }
+      ],
+      [
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/authors/Michael_Stonebraker",
+          "transition": null,
+          "state": "Author"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/publications/journals/corr/cs-DB-9811013",
+          "transition": {
+            "P": "http://purl.org/dc/elements/1.1/creator",
+            "d": "<"
+          },
+          "state": "jPaper"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/journals/corr",
+          "transition": {
+            "P": "http://swrc.ontoware.org/ontology#journal",
+            "d": ">"
+          },
+          "state": "Journal"
+        },
+        {
+          "node": "CoRR",
+          "transition": {
+            "P": "http://www.w3.org/2000/01/rdf-schema#label",
+            "d": ">"
+          },
+          "state": "Name"
+        }
+      ],
+      [
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/authors/Michael_Stonebraker",
+          "transition": null,
+          "state": "Author"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/publications/journals/debu/KatzOPS88",
+          "transition": {
+            "P": "http://purl.org/dc/elements/1.1/creator",
+            "d": "<"
+          },
+          "state": "jPaper"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/journals/debu",
+          "transition": {
+            "P": "http://swrc.ontoware.org/ontology#journal",
+            "d": ">"
+          },
+          "state": "Journal"
+        },
+        {
+          "node": "IEEE Database Eng. Bull.",
+          "transition": {
+            "P": "http://www.w3.org/2000/01/rdf-schema#label",
+            "d": ">"
+          },
+          "state": "Name"
+        }
+      ],
+      [
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/authors/Michael_Stonebraker",
+          "transition": null,
+          "state": "Author"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/publications/journals/debu/KatzOPS88",
+          "transition": {
+            "P": "http://purl.org/dc/elements/1.1/creator",
+            "d": "<"
+          },
+          "state": "jPaper"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/journals/debu",
+          "transition": {
+            "P": "http://swrc.ontoware.org/ontology#journal",
+            "d": ">"
+          },
+          "state": "Journal"
+        },
+        {
+          "node": "IEEE Data Eng. Bull.",
+          "transition": {
+            "P": "http://www.w3.org/2000/01/rdf-schema#label",
+            "d": ">"
+          },
+          "state": "Name"
+        }
+      ],
+      [
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/authors/Michael_Stonebraker",
+          "transition": null,
+          "state": "Author"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/publications/journals/dtj/Stonebraker95",
+          "transition": {
+            "P": "http://purl.org/dc/elements/1.1/creator",
+            "d": "<"
+          },
+          "state": "jPaper"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/journals/dtj",
+          "transition": {
+            "P": "http://swrc.ontoware.org/ontology#journal",
+            "d": ">"
+          },
+          "state": "Journal"
+        },
+        {
+          "node": "Digital Technical Journal",
+          "transition": {
+            "P": "http://www.w3.org/2000/01/rdf-schema#label",
+            "d": ">"
+          },
+          "state": "Name"
+        }
+      ],
+      [
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/authors/Michael_Stonebraker",
+          "transition": null,
+          "state": "Author"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/publications/journals/dpd/HongS93",
+          "transition": {
+            "P": "http://purl.org/dc/elements/1.1/creator",
+            "d": "<"
+          },
+          "state": "jPaper"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/journals/dpd",
+          "transition": {
+            "P": "http://swrc.ontoware.org/ontology#journal",
+            "d": ">"
+          },
+          "state": "Journal"
+        },
+        {
+          "node": "Distributed and Parallel Databases",
+          "transition": {
+            "P": "http://www.w3.org/2000/01/rdf-schema#label",
+            "d": ">"
+          },
+          "state": "Name"
+        }
+      ],
+      [
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/authors/Michael_Stonebraker",
+          "transition": null,
+          "state": "Author"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/publications/journals/ftdb/HellersteinSH07",
+          "transition": {
+            "P": "http://purl.org/dc/elements/1.1/creator",
+            "d": "<"
+          },
+          "state": "jPaper"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/journals/ftdb",
+          "transition": {
+            "P": "http://swrc.ontoware.org/ontology#journal",
+            "d": ">"
+          },
+          "state": "Journal"
+        },
+        {
+          "node": "Foundations and Trends in Databases",
+          "transition": {
+            "P": "http://www.w3.org/2000/01/rdf-schema#label",
+            "d": ">"
+          },
+          "state": "Name"
+        }
+      ],
+      [
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/authors/Michael_Stonebraker",
+          "transition": null,
+          "state": "Author"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/publications/journals/ijpp/Stonebraker74",
+          "transition": {
+            "P": "http://purl.org/dc/elements/1.1/creator",
+            "d": "<"
+          },
+          "state": "jPaper"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/journals/ijpp",
+          "transition": {
+            "P": "http://swrc.ontoware.org/ontology#journal",
+            "d": ">"
+          },
+          "state": "Journal"
+        },
+        {
+          "node": "International Journal of Parallel Programming",
+          "transition": {
+            "P": "http://www.w3.org/2000/01/rdf-schema#label",
+            "d": ">"
+          },
+          "state": "Name"
+        }
+      ],
+      [
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/authors/Michael_Stonebraker",
+          "transition": null,
+          "state": "Author"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/publications/journals/ercim/Stonebraker12",
+          "transition": {
+            "P": "http://purl.org/dc/elements/1.1/creator",
+            "d": "<"
+          },
+          "state": "jPaper"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/journals/ercim",
+          "transition": {
+            "P": "http://swrc.ontoware.org/ontology#journal",
+            "d": ">"
+          },
+          "state": "Journal"
+        },
+        {
+          "node": "ERCIM News",
+          "transition": {
+            "P": "http://www.w3.org/2000/01/rdf-schema#label",
+            "d": ">"
+          },
+          "state": "Name"
+        }
+      ],
+      [
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/authors/Michael_Stonebraker",
+          "transition": null,
+          "state": "Author"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/publications/journals/pe/StonebrakerWRKAA84",
+          "transition": {
+            "P": "http://purl.org/dc/elements/1.1/creator",
+            "d": "<"
+          },
+          "state": "jPaper"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/journals/pe",
+          "transition": {
+            "P": "http://swrc.ontoware.org/ontology#journal",
+            "d": ">"
+          },
+          "state": "Journal"
+        },
+        {
+          "node": "Perform. Eval.",
+          "transition": {
+            "P": "http://www.w3.org/2000/01/rdf-schema#label",
+            "d": ">"
+          },
+          "state": "Name"
+        }
+      ],
+      [
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/authors/Michael_Stonebraker",
+          "transition": null,
+          "state": "Author"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/publications/journals/pvldb/AbedjanAOPS15",
+          "transition": {
+            "P": "http://purl.org/dc/elements/1.1/creator",
+            "d": "<"
+          },
+          "state": "jPaper"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/journals/pvldb",
+          "transition": {
+            "P": "http://swrc.ontoware.org/ontology#journal",
+            "d": ">"
+          },
+          "state": "Journal"
+        },
+        {
+          "node": "PVLDB",
+          "transition": {
+            "P": "http://www.w3.org/2000/01/rdf-schema#label",
+            "d": ">"
+          },
+          "state": "Name"
+        }
+      ],
+      [
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/authors/Michael_Stonebraker",
+          "transition": null,
+          "state": "Author"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/AndersonS94",
+          "transition": {
+            "P": "http://purl.org/dc/elements/1.1/creator",
+            "d": "<"
+          },
+          "state": "jPaper"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/journals/sigmod",
+          "transition": {
+            "P": "http://swrc.ontoware.org/ontology#journal",
+            "d": ">"
+          },
+          "state": "Journal"
+        },
+        {
+          "node": "SIGMOD Record",
+          "transition": {
+            "P": "http://www.w3.org/2000/01/rdf-schema#label",
+            "d": ">"
+          },
+          "state": "Name"
+        }
+      ],
+      [
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/authors/Michael_Stonebraker",
+          "transition": null,
+          "state": "Author"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/AndersonS94",
+          "transition": {
+            "P": "http://purl.org/dc/elements/1.1/creator",
+            "d": "<"
+          },
+          "state": "jPaper"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/journals/sigmod",
+          "transition": {
+            "P": "http://swrc.ontoware.org/ontology#journal",
+            "d": ">"
+          },
+          "state": "Journal"
+        },
+        {
+          "node": "FDT - Bulletin of ACM SIGFIDET",
+          "transition": {
+            "P": "http://www.w3.org/2000/01/rdf-schema#label",
+            "d": ">"
+          },
+          "state": "Name"
+        }
+      ],
+      [
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/authors/Michael_Stonebraker",
+          "transition": null,
+          "state": "Author"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/publications/journals/sigmod/AndersonS94",
+          "transition": {
+            "P": "http://purl.org/dc/elements/1.1/creator",
+            "d": "<"
+          },
+          "state": "jPaper"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/journals/sigmod",
+          "transition": {
+            "P": "http://swrc.ontoware.org/ontology#journal",
+            "d": ">"
+          },
+          "state": "Journal"
+        },
+        {
+          "node": "FDT - Bulletin of ACM SIGMOD",
+          "transition": {
+            "P": "http://www.w3.org/2000/01/rdf-schema#label",
+            "d": ">"
+          },
+          "state": "Name"
+        }
+      ],
+      [
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/authors/Michael_Stonebraker",
+          "transition": null,
+          "state": "Author"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/publications/journals/sigops/Stonebraker84",
+          "transition": {
+            "P": "http://purl.org/dc/elements/1.1/creator",
+            "d": "<"
+          },
+          "state": "jPaper"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/journals/sigops",
+          "transition": {
+            "P": "http://swrc.ontoware.org/ontology#journal",
+            "d": ">"
+          },
+          "state": "Journal"
+        },
+        {
+          "node": "Operating Systems Review",
+          "transition": {
+            "P": "http://www.w3.org/2000/01/rdf-schema#label",
+            "d": ">"
+          },
+          "state": "Name"
+        }
+      ],
+      [
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/authors/Michael_Stonebraker",
+          "transition": null,
+          "state": "Author"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/publications/journals/tkde/Stonebraker89",
+          "transition": {
+            "P": "http://purl.org/dc/elements/1.1/creator",
+            "d": "<"
+          },
+          "state": "jPaper"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/journals/tkde",
+          "transition": {
+            "P": "http://swrc.ontoware.org/ontology#journal",
+            "d": ">"
+          },
+          "state": "Journal"
+        },
+        {
+          "node": "IEEE Trans. Knowl. Data Eng.",
+          "transition": {
+            "P": "http://www.w3.org/2000/01/rdf-schema#label",
+            "d": ">"
+          },
+          "state": "Name"
+        }
+      ],
+      [
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/authors/Michael_Stonebraker",
+          "transition": null,
+          "state": "Author"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/publications/journals/tods/StonebrakerWRMMA83",
+          "transition": {
+            "P": "http://purl.org/dc/elements/1.1/creator",
+            "d": "<"
+          },
+          "state": "jPaper"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/journals/tods",
+          "transition": {
+            "P": "http://swrc.ontoware.org/ontology#journal",
+            "d": ">"
+          },
+          "state": "Journal"
+        },
+        {
+          "node": "ACM Trans. Database Syst.",
+          "transition": {
+            "P": "http://www.w3.org/2000/01/rdf-schema#label",
+            "d": ">"
+          },
+          "state": "Name"
+        }
+      ],
+      [
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/authors/Michael_Stonebraker",
+          "transition": null,
+          "state": "Author"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/publications/journals/tois/StonebrakerSLKG83",
+          "transition": {
+            "P": "http://purl.org/dc/elements/1.1/creator",
+            "d": "<"
+          },
+          "state": "jPaper"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/journals/tois",
+          "transition": {
+            "P": "http://swrc.ontoware.org/ontology#journal",
+            "d": ">"
+          },
+          "state": "Journal"
+        },
+        {
+          "node": "ACM Trans. Inf. Syst.",
+          "transition": {
+            "P": "http://www.w3.org/2000/01/rdf-schema#label",
+            "d": ">"
+          },
+          "state": "Name"
+        }
+      ],
+      [
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/authors/Michael_Stonebraker",
+          "transition": null,
+          "state": "Author"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/publications/journals/vldb/AbadiCCCCLSTZ03",
+          "transition": {
+            "P": "http://purl.org/dc/elements/1.1/creator",
+            "d": "<"
+          },
+          "state": "jPaper"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/journals/vldb",
+          "transition": {
+            "P": "http://swrc.ontoware.org/ontology#journal",
+            "d": ">"
+          },
+          "state": "Journal"
+        },
+        {
+          "node": "VLDB J.",
+          "transition": {
+            "P": "http://www.w3.org/2000/01/rdf-schema#label",
+            "d": ">"
+          },
+          "state": "Name"
+        }
+      ],
+      [
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/authors/Michael_Stonebraker",
+          "transition": null,
+          "state": "Author"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/publications/journals/vlc/WoodruffOACELSS01",
+          "transition": {
+            "P": "http://purl.org/dc/elements/1.1/creator",
+            "d": "<"
+          },
+          "state": "jPaper"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/journals/vlc",
+          "transition": {
+            "P": "http://swrc.ontoware.org/ontology#journal",
+            "d": ">"
+          },
+          "state": "Journal"
+        },
+        {
+          "node": "J. Vis. Lang. Comput.",
+          "transition": {
+            "P": "http://www.w3.org/2000/01/rdf-schema#label",
+            "d": ">"
+          },
+          "state": "Name"
+        }
+      ],
+      [
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/authors/Michael_Stonebraker",
+          "transition": null,
+          "state": "Author"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/publications/journals/tse/KumarS89",
+          "transition": {
+            "P": "http://purl.org/dc/elements/1.1/creator",
+            "d": "<"
+          },
+          "state": "jPaper"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/journals/tse",
+          "transition": {
+            "P": "http://swrc.ontoware.org/ontology#journal",
+            "d": ">"
+          },
+          "state": "Journal"
+        },
+        {
+          "node": "IEEE Trans. Software Eng.",
+          "transition": {
+            "P": "http://www.w3.org/2000/01/rdf-schema#label",
+            "d": ">"
+          },
+          "state": "Name"
+        }
+      ],
+      [
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/authors/Michael_Stonebraker",
+          "transition": null,
+          "state": "Author"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/publications/journals/tsmc/Stonebraker72",
+          "transition": {
+            "P": "http://purl.org/dc/elements/1.1/creator",
+            "d": "<"
+          },
+          "state": "jPaper"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/journals/tsmc",
+          "transition": {
+            "P": "http://swrc.ontoware.org/ontology#journal",
+            "d": ">"
+          },
+          "state": "Journal"
+        },
+        {
+          "node": "IEEE Trans. Systems, Man, and Cybernetics, Part C",
+          "transition": {
+            "P": "http://www.w3.org/2000/01/rdf-schema#label",
+            "d": ">"
+          },
+          "state": "Name"
+        }
+      ],
+      [
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/authors/Michael_Stonebraker",
+          "transition": null,
+          "state": "Author"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/publications/journals/tsmc/Stonebraker72",
+          "transition": {
+            "P": "http://purl.org/dc/elements/1.1/creator",
+            "d": "<"
+          },
+          "state": "jPaper"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/journals/tsmc",
+          "transition": {
+            "P": "http://swrc.ontoware.org/ontology#journal",
+            "d": ">"
+          },
+          "state": "Journal"
+        },
+        {
+          "node": "IEEE Trans. Systems, Man, and Cybernetics, Part B",
+          "transition": {
+            "P": "http://www.w3.org/2000/01/rdf-schema#label",
+            "d": ">"
+          },
+          "state": "Name"
+        }
+      ],
+      [
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/authors/Michael_Stonebraker",
+          "transition": null,
+          "state": "Author"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/publications/journals/tsmc/Stonebraker72",
+          "transition": {
+            "P": "http://purl.org/dc/elements/1.1/creator",
+            "d": "<"
+          },
+          "state": "jPaper"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/journals/tsmc",
+          "transition": {
+            "P": "http://swrc.ontoware.org/ontology#journal",
+            "d": ">"
+          },
+          "state": "Journal"
+        },
+        {
+          "node": "IEEE Trans. Systems, Man, and Cybernetics: Systems",
+          "transition": {
+            "P": "http://www.w3.org/2000/01/rdf-schema#label",
+            "d": ">"
+          },
+          "state": "Name"
+        }
+      ],
+      [
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/authors/Michael_Stonebraker",
+          "transition": null,
+          "state": "Author"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/publications/journals/tsmc/Stonebraker72",
+          "transition": {
+            "P": "http://purl.org/dc/elements/1.1/creator",
+            "d": "<"
+          },
+          "state": "jPaper"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/journals/tsmc",
+          "transition": {
+            "P": "http://swrc.ontoware.org/ontology#journal",
+            "d": ">"
+          },
+          "state": "Journal"
+        },
+        {
+          "node": "IEEE Trans. Systems, Man, and Cybernetics, Part A",
+          "transition": {
+            "P": "http://www.w3.org/2000/01/rdf-schema#label",
+            "d": ">"
+          },
+          "state": "Name"
+        }
+      ],
+      [
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/authors/Michael_Stonebraker",
+          "transition": null,
+          "state": "Author"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/publications/journals/tsmc/Stonebraker72",
+          "transition": {
+            "P": "http://purl.org/dc/elements/1.1/creator",
+            "d": "<"
+          },
+          "state": "jPaper"
+        },
+        {
+          "node": "http://dblp.l3s.de/d2r/resource/journals/tsmc",
+          "transition": {
+            "P": "http://swrc.ontoware.org/ontology#journal",
+            "d": ">"
+          },
+          "state": "Journal"
+        },
+        {
+          "node": "IEEE Trans. Systems, Man, and Cybernetics",
+          "transition": {
+            "P": "http://www.w3.org/2000/01/rdf-schema#label",
+            "d": ">"
+          },
+          "state": "Name"
+        }
+      ]
+    ],
+    "PathCount": 28
+  }
+}

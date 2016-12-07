@@ -1,0 +1,3868 @@
+{
+  "query": "AirportsInNetherlands",
+  "params": {
+    "algorithm": "Dijkstra",
+    "quickGoal": true,
+    "weight": 1,
+    "limits": {
+      "triples": 100000.0,
+      "time": 620,
+      "ans": 1000.0
+    },
+    "parallelRequests": 5
+  },
+  "data": {
+    "StatsHistory": [
+      {
+        "requestIRI": "",
+        "batchID": 0,
+        "memory": 24.82421875,
+        "requestTotalTime": 0,
+        "expansions": 0,
+        "remote_expansions": 0,
+        "triples": 0,
+        "requestTriples": 0,
+        "local_expansions": 0,
+        "wallClock": 0.004594326019287109,
+        "goals_found": 0,
+        "requestTime": 0
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands",
+        "batchID": 1,
+        "memory": 25.31640625,
+        "requestTotalTime": 3.3925116062164307,
+        "expansions": 1,
+        "remote_expansions": 1,
+        "triples": 0,
+        "requestTriples": 57,
+        "local_expansions": 0,
+        "wallClock": 3.4233663082122803,
+        "goals_found": 0,
+        "requestTime": 3.3925116062164307
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Cura\u00e7ao_International_Airport",
+        "batchID": 2,
+        "memory": 25.4609375,
+        "requestTotalTime": 5.941472053527832,
+        "expansions": 2,
+        "remote_expansions": 2,
+        "triples": 57,
+        "requestTriples": 150,
+        "local_expansions": 0,
+        "wallClock": 5.9960715770721436,
+        "goals_found": 0,
+        "requestTime": 2.5489604473114014
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Amsterdam_Heliport",
+        "batchID": 2,
+        "memory": 25.734375,
+        "requestTotalTime": 9.348912954330444,
+        "expansions": 3,
+        "remote_expansions": 3,
+        "triples": 206,
+        "requestTriples": 25,
+        "local_expansions": 0,
+        "wallClock": 6.855782747268677,
+        "goals_found": 2,
+        "requestTime": 3.4074409008026123
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Ameland_Airport",
+        "batchID": 2,
+        "memory": 25.734375,
+        "requestTotalTime": 12.967705488204956,
+        "expansions": 4,
+        "remote_expansions": 4,
+        "triples": 230,
+        "requestTriples": 32,
+        "local_expansions": 0,
+        "wallClock": 7.060380935668945,
+        "goals_found": 3,
+        "requestTime": 3.6187925338745117
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/De_Kooy_Airfield",
+        "batchID": 2,
+        "memory": 25.734375,
+        "requestTotalTime": 16.587448596954346,
+        "expansions": 5,
+        "remote_expansions": 5,
+        "triples": 261,
+        "requestTriples": 38,
+        "local_expansions": 0,
+        "wallClock": 7.0697715282440186,
+        "goals_found": 5,
+        "requestTime": 3.6197431087493896
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Amsterdam_Airport_Schiphol",
+        "batchID": 2,
+        "memory": 27.109375,
+        "requestTotalTime": 22.356447219848633,
+        "expansions": 6,
+        "remote_expansions": 6,
+        "triples": 298,
+        "requestTriples": 1442,
+        "local_expansions": 0,
+        "wallClock": 9.23389482498169,
+        "goals_found": 7,
+        "requestTime": 5.768998622894287
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Drachten_Airfield",
+        "batchID": 3,
+        "memory": 27.921875,
+        "requestTotalTime": 25.719244718551636,
+        "expansions": 7,
+        "remote_expansions": 7,
+        "triples": 1735,
+        "requestTriples": 21,
+        "local_expansions": 0,
+        "wallClock": 12.65971302986145,
+        "goals_found": 8,
+        "requestTime": 3.362797498703003
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/De_Peel_Air_Base",
+        "batchID": 3,
+        "memory": 27.921875,
+        "requestTotalTime": 29.318458080291748,
+        "expansions": 8,
+        "remote_expansions": 8,
+        "triples": 1755,
+        "requestTriples": 32,
+        "local_expansions": 0,
+        "wallClock": 12.903413534164429,
+        "goals_found": 9,
+        "requestTime": 3.5992133617401123
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Deelen_Air_Base",
+        "batchID": 3,
+        "memory": 27.43359375,
+        "requestTotalTime": 33.19611477851868,
+        "expansions": 9,
+        "remote_expansions": 9,
+        "triples": 1786,
+        "requestTriples": 51,
+        "local_expansions": 0,
+        "wallClock": 13.17021894454956,
+        "goals_found": 10,
+        "requestTime": 3.8776566982269287
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Enschede_Airport_Twente",
+        "batchID": 3,
+        "memory": 27.43359375,
+        "requestTotalTime": 37.329835414886475,
+        "expansions": 10,
+        "remote_expansions": 10,
+        "triples": 1836,
+        "requestTriples": 58,
+        "local_expansions": 0,
+        "wallClock": 13.433997869491577,
+        "goals_found": 13,
+        "requestTime": 4.133720636367798
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Eindhoven_Airport",
+        "batchID": 3,
+        "memory": 27.69140625,
+        "requestTotalTime": 42.22299408912659,
+        "expansions": 11,
+        "remote_expansions": 11,
+        "triples": 1892,
+        "requestTriples": 350,
+        "local_expansions": 0,
+        "wallClock": 14.201056957244873,
+        "goals_found": 14,
+        "requestTime": 4.893158674240112
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/F.D._Roosevelt_Airport",
+        "batchID": 4,
+        "memory": 27.69140625,
+        "requestTotalTime": 45.84645891189575,
+        "expansions": 12,
+        "remote_expansions": 12,
+        "triples": 2239,
+        "requestTriples": 46,
+        "local_expansions": 0,
+        "wallClock": 17.858439922332764,
+        "goals_found": 15,
+        "requestTime": 3.623464822769165
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Hilversum_Airport",
+        "batchID": 4,
+        "memory": 27.69140625,
+        "requestTotalTime": 49.48216223716736,
+        "expansions": 13,
+        "remote_expansions": 13,
+        "triples": 2284,
+        "requestTriples": 37,
+        "local_expansions": 0,
+        "wallClock": 17.876851320266724,
+        "goals_found": 16,
+        "requestTime": 3.6357033252716064
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Gilze-Rijen_Air_Base",
+        "batchID": 4,
+        "memory": 27.69140625,
+        "requestTotalTime": 53.60962700843811,
+        "expansions": 14,
+        "remote_expansions": 14,
+        "triples": 2320,
+        "requestTriples": 63,
+        "local_expansions": 0,
+        "wallClock": 18.375232696533203,
+        "goals_found": 16,
+        "requestTime": 4.127464771270752
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Groningen_Airport_Eelde",
+        "batchID": 4,
+        "memory": 27.69140625,
+        "requestTotalTime": 58.01091933250427,
+        "expansions": 15,
+        "remote_expansions": 15,
+        "triples": 2381,
+        "requestTriples": 118,
+        "local_expansions": 0,
+        "wallClock": 18.646785974502563,
+        "goals_found": 18,
+        "requestTime": 4.401292324066162
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Flamingo_International_Airport",
+        "batchID": 4,
+        "memory": 27.69140625,
+        "requestTotalTime": 62.48156714439392,
+        "expansions": 16,
+        "remote_expansions": 16,
+        "triples": 2497,
+        "requestTriples": 125,
+        "local_expansions": 0,
+        "wallClock": 18.715712785720825,
+        "goals_found": 21,
+        "requestTime": 4.470647811889648
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/IJmuiden_Heliport",
+        "batchID": 5,
+        "memory": 27.69140625,
+        "requestTotalTime": 65.83431768417358,
+        "expansions": 17,
+        "remote_expansions": 17,
+        "triples": 2614,
+        "requestTriples": 24,
+        "local_expansions": 0,
+        "wallClock": 22.104999542236328,
+        "goals_found": 23,
+        "requestTime": 3.352750539779663
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Kempen_Airport",
+        "batchID": 5,
+        "memory": 27.69140625,
+        "requestTotalTime": 69.20087265968323,
+        "expansions": 18,
+        "remote_expansions": 18,
+        "triples": 2637,
+        "requestTriples": 27,
+        "local_expansions": 0,
+        "wallClock": 22.121764183044434,
+        "goals_found": 26,
+        "requestTime": 3.3665549755096436
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Hoogeveen_Airport",
+        "batchID": 5,
+        "memory": 27.69140625,
+        "requestTotalTime": 72.57243514060974,
+        "expansions": 19,
+        "remote_expansions": 19,
+        "triples": 2663,
+        "requestTriples": 20,
+        "local_expansions": 0,
+        "wallClock": 22.136825561523438,
+        "goals_found": 27,
+        "requestTime": 3.3715624809265137
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Leeuwarden_Air_Base",
+        "batchID": 5,
+        "memory": 27.69140625,
+        "requestTotalTime": 76.45061230659485,
+        "expansions": 20,
+        "remote_expansions": 20,
+        "triples": 2682,
+        "requestTriples": 55,
+        "local_expansions": 0,
+        "wallClock": 22.623867750167847,
+        "goals_found": 28,
+        "requestTime": 3.8781771659851074
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Juancho_E._Yrausquin_Airport",
+        "batchID": 5,
+        "memory": 27.69140625,
+        "requestTotalTime": 80.35206723213196,
+        "expansions": 21,
+        "remote_expansions": 21,
+        "triples": 2735,
+        "requestTriples": 43,
+        "local_expansions": 0,
+        "wallClock": 22.64230704307556,
+        "goals_found": 30,
+        "requestTime": 3.9014549255371094
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Maasvlakte_Heliport",
+        "batchID": 6,
+        "memory": 27.69140625,
+        "requestTotalTime": 83.70637917518616,
+        "expansions": 22,
+        "remote_expansions": 22,
+        "triples": 2773,
+        "requestTriples": 22,
+        "local_expansions": 0,
+        "wallClock": 26.02735948562622,
+        "goals_found": 32,
+        "requestTime": 3.354311943054199
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Midden-Zeeland_Airport",
+        "batchID": 6,
+        "memory": 27.69140625,
+        "requestTotalTime": 87.07016491889954,
+        "expansions": 23,
+        "remote_expansions": 23,
+        "triples": 2794,
+        "requestTriples": 20,
+        "local_expansions": 0,
+        "wallClock": 26.044533252716064,
+        "goals_found": 33,
+        "requestTime": 3.363785743713379
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Lukkien_Heliport",
+        "batchID": 6,
+        "memory": 27.69140625,
+        "requestTotalTime": 90.45289587974548,
+        "expansions": 24,
+        "remote_expansions": 24,
+        "triples": 2813,
+        "requestTriples": 19,
+        "local_expansions": 0,
+        "wallClock": 26.058583974838257,
+        "goals_found": 34,
+        "requestTime": 3.3827309608459473
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Lelystad_Airport",
+        "batchID": 6,
+        "memory": 27.69140625,
+        "requestTotalTime": 94.34043407440186,
+        "expansions": 25,
+        "remote_expansions": 25,
+        "triples": 2831,
+        "requestTriples": 62,
+        "local_expansions": 0,
+        "wallClock": 26.55324363708496,
+        "goals_found": 35,
+        "requestTime": 3.887538194656372
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Maastricht_Aachen_Airport",
+        "batchID": 6,
+        "memory": 27.69140625,
+        "requestTotalTime": 98.97071075439453,
+        "expansions": 26,
+        "remote_expansions": 26,
+        "triples": 2890,
+        "requestTriples": 172,
+        "local_expansions": 0,
+        "wallClock": 27.30018186569214,
+        "goals_found": 36,
+        "requestTime": 4.630276679992676
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Oostwold_Airport",
+        "batchID": 7,
+        "memory": 27.69140625,
+        "requestTotalTime": 102.33541297912598,
+        "expansions": 27,
+        "remote_expansions": 27,
+        "triples": 3060,
+        "requestTriples": 24,
+        "local_expansions": 0,
+        "wallClock": 30.69602608680725,
+        "goals_found": 38,
+        "requestTime": 3.3647022247314453
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Noordoostpolder_Airport",
+        "batchID": 7,
+        "memory": 27.69140625,
+        "requestTotalTime": 105.70161008834839,
+        "expansions": 28,
+        "remote_expansions": 28,
+        "triples": 3083,
+        "requestTriples": 16,
+        "local_expansions": 0,
+        "wallClock": 30.704215049743652,
+        "goals_found": 39,
+        "requestTime": 3.366197109222412
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Ockenburg",
+        "batchID": 7,
+        "memory": 27.69140625,
+        "requestTotalTime": 109.06909203529358,
+        "expansions": 29,
+        "remote_expansions": 29,
+        "triples": 3098,
+        "requestTriples": 29,
+        "local_expansions": 0,
+        "wallClock": 30.711690187454224,
+        "goals_found": 40,
+        "requestTime": 3.3674819469451904
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Middenmeer_Aerodrome",
+        "batchID": 7,
+        "memory": 27.69140625,
+        "requestTotalTime": 112.43289852142334,
+        "expansions": 30,
+        "remote_expansions": 30,
+        "triples": 3126,
+        "requestTriples": 24,
+        "local_expansions": 0,
+        "wallClock": 30.719562768936157,
+        "goals_found": 40,
+        "requestTime": 3.3638064861297607
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Princess_Juliana_International_Airport",
+        "batchID": 7,
+        "memory": 27.69140625,
+        "requestTotalTime": 117.84443402290344,
+        "expansions": 31,
+        "remote_expansions": 31,
+        "triples": 3149,
+        "requestTriples": 250,
+        "local_expansions": 0,
+        "wallClock": 32.73959994316101,
+        "goals_found": 42,
+        "requestTime": 5.4115355014801025
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Seppe_Airport",
+        "batchID": 8,
+        "memory": 27.92578125,
+        "requestTotalTime": 121.21227431297302,
+        "expansions": 32,
+        "remote_expansions": 32,
+        "triples": 3381,
+        "requestTriples": 28,
+        "local_expansions": 0,
+        "wallClock": 36.141191482543945,
+        "goals_found": 44,
+        "requestTime": 3.36784029006958
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Soesterberg_Royal_Netherlands_Air_Force_Base",
+        "batchID": 8,
+        "memory": 27.92578125,
+        "requestTotalTime": 125.08061861991882,
+        "expansions": 33,
+        "remote_expansions": 33,
+        "triples": 3408,
+        "requestTriples": 71,
+        "local_expansions": 0,
+        "wallClock": 36.633548736572266,
+        "goals_found": 45,
+        "requestTime": 3.868344306945801
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Rotterdam_The_Hague_Airport",
+        "batchID": 8,
+        "memory": 27.92578125,
+        "requestTotalTime": 129.72584199905396,
+        "expansions": 34,
+        "remote_expansions": 34,
+        "triples": 3476,
+        "requestTriples": 185,
+        "local_expansions": 0,
+        "wallClock": 37.415839433670044,
+        "goals_found": 46,
+        "requestTime": 4.645223379135132
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Queen_Beatrix_International_Airport",
+        "batchID": 8,
+        "memory": 27.92578125,
+        "requestTotalTime": 134.37070560455322,
+        "expansions": 35,
+        "remote_expansions": 35,
+        "triples": 3658,
+        "requestTriples": 263,
+        "local_expansions": 0,
+        "wallClock": 37.43619394302368,
+        "goals_found": 46,
+        "requestTime": 4.644863605499268
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Schiphol_Airport",
+        "batchID": 8,
+        "memory": 27.92578125,
+        "requestTotalTime": 139.76631450653076,
+        "expansions": 36,
+        "remote_expansions": 36,
+        "triples": 3909,
+        "requestTriples": 207,
+        "local_expansions": 0,
+        "wallClock": 38.152716636657715,
+        "goals_found": 48,
+        "requestTime": 5.395608901977539
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Terlet_Airfield",
+        "batchID": 9,
+        "memory": 27.92578125,
+        "requestTotalTime": 143.13137483596802,
+        "expansions": 37,
+        "remote_expansions": 37,
+        "triples": 4114,
+        "requestTriples": 26,
+        "local_expansions": 0,
+        "wallClock": 41.54545569419861,
+        "goals_found": 48,
+        "requestTime": 3.365060329437256
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Stadskanaal_Airfield",
+        "batchID": 9,
+        "memory": 27.92578125,
+        "requestTotalTime": 146.49921655654907,
+        "expansions": 38,
+        "remote_expansions": 38,
+        "triples": 4137,
+        "requestTriples": 22,
+        "local_expansions": 0,
+        "wallClock": 41.560057163238525,
+        "goals_found": 48,
+        "requestTime": 3.3678417205810547
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/TrafficPort_Venlo",
+        "batchID": 9,
+        "memory": 27.92578125,
+        "requestTotalTime": 149.87708473205566,
+        "expansions": 39,
+        "remote_expansions": 39,
+        "triples": 4158,
+        "requestTriples": 13,
+        "local_expansions": 0,
+        "wallClock": 41.5724892616272,
+        "goals_found": 51,
+        "requestTime": 3.377868175506592
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Teuge_Airport",
+        "batchID": 9,
+        "memory": 27.92578125,
+        "requestTotalTime": 153.5021824836731,
+        "expansions": 40,
+        "remote_expansions": 40,
+        "triples": 4170,
+        "requestTriples": 34,
+        "local_expansions": 0,
+        "wallClock": 41.80489635467529,
+        "goals_found": 52,
+        "requestTime": 3.6250977516174316
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Texel_International_Airport",
+        "batchID": 9,
+        "memory": 27.92578125,
+        "requestTotalTime": 157.13060784339905,
+        "expansions": 41,
+        "remote_expansions": 41,
+        "triples": 4203,
+        "requestTriples": 35,
+        "local_expansions": 0,
+        "wallClock": 41.82101225852966,
+        "goals_found": 54,
+        "requestTime": 3.628425359725952
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Waalhaven",
+        "batchID": 10,
+        "memory": 27.92578125,
+        "requestTotalTime": 160.48860120773315,
+        "expansions": 42,
+        "remote_expansions": 42,
+        "triples": 4237,
+        "requestTriples": 51,
+        "local_expansions": 0,
+        "wallClock": 45.20789647102356,
+        "goals_found": 54,
+        "requestTime": 3.3579933643341064
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Vlieland_Heliport",
+        "batchID": 10,
+        "memory": 27.92578125,
+        "requestTotalTime": 163.85838222503662,
+        "expansions": 43,
+        "remote_expansions": 43,
+        "triples": 4286,
+        "requestTriples": 23,
+        "local_expansions": 0,
+        "wallClock": 45.22901797294617,
+        "goals_found": 54,
+        "requestTime": 3.369781017303467
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Visakhapatnam_Airport",
+        "batchID": 10,
+        "memory": 27.92578125,
+        "requestTotalTime": 167.7116515636444,
+        "expansions": 44,
+        "remote_expansions": 44,
+        "triples": 4307,
+        "requestTriples": 99,
+        "local_expansions": 0,
+        "wallClock": 45.70228171348572,
+        "goals_found": 54,
+        "requestTime": 3.853269338607788
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Valkenburg_Naval_Air_Base",
+        "batchID": 10,
+        "memory": 27.92578125,
+        "requestTotalTime": 171.5728461742401,
+        "expansions": 45,
+        "remote_expansions": 45,
+        "triples": 4405,
+        "requestTriples": 58,
+        "local_expansions": 0,
+        "wallClock": 45.72500920295715,
+        "goals_found": 55,
+        "requestTime": 3.861194610595703
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Volkel_Air_Base",
+        "batchID": 10,
+        "memory": 27.92578125,
+        "requestTotalTime": 175.9437277317047,
+        "expansions": 46,
+        "remote_expansions": 46,
+        "triples": 4462,
+        "requestTriples": 80,
+        "local_expansions": 0,
+        "wallClock": 46.21880769729614,
+        "goals_found": 58,
+        "requestTime": 4.3708815574646
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/nl/Vliegveld_Axel",
+        "batchID": 11,
+        "memory": 27.92578125,
+        "requestTotalTime": 179.05558967590332,
+        "expansions": 47,
+        "remote_expansions": 47,
+        "triples": 4537,
+        "requestTriples": 15,
+        "local_expansions": 0,
+        "wallClock": 49.373764514923096,
+        "goals_found": 59,
+        "requestTime": 3.1118619441986084
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/nl/Maasvlakte_Airport",
+        "batchID": 11,
+        "memory": 27.92578125,
+        "requestTotalTime": 182.1778585910797,
+        "expansions": 48,
+        "remote_expansions": 48,
+        "triples": 4551,
+        "requestTriples": 16,
+        "local_expansions": 0,
+        "wallClock": 49.3887939453125,
+        "goals_found": 59,
+        "requestTime": 3.1222689151763916
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/nl/Vliegkamp_Ede",
+        "batchID": 11,
+        "memory": 27.92578125,
+        "requestTotalTime": 185.53601336479187,
+        "expansions": 49,
+        "remote_expansions": 49,
+        "triples": 4565,
+        "requestTriples": 41,
+        "local_expansions": 0,
+        "wallClock": 49.61520838737488,
+        "goals_found": 59,
+        "requestTime": 3.358154773712158
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Ypenburg_Airport",
+        "batchID": 11,
+        "memory": 27.92578125,
+        "requestTotalTime": 189.15499901771545,
+        "expansions": 50,
+        "remote_expansions": 50,
+        "triples": 4603,
+        "requestTriples": 39,
+        "local_expansions": 0,
+        "wallClock": 49.86832904815674,
+        "goals_found": 59,
+        "requestTime": 3.618985652923584
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Woensdrecht_Air_Base",
+        "batchID": 11,
+        "memory": 27.92578125,
+        "requestTotalTime": 193.0321102142334,
+        "expansions": 51,
+        "remote_expansions": 51,
+        "triples": 4640,
+        "requestTriples": 50,
+        "local_expansions": 0,
+        "wallClock": 50.12432909011841,
+        "goals_found": 61,
+        "requestTime": 3.8771111965179443
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/nl/Vliegveld_Salland",
+        "batchID": 12,
+        "memory": 27.92578125,
+        "requestTotalTime": 196.14376854896545,
+        "expansions": 52,
+        "remote_expansions": 52,
+        "triples": 4689,
+        "requestTriples": 21,
+        "local_expansions": 0,
+        "wallClock": 53.2549831867218,
+        "goals_found": 63,
+        "requestTime": 3.1116583347320557
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/nl/Zweefvliegveld_Malden",
+        "batchID": 12,
+        "memory": 27.92578125,
+        "requestTotalTime": 199.25704526901245,
+        "expansions": 53,
+        "remote_expansions": 53,
+        "triples": 4709,
+        "requestTriples": 17,
+        "local_expansions": 0,
+        "wallClock": 53.265007972717285,
+        "goals_found": 64,
+        "requestTime": 3.113276720046997
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/nl/Vliegveld_Keent",
+        "batchID": 12,
+        "memory": 27.92578125,
+        "requestTotalTime": 202.37614727020264,
+        "expansions": 54,
+        "remote_expansions": 54,
+        "triples": 4725,
+        "requestTriples": 24,
+        "local_expansions": 0,
+        "wallClock": 53.27413582801819,
+        "goals_found": 65,
+        "requestTime": 3.1191020011901855
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/nl/Vliegveld_Haamstede",
+        "batchID": 12,
+        "memory": 27.92578125,
+        "requestTotalTime": 205.50846982002258,
+        "expansions": 55,
+        "remote_expansions": 55,
+        "triples": 4747,
+        "requestTriples": 23,
+        "local_expansions": 0,
+        "wallClock": 53.283538579940796,
+        "goals_found": 66,
+        "requestTime": 3.1323225498199463
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Ballum",
+        "batchID": 13,
+        "memory": 27.92578125,
+        "requestTotalTime": 208.89282321929932,
+        "expansions": 56,
+        "remote_expansions": 56,
+        "triples": 4767,
+        "requestTriples": 43,
+        "local_expansions": 0,
+        "wallClock": 56.695425271987915,
+        "goals_found": 67,
+        "requestTime": 3.3843533992767334
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Arnemuiden",
+        "batchID": 13,
+        "memory": 27.92578125,
+        "requestTotalTime": 212.776540517807,
+        "expansions": 57,
+        "remote_expansions": 57,
+        "triples": 4808,
+        "requestTriples": 91,
+        "local_expansions": 0,
+        "wallClock": 57.18361282348633,
+        "goals_found": 67,
+        "requestTime": 3.8837172985076904
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Ameland",
+        "batchID": 13,
+        "memory": 27.92578125,
+        "requestTotalTime": 217.40063405036926,
+        "expansions": 58,
+        "remote_expansions": 58,
+        "triples": 4898,
+        "requestTriples": 178,
+        "local_expansions": 0,
+        "wallClock": 57.93600559234619,
+        "goals_found": 71,
+        "requestTime": 4.624093532562256
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Arnhem",
+        "batchID": 13,
+        "memory": 31.26171875,
+        "requestTotalTime": 224.38670110702515,
+        "expansions": 59,
+        "remote_expansions": 59,
+        "triples": 5070,
+        "requestTriples": 2312,
+        "local_expansions": 0,
+        "wallClock": 60.3360071182251,
+        "goals_found": 72,
+        "requestTime": 6.986067056655884
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Amsterdam",
+        "batchID": 13,
+        "memory": 57.96484375,
+        "requestTotalTime": 238.04662370681763,
+        "expansions": 60,
+        "remote_expansions": 60,
+        "triples": 7379,
+        "requestTriples": 20664,
+        "local_expansions": 0,
+        "wallClock": 67.20517778396606,
+        "goals_found": 73,
+        "requestTime": 13.65992259979248
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Bosschenhoofd",
+        "batchID": 14,
+        "memory": 60.6015625,
+        "requestTotalTime": 241.6555871963501,
+        "expansions": 61,
+        "remote_expansions": 61,
+        "triples": 28034,
+        "requestTriples": 30,
+        "local_expansions": 0,
+        "wallClock": 71.4224808216095,
+        "goals_found": 74,
+        "requestTime": 3.6089634895324707
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Beek",
+        "batchID": 14,
+        "memory": 60.6015625,
+        "requestTotalTime": 245.53155136108398,
+        "expansions": 62,
+        "remote_expansions": 62,
+        "triples": 28062,
+        "requestTriples": 81,
+        "local_expansions": 0,
+        "wallClock": 71.66186904907227,
+        "goals_found": 75,
+        "requestTime": 3.8759641647338867
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Budel",
+        "batchID": 14,
+        "memory": 60.6015625,
+        "requestTotalTime": 249.6596302986145,
+        "expansions": 63,
+        "remote_expansions": 63,
+        "triples": 28141,
+        "requestTriples": 118,
+        "local_expansions": 0,
+        "wallClock": 71.90632510185242,
+        "goals_found": 76,
+        "requestTime": 4.128078937530518
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Cura\u00e7ao",
+        "batchID": 14,
+        "memory": 60.6015625,
+        "requestTotalTime": 254.0038001537323,
+        "expansions": 64,
+        "remote_expansions": 64,
+        "triples": 28256,
+        "requestTriples": 1542,
+        "local_expansions": 0,
+        "wallClock": 72.13727617263794,
+        "goals_found": 77,
+        "requestTime": 4.344169855117798
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Bonaire",
+        "batchID": 14,
+        "memory": 61.88671875,
+        "requestTotalTime": 259.1490550041199,
+        "expansions": 65,
+        "remote_expansions": 65,
+        "triples": 29795,
+        "requestTriples": 348,
+        "local_expansions": 0,
+        "wallClock": 72.93048906326294,
+        "goals_found": 82,
+        "requestTime": 5.145254850387573
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Deelen",
+        "batchID": 15,
+        "memory": 61.88671875,
+        "requestTotalTime": 262.5069696903229,
+        "expansions": 66,
+        "remote_expansions": 66,
+        "triples": 30138,
+        "requestTriples": 41,
+        "local_expansions": 0,
+        "wallClock": 76.32317423820496,
+        "goals_found": 83,
+        "requestTime": 3.357914686203003
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Drachten",
+        "batchID": 15,
+        "memory": 61.88671875,
+        "requestTotalTime": 267.1437680721283,
+        "expansions": 67,
+        "remote_expansions": 67,
+        "triples": 30175,
+        "requestTriples": 308,
+        "local_expansions": 0,
+        "wallClock": 77.62639904022217,
+        "goals_found": 83,
+        "requestTime": 4.63679838180542
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Ede",
+        "batchID": 15,
+        "memory": 61.88671875,
+        "requestTotalTime": 271.79439997673035,
+        "expansions": 68,
+        "remote_expansions": 68,
+        "triples": 30481,
+        "requestTriples": 370,
+        "local_expansions": 0,
+        "wallClock": 77.67611122131348,
+        "goals_found": 84,
+        "requestTime": 4.650631904602051
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Den_Helder",
+        "batchID": 15,
+        "memory": 61.88671875,
+        "requestTotalTime": 276.7413568496704,
+        "expansions": 69,
+        "remote_expansions": 69,
+        "triples": 30847,
+        "requestTriples": 689,
+        "local_expansions": 0,
+        "wallClock": 77.92101502418518,
+        "goals_found": 84,
+        "requestTime": 4.9469568729400635
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Drenthe",
+        "batchID": 15,
+        "memory": 61.88671875,
+        "requestTotalTime": 283.0030107498169,
+        "expansions": 70,
+        "remote_expansions": 70,
+        "triples": 31531,
+        "requestTriples": 1893,
+        "local_expansions": 0,
+        "wallClock": 79.25500702857971,
+        "goals_found": 84,
+        "requestTime": 6.261653900146484
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Eelde",
+        "batchID": 16,
+        "memory": 61.88671875,
+        "requestTotalTime": 286.8661513328552,
+        "expansions": 71,
+        "remote_expansions": 71,
+        "triples": 33419,
+        "requestTriples": 120,
+        "local_expansions": 0,
+        "wallClock": 83.19418668746948,
+        "goals_found": 87,
+        "requestTime": 3.86314058303833
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Emmeloord",
+        "batchID": 16,
+        "memory": 61.88671875,
+        "requestTotalTime": 291.00967931747437,
+        "expansions": 72,
+        "remote_expansions": 72,
+        "triples": 33533,
+        "requestTriples": 187,
+        "local_expansions": 0,
+        "wallClock": 83.48641538619995,
+        "goals_found": 88,
+        "requestTime": 4.143527984619141
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Ede,_Netherlands",
+        "batchID": 16,
+        "memory": 61.88671875,
+        "requestTotalTime": 295.7028567790985,
+        "expansions": 73,
+        "remote_expansions": 73,
+        "triples": 33716,
+        "requestTriples": 167,
+        "local_expansions": 0,
+        "wallClock": 84.03950476646423,
+        "goals_found": 89,
+        "requestTime": 4.6931774616241455
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Enschede",
+        "batchID": 16,
+        "memory": 61.88671875,
+        "requestTotalTime": 301.6469624042511,
+        "expansions": 74,
+        "remote_expansions": 74,
+        "triples": 33871,
+        "requestTriples": 1207,
+        "local_expansions": 0,
+        "wallClock": 85.30894780158997,
+        "goals_found": 89,
+        "requestTime": 5.944105625152588
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Eindhoven",
+        "batchID": 16,
+        "memory": 61.88671875,
+        "requestTotalTime": 311.54510593414307,
+        "expansions": 75,
+        "remote_expansions": 75,
+        "triples": 35074,
+        "requestTriples": 2787,
+        "local_expansions": 0,
+        "wallClock": 89.29042744636536,
+        "goals_found": 90,
+        "requestTime": 9.898143529891968
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Haamstede",
+        "batchID": 17,
+        "memory": 61.88671875,
+        "requestTotalTime": 315.1703267097473,
+        "expansions": 76,
+        "remote_expansions": 76,
+        "triples": 37854,
+        "requestTriples": 47,
+        "local_expansions": 0,
+        "wallClock": 93.06131625175476,
+        "goals_found": 90,
+        "requestTime": 3.625220775604248
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Gilze_en_Rijen",
+        "batchID": 17,
+        "memory": 61.88671875,
+        "requestTotalTime": 319.7764391899109,
+        "expansions": 77,
+        "remote_expansions": 77,
+        "triples": 37899,
+        "requestTriples": 96,
+        "local_expansions": 0,
+        "wallClock": 94.04457426071167,
+        "goals_found": 91,
+        "requestTime": 4.606112480163574
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Groningen_(province)",
+        "batchID": 17,
+        "memory": 61.88671875,
+        "requestTotalTime": 326.65290689468384,
+        "expansions": 78,
+        "remote_expansions": 78,
+        "triples": 37992,
+        "requestTriples": 2925,
+        "local_expansions": 0,
+        "wallClock": 96.40072083473206,
+        "goals_found": 91,
+        "requestTime": 6.876467704772949
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Groningen",
+        "batchID": 17,
+        "memory": 62.39453125,
+        "requestTotalTime": 335.9285111427307,
+        "expansions": 79,
+        "remote_expansions": 79,
+        "triples": 40907,
+        "requestTriples": 2925,
+        "local_expansions": 0,
+        "wallClock": 98.74485874176025,
+        "goals_found": 92,
+        "requestTime": 9.275604248046875
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Friesland",
+        "batchID": 17,
+        "memory": 63.68359375,
+        "requestTotalTime": 352.71419286727905,
+        "expansions": 80,
+        "remote_expansions": 80,
+        "triples": 43818,
+        "requestTriples": 3542,
+        "local_expansions": 0,
+        "wallClock": 106.2647750377655,
+        "goals_found": 93,
+        "requestTime": 16.78568172454834
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Hoogerheide",
+        "batchID": 18,
+        "memory": 63.68359375,
+        "requestTotalTime": 356.58858346939087,
+        "expansions": 81,
+        "remote_expansions": 81,
+        "triples": 47337,
+        "requestTriples": 85,
+        "local_expansions": 0,
+        "wallClock": 110.29086947441101,
+        "goals_found": 93,
+        "requestTime": 3.8743906021118164
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Hollands_Kroon",
+        "batchID": 18,
+        "memory": 63.68359375,
+        "requestTotalTime": 360.9553060531616,
+        "expansions": 82,
+        "remote_expansions": 82,
+        "triples": 47421,
+        "requestTriples": 175,
+        "local_expansions": 0,
+        "wallClock": 110.77638983726501,
+        "goals_found": 93,
+        "requestTime": 4.366722583770752
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/IJmuiden",
+        "batchID": 18,
+        "memory": 63.68359375,
+        "requestTotalTime": 365.59287333488464,
+        "expansions": 83,
+        "remote_expansions": 83,
+        "triples": 47593,
+        "requestTriples": 296,
+        "local_expansions": 0,
+        "wallClock": 111.05401182174683,
+        "goals_found": 93,
+        "requestTime": 4.6375672817230225
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Hoogeveen",
+        "batchID": 18,
+        "memory": 63.68359375,
+        "requestTotalTime": 370.4729766845703,
+        "expansions": 84,
+        "remote_expansions": 84,
+        "triples": 47886,
+        "requestTriples": 360,
+        "local_expansions": 0,
+        "wallClock": 111.30290341377258,
+        "goals_found": 93,
+        "requestTime": 4.880103349685669
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Haarlemmermeer",
+        "batchID": 18,
+        "memory": 63.68359375,
+        "requestTotalTime": 375.6651518344879,
+        "expansions": 85,
+        "remote_expansions": 85,
+        "triples": 48239,
+        "requestTriples": 415,
+        "local_expansions": 0,
+        "wallClock": 111.58042860031128,
+        "goals_found": 93,
+        "requestTime": 5.1921751499176025
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Kralendijk",
+        "batchID": 19,
+        "memory": 63.68359375,
+        "requestTotalTime": 379.5352761745453,
+        "expansions": 86,
+        "remote_expansions": 86,
+        "triples": 48647,
+        "requestTriples": 92,
+        "local_expansions": 0,
+        "wallClock": 115.51864790916443,
+        "goals_found": 94,
+        "requestTime": 3.870124340057373
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Katwijk",
+        "batchID": 19,
+        "memory": 63.68359375,
+        "requestTotalTime": 383.9426817893982,
+        "expansions": 87,
+        "remote_expansions": 87,
+        "triples": 48731,
+        "requestTriples": 302,
+        "local_expansions": 0,
+        "wallClock": 116.03992795944214,
+        "goals_found": 95,
+        "requestTime": 4.407405614852905
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Lelystad",
+        "batchID": 19,
+        "memory": 63.68359375,
+        "requestTotalTime": 388.61254501342773,
+        "expansions": 88,
+        "remote_expansions": 88,
+        "triples": 49031,
+        "requestTriples": 360,
+        "local_expansions": 0,
+        "wallClock": 116.30512690544128,
+        "goals_found": 96,
+        "requestTime": 4.669863224029541
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Leeuwarden",
+        "batchID": 19,
+        "memory": 63.68359375,
+        "requestTotalTime": 394.8760952949524,
+        "expansions": 89,
+        "remote_expansions": 89,
+        "triples": 49383,
+        "requestTriples": 1423,
+        "local_expansions": 0,
+        "wallClock": 117.92893886566162,
+        "goals_found": 96,
+        "requestTime": 6.263550281524658
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Leiden",
+        "batchID": 19,
+        "memory": 64.71484375,
+        "requestTotalTime": 401.91200590133667,
+        "expansions": 90,
+        "remote_expansions": 90,
+        "triples": 50795,
+        "requestTriples": 3198,
+        "local_expansions": 0,
+        "wallClock": 118.71026730537415,
+        "goals_found": 96,
+        "requestTime": 7.035910606384277
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Malden,_Netherlands",
+        "batchID": 20,
+        "memory": 64.71484375,
+        "requestTotalTime": 405.2795956134796,
+        "expansions": 91,
+        "remote_expansions": 91,
+        "triples": 53987,
+        "requestTriples": 48,
+        "local_expansions": 0,
+        "wallClock": 122.21279883384705,
+        "goals_found": 96,
+        "requestTime": 3.3675897121429443
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Middenmeer",
+        "batchID": 20,
+        "memory": 64.71484375,
+        "requestTotalTime": 408.905832529068,
+        "expansions": 92,
+        "remote_expansions": 92,
+        "triples": 54033,
+        "requestTriples": 41,
+        "local_expansions": 0,
+        "wallClock": 122.48252034187317,
+        "goals_found": 97,
+        "requestTime": 3.626236915588379
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Maastricht",
+        "batchID": 20,
+        "memory": 64.71484375,
+        "requestTotalTime": 416.0221793651581,
+        "expansions": 93,
+        "remote_expansions": 93,
+        "triples": 54069,
+        "requestTriples": 2707,
+        "local_expansions": 0,
+        "wallClock": 126.00322222709656,
+        "goals_found": 97,
+        "requestTime": 7.116346836090088
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/North_Brabant",
+        "batchID": 20,
+        "memory": 67.29296875,
+        "requestTotalTime": 423.4851212501526,
+        "expansions": 94,
+        "remote_expansions": 94,
+        "triples": 56768,
+        "requestTriples": 4341,
+        "local_expansions": 0,
+        "wallClock": 126.33450031280518,
+        "goals_found": 97,
+        "requestTime": 7.462941884994507
+      },
+      {
+        "requestIRI": "http://yago-knowledge.org/resource/Netherlands",
+        "batchID": 20,
+        "memory": 146.6796875,
+        "requestTotalTime": 438.85155844688416,
+        "expansions": 95,
+        "remote_expansions": 95,
+        "triples": 61092,
+        "requestTriples": 65432,
+        "local_expansions": 0,
+        "wallClock": 135.05375957489014,
+        "goals_found": 98,
+        "requestTime": 15.366437196731567
+      }
+    ],
+    "Paths": [
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Cura\u00e7ao_International_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Cura\u00e7ao"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Cura\u00e7ao_International_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Willemstad"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Amsterdam_Heliport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Amsterdam"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ballum"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/De_Kooy_Airfield"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Netherlands"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/De_Kooy_Airfield"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Den_Helder"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Amsterdam_Airport_Schiphol"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Haarlemmermeer"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Drachten_Airfield"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Drachten"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/De_Peel_Air_Base"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Venray"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Deelen_Air_Base"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ede"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Deelen_Air_Base"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Arnhem"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Deelen_Air_Base"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Deelen"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Enschede_Airport_Twente"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Enschede"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Eindhoven_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Eindhoven"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/F.D._Roosevelt_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Sint_Eustatius"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Gilze-Rijen_Air_Base"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Gilze_en_Rijen"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Gilze-Rijen_Air_Base"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/North_Brabant"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Groningen_Airport_Eelde"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Eelde"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Groningen_Airport_Eelde"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Groningen"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Groningen_Airport_Eelde"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Drenthe"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Flamingo_International_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Bonaire"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Flamingo_International_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Kralendijk"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/IJmuiden_Heliport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/IJmuiden"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/IJmuiden_Heliport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/North_Holland"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/IJmuiden_Heliport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Velsen"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Kempen_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Budel"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Hoogeveen_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Hoogeveen"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Leeuwarden_Air_Base"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Friesland"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Leeuwarden_Air_Base"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Leeuwarden"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Juancho_E._Yrausquin_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/The_Bottom"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Juancho_E._Yrausquin_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Saba"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Maasvlakte_Heliport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Rotterdam"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Midden-Zeeland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Arnemuiden"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Lukkien_Heliport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ede,_Netherlands"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Lelystad_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Lelystad"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Maastricht_Aachen_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Beek"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Maastricht_Aachen_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Maastricht"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Oostwold_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Oostwold,_Oldambt"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Noordoostpolder_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Emmeloord"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Middenmeer_Aerodrome"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Hollands_Kroon"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Middenmeer_Aerodrome"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Middenmeer"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Princess_Juliana_International_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Sint_Maarten"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Princess_Juliana_International_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Saint_Martin"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Seppe_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Bosschenhoofd"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Soesterberg_Royal_Netherlands_Air_Force_Base"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Soesterberg"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Queen_Beatrix_International_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Oranjestad,_Aruba"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Queen_Beatrix_International_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Oranjestad"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Stadskanaal_Airfield"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Groningen_(province)"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Stadskanaal_Airfield"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Stadskanaal"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Stadskanaal_Airfield"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Vledderveen,_Groningen"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/TrafficPort_Venlo"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Venlo"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Teuge_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Teuge"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Teuge_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Voorst"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Visakhapatnam_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Visakhapatnam"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Valkenburg_Naval_Air_Base"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Katwijk"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Valkenburg_Naval_Air_Base"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Leiden"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Valkenburg_Naval_Air_Base"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Valkenburg,_South_Holland"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Volkel_Air_Base"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Uden"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Ypenburg_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/The_Hague"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Ypenburg_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Rijswijk"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Woensdrecht_Air_Base"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Hoogerheide"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Woensdrecht_Air_Base"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Woensdrecht"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/nl/Vliegveld_Salland"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/fr/Lemelerveld"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/nl/Zweefvliegveld_Malden"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Malden,_Netherlands"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/nl/Vliegveld_Keent"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/fr/Keent"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/nl/Vliegveld_Haamstede"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Haamstede"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Midden-Zeeland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Arnemuiden"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/nl/Middelburg_(gemeente)"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Midden-Zeeland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Arnemuiden"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Zeeland"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Midden-Zeeland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Arnemuiden"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Middelburg_(Zeeland)"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Midden-Zeeland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Arnemuiden"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Middelburg"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/North_Sea"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Deelen_Air_Base"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Arnhem"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Gelderland"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Amsterdam_Heliport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Amsterdam"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Europe"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Seppe_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Bosschenhoofd"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Halderberge"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Maastricht_Aachen_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Beek"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Limburg_(Netherlands)"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Kempen_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Budel"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Cranendonck"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Cura\u00e7ao_International_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Cura\u00e7ao"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/North_America"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Cura\u00e7ao_International_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Cura\u00e7ao"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Netherlands_Antilles"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Cura\u00e7ao_International_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Cura\u00e7ao"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/South_America"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Cura\u00e7ao_International_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Cura\u00e7ao"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Caribbean"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Cura\u00e7ao_International_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Cura\u00e7ao"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Kingdom_of_the_Netherlands"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Flamingo_International_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Bonaire"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Municipalities_of_the_Netherlands"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Drachten_Airfield"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Drachten"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Smallingerland"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Groningen_Airport_Eelde"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Drenthe"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Groningen_Airport_Eelde"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Groningen_Airport_Eelde"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Drenthe"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Holy_Roman_Empire"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Groningen_Airport_Eelde"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Drenthe"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Assen"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Groningen_Airport_Eelde"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Eelde"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Tynaarlo"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Noordoostpolder_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Emmeloord"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Flevoland"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Enschede_Airport_Twente"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Enschede"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Overijssel"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/nl/Vliegveld_Haamstede"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Haamstede"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Schouwen-Duiveland"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Stadskanaal_Airfield"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Groningen_(province)"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Oldambt_(municipality)"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Groningen_Airport_Eelde"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Groningen"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/fr/Groningue_(commune)"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Amsterdam_Airport_Schiphol"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Haarlemmermeer"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Hoofddorp"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Flamingo_International_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Kralendijk"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Central_America"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Valkenburg_Naval_Air_Base"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Katwijk"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/South_Holland"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/nl/Zweefvliegveld_Malden"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Malden,_Netherlands"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Heumen"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Gilze-Rijen_Air_Base"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/North_Brabant"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/'s-Hertogenbosch"
+        }
+      ]
+    ],
+    "PathCount": 98,
+    "Time": 136.84484124183655
+  }
+}

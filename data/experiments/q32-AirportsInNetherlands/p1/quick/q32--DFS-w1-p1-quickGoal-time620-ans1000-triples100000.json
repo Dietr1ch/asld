@@ -1,0 +1,1689 @@
+{
+  "params": {
+    "weight": 1,
+    "limits": {
+      "ans": 1000.0,
+      "triples": 100000.0,
+      "time": 620
+    },
+    "algorithm": "DFS",
+    "quickGoal": true,
+    "parallelRequests": 1
+  },
+  "query": "AirportsInNetherlands",
+  "data": {
+    "StatsHistory": [
+      {
+        "expansions": 0,
+        "wallClock": 0.004492282867431641,
+        "requestTime": 0,
+        "batchID": 0,
+        "remote_expansions": 0,
+        "goals_found": 0,
+        "triples": 0,
+        "requestTriples": 0,
+        "requestIRI": "",
+        "local_expansions": 0,
+        "requestTotalTime": 0,
+        "memory": 24.78125
+      },
+      {
+        "expansions": 1,
+        "wallClock": 3.4233558177948,
+        "requestTime": 3.3927712440490723,
+        "batchID": 1,
+        "remote_expansions": 1,
+        "goals_found": 0,
+        "triples": 0,
+        "requestTriples": 57,
+        "requestIRI": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands",
+        "local_expansions": 0,
+        "requestTotalTime": 3.3927712440490723,
+        "memory": 27.25
+      },
+      {
+        "expansions": 2,
+        "wallClock": 7.06589150428772,
+        "requestTime": 3.613801956176758,
+        "batchID": 2,
+        "remote_expansions": 2,
+        "goals_found": 0,
+        "triples": 57,
+        "requestTriples": 32,
+        "requestIRI": "http://yago-knowledge.org/resource/Ameland_Airport",
+        "local_expansions": 0,
+        "requestTotalTime": 7.00657320022583,
+        "memory": 27.25390625
+      },
+      {
+        "expansions": 3,
+        "wallClock": 11.47640085220337,
+        "requestTime": 4.385009288787842,
+        "batchID": 3,
+        "remote_expansions": 3,
+        "goals_found": 2,
+        "triples": 88,
+        "requestTriples": 178,
+        "requestIRI": "http://yago-knowledge.org/resource/Ameland",
+        "local_expansions": 0,
+        "requestTotalTime": 11.391582489013672,
+        "memory": 27.3984375
+      },
+      {
+        "expansions": 4,
+        "wallClock": 18.912399291992188,
+        "requestTime": 7.354285478591919,
+        "batchID": 4,
+        "remote_expansions": 4,
+        "goals_found": 5,
+        "triples": 263,
+        "requestTriples": 3542,
+        "requestIRI": "http://yago-knowledge.org/resource/Friesland",
+        "local_expansions": 0,
+        "requestTotalTime": 18.74586796760559,
+        "memory": 31.55859375
+      },
+      {
+        "expansions": 5,
+        "wallClock": 25.029097080230713,
+        "requestTime": 5.977576494216919,
+        "batchID": 5,
+        "remote_expansions": 5,
+        "goals_found": 6,
+        "triples": 3800,
+        "requestTriples": 1423,
+        "requestIRI": "http://yago-knowledge.org/resource/Leeuwarden",
+        "local_expansions": 0,
+        "requestTotalTime": 24.72344446182251,
+        "memory": 34.33203125
+      },
+      {
+        "expansions": 6,
+        "wallClock": 49.65703010559082,
+        "requestTime": 6.939871549606323,
+        "batchID": 7,
+        "remote_expansions": 6,
+        "goals_found": 6,
+        "triples": 5218,
+        "requestTriples": 4233,
+        "requestIRI": "http://yago-knowledge.org/resource/North_Sea",
+        "local_expansions": 0,
+        "requestTotalTime": 31.663316011428833,
+        "memory": 79.40234375
+      },
+      {
+        "expansions": 7,
+        "wallClock": 58.21611404418945,
+        "requestTime": 8.296452522277832,
+        "batchID": 8,
+        "remote_expansions": 7,
+        "goals_found": 9,
+        "triples": 9448,
+        "requestTriples": 8815,
+        "requestIRI": "http://yago-knowledge.org/resource/Atlantic_Ocean",
+        "local_expansions": 0,
+        "requestTotalTime": 39.959768533706665,
+        "memory": 75.40234375
+      },
+      {
+        "expansions": 8,
+        "wallClock": 68.16215348243713,
+        "requestTime": 9.473450422286987,
+        "batchID": 9,
+        "remote_expansions": 8,
+        "goals_found": 11,
+        "triples": 18260,
+        "requestTriples": 14432,
+        "requestIRI": "http://yago-knowledge.org/resource/Africa",
+        "local_expansions": 0,
+        "requestTotalTime": 49.43321895599365,
+        "memory": 86.453125
+      },
+      {
+        "expansions": 9,
+        "wallClock": 110.27001142501831,
+        "requestTime": 9.349945068359375,
+        "batchID": 12,
+        "remote_expansions": 9,
+        "goals_found": 12,
+        "triples": 32689,
+        "requestTriples": 11331,
+        "requestIRI": "http://yago-knowledge.org/resource/Great_Britain",
+        "local_expansions": 0,
+        "requestTotalTime": 58.78316402435303,
+        "memory": 104.41015625
+      },
+      {
+        "expansions": 10,
+        "wallClock": 117.10621547698975,
+        "requestTime": 6.4447643756866455,
+        "batchID": 13,
+        "remote_expansions": 10,
+        "goals_found": 17,
+        "triples": 44014,
+        "requestTriples": 1915,
+        "requestIRI": "http://yago-knowledge.org/resource/British_Isles",
+        "local_expansions": 0,
+        "requestTotalTime": 65.22792840003967,
+        "memory": 82.1640625
+      },
+      {
+        "expansions": 11,
+        "wallClock": 122.99983024597168,
+        "requestTime": 5.785093069076538,
+        "batchID": 14,
+        "remote_expansions": 11,
+        "goals_found": 22,
+        "triples": 45923,
+        "requestTriples": 1222,
+        "requestIRI": "http://yago-knowledge.org/resource/Guernsey",
+        "local_expansions": 0,
+        "requestTotalTime": 71.01302146911621,
+        "memory": 82.1640625
+      },
+      {
+        "expansions": 12,
+        "wallClock": 129.59172368049622,
+        "requestTime": 6.508514165878296,
+        "batchID": 15,
+        "remote_expansions": 12,
+        "goals_found": 24,
+        "triples": 47143,
+        "requestTriples": 1169,
+        "requestIRI": "http://yago-knowledge.org/resource/Channel_Islands",
+        "local_expansions": 0,
+        "requestTotalTime": 77.5215356349945,
+        "memory": 82.1640625
+      },
+      {
+        "expansions": 13,
+        "wallClock": 133.80611181259155,
+        "requestTime": 4.115479230880737,
+        "batchID": 16,
+        "remote_expansions": 13,
+        "goals_found": 24,
+        "triples": 48305,
+        "requestTriples": 165,
+        "requestIRI": "http://yago-knowledge.org/resource/Crown_dependencies",
+        "local_expansions": 0,
+        "requestTotalTime": 81.63701486587524,
+        "memory": 82.1640625
+      },
+      {
+        "expansions": 14,
+        "wallClock": 140.62760043144226,
+        "requestTime": 6.7238404750823975,
+        "batchID": 17,
+        "remote_expansions": 14,
+        "goals_found": 24,
+        "triples": 48466,
+        "requestTriples": 2576,
+        "requestIRI": "http://yago-knowledge.org/resource/Isle_of_Man",
+        "local_expansions": 0,
+        "requestTotalTime": 88.36085534095764,
+        "memory": 82.1640625
+      },
+      {
+        "expansions": 15,
+        "wallClock": 147.03749108314514,
+        "requestTime": 6.249782085418701,
+        "batchID": 18,
+        "remote_expansions": 15,
+        "goals_found": 24,
+        "triples": 51030,
+        "requestTriples": 1912,
+        "requestIRI": "http://yago-knowledge.org/resource/Jersey",
+        "local_expansions": 0,
+        "requestTotalTime": 94.61063742637634,
+        "memory": 88.01953125
+      },
+      {
+        "expansions": 16,
+        "wallClock": 156.89630389213562,
+        "requestTime": 9.595953464508057,
+        "batchID": 19,
+        "remote_expansions": 16,
+        "goals_found": 24,
+        "triples": 52927,
+        "requestTriples": 14880,
+        "requestIRI": "http://yago-knowledge.org/resource/Republic_of_Ireland",
+        "local_expansions": 0,
+        "requestTotalTime": 104.2065908908844,
+        "memory": 92.3125
+      },
+      {
+        "expansions": 17,
+        "wallClock": 241.9435555934906,
+        "requestTime": 7.419254779815674,
+        "batchID": 25,
+        "remote_expansions": 17,
+        "goals_found": 24,
+        "triples": 67800,
+        "requestTriples": 4006,
+        "requestIRI": "http://yago-knowledge.org/resource/Scandinavia",
+        "local_expansions": 0,
+        "requestTotalTime": 111.62584567070007,
+        "memory": 119.80078125
+      },
+      {
+        "expansions": 18,
+        "wallClock": 246.00336718559265,
+        "requestTime": 3.877657413482666,
+        "batchID": 26,
+        "remote_expansions": 18,
+        "goals_found": 24,
+        "triples": 71803,
+        "requestTriples": 43,
+        "requestIRI": "http://yago-knowledge.org/resource/Ballum",
+        "local_expansions": 0,
+        "requestTotalTime": 115.50350308418274,
+        "memory": 103.30078125
+      },
+      {
+        "expansions": 19,
+        "wallClock": 252.3808948993683,
+        "requestTime": 6.302635669708252,
+        "batchID": 27,
+        "remote_expansions": 19,
+        "goals_found": 24,
+        "triples": 71838,
+        "requestTriples": 1442,
+        "requestIRI": "http://yago-knowledge.org/resource/Amsterdam_Airport_Schiphol",
+        "local_expansions": 0,
+        "requestTotalTime": 121.80613875389099,
+        "memory": 102.80078125
+      },
+      {
+        "expansions": 20,
+        "wallClock": 257.95847725868225,
+        "requestTime": 5.458215951919556,
+        "batchID": 28,
+        "remote_expansions": 20,
+        "goals_found": 25,
+        "triples": 73279,
+        "requestTriples": 415,
+        "requestIRI": "http://yago-knowledge.org/resource/Haarlemmermeer",
+        "local_expansions": 0,
+        "requestTotalTime": 127.26435470581055,
+        "memory": 102.80078125
+      },
+      {
+        "expansions": 21,
+        "wallClock": 263.00367403030396,
+        "requestTime": 4.967493057250977,
+        "batchID": 29,
+        "remote_expansions": 21,
+        "goals_found": 27,
+        "triples": 73690,
+        "requestTriples": 245,
+        "requestIRI": "http://yago-knowledge.org/resource/Hoofddorp",
+        "local_expansions": 0,
+        "requestTotalTime": 132.23184776306152,
+        "memory": 102.80078125
+      },
+      {
+        "expansions": 22,
+        "wallClock": 269.64582347869873,
+        "requestTime": 6.569507598876953,
+        "batchID": 30,
+        "remote_expansions": 22,
+        "goals_found": 27,
+        "triples": 73930,
+        "requestTriples": 2457,
+        "requestIRI": "http://yago-knowledge.org/resource/North_Holland",
+        "local_expansions": 0,
+        "requestTotalTime": 138.80135536193848,
+        "memory": 102.80078125
+      },
+      {
+        "expansions": 23,
+        "wallClock": 283.5344760417938,
+        "requestTime": 13.455418348312378,
+        "batchID": 31,
+        "remote_expansions": 23,
+        "goals_found": 29,
+        "triples": 76379,
+        "requestTriples": 20664,
+        "requestIRI": "http://yago-knowledge.org/resource/Amsterdam",
+        "local_expansions": 0,
+        "requestTotalTime": 152.25677371025085,
+        "memory": 108.34765625
+      },
+      {
+        "expansions": 24,
+        "wallClock": 292.18612599372864,
+        "requestTime": 7.965427875518799,
+        "batchID": 32,
+        "remote_expansions": 24,
+        "goals_found": 29,
+        "triples": 97032,
+        "requestTriples": 2891,
+        "requestIRI": "http://yago-knowledge.org/resource/Haarlem",
+        "local_expansions": 0,
+        "requestTotalTime": 160.22220158576965,
+        "memory": 120.7265625
+      },
+      {
+        "expansions": 25,
+        "wallClock": 296.80281829833984,
+        "requestTime": 4.448359966278076,
+        "batchID": 33,
+        "remote_expansions": 25,
+        "goals_found": 29,
+        "triples": 99911,
+        "requestTriples": 25,
+        "requestIRI": "http://yago-knowledge.org/resource/Amsterdam_Heliport",
+        "local_expansions": 0,
+        "requestTotalTime": 164.67056155204773,
+        "memory": 120.2265625
+      },
+      {
+        "expansions": 26,
+        "wallClock": 299.17133259773254,
+        "requestTime": 2.289360761642456,
+        "batchID": 34,
+        "remote_expansions": 26,
+        "goals_found": 29,
+        "triples": 99933,
+        "requestTriples": 150,
+        "requestIRI": "http://yago-knowledge.org/resource/Cura\u00e7ao_International_Airport",
+        "local_expansions": 0,
+        "requestTotalTime": 166.95992231369019,
+        "memory": 120.2265625
+      }
+    ],
+    "Time": 299.17764163017273,
+    "Paths": [
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ballum"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/North_Sea"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Netherlands"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Friesland"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Friesland"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Leeuwarden"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/North_Sea"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Great_Britain"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/North_Sea"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Atlantic_Ocean"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/North_Sea"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Scandinavia"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/North_Sea"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Atlantic_Ocean"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Africa"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/North_Sea"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Atlantic_Ocean"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Americas"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/North_Sea"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Atlantic_Ocean"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Africa"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Earth"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/North_Sea"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Great_Britain"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/England"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/North_Sea"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Great_Britain"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/British_Isles"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/North_Sea"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Great_Britain"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Scotland"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/North_Sea"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Great_Britain"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Wales"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/North_Sea"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Great_Britain"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Europe"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/North_Sea"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Great_Britain"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/British_Isles"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/United_Kingdom"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/North_Sea"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Great_Britain"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/British_Isles"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Jersey"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/North_Sea"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Great_Britain"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/British_Isles"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Guernsey"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/North_Sea"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Great_Britain"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/British_Isles"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Republic_of_Ireland"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/North_Sea"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Great_Britain"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/British_Isles"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Isle_of_Man"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/North_Sea"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Great_Britain"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/British_Isles"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Guernsey"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Crown_dependencies"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ameland"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/North_Sea"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Great_Britain"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/British_Isles"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Guernsey"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Channel_Islands"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Amsterdam_Airport_Schiphol"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Haarlemmermeer"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Amsterdam_Airport_Schiphol"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Haarlemmermeer"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Hoofddorp"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Amsterdam_Airport_Schiphol"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Haarlemmermeer"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/North_Holland"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Amsterdam_Airport_Schiphol"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Haarlemmermeer"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/North_Holland"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Amsterdam"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Amsterdam_Airport_Schiphol"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Haarlemmermeer"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/North_Holland"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Haarlem"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Cura\u00e7ao_International_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Willemstad"
+        }
+      ],
+      [
+        {
+          "state": "Airports",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/wikicat_Airports_in_the_Netherlands"
+        },
+        {
+          "state": "airport",
+          "transition": {
+            "d": "<",
+            "P": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          },
+          "node": "http://yago-knowledge.org/resource/Cura\u00e7ao_International_Airport"
+        },
+        {
+          "state": "Place",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/isLocatedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Cura\u00e7ao"
+        }
+      ]
+    ],
+    "PathCount": 31
+  }
+}

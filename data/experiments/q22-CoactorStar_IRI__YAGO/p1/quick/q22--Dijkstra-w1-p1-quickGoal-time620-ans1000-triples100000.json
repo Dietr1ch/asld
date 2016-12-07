@@ -1,0 +1,6116 @@
+{
+  "query": "CoactorStar_IRI__YAGO",
+  "data": {
+    "Time": 624.4507505893707,
+    "StatsHistory": [
+      {
+        "triples": 0,
+        "requestIRI": "",
+        "requestTotalTime": 0,
+        "requestTime": 0,
+        "remote_expansions": 0,
+        "expansions": 0,
+        "local_expansions": 0,
+        "batchID": 0,
+        "memory": 25.01171875,
+        "goals_found": 0,
+        "wallClock": 0.0043561458587646484,
+        "requestTriples": 0
+      },
+      {
+        "triples": 0,
+        "requestIRI": "http://yago-knowledge.org/resource/Kevin_Bacon",
+        "requestTotalTime": 5.748229503631592,
+        "requestTime": 5.748229503631592,
+        "remote_expansions": 1,
+        "expansions": 1,
+        "local_expansions": 0,
+        "batchID": 1,
+        "memory": 26.51171875,
+        "goals_found": 0,
+        "wallClock": 5.77650260925293,
+        "requestTriples": 717
+      },
+      {
+        "triples": 717,
+        "requestIRI": "http://yago-knowledge.org/resource/A_Few_Good_Men",
+        "requestTotalTime": 10.384480476379395,
+        "requestTime": 4.636250972747803,
+        "remote_expansions": 2,
+        "expansions": 2,
+        "local_expansions": 0,
+        "batchID": 2,
+        "memory": 26.97265625,
+        "goals_found": 0,
+        "wallClock": 10.456043481826782,
+        "requestTriples": 190
+      },
+      {
+        "triples": 904,
+        "requestIRI": "http://yago-knowledge.org/resource/Apollo_13_(film)",
+        "requestTotalTime": 14.823408126831055,
+        "requestTime": 4.43892765045166,
+        "remote_expansions": 3,
+        "expansions": 3,
+        "local_expansions": 0,
+        "batchID": 3,
+        "memory": 26.97265625,
+        "goals_found": 7,
+        "wallClock": 14.941499710083008,
+        "requestTriples": 421
+      },
+      {
+        "triples": 1322,
+        "requestIRI": "http://yago-knowledge.org/resource/Apollo_13_(movie)",
+        "requestTotalTime": 19.191547393798828,
+        "requestTime": 4.368139266967773,
+        "remote_expansions": 4,
+        "expansions": 4,
+        "local_expansions": 0,
+        "batchID": 4,
+        "memory": 26.97265625,
+        "goals_found": 11,
+        "wallClock": 19.360193729400635,
+        "requestTriples": 54
+      },
+      {
+        "triples": 1374,
+        "requestIRI": "http://yago-knowledge.org/resource/Balto_(film)",
+        "requestTotalTime": 23.62400722503662,
+        "requestTime": 4.432459831237793,
+        "remote_expansions": 5,
+        "expansions": 5,
+        "local_expansions": 0,
+        "batchID": 5,
+        "memory": 27.171875,
+        "goals_found": 11,
+        "wallClock": 23.8208966255188,
+        "requestTriples": 154
+      },
+      {
+        "triples": 1526,
+        "requestIRI": "http://yago-knowledge.org/resource/Crazy,_Stupid,_Love.",
+        "requestTotalTime": 27.74070692062378,
+        "requestTime": 4.116699695587158,
+        "remote_expansions": 6,
+        "expansions": 6,
+        "local_expansions": 0,
+        "batchID": 6,
+        "memory": 27.171875,
+        "goals_found": 19,
+        "wallClock": 27.970657348632812,
+        "requestTriples": 57
+      },
+      {
+        "triples": 1583,
+        "requestIRI": "http://yago-knowledge.org/resource/Criminal_Law_(film)",
+        "requestTotalTime": 31.607710123062134,
+        "requestTime": 3.8670032024383545,
+        "remote_expansions": 7,
+        "expansions": 7,
+        "local_expansions": 0,
+        "batchID": 7,
+        "memory": 27.171875,
+        "goals_found": 24,
+        "wallClock": 31.85424828529358,
+        "requestTriples": 65
+      },
+      {
+        "triples": 1646,
+        "requestIRI": "http://yago-knowledge.org/resource/Death_Sentence_(2007_film)",
+        "requestTotalTime": 35.99201416969299,
+        "requestTime": 4.384304046630859,
+        "remote_expansions": 8,
+        "expansions": 8,
+        "local_expansions": 0,
+        "batchID": 8,
+        "memory": 27.171875,
+        "goals_found": 28,
+        "wallClock": 36.26284337043762,
+        "requestTriples": 113
+      },
+      {
+        "triples": 1756,
+        "requestIRI": "http://yago-knowledge.org/resource/Digging_to_China",
+        "requestTotalTime": 39.861624240875244,
+        "requestTime": 3.869610071182251,
+        "remote_expansions": 9,
+        "expansions": 9,
+        "local_expansions": 0,
+        "batchID": 9,
+        "memory": 27.171875,
+        "goals_found": 34,
+        "wallClock": 40.16632533073425,
+        "requestTriples": 70
+      },
+      {
+        "triples": 1823,
+        "requestIRI": "http://yago-knowledge.org/resource/Diner_(film)",
+        "requestTotalTime": 43.98822593688965,
+        "requestTime": 4.126601696014404,
+        "remote_expansions": 10,
+        "expansions": 10,
+        "local_expansions": 0,
+        "batchID": 10,
+        "memory": 27.171875,
+        "goals_found": 35,
+        "wallClock": 44.325615882873535,
+        "requestTriples": 140
+      },
+      {
+        "triples": 1960,
+        "requestIRI": "http://yago-knowledge.org/resource/Elephant_White",
+        "requestTotalTime": 47.60010266304016,
+        "requestTime": 3.6118767261505127,
+        "remote_expansions": 11,
+        "expansions": 11,
+        "local_expansions": 0,
+        "batchID": 11,
+        "memory": 27.5703125,
+        "goals_found": 42,
+        "wallClock": 47.97446870803833,
+        "requestTriples": 31
+      },
+      {
+        "triples": 1991,
+        "requestIRI": "http://yago-knowledge.org/resource/Flatliners",
+        "requestTotalTime": 51.9741952419281,
+        "requestTime": 4.3740925788879395,
+        "remote_expansions": 12,
+        "expansions": 12,
+        "local_expansions": 0,
+        "batchID": 12,
+        "memory": 27.5703125,
+        "goals_found": 42,
+        "wallClock": 52.36446189880371,
+        "requestTriples": 120
+      },
+      {
+        "triples": 2108,
+        "requestIRI": "http://yago-knowledge.org/resource/Footloose_(1984_film)",
+        "requestTotalTime": 56.620723247528076,
+        "requestTime": 4.646528005599976,
+        "remote_expansions": 13,
+        "expansions": 13,
+        "local_expansions": 0,
+        "batchID": 13,
+        "memory": 27.828125,
+        "goals_found": 45,
+        "wallClock": 57.04241609573364,
+        "requestTriples": 272
+      },
+      {
+        "triples": 2376,
+        "requestIRI": "http://yago-knowledge.org/resource/Friday_the_13th_(1980_film)",
+        "requestTotalTime": 61.24853587150574,
+        "requestTime": 4.627812623977661,
+        "remote_expansions": 14,
+        "expansions": 14,
+        "local_expansions": 0,
+        "batchID": 14,
+        "memory": 28.0859375,
+        "goals_found": 48,
+        "wallClock": 61.71542763710022,
+        "requestTriples": 205
+      },
+      {
+        "triples": 2578,
+        "requestIRI": "http://yago-knowledge.org/resource/Frost/Nixon_(film)",
+        "requestTotalTime": 65.88391089439392,
+        "requestTime": 4.635375022888184,
+        "remote_expansions": 15,
+        "expansions": 15,
+        "local_expansions": 0,
+        "batchID": 15,
+        "memory": 28.0859375,
+        "goals_found": 53,
+        "wallClock": 66.37345957756042,
+        "requestTriples": 296
+      },
+      {
+        "triples": 2871,
+        "requestIRI": "http://yago-knowledge.org/resource/He_Said,_She_Said",
+        "requestTotalTime": 69.50948858261108,
+        "requestTime": 3.625577688217163,
+        "remote_expansions": 16,
+        "expansions": 16,
+        "local_expansions": 0,
+        "batchID": 16,
+        "memory": 28.0859375,
+        "goals_found": 60,
+        "wallClock": 70.03637051582336,
+        "requestTriples": 64
+      },
+      {
+        "triples": 2932,
+        "requestIRI": "http://yago-knowledge.org/resource/Hollow_Man",
+        "requestTotalTime": 73.86647057533264,
+        "requestTime": 4.356981992721558,
+        "remote_expansions": 17,
+        "expansions": 17,
+        "local_expansions": 0,
+        "batchID": 17,
+        "memory": 28.0859375,
+        "goals_found": 64,
+        "wallClock": 74.42484426498413,
+        "requestTriples": 203
+      },
+      {
+        "triples": 3132,
+        "requestIRI": "http://yago-knowledge.org/resource/JFK_(film)",
+        "requestTotalTime": 78.99012231826782,
+        "requestTime": 5.123651742935181,
+        "remote_expansions": 18,
+        "expansions": 18,
+        "local_expansions": 0,
+        "batchID": 18,
+        "memory": 28.34375,
+        "goals_found": 70,
+        "wallClock": 79.57591247558594,
+        "requestTriples": 478
+      },
+      {
+        "triples": 3607,
+        "requestIRI": "http://yago-knowledge.org/resource/Mister_Roberts_(1984_film)",
+        "requestTotalTime": 82.3410964012146,
+        "requestTime": 3.3509740829467773,
+        "remote_expansions": 19,
+        "expansions": 19,
+        "local_expansions": 0,
+        "batchID": 19,
+        "memory": 28.34375,
+        "goals_found": 82,
+        "wallClock": 82.95406651496887,
+        "requestTriples": 56
+      },
+      {
+        "triples": 3661,
+        "requestIRI": "http://yago-knowledge.org/resource/Murder_in_the_First",
+        "requestTotalTime": 86.43764114379883,
+        "requestTime": 4.0965447425842285,
+        "remote_expansions": 20,
+        "expansions": 20,
+        "local_expansions": 0,
+        "batchID": 20,
+        "memory": 28.34375,
+        "goals_found": 90,
+        "wallClock": 87.07710814476013,
+        "requestTriples": 37
+      },
+      {
+        "triples": 3698,
+        "requestIRI": "http://yago-knowledge.org/resource/Murder_in_the_First_(film)",
+        "requestTotalTime": 90.50285410881042,
+        "requestTime": 4.065212965011597,
+        "remote_expansions": 21,
+        "expansions": 21,
+        "local_expansions": 0,
+        "batchID": 21,
+        "memory": 28.34375,
+        "goals_found": 90,
+        "wallClock": 91.1716046333313,
+        "requestTriples": 104
+      },
+      {
+        "triples": 3799,
+        "requestIRI": "http://yago-knowledge.org/resource/My_Dog_Skip_(film)",
+        "requestTotalTime": 94.38313412666321,
+        "requestTime": 3.880280017852783,
+        "remote_expansions": 22,
+        "expansions": 22,
+        "local_expansions": 0,
+        "batchID": 22,
+        "memory": 28.34375,
+        "goals_found": 95,
+        "wallClock": 95.07332634925842,
+        "requestTriples": 99
+      },
+      {
+        "triples": 3896,
+        "requestIRI": "http://yago-knowledge.org/resource/Mystic_River_(film)",
+        "requestTotalTime": 99.543865442276,
+        "requestTime": 5.160731315612793,
+        "remote_expansions": 23,
+        "expansions": 23,
+        "local_expansions": 0,
+        "batchID": 23,
+        "memory": 28.34375,
+        "goals_found": 100,
+        "wallClock": 100.26740050315857,
+        "requestTriples": 338
+      },
+      {
+        "triples": 4231,
+        "requestIRI": "http://yago-knowledge.org/resource/Picture_Perfect_(1997_film)",
+        "requestTotalTime": 103.40582156181335,
+        "requestTime": 3.8619561195373535,
+        "remote_expansions": 24,
+        "expansions": 24,
+        "local_expansions": 0,
+        "batchID": 24,
+        "memory": 28.859375,
+        "goals_found": 106,
+        "wallClock": 104.18557524681091,
+        "requestTriples": 92
+      },
+      {
+        "triples": 4320,
+        "requestIRI": "http://yago-knowledge.org/resource/Pyrates",
+        "requestTotalTime": 107.03135824203491,
+        "requestTime": 3.6255366802215576,
+        "remote_expansions": 25,
+        "expansions": 25,
+        "local_expansions": 0,
+        "batchID": 25,
+        "memory": 28.859375,
+        "goals_found": 112,
+        "wallClock": 107.84423065185547,
+        "requestTriples": 54
+      },
+      {
+        "triples": 4371,
+        "requestIRI": "http://yago-knowledge.org/resource/Queens_Logic",
+        "requestTotalTime": 110.68404841423035,
+        "requestTime": 3.6526901721954346,
+        "remote_expansions": 26,
+        "expansions": 26,
+        "local_expansions": 0,
+        "batchID": 26,
+        "memory": 28.859375,
+        "goals_found": 115,
+        "wallClock": 111.51382684707642,
+        "requestTriples": 77
+      },
+      {
+        "triples": 4446,
+        "requestIRI": "http://yago-knowledge.org/resource/Quicksilver_(film)",
+        "requestTotalTime": 114.55392479896545,
+        "requestTime": 3.8698763847351074,
+        "remote_expansions": 27,
+        "expansions": 27,
+        "local_expansions": 0,
+        "batchID": 27,
+        "memory": 28.859375,
+        "goals_found": 123,
+        "wallClock": 115.41092848777771,
+        "requestTriples": 98
+      },
+      {
+        "triples": 4542,
+        "requestIRI": "http://yago-knowledge.org/resource/R.I.P.D.",
+        "requestTotalTime": 119.16494059562683,
+        "requestTime": 4.611015796661377,
+        "remote_expansions": 28,
+        "expansions": 28,
+        "local_expansions": 0,
+        "batchID": 28,
+        "memory": 29.10546875,
+        "goals_found": 124,
+        "wallClock": 120.04273557662964,
+        "requestTriples": 61
+      },
+      {
+        "triples": 4603,
+        "requestIRI": "http://yago-knowledge.org/resource/Rails_&_Ties",
+        "requestTotalTime": 122.53783226013184,
+        "requestTime": 3.372891664505005,
+        "remote_expansions": 29,
+        "expansions": 29,
+        "local_expansions": 0,
+        "batchID": 29,
+        "memory": 29.10546875,
+        "goals_found": 124,
+        "wallClock": 123.43673777580261,
+        "requestTriples": 67
+      },
+      {
+        "triples": 4668,
+        "requestIRI": "http://yago-knowledge.org/resource/She's_Having_a_Baby",
+        "requestTotalTime": 126.89319372177124,
+        "requestTime": 4.355361461639404,
+        "remote_expansions": 30,
+        "expansions": 30,
+        "local_expansions": 0,
+        "batchID": 30,
+        "memory": 29.10546875,
+        "goals_found": 127,
+        "wallClock": 127.82301664352417,
+        "requestTriples": 132
+      },
+      {
+        "triples": 4797,
+        "requestIRI": "http://yago-knowledge.org/resource/Sleepers_(film)",
+        "requestTotalTime": 131.84793305397034,
+        "requestTime": 4.954739332199097,
+        "remote_expansions": 31,
+        "expansions": 31,
+        "local_expansions": 0,
+        "batchID": 31,
+        "memory": 29.10546875,
+        "goals_found": 129,
+        "wallClock": 132.8137810230255,
+        "requestTriples": 162
+      },
+      {
+        "triples": 4956,
+        "requestIRI": "http://yago-knowledge.org/resource/Stir_of_Echoes",
+        "requestTotalTime": 136.21785473823547,
+        "requestTime": 4.369921684265137,
+        "remote_expansions": 32,
+        "expansions": 32,
+        "local_expansions": 0,
+        "batchID": 32,
+        "memory": 29.3515625,
+        "goals_found": 135,
+        "wallClock": 137.21894526481628,
+        "requestTriples": 113
+      },
+      {
+        "triples": 5066,
+        "requestIRI": "http://yago-knowledge.org/resource/Taking_Chance",
+        "requestTotalTime": 140.33896660804749,
+        "requestTime": 4.121111869812012,
+        "remote_expansions": 33,
+        "expansions": 33,
+        "local_expansions": 0,
+        "batchID": 33,
+        "memory": 29.3515625,
+        "goals_found": 137,
+        "wallClock": 141.36780405044556,
+        "requestTriples": 127
+      },
+      {
+        "triples": 5190,
+        "requestIRI": "http://yago-knowledge.org/resource/Telling_Lies_in_America",
+        "requestTotalTime": 143.95109677314758,
+        "requestTime": 3.6121301651000977,
+        "remote_expansions": 34,
+        "expansions": 34,
+        "local_expansions": 0,
+        "batchID": 34,
+        "memory": 29.3515625,
+        "goals_found": 137,
+        "wallClock": 145.01166224479675,
+        "requestTriples": 66
+      },
+      {
+        "triples": 5254,
+        "requestIRI": "http://yago-knowledge.org/resource/The_Air_I_Breathe",
+        "requestTotalTime": 148.44529056549072,
+        "requestTime": 4.49419379234314,
+        "remote_expansions": 35,
+        "expansions": 35,
+        "local_expansions": 0,
+        "batchID": 35,
+        "memory": 29.3515625,
+        "goals_found": 139,
+        "wallClock": 149.53560709953308,
+        "requestTriples": 103
+      },
+      {
+        "triples": 5355,
+        "requestIRI": "http://yago-knowledge.org/resource/The_Air_Up_There",
+        "requestTotalTime": 152.06253027915955,
+        "requestTime": 3.6172397136688232,
+        "remote_expansions": 36,
+        "expansions": 36,
+        "local_expansions": 0,
+        "batchID": 36,
+        "memory": 29.3515625,
+        "goals_found": 145,
+        "wallClock": 153.18376898765564,
+        "requestTriples": 77
+      },
+      {
+        "triples": 5430,
+        "requestIRI": "http://yago-knowledge.org/resource/The_Big_Picture_(1989_film)",
+        "requestTotalTime": 155.938791513443,
+        "requestTime": 3.8762612342834473,
+        "remote_expansions": 37,
+        "expansions": 37,
+        "local_expansions": 0,
+        "batchID": 37,
+        "memory": 29.3515625,
+        "goals_found": 145,
+        "wallClock": 157.0902817249298,
+        "requestTriples": 95
+      },
+      {
+        "triples": 5522,
+        "requestIRI": "http://yago-knowledge.org/resource/The_Big_Picture_(film)",
+        "requestTotalTime": 159.4091649055481,
+        "requestTime": 3.4703733921051025,
+        "remote_expansions": 38,
+        "expansions": 38,
+        "local_expansions": 0,
+        "batchID": 38,
+        "memory": 30.35546875,
+        "goals_found": 148,
+        "wallClock": 160.59601879119873,
+        "requestTriples": 7
+      },
+      {
+        "triples": 5529,
+        "requestIRI": "http://yago-knowledge.org/resource/The_River_Wild",
+        "requestTotalTime": 163.87808179855347,
+        "requestTime": 4.468916893005371,
+        "remote_expansions": 39,
+        "expansions": 39,
+        "local_expansions": 0,
+        "batchID": 39,
+        "memory": 30.35546875,
+        "goals_found": 148,
+        "wallClock": 165.0938220024109,
+        "requestTriples": 124
+      },
+      {
+        "triples": 5650,
+        "requestIRI": "http://yago-knowledge.org/resource/The_Woodsman",
+        "requestTotalTime": 167.76443338394165,
+        "requestTime": 3.8863515853881836,
+        "remote_expansions": 40,
+        "expansions": 40,
+        "local_expansions": 0,
+        "batchID": 40,
+        "memory": 30.35546875,
+        "goals_found": 153,
+        "wallClock": 169.01966404914856,
+        "requestTriples": 94
+      },
+      {
+        "triples": 5741,
+        "requestIRI": "http://yago-knowledge.org/resource/Trapped_(2002_film)",
+        "requestTotalTime": 172.24430584907532,
+        "requestTime": 4.479872465133667,
+        "remote_expansions": 41,
+        "expansions": 41,
+        "local_expansions": 0,
+        "batchID": 41,
+        "memory": 30.35546875,
+        "goals_found": 156,
+        "wallClock": 173.5363688468933,
+        "requestTriples": 84
+      },
+      {
+        "triples": 5822,
+        "requestIRI": "http://yago-knowledge.org/resource/Tremors_(film)",
+        "requestTotalTime": 176.62559628486633,
+        "requestTime": 4.381290435791016,
+        "remote_expansions": 42,
+        "expansions": 42,
+        "local_expansions": 0,
+        "batchID": 42,
+        "memory": 30.609375,
+        "goals_found": 161,
+        "wallClock": 177.95541906356812,
+        "requestTriples": 140
+      },
+      {
+        "triples": 5959,
+        "requestIRI": "http://yago-knowledge.org/resource/We_Married_Margo",
+        "requestTotalTime": 180.6676948070526,
+        "requestTime": 4.042098522186279,
+        "remote_expansions": 43,
+        "expansions": 43,
+        "local_expansions": 0,
+        "batchID": 43,
+        "memory": 30.609375,
+        "goals_found": 165,
+        "wallClock": 182.03452706336975,
+        "requestTriples": 57
+      },
+      {
+        "triples": 6014,
+        "requestIRI": "http://yago-knowledge.org/resource/Where_the_Truth_Lies",
+        "requestTotalTime": 185.30624389648438,
+        "requestTime": 4.638549089431763,
+        "remote_expansions": 44,
+        "expansions": 44,
+        "local_expansions": 0,
+        "batchID": 44,
+        "memory": 30.609375,
+        "goals_found": 168,
+        "wallClock": 186.70543694496155,
+        "requestTriples": 160
+      },
+      {
+        "triples": 6171,
+        "requestIRI": "http://yago-knowledge.org/resource/White_Water_Summer",
+        "requestTotalTime": 189.06788420677185,
+        "requestTime": 3.7616403102874756,
+        "remote_expansions": 45,
+        "expansions": 45,
+        "local_expansions": 0,
+        "batchID": 45,
+        "memory": 30.609375,
+        "goals_found": 172,
+        "wallClock": 190.50557947158813,
+        "requestTriples": 59
+      },
+      {
+        "triples": 6228,
+        "requestIRI": "http://yago-knowledge.org/resource/Wild_Things",
+        "requestTotalTime": 194.21960520744324,
+        "requestTime": 5.151721000671387,
+        "remote_expansions": 46,
+        "expansions": 46,
+        "local_expansions": 0,
+        "batchID": 46,
+        "memory": 30.609375,
+        "goals_found": 175,
+        "wallClock": 195.68709015846252,
+        "requestTriples": 134
+      },
+      {
+        "triples": 6360,
+        "requestIRI": "http://yago-knowledge.org/resource/X-Men_(film_series)",
+        "requestTotalTime": 199.40763068199158,
+        "requestTime": 5.18802547454834,
+        "remote_expansions": 47,
+        "expansions": 47,
+        "local_expansions": 0,
+        "batchID": 47,
+        "memory": 30.8671875,
+        "goals_found": 180,
+        "wallClock": 200.90724897384644,
+        "requestTriples": 295
+      },
+      {
+        "triples": 6655,
+        "requestIRI": "http://yago-knowledge.org/resource/Adrienne_King",
+        "requestTotalTime": 203.29703831672668,
+        "requestTime": 3.8894076347351074,
+        "remote_expansions": 48,
+        "expansions": 48,
+        "local_expansions": 0,
+        "batchID": 48,
+        "memory": 30.8671875,
+        "goals_found": 184,
+        "wallClock": 204.83626294136047,
+        "requestTriples": 55
+      },
+      {
+        "triples": 6707,
+        "requestIRI": "http://yago-knowledge.org/resource/Aisha_Tyler",
+        "requestTotalTime": 208.45193529129028,
+        "requestTime": 5.154896974563599,
+        "remote_expansions": 49,
+        "expansions": 49,
+        "local_expansions": 0,
+        "batchID": 49,
+        "memory": 30.8671875,
+        "goals_found": 184,
+        "wallClock": 210.0260353088379,
+        "requestTriples": 247
+      },
+      {
+        "triples": 6951,
+        "requestIRI": "http://yago-knowledge.org/resource/Alec_Baldwin",
+        "requestTotalTime": 214.69775104522705,
+        "requestTime": 6.245815753936768,
+        "remote_expansions": 50,
+        "expansions": 50,
+        "local_expansions": 0,
+        "batchID": 50,
+        "memory": 31.89453125,
+        "goals_found": 184,
+        "wallClock": 216.331360578537,
+        "requestTriples": 1111
+      },
+      {
+        "triples": 8059,
+        "requestIRI": "http://yago-knowledge.org/resource/Alison_Lohman",
+        "requestTotalTime": 219.34023213386536,
+        "requestTime": 4.642481088638306,
+        "remote_expansions": 51,
+        "expansions": 51,
+        "local_expansions": 0,
+        "batchID": 51,
+        "memory": 32.609375,
+        "goals_found": 184,
+        "wallClock": 221.04053378105164,
+        "requestTriples": 176
+      },
+      {
+        "triples": 8232,
+        "requestIRI": "http://yago-knowledge.org/resource/Analeigh_Tipton",
+        "requestTotalTime": 224.69352388381958,
+        "requestTime": 5.353291749954224,
+        "remote_expansions": 52,
+        "expansions": 52,
+        "local_expansions": 0,
+        "batchID": 52,
+        "memory": 32.609375,
+        "goals_found": 184,
+        "wallClock": 226.4292335510254,
+        "requestTriples": 114
+      },
+      {
+        "triples": 8344,
+        "requestIRI": "http://yago-knowledge.org/resource/Andy_Garc\u00eda",
+        "requestTotalTime": 228.0307970046997,
+        "requestTime": 3.337273120880127,
+        "remote_expansions": 53,
+        "expansions": 53,
+        "local_expansions": 0,
+        "batchID": 53,
+        "memory": 32.609375,
+        "goals_found": 184,
+        "wallClock": 229.7963616847992,
+        "requestTriples": 423
+      },
+      {
+        "triples": 8765,
+        "requestIRI": "http://yago-knowledge.org/resource/Anne_Twomey",
+        "requestTotalTime": 231.9226212501526,
+        "requestTime": 3.891824245452881,
+        "remote_expansions": 54,
+        "expansions": 54,
+        "local_expansions": 0,
+        "batchID": 54,
+        "memory": 32.609375,
+        "goals_found": 184,
+        "wallClock": 233.73695397377014,
+        "requestTriples": 94
+      },
+      {
+        "triples": 8856,
+        "requestIRI": "http://yago-knowledge.org/resource/Ari_Lehman",
+        "requestTotalTime": 235.55642318725586,
+        "requestTime": 3.6338019371032715,
+        "remote_expansions": 55,
+        "expansions": 55,
+        "local_expansions": 0,
+        "batchID": 55,
+        "memory": 32.609375,
+        "goals_found": 184,
+        "wallClock": 237.40901112556458,
+        "requestTriples": 36
+      },
+      {
+        "triples": 8890,
+        "requestIRI": "http://yago-knowledge.org/resource/Barry_Levinson",
+        "requestTotalTime": 240.757399559021,
+        "requestTime": 5.200976371765137,
+        "remote_expansions": 56,
+        "expansions": 56,
+        "local_expansions": 0,
+        "batchID": 56,
+        "memory": 32.609375,
+        "goals_found": 184,
+        "wallClock": 242.6472818851471,
+        "requestTriples": 493
+      },
+      {
+        "triples": 9374,
+        "requestIRI": "http://yago-knowledge.org/resource/Benjamin_Bratt",
+        "requestTotalTime": 245.47573804855347,
+        "requestTime": 4.718338489532471,
+        "remote_expansions": 57,
+        "expansions": 57,
+        "local_expansions": 0,
+        "batchID": 57,
+        "memory": 32.8671875,
+        "goals_found": 184,
+        "wallClock": 247.41430020332336,
+        "requestTriples": 317
+      },
+      {
+        "triples": 9685,
+        "requestIRI": "http://yago-knowledge.org/resource/Betsy_Palmer",
+        "requestTotalTime": 249.6413242816925,
+        "requestTime": 4.165586233139038,
+        "remote_expansions": 58,
+        "expansions": 58,
+        "local_expansions": 0,
+        "batchID": 58,
+        "memory": 33.12109375,
+        "goals_found": 184,
+        "wallClock": 251.61017107963562,
+        "requestTriples": 167
+      },
+      {
+        "triples": 9849,
+        "requestIRI": "http://yago-knowledge.org/resource/Bill_Murray",
+        "requestTotalTime": 255.94224619865417,
+        "requestTime": 6.30092191696167,
+        "remote_expansions": 59,
+        "expansions": 59,
+        "local_expansions": 0,
+        "batchID": 59,
+        "memory": 33.89453125,
+        "goals_found": 184,
+        "wallClock": 257.94703221321106,
+        "requestTriples": 950
+      },
+      {
+        "triples": 10791,
+        "requestIRI": "http://yago-knowledge.org/resource/Bill_Paxton",
+        "requestTotalTime": 261.1696162223816,
+        "requestTime": 5.227370023727417,
+        "remote_expansions": 60,
+        "expansions": 60,
+        "local_expansions": 0,
+        "batchID": 60,
+        "memory": 34.5078125,
+        "goals_found": 184,
+        "wallClock": 263.25264596939087,
+        "requestTriples": 471
+      },
+      {
+        "triples": 11258,
+        "requestIRI": "http://yago-knowledge.org/resource/Bob_Hoskins",
+        "requestTotalTime": 266.8932316303253,
+        "requestTime": 5.723615407943726,
+        "remote_expansions": 61,
+        "expansions": 61,
+        "local_expansions": 0,
+        "batchID": 61,
+        "memory": 34.5078125,
+        "goals_found": 184,
+        "wallClock": 269.0344250202179,
+        "requestTriples": 699
+      },
+      {
+        "triples": 11954,
+        "requestIRI": "http://yago-knowledge.org/resource/Bonnie_Root",
+        "requestTotalTime": 270.25776195526123,
+        "requestTime": 3.364530324935913,
+        "remote_expansions": 62,
+        "expansions": 62,
+        "local_expansions": 0,
+        "batchID": 62,
+        "memory": 34.5078125,
+        "goals_found": 184,
+        "wallClock": 272.4613518714905,
+        "requestTriples": 44
+      },
+      {
+        "triples": 11995,
+        "requestIRI": "http://yago-knowledge.org/resource/Brad_Dourif",
+        "requestTotalTime": 275.54274225234985,
+        "requestTime": 5.284980297088623,
+        "remote_expansions": 63,
+        "expansions": 63,
+        "local_expansions": 0,
+        "batchID": 63,
+        "memory": 34.5078125,
+        "goals_found": 184,
+        "wallClock": 277.7817885875702,
+        "requestTriples": 478
+      },
+      {
+        "triples": 12470,
+        "requestIRI": "http://yago-knowledge.org/resource/Brad_Pitt",
+        "requestTotalTime": 282.3861286640167,
+        "requestTime": 6.84338641166687,
+        "remote_expansions": 64,
+        "expansions": 64,
+        "local_expansions": 0,
+        "batchID": 64,
+        "memory": 35.5390625,
+        "goals_found": 184,
+        "wallClock": 284.6928539276123,
+        "requestTriples": 1309
+      },
+      {
+        "triples": 13773,
+        "requestIRI": "http://yago-knowledge.org/resource/Brad_Renfro",
+        "requestTotalTime": 287.1069779396057,
+        "requestTime": 4.720849275588989,
+        "remote_expansions": 65,
+        "expansions": 65,
+        "local_expansions": 0,
+        "batchID": 65,
+        "memory": 35.921875,
+        "goals_found": 184,
+        "wallClock": 289.49427008628845,
+        "requestTriples": 221
+      },
+      {
+        "triples": 13986,
+        "requestIRI": "http://yago-knowledge.org/resource/Brendan_Fraser",
+        "requestTotalTime": 292.6110739707947,
+        "requestTime": 5.504096031188965,
+        "remote_expansions": 66,
+        "expansions": 66,
+        "local_expansions": 0,
+        "batchID": 66,
+        "memory": 35.921875,
+        "goals_found": 184,
+        "wallClock": 295.04153513908386,
+        "requestTriples": 500
+      },
+      {
+        "triples": 14483,
+        "requestIRI": "http://yago-knowledge.org/resource/Bridget_Fonda",
+        "requestTotalTime": 297.3722815513611,
+        "requestTime": 4.761207580566406,
+        "remote_expansions": 67,
+        "expansions": 67,
+        "local_expansions": 0,
+        "batchID": 67,
+        "memory": 35.921875,
+        "goals_found": 184,
+        "wallClock": 299.8562681674957,
+        "requestTriples": 350
+      },
+      {
+        "triples": 14829,
+        "requestIRI": "http://yago-knowledge.org/resource/Bruce_Payne",
+        "requestTotalTime": 302.1421365737915,
+        "requestTime": 4.76985502243042,
+        "remote_expansions": 68,
+        "expansions": 68,
+        "local_expansions": 0,
+        "batchID": 68,
+        "memory": 35.921875,
+        "goals_found": 184,
+        "wallClock": 304.6766052246094,
+        "requestTriples": 391
+      },
+      {
+        "triples": 15216,
+        "requestIRI": "http://yago-knowledge.org/resource/Caitlin_Wachs",
+        "requestTotalTime": 306.02471590042114,
+        "requestTime": 3.8825793266296387,
+        "remote_expansions": 69,
+        "expansions": 69,
+        "local_expansions": 0,
+        "batchID": 69,
+        "memory": 35.921875,
+        "goals_found": 184,
+        "wallClock": 308.61294293403625,
+        "requestTriples": 99
+      },
+      {
+        "triples": 15312,
+        "requestIRI": "http://yago-knowledge.org/resource/Calista_Flockhart",
+        "requestTotalTime": 310.71002197265625,
+        "requestTime": 4.685306072235107,
+        "remote_expansions": 70,
+        "expansions": 70,
+        "local_expansions": 0,
+        "batchID": 70,
+        "memory": 35.921875,
+        "goals_found": 184,
+        "wallClock": 313.33760380744934,
+        "requestTriples": 242
+      },
+      {
+        "triples": 15550,
+        "requestIRI": "http://yago-knowledge.org/resource/Caroline_McWilliams",
+        "requestTotalTime": 314.37487864494324,
+        "requestTime": 3.6648566722869873,
+        "remote_expansions": 71,
+        "expansions": 71,
+        "local_expansions": 0,
+        "batchID": 71,
+        "memory": 36.17578125,
+        "goals_found": 184,
+        "wallClock": 317.0484824180603,
+        "requestTriples": 76
+      },
+      {
+        "triples": 15623,
+        "requestIRI": "http://yago-knowledge.org/resource/Charles_Durning",
+        "requestTotalTime": 319.6917326450348,
+        "requestTime": 5.316854000091553,
+        "remote_expansions": 72,
+        "expansions": 72,
+        "local_expansions": 0,
+        "batchID": 72,
+        "memory": 36.17578125,
+        "goals_found": 184,
+        "wallClock": 322.4070405960083,
+        "requestTriples": 515
+      },
+      {
+        "triples": 16135,
+        "requestIRI": "http://yago-knowledge.org/resource/Charlize_Theron",
+        "requestTotalTime": 325.1980822086334,
+        "requestTime": 5.506349563598633,
+        "remote_expansions": 73,
+        "expansions": 73,
+        "local_expansions": 0,
+        "batchID": 73,
+        "memory": 36.69140625,
+        "goals_found": 184,
+        "wallClock": 327.98219752311707,
+        "requestTriples": 663
+      },
+      {
+        "triples": 16795,
+        "requestIRI": "http://yago-knowledge.org/resource/Chloe_Webb",
+        "requestTotalTime": 329.1681685447693,
+        "requestTime": 3.9700863361358643,
+        "remote_expansions": 74,
+        "expansions": 74,
+        "local_expansions": 0,
+        "batchID": 74,
+        "memory": 36.69140625,
+        "goals_found": 184,
+        "wallClock": 332.01862239837646,
+        "requestTriples": 157
+      },
+      {
+        "triples": 16948,
+        "requestIRI": "http://yago-knowledge.org/resource/Christian_Slater",
+        "requestTotalTime": 334.6719946861267,
+        "requestTime": 5.503826141357422,
+        "remote_expansions": 75,
+        "expansions": 75,
+        "local_expansions": 0,
+        "batchID": 75,
+        "memory": 36.69140625,
+        "goals_found": 184,
+        "wallClock": 337.5652856826782,
+        "requestTriples": 622
+      },
+      {
+        "triples": 17564,
+        "requestIRI": "http://yago-knowledge.org/resource/Christopher_Murray_(actor)",
+        "requestTotalTime": 338.3856737613678,
+        "requestTime": 3.713679075241089,
+        "remote_expansions": 76,
+        "expansions": 76,
+        "local_expansions": 0,
+        "batchID": 76,
+        "memory": 36.2421875,
+        "goals_found": 184,
+        "wallClock": 341.3331387042999,
+        "requestTriples": 31
+      },
+      {
+        "triples": 17593,
+        "requestIRI": "http://yago-knowledge.org/resource/Claudia_Cron",
+        "requestTotalTime": 341.7790904045105,
+        "requestTime": 3.3934166431427,
+        "remote_expansions": 77,
+        "expansions": 77,
+        "local_expansions": 0,
+        "batchID": 77,
+        "memory": 36.2421875,
+        "goals_found": 184,
+        "wallClock": 344.7639012336731,
+        "requestTriples": 30
+      },
+      {
+        "triples": 17621,
+        "requestIRI": "http://yago-knowledge.org/resource/Clint_Eastwood",
+        "requestTotalTime": 348.9876968860626,
+        "requestTime": 7.208606481552124,
+        "remote_expansions": 78,
+        "expansions": 78,
+        "local_expansions": 0,
+        "batchID": 78,
+        "memory": 38.8203125,
+        "goals_found": 184,
+        "wallClock": 352.02027702331543,
+        "requestTriples": 2224
+      },
+      {
+        "triples": 19839,
+        "requestIRI": "http://yago-knowledge.org/resource/Cody_Linley",
+        "requestTotalTime": 353.1847925186157,
+        "requestTime": 4.197095632553101,
+        "remote_expansions": 79,
+        "expansions": 79,
+        "local_expansions": 0,
+        "batchID": 79,
+        "memory": 41.1953125,
+        "goals_found": 184,
+        "wallClock": 356.32306480407715,
+        "requestTriples": 155
+      },
+      {
+        "triples": 19991,
+        "requestIRI": "http://yago-knowledge.org/resource/Colin_Firth",
+        "requestTotalTime": 359.0168025493622,
+        "requestTime": 5.83201003074646,
+        "remote_expansions": 80,
+        "expansions": 80,
+        "local_expansions": 0,
+        "batchID": 80,
+        "memory": 40.265625,
+        "goals_found": 184,
+        "wallClock": 362.2022109031677,
+        "requestTriples": 777
+      },
+      {
+        "triples": 20762,
+        "requestIRI": "http://yago-knowledge.org/resource/Courtney_Love",
+        "requestTotalTime": 364.7795627117157,
+        "requestTime": 5.762760162353516,
+        "remote_expansions": 81,
+        "expansions": 81,
+        "local_expansions": 0,
+        "batchID": 81,
+        "memory": 40.5234375,
+        "goals_found": 184,
+        "wallClock": 368.0422565937042,
+        "requestTriples": 837
+      },
+      {
+        "triples": 21594,
+        "requestIRI": "http://yago-knowledge.org/resource/Dakota_Fanning",
+        "requestTotalTime": 370.0047028064728,
+        "requestTime": 5.22514009475708,
+        "remote_expansions": 82,
+        "expansions": 82,
+        "local_expansions": 0,
+        "batchID": 82,
+        "memory": 40.5234375,
+        "goals_found": 184,
+        "wallClock": 373.3329427242279,
+        "requestTriples": 436
+      },
+      {
+        "triples": 22026,
+        "requestIRI": "http://yago-knowledge.org/resource/Daniel_Stern_(actor)",
+        "requestTotalTime": 374.9426929950714,
+        "requestTime": 4.937990188598633,
+        "remote_expansions": 83,
+        "expansions": 83,
+        "local_expansions": 0,
+        "batchID": 83,
+        "memory": 43.578125,
+        "goals_found": 184,
+        "wallClock": 378.3359353542328,
+        "requestTriples": 325
+      },
+      {
+        "triples": 22346,
+        "requestIRI": "http://yago-knowledge.org/resource/Danny_Mann",
+        "requestTotalTime": 379.35042691230774,
+        "requestTime": 4.407733917236328,
+        "remote_expansions": 84,
+        "expansions": 84,
+        "local_expansions": 0,
+        "batchID": 84,
+        "memory": 43.578125,
+        "goals_found": 184,
+        "wallClock": 382.8027913570404,
+        "requestTriples": 229
+      },
+      {
+        "triples": 22572,
+        "requestIRI": "http://yago-knowledge.org/resource/David_Alan_Grier",
+        "requestTotalTime": 384.055034160614,
+        "requestTime": 4.704607248306274,
+        "remote_expansions": 85,
+        "expansions": 85,
+        "local_expansions": 0,
+        "batchID": 85,
+        "memory": 43.578125,
+        "goals_found": 184,
+        "wallClock": 387.5567259788513,
+        "requestTriples": 403
+      },
+      {
+        "triples": 22972,
+        "requestIRI": "http://yago-knowledge.org/resource/David_Strathairn",
+        "requestTotalTime": 389.08666348457336,
+        "requestTime": 5.031629323959351,
+        "remote_expansions": 86,
+        "expansions": 86,
+        "local_expansions": 0,
+        "batchID": 86,
+        "memory": 43.8359375,
+        "goals_found": 184,
+        "wallClock": 392.63829016685486,
+        "requestTriples": 520
+      },
+      {
+        "triples": 23489,
+        "requestIRI": "http://yago-knowledge.org/resource/Demi_Moore",
+        "requestTotalTime": 394.87057638168335,
+        "requestTime": 5.783912897109985,
+        "remote_expansions": 87,
+        "expansions": 87,
+        "local_expansions": 0,
+        "batchID": 87,
+        "memory": 44.09375,
+        "goals_found": 184,
+        "wallClock": 398.4803717136383,
+        "requestTriples": 758
+      },
+      {
+        "triples": 24243,
+        "requestIRI": "http://yago-knowledge.org/resource/Denise_Richards",
+        "requestTotalTime": 399.8697667121887,
+        "requestTime": 4.999190330505371,
+        "remote_expansions": 88,
+        "expansions": 88,
+        "local_expansions": 0,
+        "batchID": 88,
+        "memory": 44.09375,
+        "goals_found": 184,
+        "wallClock": 403.5414423942566,
+        "requestTriples": 341
+      },
+      {
+        "triples": 24581,
+        "requestIRI": "http://yago-knowledge.org/resource/Diane_Lane",
+        "requestTotalTime": 404.87325382232666,
+        "requestTime": 5.0034871101379395,
+        "remote_expansions": 89,
+        "expansions": 89,
+        "local_expansions": 0,
+        "batchID": 89,
+        "memory": 44.3515625,
+        "goals_found": 184,
+        "wallClock": 408.59298062324524,
+        "requestTriples": 531
+      },
+      {
+        "triples": 25107,
+        "requestIRI": "http://yago-knowledge.org/resource/Dianne_Wiest",
+        "requestTotalTime": 409.8816945552826,
+        "requestTime": 5.008440732955933,
+        "remote_expansions": 90,
+        "expansions": 90,
+        "local_expansions": 0,
+        "batchID": 90,
+        "memory": 44.3515625,
+        "goals_found": 184,
+        "wallClock": 413.6648015975952,
+        "requestTriples": 496
+      },
+      {
+        "triples": 25599,
+        "requestIRI": "http://yago-knowledge.org/resource/Dustin_Hoffman",
+        "requestTotalTime": 415.9378180503845,
+        "requestTime": 6.056123495101929,
+        "remote_expansions": 91,
+        "expansions": 91,
+        "local_expansions": 0,
+        "batchID": 91,
+        "memory": 44.8984375,
+        "goals_found": 184,
+        "wallClock": 419.8055536746979,
+        "requestTriples": 1156
+      },
+      {
+        "triples": 26744,
+        "requestIRI": "http://yago-knowledge.org/resource/Ed_Harris",
+        "requestTotalTime": 421.73615765571594,
+        "requestTime": 5.798339605331421,
+        "remote_expansions": 92,
+        "expansions": 92,
+        "local_expansions": 0,
+        "batchID": 92,
+        "memory": 45.15234375,
+        "goals_found": 184,
+        "wallClock": 425.68916296958923,
+        "requestTriples": 683
+      },
+      {
+        "triples": 27423,
+        "requestIRI": "http://yago-knowledge.org/resource/Elisabeth_Shue",
+        "requestTotalTime": 426.70716094970703,
+        "requestTime": 4.971003293991089,
+        "remote_expansions": 93,
+        "expansions": 93,
+        "local_expansions": 0,
+        "batchID": 93,
+        "memory": 45.15234375,
+        "goals_found": 184,
+        "wallClock": 430.72846484184265,
+        "requestTriples": 392
+      },
+      {
+        "triples": 27809,
+        "requestIRI": "http://yago-knowledge.org/resource/Elizabeth_McGovern",
+        "requestTotalTime": 431.4021589756012,
+        "requestTime": 4.694998025894165,
+        "remote_expansions": 94,
+        "expansions": 94,
+        "local_expansions": 0,
+        "batchID": 94,
+        "memory": 45.15234375,
+        "goals_found": 184,
+        "wallClock": 435.485552072525,
+        "requestTriples": 329
+      },
+      {
+        "triples": 28134,
+        "requestIRI": "http://yago-knowledge.org/resource/Elizabeth_Perkins",
+        "requestTotalTime": 435.82679748535156,
+        "requestTime": 4.424638509750366,
+        "remote_expansions": 95,
+        "expansions": 95,
+        "local_expansions": 0,
+        "batchID": 95,
+        "memory": 45.15234375,
+        "goals_found": 184,
+        "wallClock": 439.97372126579285,
+        "requestTriples": 263
+      },
+      {
+        "triples": 28392,
+        "requestIRI": "http://yago-knowledge.org/resource/Ellen_Barkin",
+        "requestTotalTime": 440.8030652999878,
+        "requestTime": 4.9762678146362305,
+        "remote_expansions": 96,
+        "expansions": 96,
+        "local_expansions": 0,
+        "batchID": 96,
+        "memory": 45.15234375,
+        "goals_found": 184,
+        "wallClock": 444.99531626701355,
+        "requestTriples": 357
+      },
+      {
+        "triples": 28744,
+        "requestIRI": "http://yago-knowledge.org/resource/Embeth_Davidtz",
+        "requestTotalTime": 445.22858357429504,
+        "requestTime": 4.425518274307251,
+        "remote_expansions": 97,
+        "expansions": 97,
+        "local_expansions": 0,
+        "batchID": 97,
+        "memory": 45.15234375,
+        "goals_found": 184,
+        "wallClock": 449.4823236465454,
+        "requestTriples": 212
+      },
+      {
+        "triples": 28952,
+        "requestIRI": "http://yago-knowledge.org/resource/Emile_Hirsch",
+        "requestTotalTime": 450.1699483394623,
+        "requestTime": 4.941364765167236,
+        "remote_expansions": 98,
+        "expansions": 98,
+        "local_expansions": 0,
+        "batchID": 98,
+        "memory": 45.15234375,
+        "goals_found": 184,
+        "wallClock": 454.4790461063385,
+        "requestTriples": 317
+      },
+      {
+        "triples": 29265,
+        "requestIRI": "http://yago-knowledge.org/resource/Emma_Stone",
+        "requestTotalTime": 455.6098506450653,
+        "requestTime": 5.439902305603027,
+        "remote_expansions": 99,
+        "expansions": 99,
+        "local_expansions": 0,
+        "batchID": 99,
+        "memory": 45.15234375,
+        "goals_found": 184,
+        "wallClock": 459.96986865997314,
+        "requestTriples": 382
+      },
+      {
+        "triples": 29643,
+        "requestIRI": "http://yago-knowledge.org/resource/Eugene_Byrd",
+        "requestTotalTime": 459.50147581100464,
+        "requestTime": 3.891625165939331,
+        "remote_expansions": 100,
+        "expansions": 100,
+        "local_expansions": 0,
+        "batchID": 100,
+        "memory": 45.15234375,
+        "goals_found": 184,
+        "wallClock": 463.91728687286377,
+        "requestTriples": 100
+      },
+      {
+        "triples": 29740,
+        "requestIRI": "http://yago-knowledge.org/resource/Evan_Rachel_Wood",
+        "requestTotalTime": 464.73402428627014,
+        "requestTime": 5.232548475265503,
+        "remote_expansions": 101,
+        "expansions": 101,
+        "local_expansions": 0,
+        "batchID": 101,
+        "memory": 45.15234375,
+        "goals_found": 184,
+        "wallClock": 469.20096492767334,
+        "requestTriples": 402
+      },
+      {
+        "triples": 30138,
+        "requestIRI": "http://yago-knowledge.org/resource/Eve_(entertainer)",
+        "requestTotalTime": 469.6535563468933,
+        "requestTime": 4.919532060623169,
+        "remote_expansions": 102,
+        "expansions": 102,
+        "local_expansions": 0,
+        "batchID": 102,
+        "memory": 45.66796875,
+        "goals_found": 184,
+        "wallClock": 474.18462228775024,
+        "requestTriples": 680
+      },
+      {
+        "triples": 30814,
+        "requestIRI": "http://yago-knowledge.org/resource/Finn_Carter",
+        "requestTotalTime": 473.5358262062073,
+        "requestTime": 3.882269859313965,
+        "remote_expansions": 103,
+        "expansions": 103,
+        "local_expansions": 0,
+        "batchID": 103,
+        "memory": 47.32421875,
+        "goals_found": 184,
+        "wallClock": 478.1552860736847,
+        "requestTriples": 73
+      },
+      {
+        "triples": 30883,
+        "requestIRI": "http://yago-knowledge.org/resource/Forest_Whitaker",
+        "requestTotalTime": 479.4882025718689,
+        "requestTime": 5.952376365661621,
+        "remote_expansions": 104,
+        "expansions": 104,
+        "local_expansions": 0,
+        "batchID": 104,
+        "memory": 47.32421875,
+        "goals_found": 184,
+        "wallClock": 484.1538953781128,
+        "requestTriples": 844
+      },
+      {
+        "triples": 31721,
+        "requestIRI": "http://yago-knowledge.org/resource/Frank_Langella",
+        "requestTotalTime": 484.7139661312103,
+        "requestTime": 5.225763559341431,
+        "remote_expansions": 105,
+        "expansions": 105,
+        "local_expansions": 0,
+        "batchID": 105,
+        "memory": 47.9765625,
+        "goals_found": 184,
+        "wallClock": 489.46278190612793,
+        "requestTriples": 525
+      },
+      {
+        "triples": 32243,
+        "requestIRI": "http://yago-knowledge.org/resource/Frankie_Muniz",
+        "requestTotalTime": 489.62705540657043,
+        "requestTime": 4.913089275360107,
+        "remote_expansions": 106,
+        "expansions": 106,
+        "local_expansions": 0,
+        "batchID": 106,
+        "memory": 47.9765625,
+        "goals_found": 184,
+        "wallClock": 494.44902896881104,
+        "requestTriples": 328
+      },
+      {
+        "triples": 32568,
+        "requestIRI": "http://yago-knowledge.org/resource/Fred_Ward",
+        "requestTotalTime": 494.6396939754486,
+        "requestTime": 5.012638568878174,
+        "remote_expansions": 107,
+        "expansions": 107,
+        "local_expansions": 0,
+        "batchID": 107,
+        "memory": 48.74609375,
+        "goals_found": 184,
+        "wallClock": 499.52426195144653,
+        "requestTriples": 434
+      },
+      {
+        "triples": 32995,
+        "requestIRI": "http://yago-knowledge.org/resource/Garrett_Hedlund",
+        "requestTotalTime": 499.07500314712524,
+        "requestTime": 4.435309171676636,
+        "remote_expansions": 108,
+        "expansions": 108,
+        "local_expansions": 0,
+        "batchID": 108,
+        "memory": 48.74609375,
+        "goals_found": 184,
+        "wallClock": 504.0296437740326,
+        "requestTriples": 180
+      },
+      {
+        "triples": 33170,
+        "requestIRI": "http://yago-knowledge.org/resource/Gary_Oldman",
+        "requestTotalTime": 504.88766503334045,
+        "requestTime": 5.81266188621521,
+        "remote_expansions": 109,
+        "expansions": 109,
+        "local_expansions": 0,
+        "batchID": 109,
+        "memory": 48.74609375,
+        "goals_found": 184,
+        "wallClock": 509.88994336128235,
+        "requestTriples": 821
+      },
+      {
+        "triples": 33976,
+        "requestIRI": "http://yago-knowledge.org/resource/Gary_Sinise",
+        "requestTotalTime": 509.868266582489,
+        "requestTime": 4.98060154914856,
+        "remote_expansions": 110,
+        "expansions": 110,
+        "local_expansions": 0,
+        "batchID": 110,
+        "memory": 49.00390625,
+        "goals_found": 184,
+        "wallClock": 514.94855427742,
+        "requestTriples": 487
+      },
+      {
+        "triples": 34459,
+        "requestIRI": "http://yago-knowledge.org/resource/George_Martin_(American_actor)",
+        "requestTotalTime": 513.399911403656,
+        "requestTime": 3.531644821166992,
+        "remote_expansions": 111,
+        "expansions": 111,
+        "local_expansions": 0,
+        "batchID": 111,
+        "memory": 49.00390625,
+        "goals_found": 184,
+        "wallClock": 518.5447020530701,
+        "requestTriples": 22
+      },
+      {
+        "triples": 34480,
+        "requestIRI": "http://yago-knowledge.org/resource/Greg_Grunberg",
+        "requestTotalTime": 518.0547814369202,
+        "requestTime": 4.65487003326416,
+        "remote_expansions": 112,
+        "expansions": 112,
+        "local_expansions": 0,
+        "batchID": 112,
+        "memory": 49.00390625,
+        "goals_found": 184,
+        "wallClock": 523.2545990943909,
+        "requestTriples": 216
+      },
+      {
+        "triples": 34691,
+        "requestIRI": "http://yago-knowledge.org/resource/Harry_Crosby_(actor)",
+        "requestTotalTime": 522.1586449146271,
+        "requestTime": 4.103863477706909,
+        "remote_expansions": 113,
+        "expansions": 113,
+        "local_expansions": 0,
+        "batchID": 113,
+        "memory": 49.00390625,
+        "goals_found": 184,
+        "wallClock": 527.4212658405304,
+        "requestTriples": 64
+      },
+      {
+        "triples": 34752,
+        "requestIRI": "http://yago-knowledge.org/resource/Howard_Hesseman",
+        "requestTotalTime": 526.6433186531067,
+        "requestTime": 4.484673738479614,
+        "remote_expansions": 114,
+        "expansions": 114,
+        "local_expansions": 0,
+        "batchID": 114,
+        "memory": 49.00390625,
+        "goals_found": 184,
+        "wallClock": 531.937317609787,
+        "requestTriples": 200
+      },
+      {
+        "triples": 34950,
+        "requestIRI": "http://yago-knowledge.org/resource/Hugh_Jackman",
+        "requestTotalTime": 532.7916843891144,
+        "requestTime": 6.14836573600769,
+        "remote_expansions": 115,
+        "expansions": 115,
+        "local_expansions": 0,
+        "batchID": 115,
+        "memory": 49.26171875,
+        "goals_found": 184,
+        "wallClock": 538.1489014625549,
+        "requestTriples": 701
+      },
+      {
+        "triples": 35646,
+        "requestIRI": "http://yago-knowledge.org/resource/Ian_McKellen",
+        "requestTotalTime": 538.6369993686676,
+        "requestTime": 5.845314979553223,
+        "remote_expansions": 116,
+        "expansions": 116,
+        "local_expansions": 0,
+        "batchID": 116,
+        "memory": 50.03125,
+        "goals_found": 184,
+        "wallClock": 544.0766677856445,
+        "requestTriples": 976
+      },
+      {
+        "triples": 36614,
+        "requestIRI": "http://yago-knowledge.org/resource/Illeana_Douglas",
+        "requestTotalTime": 543.34779047966,
+        "requestTime": 4.710791110992432,
+        "remote_expansions": 117,
+        "expansions": 117,
+        "local_expansions": 0,
+        "batchID": 117,
+        "memory": 50.03125,
+        "goals_found": 184,
+        "wallClock": 548.8615384101868,
+        "requestTriples": 315
+      },
+      {
+        "triples": 36923,
+        "requestIRI": "http://yago-knowledge.org/resource/J._T._Walsh",
+        "requestTotalTime": 548.0302391052246,
+        "requestTime": 4.682448625564575,
+        "remote_expansions": 118,
+        "expansions": 118,
+        "local_expansions": 0,
+        "batchID": 118,
+        "memory": 50.03125,
+        "goals_found": 184,
+        "wallClock": 553.6029744148254,
+        "requestTriples": 254
+      },
+      {
+        "triples": 37171,
+        "requestIRI": "http://yago-knowledge.org/resource/Jack_Angel",
+        "requestTotalTime": 552.4259152412415,
+        "requestTime": 4.395676136016846,
+        "remote_expansions": 119,
+        "expansions": 119,
+        "local_expansions": 0,
+        "batchID": 119,
+        "memory": 50.03125,
+        "goals_found": 184,
+        "wallClock": 558.0607812404633,
+        "requestTriples": 215
+      },
+      {
+        "triples": 37383,
+        "requestIRI": "http://yago-knowledge.org/resource/Jack_Lemmon",
+        "requestTotalTime": 558.4459021091461,
+        "requestTime": 6.019986867904663,
+        "remote_expansions": 120,
+        "expansions": 120,
+        "local_expansions": 0,
+        "batchID": 120,
+        "memory": 50.28515625,
+        "goals_found": 184,
+        "wallClock": 564.1321587562561,
+        "requestTriples": 969
+      },
+      {
+        "triples": 38347,
+        "requestIRI": "http://yago-knowledge.org/resource/Jack_Nicholson",
+        "requestTotalTime": 564.7557532787323,
+        "requestTime": 6.309851169586182,
+        "remote_expansions": 121,
+        "expansions": 121,
+        "local_expansions": 0,
+        "batchID": 121,
+        "memory": 51.828125,
+        "goals_found": 184,
+        "wallClock": 570.5322427749634,
+        "requestTriples": 1366
+      },
+      {
+        "triples": 39705,
+        "requestIRI": "http://yago-knowledge.org/resource/James_Marshall_(actor)",
+        "requestTotalTime": 568.3755116462708,
+        "requestTime": 3.619758367538452,
+        "remote_expansions": 122,
+        "expansions": 122,
+        "local_expansions": 0,
+        "batchID": 122,
+        "memory": 52.6015625,
+        "goals_found": 184,
+        "wallClock": 574.2564234733582,
+        "requestTriples": 76
+      },
+      {
+        "triples": 39778,
+        "requestIRI": "http://yago-knowledge.org/resource/Jami_Gertz",
+        "requestTotalTime": 572.7866933345795,
+        "requestTime": 4.411181688308716,
+        "remote_expansions": 123,
+        "expansions": 123,
+        "local_expansions": 0,
+        "batchID": 123,
+        "memory": 52.6015625,
+        "goals_found": 184,
+        "wallClock": 578.7212109565735,
+        "requestTriples": 224
+      },
+      {
+        "triples": 39999,
+        "requestIRI": "http://yago-knowledge.org/resource/Jamie_Lee_Curtis",
+        "requestTotalTime": 578.4910802841187,
+        "requestTime": 5.704386949539185,
+        "remote_expansions": 124,
+        "expansions": 124,
+        "local_expansions": 0,
+        "batchID": 124,
+        "memory": 52.6015625,
+        "goals_found": 184,
+        "wallClock": 584.4861307144165,
+        "requestTriples": 564
+      },
+      {
+        "triples": 40558,
+        "requestIRI": "http://yago-knowledge.org/resource/Jason_Patric",
+        "requestTotalTime": 583.6871478557587,
+        "requestTime": 5.196067571640015,
+        "remote_expansions": 125,
+        "expansions": 125,
+        "local_expansions": 0,
+        "batchID": 125,
+        "memory": 52.6015625,
+        "goals_found": 184,
+        "wallClock": 589.7662177085876,
+        "requestTriples": 290
+      },
+      {
+        "triples": 40841,
+        "requestIRI": "http://yago-knowledge.org/resource/Jay_Mohr",
+        "requestTotalTime": 588.1215188503265,
+        "requestTime": 4.434370994567871,
+        "remote_expansions": 126,
+        "expansions": 126,
+        "local_expansions": 0,
+        "batchID": 126,
+        "memory": 52.6015625,
+        "goals_found": 184,
+        "wallClock": 594.2718341350555,
+        "requestTriples": 333
+      },
+      {
+        "triples": 41169,
+        "requestIRI": "http://yago-knowledge.org/resource/Jay_O._Sanders",
+        "requestTotalTime": 592.321896314621,
+        "requestTime": 4.200377464294434,
+        "remote_expansions": 127,
+        "expansions": 127,
+        "local_expansions": 0,
+        "batchID": 127,
+        "memory": 52.6015625,
+        "goals_found": 184,
+        "wallClock": 598.5412983894348,
+        "requestTriples": 213
+      },
+      {
+        "triples": 41379,
+        "requestIRI": "http://yago-knowledge.org/resource/Jennifer_Aniston",
+        "requestTotalTime": 598.3602530956268,
+        "requestTime": 6.038356781005859,
+        "remote_expansions": 128,
+        "expansions": 128,
+        "local_expansions": 0,
+        "batchID": 128,
+        "memory": 52.6015625,
+        "goals_found": 184,
+        "wallClock": 604.6565947532654,
+        "requestTriples": 858
+      },
+      {
+        "triples": 42226,
+        "requestIRI": "http://yago-knowledge.org/resource/Jennifer_Jason_Leigh",
+        "requestTotalTime": 603.605143070221,
+        "requestTime": 5.244889974594116,
+        "remote_expansions": 129,
+        "expansions": 129,
+        "local_expansions": 0,
+        "batchID": 129,
+        "memory": 52.859375,
+        "goals_found": 184,
+        "wallClock": 610.0033593177795,
+        "requestTriples": 544
+      },
+      {
+        "triples": 42760,
+        "requestIRI": "http://yago-knowledge.org/resource/Jennifer_Morrison",
+        "requestTotalTime": 608.0399866104126,
+        "requestTime": 4.43484354019165,
+        "remote_expansions": 130,
+        "expansions": 130,
+        "local_expansions": 0,
+        "batchID": 130,
+        "memory": 52.859375,
+        "goals_found": 184,
+        "wallClock": 614.5275378227234,
+        "requestTriples": 215
+      },
+      {
+        "triples": 42970,
+        "requestIRI": "http://yago-knowledge.org/resource/Jim_Cummings",
+        "requestTotalTime": 613.0439975261688,
+        "requestTime": 5.004010915756226,
+        "remote_expansions": 131,
+        "expansions": 131,
+        "local_expansions": 0,
+        "batchID": 131,
+        "memory": 52.859375,
+        "goals_found": 184,
+        "wallClock": 619.601145029068,
+        "requestTriples": 636
+      },
+      {
+        "triples": 43603,
+        "requestIRI": "http://yago-knowledge.org/resource/Joe_Don_Baker",
+        "requestTotalTime": 617.7161979675293,
+        "requestTime": 4.672200441360474,
+        "remote_expansions": 132,
+        "expansions": 132,
+        "local_expansions": 0,
+        "batchID": 132,
+        "memory": 53.1171875,
+        "goals_found": 184,
+        "wallClock": 624.3526854515076,
+        "requestTriples": 287
+      }
+    ],
+    "Paths": [
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/A_Few_Good_Men"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Demi_Moore"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/A_Few_Good_Men"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/James_Marshall_(actor)"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/A_Few_Good_Men"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Jack_Nicholson"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/A_Few_Good_Men"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Tom_Cruise"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/A_Few_Good_Men"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Kiefer_Sutherland"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/A_Few_Good_Men"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Kevin_Pollak"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/A_Few_Good_Men"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/J._T._Walsh"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Apollo_13_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ed_Harris"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Apollo_13_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Gary_Sinise"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Apollo_13_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Tom_Hanks"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Apollo_13_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Bill_Paxton"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Balto_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Danny_Mann"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Balto_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Jim_Cummings"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Balto_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Bridget_Fonda"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Balto_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Jack_Angel"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Balto_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Robbie_Rist"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Balto_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Sandra_Dickinson"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Balto_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Phil_Collins"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Balto_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Bob_Hoskins"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Crazy,_Stupid,_Love."
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Analeigh_Tipton"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Crazy,_Stupid,_Love."
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Steve_Carell"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Crazy,_Stupid,_Love."
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Julianne_Moore"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Crazy,_Stupid,_Love."
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Emma_Stone"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Crazy,_Stupid,_Love."
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ryan_Gosling"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Criminal_Law_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Gary_Oldman"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Criminal_Law_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Joe_Don_Baker"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Criminal_Law_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Karen_Young_(actress)"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Criminal_Law_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Tess_Harper"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Death_Sentence_(2007_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Garrett_Hedlund"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Death_Sentence_(2007_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Jordan_Garrett"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Death_Sentence_(2007_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Stuart_Lafferty"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Death_Sentence_(2007_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Kelly_Preston"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Death_Sentence_(2007_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Aisha_Tyler"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Death_Sentence_(2007_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/John_Goodman"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Digging_to_China"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Evan_Rachel_Wood"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Diner_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Steve_Guttenberg"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Diner_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Mickey_Rourke"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Diner_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ellen_Barkin"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Diner_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Tim_Daly"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Diner_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Claudia_Cron"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Diner_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Paul_Reiser"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Diner_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Daniel_Stern_(actor)"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Flatliners"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Oliver_Platt"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Flatliners"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Julia_Roberts"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Flatliners"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/William_Baldwin"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Footloose_(1984_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/John_Lithgow"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Footloose_(1984_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Dianne_Wiest"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Footloose_(1984_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Lori_Singer"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Friday_the_13th_(1980_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Betsy_Palmer"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Friday_the_13th_(1980_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Adrienne_King"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Friday_the_13th_(1980_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Laurie_Bartram"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Friday_the_13th_(1980_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Harry_Crosby_(actor)"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Friday_the_13th_(1980_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ari_Lehman"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Frost/Nixon_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Sam_Rockwell"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Frost/Nixon_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Rebecca_Hall"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Frost/Nixon_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Matthew_Macfadyen"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Frost/Nixon_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Toby_Jones"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Frost/Nixon_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ron_Howard"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Frost/Nixon_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Michael_Sheen"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Frost/Nixon_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Frank_Langella"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/He_Said,_She_Said"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Elizabeth_Perkins"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/He_Said,_She_Said"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Sharon_Stone"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/He_Said,_She_Said"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/George_Martin_(American_actor)"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/He_Said,_She_Said"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Nathan_Lane"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Hollow_Man"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Josh_Brolin"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Hollow_Man"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/William_Devane"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Hollow_Man"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Kim_Dickens"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Hollow_Man"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Greg_Grunberg"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Hollow_Man"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Elisabeth_Shue"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Hollow_Man"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Joey_Slotnick"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/JFK_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Kevin_Costner"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/JFK_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/John_Candy"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/JFK_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Laurie_Metcalf"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/JFK_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Jack_Lemmon"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/JFK_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Jay_O._Sanders"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/JFK_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Walter_Matthau"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/JFK_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Sally_Kirkland"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/JFK_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Joe_Pesci"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/JFK_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Sissy_Spacek"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/JFK_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Michael_Rooker"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/JFK_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Oliver_Stone"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/JFK_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Tommy_Lee_Jones"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Mister_Roberts_(1984_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Marilu_Henner"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Mister_Roberts_(1984_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Robert_Hays"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Mister_Roberts_(1984_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Joe_Pantoliano"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Mister_Roberts_(1984_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Christopher_Murray_(actor)"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Mister_Roberts_(1984_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Raye_Birk"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Mister_Roberts_(1984_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Charles_Durning"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Mister_Roberts_(1984_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Peter_Jason"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Mister_Roberts_(1984_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Howard_Hesseman"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Murder_in_the_First_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Christian_Slater"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Murder_in_the_First_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Brad_Dourif"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Murder_in_the_First_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Embeth_Davidtz"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Murder_in_the_First_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/R._Lee_Ermey"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Murder_in_the_First_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/William_H._Macy"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/My_Dog_Skip_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Luke_Wilson"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/My_Dog_Skip_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Diane_Lane"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/My_Dog_Skip_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Cody_Linley"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/My_Dog_Skip_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Frankie_Muniz"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/My_Dog_Skip_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Caitlin_Wachs"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Mystic_River_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Laurence_Fishburne"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Mystic_River_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Marcia_Gay_Harden"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Mystic_River_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Laura_Linney"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Mystic_River_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Clint_Eastwood"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Mystic_River_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Tim_Robbins"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Mystic_River_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Sean_Penn"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Picture_Perfect_(1997_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Kaley_Cuoco"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Picture_Perfect_(1997_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Jay_Mohr"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Picture_Perfect_(1997_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Olympia_Dukakis"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Picture_Perfect_(1997_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Anne_Twomey"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Picture_Perfect_(1997_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Illeana_Douglas"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Picture_Perfect_(1997_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Jennifer_Aniston"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Pyrates"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Kristin_Dattilo"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Pyrates"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Kyra_Sedgwick"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Pyrates"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Bruce_Payne"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Queens_Logic"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Jamie_Lee_Curtis"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Queens_Logic"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Tony_Spiridakis"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Queens_Logic"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/John_Malkovich"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Queens_Logic"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Joe_Mantegna"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Queens_Logic"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Tom_Waits"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Queens_Logic"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ken_Olin"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Queens_Logic"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Chloe_Webb"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Queens_Logic"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Linda_Fiorentino"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Quicksilver_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Jami_Gertz"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Rails_&_Ties"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Miles_Heizer"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Rails_&_Ties"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Eugene_Byrd"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Rails_&_Ties"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Bonnie_Root"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/She's_Having_a_Baby"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Elizabeth_McGovern"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/She's_Having_a_Baby"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Alec_Baldwin"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Sleepers_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Dustin_Hoffman"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Sleepers_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Robert_De_Niro"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Sleepers_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Brad_Pitt"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Sleepers_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Brad_Renfro"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Sleepers_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Jason_Patric"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Sleepers_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Barry_Levinson"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Stir_of_Echoes"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Kathryn_Erbe"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Stir_of_Echoes"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Jennifer_Morrison"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Telling_Lies_in_America"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Calista_Flockhart"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Telling_Lies_in_America"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Jonathan_Rhys_Meyers"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/The_Air_I_Breathe"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Julie_Delpy"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/The_Air_I_Breathe"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Emile_Hirsch"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/The_Air_I_Breathe"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Andy_Garc\u00eda"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/The_Air_I_Breathe"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Brendan_Fraser"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/The_Air_I_Breathe"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Sarah_Michelle_Gellar"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/The_Air_I_Breathe"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Forest_Whitaker"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/The_Big_Picture_(1989_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Teri_Hatcher"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/The_Big_Picture_(1989_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Martin_Short"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/The_Big_Picture_(1989_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Jennifer_Jason_Leigh"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/The_River_Wild"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Benjamin_Bratt"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/The_River_Wild"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Joseph_Mazzello"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/The_River_Wild"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Meryl_Streep"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/The_River_Wild"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/John_C._Reilly"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/The_River_Wild"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/David_Strathairn"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/The_Woodsman"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/David_Alan_Grier"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/The_Woodsman"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Eve_(entertainer)"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/The_Woodsman"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Mos_Def"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Trapped_(2002_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Stuart_Townsend"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Trapped_(2002_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Charlize_Theron"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Trapped_(2002_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Dakota_Fanning"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Trapped_(2002_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Pruitt_Taylor_Vince"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Trapped_(2002_film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Courtney_Love"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Tremors_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Fred_Ward"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Tremors_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Michael_Gross_(actor)"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Tremors_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Finn_Carter"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Tremors_(film)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Reba_McEntire"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/We_Married_Margo"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Kylie_Bax"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/We_Married_Margo"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Margaret_Easley"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/We_Married_Margo"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Tom_Arnold_(actor)"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Where_the_Truth_Lies"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Sonja_Bennett"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Where_the_Truth_Lies"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Alison_Lohman"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Where_the_Truth_Lies"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Colin_Firth"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Where_the_Truth_Lies"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Rachel_Blanchard"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/White_Water_Summer"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Caroline_McWilliams"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/White_Water_Summer"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Sean_Astin"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/White_Water_Summer"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Jonathan_Ward_(actor)"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Wild_Things"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Matt_Dillon"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Wild_Things"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Denise_Richards"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Wild_Things"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Robert_Wagner"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Wild_Things"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Neve_Campbell"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/Wild_Things"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Bill_Murray"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/X-Men_(film_series)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Ian_McKellen"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/X-Men_(film_series)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Patrick_Stewart"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/X-Men_(film_series)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Hugh_Jackman"
+        }
+      ],
+      [
+        {
+          "state": "Actor",
+          "transition": null,
+          "node": "http://yago-knowledge.org/resource/Kevin_Bacon"
+        },
+        {
+          "state": "Movie",
+          "transition": {
+            "d": ">",
+            "P": "http://framebase.org/ns/dereif-Performers_and_roles-playsInPerformance"
+          },
+          "node": "http://yago-knowledge.org/resource/X-Men_(film_series)"
+        },
+        {
+          "state": "CoActor",
+          "transition": {
+            "d": "<",
+            "P": "http://yago-knowledge.org/resource/actedIn"
+          },
+          "node": "http://yago-knowledge.org/resource/Lauren_Shuler_Donner"
+        }
+      ]
+    ],
+    "PathCount": 184
+  },
+  "params": {
+    "limits": {
+      "triples": 100000.0,
+      "time": 620,
+      "ans": 1000.0
+    },
+    "parallelRequests": 1,
+    "algorithm": "Dijkstra",
+    "weight": 1,
+    "quickGoal": true
+  }
+}

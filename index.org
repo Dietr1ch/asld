@@ -57,6 +57,8 @@
 * Introduction
 This is better than uninformed search.
 
+This is a subset of the [[https://dietr1ch.github.io/asld/appendix.pdf][Appendix]].
+
 * Selected queries
 ** Prefixes
 #+begin_src md

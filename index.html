@@ -1,531 +1,212 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<!-- 2016-12-07 Wed 15:07 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Evaluating navigational RDF queries over the Web</title>
-<meta name="generator" content="Org mode" />
-<meta name="author" content="Your name" />
+<meta charset="utf-8"/>
+<title></title>
+<meta name="author" content="(Dietrich)"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
 <style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: visible;
-    padding-top: 1.2em;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
-    padding: 3px;
-    border: 1px solid black;
-  }
-  pre.src:hover:before { display: inline;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
+.underline { text-decoration: underline; }
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
+<link rel="stylesheet" href="https://doge.ing.puc.cl/dietr1ch/vendor/reveal.js/css/reveal.css"/>
 
-Copyright (C) 2012-2013 Free Software Foundation, Inc.
+<link rel="stylesheet" href="https://doge.ing.puc.cl/dietr1ch/vendor/reveal.js/css/theme/black.css" id="theme"/>
 
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+<link rel="stylesheet" href="https://doge.ing.puc.cl/dietr1ch/vendor/reveal.js/lib/css/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://doge.ing.puc.cl/dietr1ch/vendor/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
 </script>
+<script src='js/d3.v3.js' charset="utf-8"></script> <link rel="stylesheet" href="css/mine.css"> <link rel="stylesheet" href="css/graph.css"><link rel="stylesheet" href="https://doge.ing.puc.cl/dietr1ch/vendor/cytoscape.js/dist/cytoscape.min.js">
 </head>
 <body>
-<div id="content">
-<h1 class="title">Evaluating navigational RDF queries over the Web</h1>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h2 class="author">Evaluating navigational RDF queries over the Web</h2>
+</section>
+<section id="table-of-contents">
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org3cf7fac">1. Introduction</a></li>
-<li><a href="#org5c2d997">2. Results</a>
+<li><a href="#/slide-org241a343">Introduction</a></li>
+<li><a href="#/slide-orgeaa7d9d">Selected queries</a>
 <ul>
-<li><a href="#orgf2a53ed">2.1. Selected queries</a>
-<ul>
-<li><a href="#org6c37765">2.1.1. Q10  Publications&#xa0;&#xa0;&#xa0;<span class="tag"><span class="dbpedia">dbpedia</span>&#xa0;<span class="selected">selected</span></span></a></li>
-<li><a href="#orgfcd1d4b">2.1.2. Q11  Journals&#xa0;&#xa0;&#xa0;<span class="tag"><span class="dbpedia">dbpedia</span>&#xa0;<span class="selected">selected</span></span></a></li>
-<li><a href="#org4095629">2.1.3. Q12  Conferences&#xa0;&#xa0;&#xa0;<span class="tag"><span class="dbpedia">dbpedia</span>&#xa0;<span class="selected">selected</span></span></a></li>
-<li><a href="#orgcfc22ea">2.1.4. Q13  CoAuthor&#xa0;&#xa0;&#xa0;<span class="tag"><span class="dbpedia">dbpedia</span>&#xa0;<span class="selected">selected</span></span></a></li>
-<li><a href="#org5befa59">2.1.5. Q14  CoAuthor* IRIs&#xa0;&#xa0;&#xa0;<span class="tag"><span class="dbpedia">dbpedia</span>&#xa0;<span class="selected">selected</span></span></a></li>
-<li><a href="#org94b27c2">2.1.6. Q20  CoActor*&#xa0;&#xa0;&#xa0;<span class="tag"><span class="dbpedia">dbpedia</span>&#xa0;<span class="selected">selected</span></span></a></li>
-<li><a href="#org173d71c">2.1.7. Q22  CoActor* IRIs&#xa0;&#xa0;&#xa0;<span class="tag"><span class="yago">yago</span>&#xa0;<span class="selected">selected</span></span></a></li>
-<li><a href="#org496799c">2.1.8. Q23  CoActor* sameAs&#xa0;&#xa0;&#xa0;<span class="tag"><span class="any">any</span>&#xa0;<span class="yago">yago</span>&#xa0;<span class="dbpedia">dbpedia</span>&#xa0;<span class="lmdb">lmdb</span>&#xa0;<span class="selected">selected</span></span></a></li>
-<li><a href="#org2ed4498">2.1.9. Q24  Movies-IRIs by CoActor*&#xa0;&#xa0;&#xa0;<span class="tag"><span class="yago">yago</span>&#xa0;<span class="selected">selected</span></span></a></li>
-<li><a href="#orgc4209b1">2.1.10. Q30  NATO Business&rsquo;&#xa0;&#xa0;&#xa0;<span class="tag"><span class="yago">yago</span>&#xa0;<span class="selected">selected</span>&#xa0;<span class="gubichev">gubichev</span></span></a></li>
-<li><a href="#org4ed5bb1">2.1.11. Q32  Airports in Netherlands&#xa0;&#xa0;&#xa0;<span class="tag"><span class="yago">yago</span>&#xa0;<span class="selected">selected</span>&#xa0;<span class="gubichev">gubichev</span></span></a></li>
+<li><a href="#/slide-orgdfb2eae">Prefixes</a></li>
+<li><a href="#/slide-org312f74a">Q10  Publications</a></li>
+<li><a href="#/slide-orga622cae">Q11  Journals</a></li>
+<li><a href="#/slide-org48d9214">Q12  Conferences</a></li>
+<li><a href="#/slide-orgd21c36a">Q13  CoAuthor</a></li>
+<li><a href="#/slide-org6193d70">Q14  CoAuthor* IRIs</a></li>
+<li><a href="#/slide-orgd063a69">Q20  CoActor*</a></li>
+<li><a href="#/slide-org65f8ba8">Q22  CoActor* IRIs</a></li>
+<li><a href="#/slide-org0206222">Q23  CoActor* sameAs</a></li>
+<li><a href="#/slide-org0382d19">Q24  Movies-IRIs by CoActor*</a></li>
+<li><a href="#/slide-orgde47f51">Q30  NATO Business&rsquo;</a></li>
+<li><a href="#/slide-org5f68a0f">Q32  Airports in Netherlands</a></li>
 </ul>
 </li>
-<li><a href="#org41691bc">2.2. Other queries used</a></li>
+<li><a href="#/slide-orgc610db4">Other queries used</a>
+<ul>
+<li><a href="#/slide-org41aa93c">Q16  17</a></li>
+<li><a href="#/slide-orgedc849b">Q17  16</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
+</section>
 
 
-<div id="outline-container-org3cf7fac" class="outline-2">
-<h2 id="org3cf7fac"><span class="section-number-2">1</span> Introduction</h2>
-<div class="outline-text-2" id="text-1">
+<section>
+<section id="slide-org241a343">
+<h2 id="org241a343">Introduction</h2>
 <p>
 This is better than uninformed search.
 </p>
-</div>
-</div>
 
-<div id="outline-container-org5c2d997" class="outline-2">
-<h2 id="org5c2d997"><span class="section-number-2">2</span> Results</h2>
-<div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgf2a53ed" class="outline-3">
-<h3 id="orgf2a53ed"><span class="section-number-3">2.1</span> Selected queries</h3>
-<div class="outline-text-3" id="text-2-1">
-</div><div id="outline-container-org6c37765" class="outline-4">
-<h4 id="org6c37765"><span class="section-number-4">2.1.1</span> Q10  Publications&#xa0;&#xa0;&#xa0;<span class="tag"><span class="dbpedia">dbpedia</span>&#xa0;<span class="selected">selected</span></span></h4>
-<div class="outline-text-4" id="text-2-1-1">
+</section>
+</section>
+<section>
+<section id="slide-orgeaa7d9d">
+<h2 id="orgeaa7d9d">Selected queries</h2>
+<div class="outline-text-2" id="text-orgeaa7d9d">
+</div></section>
+</section>
+<section>
+<section id="slide-orgdfb2eae">
+<h3 id="orgdfb2eae">Prefixes</h3>
 <div class="org-src-container">
-<pre class="src src-sparql"><span style="color: #4f97d7; font-weight: bold;">prefix</span> dc:         <span style="color: #a45bad;"><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/">&lt;http://purl.org/dc/elements/1.1/&gt;</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/">
-</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/">prefix</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/"> dblpAuthor: </a><span style="color: #a45bad;"><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/">&lt;http://dblp.l3s.de/d2r/resource/authors/&gt;</a></span>
 
-<span style="color: #4f97d7; font-weight: bold;">select</span> * <span style="color: #4f97d7; font-weight: bold;">where</span> <span style="color: #4f97d7;">{</span>
-  dblpAuthor:Michael_Stonebraker  ^dc:creator/dc:title  <span style="color: #7590db;">?paper</span>
-<span style="color: #4f97d7;">}</span>
-</pre>
-</div>
-</div>
+<pre><code class="md" ># DBLP
+dblp: &lt;http://dblp.l3s.de/d2r/resource/&gt;
+dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
+
+# dbPedia
+dbr: &lt;http://dbpedia.org/resource/&gt;
+dbo: &lt;http://dbpedia.org/ontology/&gt;
+
+# YAGO
+yago: &lt;http://yago-knowledge.org/resource/&gt;
+frmb: &lt;http://framebase.org/ns/&gt;
+
+# Common
+dc:         &lt;http://purl.org/dc/elements/1.1/&gt;
+rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+swrc:    &lt;http://swrc.ontoware.org/ontology#&gt;
+</code></pre>
 </div>
 
-
-<div id="outline-container-orgfcd1d4b" class="outline-4">
-<h4 id="orgfcd1d4b"><span class="section-number-4">2.1.2</span> Q11  Journals&#xa0;&#xa0;&#xa0;<span class="tag"><span class="dbpedia">dbpedia</span>&#xa0;<span class="selected">selected</span></span></h4>
-<div class="outline-text-4" id="text-2-1-2">
+</section>
+</section>
+<section>
+<section id="slide-org312f74a">
+<h3 id="org312f74a">Q10  Publications</h3>
 <div class="org-src-container">
-<pre class="src src-sparql"><span style="color: #4f97d7; font-weight: bold;">prefix</span> dc:         <span style="color: #a45bad;"><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">&lt;http://purl.org/dc/elements/1.1/&gt;</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">
-</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">prefix</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-prefix swrc:    &lt;http://swrc.ontoware.org/ontology#"> dblpAuthor: </a><span style="color: #a45bad;"><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">&lt;http://dblp.l3s.de/d2r/resource/authors/&gt;</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">
-</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">prefix</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-prefix swrc:    &lt;http://swrc.ontoware.org/ontology#"> rdfs: </a><span style="color: #a45bad;"><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">
-</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">prefix</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-prefix swrc:    &lt;http://swrc.ontoware.org/ontology#"> swrc:    </a><span style="color: #a45bad;"><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">&lt;http://swrc.ontoware.org/ontology#&gt;</a></span>
 
-<span style="color: #4f97d7; font-weight: bold;">select</span> * <span style="color: #4f97d7; font-weight: bold;">where</span> <span style="color: #4f97d7;">{</span>
-  dblpAuthor:Michael_Stonebraker  ^dc:creator/swrc:journal/rdfs:label  <span style="color: #7590db;">?paper</span>
-<span style="color: #4f97d7;">}</span>
-</pre>
-</div>
-</div>
+<pre><code class="sparql" >select * where {
+	dblpAuthor:Michael_Stonebraker  ^dc:creator/dc:title  ?paper
+}
+</code></pre>
 </div>
 
 
-<div id="outline-container-org4095629" class="outline-4">
-<h4 id="org4095629"><span class="section-number-4">2.1.3</span> Q12  Conferences&#xa0;&#xa0;&#xa0;<span class="tag"><span class="dbpedia">dbpedia</span>&#xa0;<span class="selected">selected</span></span></h4>
-<div class="outline-text-4" id="text-2-1-3">
+</section>
+</section>
+<section>
+<section id="slide-orga622cae">
+<h3 id="orga622cae">Q11  Journals</h3>
 <div class="org-src-container">
-<pre class="src src-sparql"><span style="color: #4f97d7; font-weight: bold;">prefix</span> dc:         <span style="color: #a45bad;"><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">&lt;http://purl.org/dc/elements/1.1/&gt;</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">
-</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">prefix</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-prefix swrc:    &lt;http://swrc.ontoware.org/ontology#"> dblpAuthor: </a><span style="color: #a45bad;"><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">&lt;http://dblp.l3s.de/d2r/resource/authors/&gt;</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">
-</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">prefix</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-prefix swrc:    &lt;http://swrc.ontoware.org/ontology#"> rdfs: </a><span style="color: #a45bad;"><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">
-</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">prefix</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-prefix swrc:    &lt;http://swrc.ontoware.org/ontology#"> swrc:    </a><span style="color: #a45bad;"><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-prefix swrc:    &lt;http://swrc.ontoware.org/ontology#">&lt;http://swrc.ontoware.org/ontology#&gt;</a></span>
 
-<span style="color: #4f97d7; font-weight: bold;">select</span> * <span style="color: #4f97d7; font-weight: bold;">where</span> <span style="color: #4f97d7;">{</span>
-  dblpAuthor:Michael_Stonebraker  ^dc:creator/swrc:series/rdfs:label  <span style="color: #7590db;">?paper</span>
-<span style="color: #4f97d7;">}</span>
-</pre>
-</div>
-</div>
+<pre><code class="sparql" >select * where {
+	dblpAuthor:Michael_Stonebraker  ^dc:creator/swrc:journal/rdfs:label  ?paper
+}
+</code></pre>
 </div>
 
 
-<div id="outline-container-orgcfc22ea" class="outline-4">
-<h4 id="orgcfc22ea"><span class="section-number-4">2.1.4</span> Q13  CoAuthor&#xa0;&#xa0;&#xa0;<span class="tag"><span class="dbpedia">dbpedia</span>&#xa0;<span class="selected">selected</span></span></h4>
-<div class="outline-text-4" id="text-2-1-4">
+</section>
+</section>
+<section>
+<section id="slide-org48d9214">
+<h3 id="org48d9214">Q12  Conferences</h3>
 <div class="org-src-container">
-<pre class="src src-sparql"><span style="color: #4f97d7; font-weight: bold;">prefix</span> dc:         <span style="color: #a45bad;"><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">&lt;http://purl.org/dc/elements/1.1/&gt;</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">
-</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">prefix</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#"> dblpAuthor: </a><span style="color: #a45bad;"><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">&lt;http://dblp.l3s.de/d2r/resource/authors/&gt;</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">
-</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">prefix</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#"> rdfs: </a><span style="color: #a45bad;"><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</a></span>
 
-<span style="color: #4f97d7; font-weight: bold;">select</span> * <span style="color: #4f97d7; font-weight: bold;">where</span> <span style="color: #4f97d7;">{</span>
-  dblpAuthor:Michael_Stonebraker  ^dc:creator/dc:creator/rdfs:label  <span style="color: #7590db;">?paper</span>
-<span style="color: #4f97d7;">}</span>
-</pre>
-</div>
-</div>
+<pre><code class="sparql" >select * where {
+	dblpAuthor:Michael_Stonebraker  ^dc:creator/swrc:series/rdfs:label  ?paper
+}
+</code></pre>
 </div>
 
 
-<div id="outline-container-org5befa59" class="outline-4">
-<h4 id="org5befa59"><span class="section-number-4">2.1.5</span> Q14  CoAuthor* IRIs&#xa0;&#xa0;&#xa0;<span class="tag"><span class="dbpedia">dbpedia</span>&#xa0;<span class="selected">selected</span></span></h4>
-<div class="outline-text-4" id="text-2-1-5">
+</section>
+</section>
+<section>
+<section id="slide-orgd21c36a">
+<h3 id="orgd21c36a">Q13  CoAuthor</h3>
 <div class="org-src-container">
-<pre class="src src-sparql"><span style="color: #4f97d7; font-weight: bold;">prefix</span> dc:         <span style="color: #a45bad;"><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/">&lt;http://purl.org/dc/elements/1.1/&gt;</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/">
-</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/">prefix</a></span><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/"> dblpAuthor: </a><span style="color: #a45bad;"><a href="http://purl.org/dc/elements/1.1/&gt;
-prefix dblpAuthor: &lt;http://dblp.l3s.de/d2r/resource/authors/">&lt;http://dblp.l3s.de/d2r/resource/authors/&gt;</a></span>
 
-<span style="color: #4f97d7; font-weight: bold;">select</span> * <span style="color: #4f97d7; font-weight: bold;">where</span> <span style="color: #4f97d7;">{</span>
-  dblpAuthor:Michael_Stonebraker  <span style="color: #bc6ec5;">(</span>^dc:creator/dc:creator<span style="color: #bc6ec5;">)</span>*  <span style="color: #7590db;">?paper</span>
-<span style="color: #4f97d7;">}</span>
-</pre>
-</div>
-</div>
+<pre><code class="sparql" >select * where {
+	dblpAuthor:Michael_Stonebraker  ^dc:creator/dc:creator/rdfs:label  ?paper
+}
+</code></pre>
 </div>
 
 
-<div id="outline-container-org94b27c2" class="outline-4">
-<h4 id="org94b27c2"><span class="section-number-4">2.1.6</span> Q20  CoActor*&#xa0;&#xa0;&#xa0;<span class="tag"><span class="dbpedia">dbpedia</span>&#xa0;<span class="selected">selected</span></span></h4>
-<div class="outline-text-4" id="text-2-1-6">
+</section>
+</section>
+<section>
+<section id="slide-org6193d70">
+<h3 id="org6193d70">Q14  CoAuthor* IRIs</h3>
 <div class="org-src-container">
-<pre class="src src-sparql"><span style="color: #4f97d7; font-weight: bold;">prefix</span> dbr: <span style="color: #a45bad;"><a href="http://dbpedia.org/resource/&gt;
-prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">&lt;http://dbpedia.org/resource/&gt;</a></span><a href="http://dbpedia.org/resource/&gt;
-prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">
-</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://dbpedia.org/resource/&gt;
-prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">prefix</a></span><a href="http://dbpedia.org/resource/&gt;
-prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#"> dbo: </a><span style="color: #a45bad;"><a href="http://dbpedia.org/resource/&gt;
-prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">&lt;http://dbpedia.org/ontology/&gt;</a></span><a href="http://dbpedia.org/resource/&gt;
-prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">
-</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://dbpedia.org/resource/&gt;
-prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">prefix</a></span><a href="http://dbpedia.org/resource/&gt;
-prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#"> rdfs: </a><span style="color: #a45bad;"><a href="http://dbpedia.org/resource/&gt;
-prefix dbo: &lt;http://dbpedia.org/ontology/&gt;
-prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</a></span>
 
-<span style="color: #4f97d7; font-weight: bold;">select</span> * <span style="color: #4f97d7; font-weight: bold;">where</span> <span style="color: #4f97d7;">{</span>
-  dbr:Kevin_Bacon  <span style="color: #bc6ec5;">(</span>^dbo:starring/dbo:starring<span style="color: #bc6ec5;">)</span>*/rdfs:label  <span style="color: #7590db;">?coActorName</span>
-<span style="color: #4f97d7;">}</span>
-</pre>
-</div>
-</div>
+<pre><code class="sparql" >select * where {
+	dblpAuthor:Michael_Stonebraker  (^dc:creator/dc:creator)*  ?paper
+}
+</code></pre>
 </div>
 
 
-<div id="outline-container-org173d71c" class="outline-4">
-<h4 id="org173d71c"><span class="section-number-4">2.1.7</span> Q22  CoActor* IRIs&#xa0;&#xa0;&#xa0;<span class="tag"><span class="yago">yago</span>&#xa0;<span class="selected">selected</span></span></h4>
-<div class="outline-text-4" id="text-2-1-7">
+</section>
+</section>
+<section>
+<section id="slide-orgd063a69">
+<h3 id="orgd063a69">Q20  CoActor*</h3>
 <div class="org-src-container">
-<pre class="src src-sparql"><span style="color: #4f97d7; font-weight: bold;">prefix</span> yago: <span style="color: #a45bad;"><a href="http://yago-knowledge.org/resource/&gt;
-prefix frmb: &lt;http://framebase.org/ns/">&lt;http://yago-knowledge.org/resource/&gt;</a></span><a href="http://yago-knowledge.org/resource/&gt;
-prefix frmb: &lt;http://framebase.org/ns/">
-</a><span style="color: #4f97d7; font-weight: bold;"><a href="http://yago-knowledge.org/resource/&gt;
-prefix frmb: &lt;http://framebase.org/ns/">prefix</a></span><a href="http://yago-knowledge.org/resource/&gt;
-prefix frmb: &lt;http://framebase.org/ns/"> frmb: </a><span style="color: #a45bad;"><a href="http://yago-knowledge.org/resource/&gt;
-prefix frmb: &lt;http://framebase.org/ns/">&lt;http://framebase.org/ns/&gt;</a></span>
 
-<span style="color: #4f97d7; font-weight: bold;">select</span> * <span style="color: #4f97d7; font-weight: bold;">where</span> <span style="color: #4f97d7;">{</span>
-  <span style="color: #2aa1ae; background-color: #292e34;"># ((frmb:plays|yago:actedIn)/(^frmb:plays|^yago:actedIn))* was used on navigation, it's harder</span>
-  yago:Kevin_Bacon  <span style="color: #bc6ec5;">(</span>frmb:dereif-Performers_and_roles-playsInPerformance/^frmb:dereif-Performers_and_roles-playsInPerformance<span style="color: #bc6ec5;">)</span>* <span style="color: #7590db;">?coActorIRI</span>
-<span style="color: #4f97d7;">}</span>
-</pre>
-</div>
-</div>
+<pre><code class="sparql" >select * where {
+	dbr:Kevin_Bacon  (^dbo:starring/dbo:starring)*/rdfs:label  ?coActorName
+}
+</code></pre>
 </div>
 
 
-<div id="outline-container-org496799c" class="outline-4">
-<h4 id="org496799c"><span class="section-number-4">2.1.8</span> Q23  CoActor* sameAs&#xa0;&#xa0;&#xa0;<span class="tag"><span class="any">any</span>&#xa0;<span class="yago">yago</span>&#xa0;<span class="dbpedia">dbpedia</span>&#xa0;<span class="lmdb">lmdb</span>&#xa0;<span class="selected">selected</span></span></h4>
-<div class="outline-text-4" id="text-2-1-8">
+</section>
+</section>
+<section>
+<section id="slide-org65f8ba8">
+<h3 id="org65f8ba8">Q22  CoActor* IRIs</h3>
+<div class="org-src-container">
+
+<pre><code class="sparql" >select * where {
+ # PLAYS_IN: yago:actedIn | frmb:dereif-Performers_and_roles-playsInPerformance
+ yago:Kevin_Bacon  ( PLAYS_IN/^PLAYS_IN )* ?coActorIRI
+}
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org0206222">
+<h3 id="org0206222">Q23  CoActor* sameAs</h3>
 <p>
 This query has no sane, readable SPARQL equivalent, as it has too many optional edges.
 </p>
@@ -533,126 +214,184 @@ This query has no sane, readable SPARQL equivalent, as it has too many optional 
 <p>
 From each State, any of these Predicates can be used,
 </p>
-<ul class="org-ul">
+<ul>
 <li><code>dbo:starring</code></li>
 <li><code>yago:actedIn</code></li>
 <li><code>frmb:dereif-Performers_and_roles-playsInPerformance</code></li>
 <li><code>owl:sameAs</code></li>
+
 </ul>
 
 <p>
 And the final state can be reached through any of
 </p>
-<ul class="org-ul">
+<ul>
 <li><code>foaf:name</code></li>
 <li><code>rdfs:label</code></li>
+
 </ul>
-</div>
-</div>
 
-<div id="outline-container-org2ed4498" class="outline-4">
-<h4 id="org2ed4498"><span class="section-number-4">2.1.9</span> Q24  Movies-IRIs by CoActor*&#xa0;&#xa0;&#xa0;<span class="tag"><span class="yago">yago</span>&#xa0;<span class="selected">selected</span></span></h4>
-<div class="outline-text-4" id="text-2-1-9">
+</section>
+</section>
+<section>
+<section id="slide-org0382d19">
+<h3 id="org0382d19">Q24  Movies-IRIs by CoActor*</h3>
 <div class="org-src-container">
-<pre class="src src-sparql"><span style="color: #4f97d7; font-weight: bold;">prefix</span> yago: <span style="color: #a45bad;"><a href="http://yago-knowledge.org/resource/">&lt;http://yago-knowledge.org/resource/&gt;</a></span>
 
-<span style="color: #4f97d7; font-weight: bold;">select</span> * <span style="color: #4f97d7; font-weight: bold;">where</span> <span style="color: #4f97d7;">{</span>
-  yago:Kevin_Bacon
-    <span style="color: #bc6ec5;">(</span>yago:actedIn/^yago:actedIn<span style="color: #bc6ec5;">)</span>+/yago:directed
-  <span style="color: #7590db;">?movieIRI</span>
-<span style="color: #4f97d7;">}</span>
-</pre>
+<pre><code class="sparql" >select * where {
+	yago:Kevin_Bacon
+		(yago:actedIn/^yago:actedIn)+/yago:directed
+	?movieIRI
+}
+</code></pre>
 </div>
 
 
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #7590db;">b</span> = QueryBuilder<span style="color: #4f97d7;">(</span>n, <span style="color: #2d9574;">"Actor"</span><span style="color: #4f97d7;">)</span>
-<span style="color: #7590db;">directed</span> = YAGO<span style="color: #4f97d7;">[</span><span style="color: #2d9574;">"directed"</span><span style="color: #4f97d7;">]</span>
-b.frm<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"Actor"</span><span style="color: #4f97d7;">)</span>.through<span style="color: #4f97d7;">(</span>ACTED_IN<span style="color: #4f97d7;">)</span>.to<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"Movie"</span><span style="color: #4f97d7;">)</span>
-b.frm<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"Movie"</span><span style="color: #4f97d7;">)</span>.through<span style="color: #4f97d7;">(</span>ACTED_IN<span style="color: #4f97d7;">)</span>.backwards_to<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"CoActor"</span>, NodeFilter_but<span style="color: #bc6ec5;">(</span>n<span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
 
-b.frm<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"CoActor"</span><span style="color: #4f97d7;">)</span>.through<span style="color: #4f97d7;">(</span>directed<span style="color: #4f97d7;">)</span>.final<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"Directed_Movie"</span><span style="color: #4f97d7;">)</span>
-</pre>
-</div>
-</div>
+<pre><code class="python" >b = QueryBuilder(n, "Actor")
+directed = YAGO["directed"]
+b.frm("Actor").through(ACTED_IN).to("Movie")
+b.frm("Movie").through(ACTED_IN).backwards_to("CoActor", NodeFilter_but(n))
+
+b.frm("CoActor").through(directed).final("Directed_Movie")
+</code></pre>
 </div>
 
-<div id="outline-container-orgc4209b1" class="outline-4">
-<h4 id="orgc4209b1"><span class="section-number-4">2.1.10</span> Q30  NATO Business&rsquo;&#xa0;&#xa0;&#xa0;<span class="tag"><span class="yago">yago</span>&#xa0;<span class="selected">selected</span>&#xa0;<span class="gubichev">gubichev</span></span></h4>
-<div class="outline-text-4" id="text-2-1-10">
+</section>
+</section>
+<section>
+<section id="slide-orgde47f51">
+<h3 id="orgde47f51">Q30  NATO Business&rsquo;</h3>
 <p>
 Similar to Gubichev&rsquo;s Q1  (does not ends in <code>yago:Berlin</code>)
 </p>
 
-<p>
-Works on Make-make.  2502 answers in negligible time
-</p>
-
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #7590db;">b</span> = QueryBuilder<span style="color: #4f97d7;">(</span>YAGO<span style="color: #bc6ec5;">[</span><span style="color: #2d9574;">"wikicat_Member_states_of_NATO"</span><span style="color: #bc6ec5;">]</span><span style="color: #4f97d7;">)</span>
 
-b.frm<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"s0"</span><span style="color: #4f97d7;">)</span>.through<span style="color: #4f97d7;">(</span>RDF<span style="color: #bc6ec5;">[</span><span style="color: #2d9574;">"type"</span><span style="color: #bc6ec5;">]</span><span style="color: #4f97d7;">)</span>.backwards_to<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"Area"</span><span style="color: #4f97d7;">)</span>
-
-b.frm<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"Area"</span><span style="color: #4f97d7;">)</span>.through<span style="color: #4f97d7;">(</span>YAGO<span style="color: #bc6ec5;">[</span><span style="color: #2d9574;">"dealsWith"</span><span style="color: #bc6ec5;">]</span><span style="color: #4f97d7;">)</span>.backwards_to<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"Place"</span>, <span style="color: #a45bad;">None</span>, NodeFilter_but<span style="color: #bc6ec5;">(</span>n<span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
-
-b.frm<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"Place"</span><span style="color: #4f97d7;">)</span>.through<span style="color: #4f97d7;">(</span>YAGO<span style="color: #bc6ec5;">[</span><span style="color: #2d9574;">"isLocatedIn"</span><span style="color: #bc6ec5;">]</span><span style="color: #4f97d7;">)</span>.to<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"Place"</span><span style="color: #4f97d7;">)</span>
-</pre>
+<pre><code class="sparql" >select * where {
+	yago:wikicat_Member_states_of_NATO ^rdf:type/^yago:dealsWith/(yago:isLocatedIn*) ?place
+}
+</code></pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-sparql"><span style="color: #4f97d7; font-weight: bold;">PREFIX</span> yago: <span style="color: #a45bad;"><a href="http://yago-knowledge.org/resource/">&lt;http://yago-knowledge.org/resource/&gt;</a></span>
 
-<span style="color: #4f97d7; font-weight: bold;">select</span> * <span style="color: #4f97d7; font-weight: bold;">where</span> <span style="color: #4f97d7;">{</span>
-  yago:wikicat_Member_states_of_NATO ^rdf:type/^yago:dealsWith/<span style="color: #bc6ec5;">(</span>yago:isLocatedIn*<span style="color: #bc6ec5;">)</span> <span style="color: #7590db;">?place</span>
-<span style="color: #4f97d7;">}</span>
-</pre>
-</div>
-</div>
+<pre><code class="python" >b = QueryBuilder(YAGO["wikicat_Member_states_of_NATO"], "NATO")
+
+b.frm("NATO").through(RDF["type"]).backwards_to("Area")
+
+b.frm("Area").through(YAGO["dealsWith"]).backwards_to("Place", None, NodeFilter_but(n))
+
+b.frm("Place").through(YAGO["isLocatedIn"]).to("Place")
+</code></pre>
 </div>
 
 
-<div id="outline-container-org4ed5bb1" class="outline-4">
-<h4 id="org4ed5bb1"><span class="section-number-4">2.1.11</span> Q32  Airports in Netherlands&#xa0;&#xa0;&#xa0;<span class="tag"><span class="yago">yago</span>&#xa0;<span class="selected">selected</span>&#xa0;<span class="gubichev">gubichev</span></span></h4>
-<div class="outline-text-4" id="text-2-1-11">
+</section>
+</section>
+<section>
+<section id="slide-org5f68a0f">
+<h3 id="org5f68a0f">Q32  Airports in Netherlands</h3>
 <p>
 Similar to Gubichev&rsquo;s Q2, but yago:dealsWith was removed
 </p>
-
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Using wikicat_* instead of wikicategory_*</span>
 
-<span style="color: #7590db;">b</span> = QueryBuilder<span style="color: #4f97d7;">(</span>n, <span style="color: #2d9574;">"EuropeCapitals"</span><span style="color: #4f97d7;">)</span>
-b.from_<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"Airports"</span><span style="color: #4f97d7;">)</span>.through<span style="color: #4f97d7;">(</span> RDF<span style="color: #bc6ec5;">[</span><span style="color: #2d9574;">"type"</span><span style="color: #bc6ec5;">]</span>       <span style="color: #4f97d7;">)</span>.backwards_to<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"airport"</span><span style="color: #4f97d7;">)</span>  <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">AirportList ~&gt; airport</span>
-b.from_<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"airport"</span> <span style="color: #4f97d7;">)</span>.through<span style="color: #4f97d7;">(</span>YAGO<span style="color: #bc6ec5;">[</span><span style="color: #2d9574;">"isLocatedIn"</span><span style="color: #bc6ec5;">]</span><span style="color: #4f97d7;">)</span>.final<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"Place"</span><span style="color: #4f97d7;">)</span>           <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">airport     -&gt; Place</span>
-b.from_<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"Place"</span>   <span style="color: #4f97d7;">)</span>.through<span style="color: #4f97d7;">(</span>YAGO<span style="color: #bc6ec5;">[</span><span style="color: #2d9574;">"isLocatedIn"</span><span style="color: #bc6ec5;">]</span><span style="color: #4f97d7;">)</span>.to<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"Place"</span><span style="color: #4f97d7;">)</span>              <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Place       -&gt; Place</span>
-</pre>
+<pre><code class="sparql" >select * where {
+	yago:wikicat_Capitals_in_Europe ^rdf:type/yago:isLocatedIn* ?place
+}
+</code></pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-sparql"><span style="color: #4f97d7; font-weight: bold;">PREFIX</span> yago: <span style="color: #a45bad;"><a href="http://yago-knowledge.org/resource/">&lt;http://yago-knowledge.org/resource/&gt;</a></span>
 
-<span style="color: #4f97d7; font-weight: bold;">select</span> * <span style="color: #4f97d7; font-weight: bold;">where</span> <span style="color: #4f97d7;">{</span>
-  yago:wikicat_Capitals_in_Europe ^rdf:type/yago:isLocatedIn* <span style="color: #7590db;">?place</span>
-<span style="color: #4f97d7;">}</span>
-</pre>
-</div>
-</div>
-</div>
-</div>
+<pre><code class="python" ># Using wikicat_* instead of wikicategory_*
 
+b = QueryBuilder(n, "EuropeCapitals")
+b.from_("Airports").through( RDF["type"]       ).backwards_to("airport")  # AirportList ~> airport
+b.from_("airport" ).through(YAGO["isLocatedIn"]).final("Place")           # airport     -> Place
+b.from_("Place"   ).through(YAGO["isLocatedIn"]).to("Place")              # Place       -> Place
+</code></pre>
+</div>
 
 
-<div id="outline-container-org41691bc" class="outline-3">
-<h3 id="org41691bc"><span class="section-number-3">2.2</span> Other queries used</h3>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgc610db4">
+<h2 id="orgc610db4">Other queries used</h2>
+<div class="outline-text-2" id="text-orgc610db4">
+</div></section>
+</section>
+<section>
+<section id="slide-org41aa93c">
+<h3 id="org41aa93c">Q16  17</h3>
+<div class="org-src-container">
+
+<pre><code class="sparql" >select * where {
+	dblpAuthor:Michael_Stonebraker  ^dc:creator/dc:title  ?paper
+}
+</code></pre>
+</div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgedc849b">
+<h3 id="orgedc849b">Q17  16</h3>
+<div class="org-src-container">
+
+<pre><code class="sparql" >select * where {
+	dblpAuthor:Michael_Stonebraker  ^dc:creator/swrc:journal/rdfs:label  ?paper
+}
+</code></pre>
+</div>
+</section>
+</section>
 </div>
 </div>
-</div>
-<div id="postamble" class="status">
-<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2013-06-04 Tue&gt;</span></span></p>
-<p class="author">Author: Your name</p>
-<p class="date">Created: 2016-12-07 Wed 15:07</p>
-<p class="creator">Emacs 24.3.50.3 (Org mode 8.0.3)</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
-</div>
+<script src="https://doge.ing.puc.cl/dietr1ch/vendor/reveal.js/lib/js/head.min.js"></script>
+<script src="https://doge.ing.puc.cl/dietr1ch/vendor/reveal.js/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'h.v',
+rollingLinks: true,
+keyboard: true,
+overview: false,
+width: 1600,
+height: 900,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'slide', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: '2',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://doge.ing.puc.cl/dietr1ch/vendor/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+ { src: 'https://doge.ing.puc.cl/dietr1ch/vendor/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://doge.ing.puc.cl/dietr1ch/vendor/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://doge.ing.puc.cl/dietr1ch/vendor/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+,
+,
+]
+});
+</script>
 </body>
 </html>

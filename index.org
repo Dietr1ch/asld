@@ -1,12 +1,52 @@
-#+TITLE: Evaluating navigational RDF queries over the Web
-#+DATE: <2013-06-04 Tue>
-#+AUTHOR: Your name
-#+EMAIL: Your email address
+# +TITLE: Evaluating navigational RDF queries over the Web
+#+Web: https://dietr1ch.github.io/asld/
+
+
+* Setup                                                            :noexport:
+#+REVEAL_ROOT: https://doge.ing.puc.cl/dietr1ch/vendor/reveal.js/
+
+#+REVEAL_HLEVEL: 2
+#+REVEAL_SPEED: 2
+# +REVEAL_POSTAMBLE: <p> Dietrich Daroch. </p>
+# +REVEAL_HEAD_PREAMBLE: <title>A-star on Linked-Data</title>
+#+REVEAL_HEAD_PREAMBLE: <script src='js/d3.v3.js' charset="utf-8"></script> <link rel="stylesheet" href="css/mine.css"> <link rel="stylesheet" href="css/graph.css"><link rel="stylesheet" href="https://doge.ing.puc.cl/dietr1ch/vendor/cytoscape.js/dist/cytoscape.min.js">
+#+REVEAL_PLUGINS: (highlight markdown notes reveal-progress reveal-control reveal-center)
+
+** Looks
+#+REVEAL_TRANS: slide
+#  moon night blood
+#+REVEAL_THEME: black
+#+OPTIONS: reveal_width:1600 reveal_height:900
+# +REVEAL_EXTRA_CSS: custom.css
+
+** Reveal
+#+OPTIONS: reveal_center:t
+#+OPTIONS: reveal_progress:t
+#+OPTIONS: reveal_history:nil
+#+OPTIONS: reveal_control:t
+#+OPTIONS: reveal_rolling_links:t
+#+OPTIONS: reveal_keyboard:t
+#+OPTIONS: reveal_overview:nil
+
+** Numbering
+#+OPTIONS: toc:nil
+#+OPTIONS: num:nil
+#+OPTIONS: reveal_slide_number:h.v
+
+
+
+#+BEGIN_NOTES
+	Intro
+#+END_NOTES
+
+
+# +DATE: <2013-06-04 Tue>
+# +AUTHOR: ""
+# +EMAIL: ""
 #+OPTIONS: ':t *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
 #+OPTIONS: creator:comment d:(not LOGBOOK) date:t e:t email:nil f:t inline:t
-#+OPTIONS: num:t p:nil pri:nil stat:t tags:t tasks:t tex:t timestamp:t toc:t
+#+OPTIONS: num:nil p:nil pri:nil stat:t tags:nil tasks:t tex:t timestamp:t toc:t
 #+OPTIONS: todo:t |:t
-#+CREATOR: Emacs 24.3.50.3 (Org mode 8.0.3)
 #+DESCRIPTION:
 #+EXCLUDE_TAGS: noexport
 #+KEYWORDS:
@@ -14,133 +54,107 @@
 #+SELECT_TAGS: export
 
 
-#+OPTIONS: html-postamble:auto html-preamble:t tex:t
-#+CREATOR: <a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.3.50.3 (<a href="http://orgmode.org">Org</a> mode 8.0.3)
-#+HTML_CONTAINER: div
-#+HTML_DOCTYPE: xhtml-strict
-#+HTML_HEAD: <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
-#+HTML_HEAD_EXTRA:
-#+HTML_HTML5_FANCY:
-#+HTML_INCLUDE_SCRIPTS:
-#+HTML_INCLUDE_STYLE:
-#+HTML_LINK_HOME:
-#+HTML_LINK_UP:
-#+HTML_MATHJAX:
-#+INFOJS_OPT:
-
-
 * Introduction
 This is better than uninformed search.
 
-* Results
-** Selected queries
-*** Q10  Publications                                      :dbpedia:selected:
- #+begin_src sparql
- prefix dc:         <http://purl.org/dc/elements/1.1/>
- prefix dblpAuthor: <http://dblp.l3s.de/d2r/resource/authors/>
+* Selected queries
+** Prefixes
+#+begin_src md
+# DBLP
+dblp: <http://dblp.l3s.de/d2r/resource/>
+dblpAuthor: <http://dblp.l3s.de/d2r/resource/authors/>
 
- select * where {
-	 dblpAuthor:Michael_Stonebraker  ^dc:creator/dc:title  ?paper
- }
- #+end_src
+# dbPedia
+dbr: <http://dbpedia.org/resource/>
+dbo: <http://dbpedia.org/ontology/>
 
+# YAGO
+yago: <http://yago-knowledge.org/resource/>
+frmb: <http://framebase.org/ns/>
 
-*** Q11  Journals                                          :dbpedia:selected:
- #+begin_src sparql
- prefix dc:         <http://purl.org/dc/elements/1.1/>
- prefix dblpAuthor: <http://dblp.l3s.de/d2r/resource/authors/>
- prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
- prefix swrc:    <http://swrc.ontoware.org/ontology#>
+# Common
+dc:         <http://purl.org/dc/elements/1.1/>
+rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+swrc:    <http://swrc.ontoware.org/ontology#>
+#+end_src
 
- select * where {
-	 dblpAuthor:Michael_Stonebraker  ^dc:creator/swrc:journal/rdfs:label  ?paper
- }
- #+end_src
-
-
-*** Q12  Conferences                                       :dbpedia:selected:
- #+begin_src sparql
- prefix dc:         <http://purl.org/dc/elements/1.1/>
- prefix dblpAuthor: <http://dblp.l3s.de/d2r/resource/authors/>
- prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
- prefix swrc:    <http://swrc.ontoware.org/ontology#>
-
- select * where {
-	 dblpAuthor:Michael_Stonebraker  ^dc:creator/swrc:series/rdfs:label  ?paper
- }
- #+end_src
+** Q10  Publications                                       :dbpedia:selected:
+#+begin_src sparql
+select * where {
+  dblpAuthor:Michael_Stonebraker  ^dc:creator/dc:title  ?paper
+}
+#+end_src
 
 
-*** Q13  CoAuthor                                          :dbpedia:selected:
- #+begin_src sparql
- prefix dc:         <http://purl.org/dc/elements/1.1/>
- prefix dblpAuthor: <http://dblp.l3s.de/d2r/resource/authors/>
- prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-
- select * where {
-	 dblpAuthor:Michael_Stonebraker  ^dc:creator/dc:creator/rdfs:label  ?paper
- }
- #+end_src
+** Q11  Journals                                           :dbpedia:selected:
+#+begin_src sparql
+select * where {
+  dblpAuthor:Michael_Stonebraker  ^dc:creator/swrc:journal/rdfs:label  ?paper
+}
+#+end_src
 
 
-*** Q14  CoAuthor* IRIs                                    :dbpedia:selected:
- #+begin_src sparql
- prefix dc:         <http://purl.org/dc/elements/1.1/>
- prefix dblpAuthor: <http://dblp.l3s.de/d2r/resource/authors/>
-
- select * where {
-	 dblpAuthor:Michael_Stonebraker  (^dc:creator/dc:creator)*  ?paper
- }
- #+end_src
+** Q12  Conferences                                        :dbpedia:selected:
+#+begin_src sparql
+select * where {
+  dblpAuthor:Michael_Stonebraker  ^dc:creator/swrc:series/rdfs:label  ?paper
+}
+#+end_src
 
 
-*** Q20  CoActor*                                          :dbpedia:selected:
- #+begin_src sparql
- prefix dbr: <http://dbpedia.org/resource/>
- prefix dbo: <http://dbpedia.org/ontology/>
- prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-
- select * where {
-	 dbr:Kevin_Bacon  (^dbo:starring/dbo:starring)*/rdfs:label  ?coActorName
- }
- #+end_src
+** Q13  CoAuthor                                           :dbpedia:selected:
+#+begin_src sparql
+select * where {
+  dblpAuthor:Michael_Stonebraker  ^dc:creator/dc:creator/rdfs:label  ?paper
+}
+#+end_src
 
 
-*** Q22  CoActor* IRIs                                        :yago:selected:
-
- #+begin_src sparql
- prefix yago: <http://yago-knowledge.org/resource/>
- prefix frmb: <http://framebase.org/ns/>
-
- select * where {
-	 # ((frmb:plays|yago:actedIn)/(^frmb:plays|^yago:actedIn))* was used on navigation, it's harder
-	 yago:Kevin_Bacon  (frmb:dereif-Performers_and_roles-playsInPerformance/^frmb:dereif-Performers_and_roles-playsInPerformance)* ?coActorIRI
- }
- #+end_src
+** Q14  CoAuthor* IRIs                                     :dbpedia:selected:
+#+begin_src sparql
+select * where {
+  dblpAuthor:Michael_Stonebraker  (^dc:creator/dc:creator)*  ?paper
+}
+#+end_src
 
 
-*** Q23  CoActor* sameAs                     :any:yago:dbpedia:lmdb:selected:
+** Q20  CoActor*                                           :dbpedia:selected:
+#+begin_src sparql
+select * where {
+  dbr:Kevin_Bacon  (^dbo:starring/dbo:starring)*/rdfs:label  ?coActorName
+}
+#+end_src
+
+
+** Q22  CoActor* IRIs                                         :yago:selected:
+
+#+begin_src sparql
+select * where {
+ # PLAYS_IN: yago:actedIn | frmb:dereif-Performers_and_roles-playsInPerformance
+ yago:Kevin_Bacon  ( PLAYS_IN/^PLAYS_IN )* ?coActorIRI
+}
+#+end_src
+
+** Q23  CoActor* sameAs                      :any:yago:dbpedia:lmdb:selected:
 This query has no sane, readable SPARQL equivalent, as it has too many optional edges.
 
 From each State, any of these Predicates can be used,
-	- ~dbo:starring~
-	- ~yago:actedIn~
-	- ~frmb:dereif-Performers_and_roles-playsInPerformance~
-	- ~owl:sameAs~
+  - ~dbo:starring~
+  - ~yago:actedIn~
+  - ~frmb:dereif-Performers_and_roles-playsInPerformance~
+  - ~owl:sameAs~
 
 And the final state can be reached through any of
-	- ~foaf:name~
-	- ~rdfs:label~
+  - ~foaf:name~
+  - ~rdfs:label~
 
-*** Q24  Movies-IRIs by CoActor*                              :yago:selected:
+** Q24  Movies-IRIs by CoActor*                               :yago:selected:
 
 #+begin_src sparql
-prefix yago: <http://yago-knowledge.org/resource/>
-
 select * where {
-	yago:Kevin_Bacon
-		(yago:actedIn/^yago:actedIn)+/yago:directed
-	?movieIRI
+  yago:Kevin_Bacon
+    (yago:actedIn/^yago:actedIn)+/yago:directed
+  ?movieIRI
 }
 #+end_src
 
@@ -154,50 +168,58 @@ b.frm("Movie").through(ACTED_IN).backwards_to("CoActor", NodeFilter_but(n))
 b.frm("CoActor").through(directed).final("Directed_Movie")
 #+end_src
 
-*** Q30  NATO Business'                              :yago:selected:gubichev:
+** Q30  NATO Business'                               :yago:selected:gubichev:
  Similar to Gubichev's Q1  (does not ends in ~yago:Berlin~)
 
- Works on Make-make.  2502 answers in negligible time
+#+begin_src sparql
+select * where {
+  yago:wikicat_Member_states_of_NATO ^rdf:type/^yago:dealsWith/(yago:isLocatedIn*) ?place
+}
+#+end_src
 
 #+begin_src python
-b = QueryBuilder(YAGO["wikicat_Member_states_of_NATO"])
+b = QueryBuilder(YAGO["wikicat_Member_states_of_NATO"], "NATO")
 
-b.frm("s0").through(RDF["type"]).backwards_to("Area")
+b.frm("NATO").through(RDF["type"]).backwards_to("Area")
 
 b.frm("Area").through(YAGO["dealsWith"]).backwards_to("Place", None, NodeFilter_but(n))
 
 b.frm("Place").through(YAGO["isLocatedIn"]).to("Place")
 #+end_src
 
-#+begin_src sparql
-PREFIX yago: <http://yago-knowledge.org/resource/>
 
+** Q32  Airports in Netherlands                      :yago:selected:gubichev:
+Similar to Gubichev's Q2, but yago:dealsWith was removed
+#+begin_src sparql
 select * where {
-	yago:wikicat_Member_states_of_NATO ^rdf:type/^yago:dealsWith/(yago:isLocatedIn*) ?place
+  yago:wikicat_Capitals_in_Europe ^rdf:type/yago:isLocatedIn* ?place
+}
+#+end_src
+
+#+begin_src python
+# Using wikicat_* instead of wikicategory_*
+
+b = QueryBuilder(n, "EuropeCapitals")
+b.from_("Airports").through( RDF["type"]       ).backwards_to("airport")  # AirportList ~> airport
+b.from_("airport" ).through(YAGO["isLocatedIn"]).final("Place")           # airport     -> Place
+b.from_("Place"   ).through(YAGO["isLocatedIn"]).to("Place")              # Place       -> Place
+#+end_src
+
+
+
+
+* Other queries used
+** Q16  17                                                 :dbpedia:selected:
+#+begin_src sparql
+select * where {
+  dblpAuthor:Michael_Stonebraker  ^dc:creator/dc:title  ?paper
 }
 #+end_src
 
 
-*** Q32  Airports in Netherlands                     :yago:selected:gubichev:
- Similar to Gubichev's Q2, but yago:dealsWith was removed
-
- #+begin_src python
- # Using wikicat_* instead of wikicategory_*
-
- b = QueryBuilder(n, "EuropeCapitals")
- b.from_("Airports").through( RDF["type"]       ).backwards_to("airport")  # AirportList ~> airport
- b.from_("airport" ).through(YAGO["isLocatedIn"]).final("Place")           # airport     -> Place
- b.from_("Place"   ).through(YAGO["isLocatedIn"]).to("Place")              # Place       -> Place
- #+end_src
-
- #+begin_src sparql
- PREFIX yago: <http://yago-knowledge.org/resource/>
-
- select * where {
-	 yago:wikicat_Capitals_in_Europe ^rdf:type/yago:isLocatedIn* ?place
- }
- #+end_src
-
-
-
-** Other queries used
+** Q17  16                                                 :dbpedia:selected:
+#+begin_src sparql
+select * where {
+  dblpAuthor:Michael_Stonebraker  ^dc:creator/swrc:journal/rdfs:label  ?paper
+}
+#+end_src

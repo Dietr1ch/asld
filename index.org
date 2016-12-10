@@ -55,7 +55,9 @@
 
 
 * Introduction
-This is a subset of the [[https://dietr1ch.github.io/asld/appendix.pdf][Appendix]].
+See the pdf [[https://dietr1ch.github.io/asld/appendix.pdf][Appendix]] to review the runs for selected queries.
+Queries are stated here.
+
 This should make the point that informed search works better than uninformed search. If we know the property path we are looking for, why don't we take advantage of that?
 
 * Selected queries

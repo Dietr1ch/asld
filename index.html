@@ -36,38 +36,38 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#/slide-org5252fcd">Introduction</a></li>
-<li><a href="#/slide-org262cee2">Selected queries</a>
+<li><a href="#/slide-org187f4f4">Introduction</a></li>
+<li><a href="#/slide-orgd8803b1">Selected queries</a>
 <ul>
-<li><a href="#/slide-orgca09416">Prefixes</a></li>
-<li><a href="#/slide-org96ec014">Q10  Publications</a>
+<li><a href="#/slide-org336f9cc">Prefixes</a></li>
+<li><a href="#/slide-org82dc87b">Q10  Publications</a>
 <ul>
-<li><a href="#/slide-orga7eb85c">Q10  Publications</a></li>
-<li><a href="#/slide-orgad8ae3e">Answers vs expansions</a></li>
-<li><a href="#/slide-orga6c9931">Answers vs time</a></li>
+<li><a href="#/slide-org2ed6ffe">Q10  Publications</a></li>
+<li><a href="#/slide-org090e7f7">Answers vs expansions</a></li>
+<li><a href="#/slide-orgf9eb684">Answers vs time</a></li>
 </ul>
 </li>
-<li><a href="#/slide-org1dd96a5">Q11  Journals</a></li>
-<li><a href="#/slide-org388470d">Q12  Conferences</a></li>
-<li><a href="#/slide-org0f9efe0">Q13  CoAuthor</a></li>
-<li><a href="#/slide-orgf91e834">Q14  CoAuthor* IRIs</a></li>
-<li><a href="#/slide-orga483679">Q20  CoActor*</a></li>
-<li><a href="#/slide-org18043b6">Q22  CoActor* IRIs</a></li>
-<li><a href="#/slide-org66a1ad6">Q23  CoActor* sameAs</a>
+<li><a href="#/slide-orgf90ef08">Q11  Journals</a></li>
+<li><a href="#/slide-orge5f04f2">Q12  Conferences</a></li>
+<li><a href="#/slide-orgcfc10a9">Q13  CoAuthor</a></li>
+<li><a href="#/slide-org1344d7d">Q14  CoAuthor* IRIs</a></li>
+<li><a href="#/slide-org08f3b74">Q20  CoActor*</a></li>
+<li><a href="#/slide-org255e9dc">Q22  CoActor* IRIs</a></li>
+<li><a href="#/slide-org36ccebf">Q23  CoActor* sameAs</a>
 <ul>
-<li><a href="#/slide-org034e753">SPARQL</a></li>
-<li><a href="#/slide-org80d7352">Automaton code</a></li>
+<li><a href="#/slide-orgd42f333">SPARQL</a></li>
+<li><a href="#/slide-org606636c">Automaton code</a></li>
 </ul>
 </li>
-<li><a href="#/slide-org598cc97">Q24  Movies-IRIs by CoActor*</a></li>
-<li><a href="#/slide-org7fd369a">Q30  NATO Business&rsquo;</a></li>
-<li><a href="#/slide-orgf2f36a1">Q32  Airports in Netherlands</a></li>
+<li><a href="#/slide-orgac8461d">Q24  Movies-IRIs by CoActor*</a></li>
+<li><a href="#/slide-org2ced134">Q30  NATO Business&rsquo;</a></li>
+<li><a href="#/slide-org997236e">Q32  Airports in Netherlands</a></li>
 </ul>
 </li>
-<li><a href="#/slide-orgbc33c1a">Other queries used</a>
+<li><a href="#/slide-org850c5de">Other queries used</a>
 <ul>
-<li><a href="#/slide-org609fe18">Q16  Paper IRIs from Coauthor*</a></li>
-<li><a href="#/slide-orgb4d3d3a">Q17  Paper from Coauthor*</a></li>
+<li><a href="#/slide-org57a146b">Q16  Paper IRIs from Coauthor*</a></li>
+<li><a href="#/slide-org8281cf2">Q17  Paper from Coauthor*</a></li>
 </ul>
 </li>
 </ul>
@@ -77,24 +77,28 @@
 
 
 <section>
-<section id="slide-org5252fcd">
-<h2 id="org5252fcd">Introduction</h2>
+<section id="slide-org187f4f4">
+<h2 id="org187f4f4">Introduction</h2>
 <p>
-This is a subset of the <a href="https://dietr1ch.github.io/asld/appendix.pdf">Appendix</a>.
+See the pdf <a href="https://dietr1ch.github.io/asld/appendix.pdf">Appendix</a> to review the runs for selected queries.
+Queries are stated here.
+</p>
+
+<p>
 This should make the point that informed search works better than uninformed search. If we know the property path we are looking for, why don&rsquo;t we take advantage of that?
 </p>
 
 </section>
 </section>
 <section>
-<section id="slide-org262cee2">
-<h2 id="org262cee2">Selected queries</h2>
-<div class="outline-text-2" id="text-org262cee2">
+<section id="slide-orgd8803b1">
+<h2 id="orgd8803b1">Selected queries</h2>
+<div class="outline-text-2" id="text-orgd8803b1">
 </div></section>
 </section>
 <section>
-<section id="slide-orgca09416">
-<h3 id="orgca09416">Prefixes</h3>
+<section id="slide-org336f9cc">
+<h3 id="org336f9cc">Prefixes</h3>
 <div class="org-src-container">
 
 <pre><code class="md" ># DBLP
@@ -119,12 +123,12 @@ swrc:    &lt;http://swrc.ontoware.org/ontology#&gt;
 </section>
 </section>
 <section>
-<section id="slide-org96ec014">
-<h3 id="org96ec014">Q10  Publications</h3>
-<div class="outline-text-3" id="text-org96ec014">
+<section id="slide-org82dc87b">
+<h3 id="org82dc87b">Q10  Publications</h3>
+<div class="outline-text-3" id="text-org82dc87b">
 </div></section>
-<section id="slide-orga7eb85c">
-<h4 id="orga7eb85c">Q10  Publications</h4>
+<section id="slide-org2ed6ffe">
+<h4 id="org2ed6ffe">Q10  Publications</h4>
 <div class="org-src-container">
 
 <pre><code class="sparql" >select * where {
@@ -143,8 +147,8 @@ b.frm("Paper").through(NAME).final("Title")
 </div>
 
 </section>
-<section id="slide-orgad8ae3e">
-<h4 id="orgad8ae3e">Answers vs expansions</h4>
+<section id="slide-org090e7f7">
+<h4 id="org090e7f7">Answers vs expansions</h4>
 
 <div class="figure">
 <p><img src="./data/experiments/q10-Publications/p1/quick/goals_found-remote_expansions.png" alt="goals_found-remote_expansions.png" />
@@ -152,8 +156,8 @@ b.frm("Paper").through(NAME).final("Title")
 </div>
 
 </section>
-<section id="slide-orga6c9931">
-<h4 id="orga6c9931">Answers vs time</h4>
+<section id="slide-orgf9eb684">
+<h4 id="orgf9eb684">Answers vs time</h4>
 
 <div class="figure">
 <p><img src="./data/experiments/q10-Publications/p1/quick/goals_found-wallClock.png" alt="goals_found-wallClock.png" />
@@ -164,8 +168,8 @@ b.frm("Paper").through(NAME).final("Title")
 </section>
 </section>
 <section>
-<section id="slide-org1dd96a5">
-<h3 id="org1dd96a5">Q11  Journals</h3>
+<section id="slide-orgf90ef08">
+<h3 id="orgf90ef08">Q11  Journals</h3>
 <div class="org-src-container">
 
 <pre><code class="sparql" >select * where {
@@ -186,8 +190,8 @@ b.frm("Journal").through(NAME).final("Name")
 </section>
 </section>
 <section>
-<section id="slide-org388470d">
-<h3 id="org388470d">Q12  Conferences</h3>
+<section id="slide-orge5f04f2">
+<h3 id="orge5f04f2">Q12  Conferences</h3>
 <div class="org-src-container">
 
 <pre><code class="sparql" >select * where {
@@ -208,8 +212,8 @@ b.frm("Conference").through(NAME).final("Name")
 </section>
 </section>
 <section>
-<section id="slide-org0f9efe0">
-<h3 id="org0f9efe0">Q13  CoAuthor</h3>
+<section id="slide-orgcfc10a9">
+<h3 id="orgcfc10a9">Q13  CoAuthor</h3>
 <div class="org-src-container">
 
 <pre><code class="sparql" >select * where {
@@ -231,8 +235,8 @@ b.frm("CoAuth").through(NAME).final("Name")
 </section>
 </section>
 <section>
-<section id="slide-orgf91e834">
-<h3 id="orgf91e834">Q14  CoAuthor* IRIs</h3>
+<section id="slide-org1344d7d">
+<h3 id="org1344d7d">Q14  CoAuthor* IRIs</h3>
 <div class="org-src-container">
 
 <pre><code class="sparql" >select * where {
@@ -255,8 +259,8 @@ b.frm("CoAuth").through(DC["creator"]).backwards_to("Paper'")
 </section>
 </section>
 <section>
-<section id="slide-orga483679">
-<h3 id="orga483679">Q20  CoActor*</h3>
+<section id="slide-org08f3b74">
+<h3 id="org08f3b74">Q20  CoActor*</h3>
 <div class="org-src-container">
 
 <pre><code class="sparql" >select * where {
@@ -283,8 +287,8 @@ b.frm("CoActor").through(NAME).final("Name")
 </section>
 </section>
 <section>
-<section id="slide-org18043b6">
-<h3 id="org18043b6">Q22  CoActor* IRIs</h3>
+<section id="slide-org255e9dc">
+<h3 id="org255e9dc">Q22  CoActor* IRIs</h3>
 <div class="org-src-container">
 
 <pre><code class="sparql" >select * where {
@@ -306,12 +310,12 @@ b.frm("CoActor").through(ACTED_IN).to("Movie")
 </section>
 </section>
 <section>
-<section id="slide-org66a1ad6">
-<h3 id="org66a1ad6">Q23  CoActor* sameAs</h3>
-<div class="outline-text-3" id="text-org66a1ad6">
+<section id="slide-org36ccebf">
+<h3 id="org36ccebf">Q23  CoActor* sameAs</h3>
+<div class="outline-text-3" id="text-org36ccebf">
 </div></section>
-<section id="slide-org034e753">
-<h4 id="org034e753">SPARQL</h4>
+<section id="slide-orgd42f333">
+<h4 id="orgd42f333">SPARQL</h4>
 <p>
 This query has no sane, readable SPARQL equivalent, as it has too many optional edges.
 </p>
@@ -337,8 +341,8 @@ And the final state can be reached through any of
 </ul>
 
 </section>
-<section id="slide-org80d7352">
-<h4 id="org80d7352">Automaton code</h4>
+<section id="slide-org606636c">
+<h4 id="org606636c">Automaton code</h4>
 <div class="org-src-container">
 
 <pre><code class="python" >b = QueryBuilder(n, "Actor")
@@ -363,8 +367,8 @@ b.frm("CoActor").through(NAME).final("Name")
 </section>
 </section>
 <section>
-<section id="slide-org598cc97">
-<h3 id="org598cc97">Q24  Movies-IRIs by CoActor*</h3>
+<section id="slide-orgac8461d">
+<h3 id="orgac8461d">Q24  Movies-IRIs by CoActor*</h3>
 <div class="org-src-container">
 
 <pre><code class="sparql" >select * where {
@@ -390,8 +394,8 @@ b.frm("CoActor").through(directed).final("Directed_Movie")
 </section>
 </section>
 <section>
-<section id="slide-org7fd369a">
-<h3 id="org7fd369a">Q30  NATO Business&rsquo;</h3>
+<section id="slide-org2ced134">
+<h3 id="org2ced134">Q30  NATO Business&rsquo;</h3>
 <p>
 Similar to Gubichev&rsquo;s Q1  (does not ends in <code>yago:Berlin</code>)
 </p>
@@ -420,8 +424,8 @@ b.frm("Place").through(YAGO["isLocatedIn"]).to("Place")
 </section>
 </section>
 <section>
-<section id="slide-orgf2f36a1">
-<h3 id="orgf2f36a1">Q32  Airports in Netherlands</h3>
+<section id="slide-org997236e">
+<h3 id="org997236e">Q32  Airports in Netherlands</h3>
 <p>
 Similar to Gubichev&rsquo;s Q2, but yago:dealsWith was removed
 </p>
@@ -450,14 +454,14 @@ b.from_("Place"   ).through(YAGO["isLocatedIn"]).to("Place")              # Plac
 </section>
 </section>
 <section>
-<section id="slide-orgbc33c1a">
-<h2 id="orgbc33c1a">Other queries used</h2>
-<div class="outline-text-2" id="text-orgbc33c1a">
+<section id="slide-org850c5de">
+<h2 id="org850c5de">Other queries used</h2>
+<div class="outline-text-2" id="text-org850c5de">
 </div></section>
 </section>
 <section>
-<section id="slide-org609fe18">
-<h3 id="org609fe18">Q16  Paper IRIs from Coauthor*</h3>
+<section id="slide-org57a146b">
+<h3 id="org57a146b">Q16  Paper IRIs from Coauthor*</h3>
 <div class="org-src-container">
 
 <pre><code class="sparql" >select * where {
@@ -479,8 +483,8 @@ b.frm("Author").through(DC["creator"]).backwards_final("Paper'")
 </section>
 </section>
 <section>
-<section id="slide-orgb4d3d3a">
-<h3 id="orgb4d3d3a">Q17  Paper from Coauthor*</h3>
+<section id="slide-org8281cf2">
+<h3 id="org8281cf2">Q17  Paper from Coauthor*</h3>
 <div class="org-src-container">
 
 <pre><code class="sparql" >select * where {

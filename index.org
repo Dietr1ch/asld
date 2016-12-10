@@ -284,17 +284,34 @@ b.from_("Place"   ).through(YAGO["isLocatedIn"]).to("Place")              # Plac
 
 
 * Other queries used
-** Q16  17                                                 :dbpedia:selected:
+** Q16  Paper IRIs from Coauthor*
 #+begin_src sparql
 select * where {
-  dblpAuthor:Michael_Stonebraker  ^dc:creator/dc:title  ?paper
+  dblpAuthor:Michael_Stonebraker  (^dc:creator/dc:creator)*/^dc:creator  ?paper
+}
+#+end_src
+
+#+begin_src python
+b = QueryBuilder(n, "Author")
+b.frm("Author").through(DC["creator"]).backwards_to("Paper")
+b.frm("Paper").through(DC["creator"]).to("Author")
+
+b.frm("Author").through(DC["creator"]).backwards_final("Paper'")
+#+end_src
+
+** Q17  Paper from Coauthor*
+#+begin_src sparql
+select * where {
+  dblpAuthor:Michael_Stonebraker  (^dc:creator/dc:creator)*/^dc:creator/dc:title  ?paperTitle
 }
 #+end_src
 
 
-** Q17  16                                                 :dbpedia:selected:
-#+begin_src sparql
-select * where {
-  dblpAuthor:Michael_Stonebraker  ^dc:creator/swrc:journal/rdfs:label  ?paper
-}
+#+begin_src python
+b = QueryBuilder(n, "Author")
+b.frm("Author").through(DC["creator"]).backwards_to("Paper")
+b.frm("Paper").through(DC["creator"]).to("Author")
+
+b.frm("Author").through(DC["creator"]).backwards_to("Paper'")
+b.frm("Paper'").through(DC["title"]).final("PaperTitle")
 #+end_src

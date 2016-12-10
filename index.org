@@ -85,6 +85,13 @@ select * where {
 }
 #+end_src
 
+#+begin_src python
+b = QueryBuilder(n, "Author")
+b.frm("Author").through(DC.creator).backwards_to("Paper")
+
+b.frm("Paper").through(NAME).final("Title")
+#+end_src
+
 
 ** Q11  Journals                                           :dbpedia:selected:
 #+begin_src sparql
@@ -93,6 +100,12 @@ select * where {
 }
 #+end_src
 
+#+begin_src python
+b = QueryBuilder(n, "Author")
+b.frm("Author").through(DC.creator).backwards_to("jPaper", NodeFilter_regex(".*journal.*"))
+b.frm("jPaper").through(SWRC.journal).to("Journal")
+b.frm("Journal").through(NAME).final("Name")
+#+end_src
 
 ** Q12  Conferences                                        :dbpedia:selected:
 #+begin_src sparql
@@ -101,6 +114,12 @@ select * where {
 }
 #+end_src
 
+#+begin_src python
+b = QueryBuilder(n, "Author")
+b.frm("Author").through(DC.creator).backwards_to("Paper")
+b.frm("Paper").through(SWRC.series).to("Conference")
+b.frm("Conference").through(NAME).final("Name")
+#+end_src
 
 ** Q13  CoAuthor                                           :dbpedia:selected:
 #+begin_src sparql
@@ -109,12 +128,27 @@ select * where {
 }
 #+end_src
 
+#+begin_src python
+b = QueryBuilder(n, "Author")
+b.frm("Author").through(DC["creator"]).backwards_to("Paper")
+b.frm("Paper").through(DC["creator"]).to("CoAuth", NodeFilter_but(n))
+
+b.frm("CoAuth").through(NAME).final("Name")
+#+end_src
 
 ** Q14  CoAuthor* IRIs                                     :dbpedia:selected:
 #+begin_src sparql
 select * where {
   dblpAuthor:Michael_Stonebraker  (^dc:creator/dc:creator)*  ?paper
 }
+#+end_src
+
+#+begin_src python
+b = QueryBuilder(n, "Author")
+b.frm("Author").through(DC["creator"]).backwards_to("Paper")
+b.frm("Paper").through(DC["creator"]).final("CoAuth", NodeFilter_but(n))
+
+b.frm("CoAuth").through(DC["creator"]).backwards_to("Paper'")
 #+end_src
 
 
@@ -124,6 +158,18 @@ select * where {
   dbr:Kevin_Bacon  (^dbo:starring/dbo:starring)*/rdfs:label  ?coActorName
 }
 #+end_src
+
+#+begin_src python
+b = QueryBuilder(n, "Actor")
+b.frm("Actor").through(DBO["starring"]).backwards_to("Movie")
+b.frm("Movie").through(DBO["starring"]).to("CoActor", NodeFilter_but(n))
+
+b.frm("CoActor").through(DBO["starring"]).backwards_to("Movie")
+
+b.frm("CoActor").through(NAME).final("Name")
+#+end_src
+
+
 
 
 ** Q22  CoActor* IRIs                                         :yago:selected:
@@ -135,7 +181,16 @@ select * where {
 }
 #+end_src
 
+#+begin_src python
+b = QueryBuilder(n, "Actor")
+b.frm("Actor").through(ACTED_IN).to("Movie")
+b.frm("Movie").through(ACTED_IN).backwards_final("CoActor", NodeFilter_but(n))
+b.frm("CoActor").through(ACTED_IN).to("Movie")
+#+end_src
+
 ** Q23  CoActor* sameAs                      :any:yago:dbpedia:lmdb:selected:
+
+*** SPARQL
 This query has no sane, readable SPARQL equivalent, as it has too many optional edges.
 
 From each State, any of these Predicates can be used,
@@ -147,6 +202,26 @@ From each State, any of these Predicates can be used,
 And the final state can be reached through any of
   - ~foaf:name~
   - ~rdfs:label~
+
+*** Automaton code
+#+begin_src python
+b = QueryBuilder(n, "Actor")
+b.frm("Actor").loop(SAME_AS)
+
+b.frm("Actor").through(ACTED_IN).to(       "Movie")
+b.frm("Actor").through(ACTOR).backwards_to("Movie")
+
+b.frm("Movie").loop(SAME_AS)
+
+b.frm("Movie").through(ACTOR).to(             "CoActor", NodeFilter_but(n))
+b.frm("Movie").through(ACTED_IN).backwards_to("CoActor")
+
+b.frm("CoActor").through(ACTED_IN).to(       "Movie")
+b.frm("CoActor").through(ACTOR).backwards_to("Movie")
+
+b.frm("CoActor").through(NAME).final("Name")
+#+end_src
+
 
 ** Q24  Movies-IRIs by CoActor*                               :yago:selected:
 

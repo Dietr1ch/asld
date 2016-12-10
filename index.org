@@ -55,9 +55,8 @@
 
 
 * Introduction
-This is better than uninformed search.
-
 This is a subset of the [[https://dietr1ch.github.io/asld/appendix.pdf][Appendix]].
+This should make the point that informed search works better than uninformed search. If we know the property path we are looking for, why don't we take advantage of that?
 
 * Selected queries
 ** Prefixes

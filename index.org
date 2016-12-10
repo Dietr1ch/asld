@@ -79,6 +79,8 @@ swrc:    <http://swrc.ontoware.org/ontology#>
 #+end_src
 
 ** Q10  Publications                                       :dbpedia:selected:
+
+*** Q10  Publications
 #+begin_src sparql
 select * where {
   dblpAuthor:Michael_Stonebraker  ^dc:creator/dc:title  ?paper
@@ -91,6 +93,12 @@ b.frm("Author").through(DC.creator).backwards_to("Paper")
 
 b.frm("Paper").through(NAME).final("Title")
 #+end_src
+
+*** Answers vs expansions
+[[./data/experiments/q10-Publications/p1/quick/goals_found-remote_expansions.png]]
+
+*** Answers vs time
+[[./data/experiments/q10-Publications/p1/quick/goals_found-wallClock.png]]
 
 
 ** Q11  Journals                                           :dbpedia:selected:

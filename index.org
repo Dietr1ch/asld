@@ -381,6 +381,12 @@ b.frm("Paper").through(DC["creator"]).to("Author")
 b.frm("Author").through(DC["creator"]).backwards_final("Paper'")
 #+end_src
 
+*** Answers vs expansions
+[[./data/additional-experiments/q16-CoAuthStarPapers_IRI/p1/quick/goals_found-remote_expansions.png]]
+
+*** Answers vs time
+[[./data/additional-experiments/q16-CoAuthStarPapers_IRI/p1/quick/goals_found-wallClock.png]]
+
 ** Q17  Paper from Coauthor*
 #+begin_src sparql
 select * where {
@@ -397,3 +403,10 @@ b.frm("Paper").through(DC["creator"]).to("Author")
 b.frm("Author").through(DC["creator"]).backwards_to("Paper'")
 b.frm("Paper'").through(DC["title"]).final("PaperTitle")
 #+end_src
+
+
+*** Answers vs expansions
+[[./data/additional-experiments/q17-CoAuthStarPapers/p1/quick/goals_found-remote_expansions.png]]
+
+*** Answers vs time
+[[./data/additional-experiments/q17-CoAuthStarPapers/p1/quick/goals_found-wallClock.png]]

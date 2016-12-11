@@ -82,7 +82,6 @@ swrc:    <http://swrc.ontoware.org/ontology#>
 #+end_src
 
 ** Q10  Publications                                       :dbpedia:selected:
-
 *** Q10  Publications
 #+begin_src sparql
 select * where {
@@ -170,20 +169,20 @@ b.frm("CoAuth").through(NAME).final("Name")
 
 
 ** Q14  CoAuthor* IRIs                                     :dbpedia:selected:
-#+begin_src sparql
-select * where {
-  dblpAuthor:Michael_Stonebraker  (^dc:creator/dc:creator)*  ?paper
-}
-#+end_src
+*** Q14  CoAuthor* IRIs
+ #+begin_src sparql
+ select * where {
+	 dblpAuthor:Michael_Stonebraker  (^dc:creator/dc:creator)*  ?paper
+ }
+ #+end_src
 
-#+begin_src python
-b = QueryBuilder(n, "Author")
-b.frm("Author").through(DC["creator"]).backwards_to("Paper")
-b.frm("Paper").through(DC["creator"]).final("CoAuth", NodeFilter_but(n))
+ #+begin_src python
+ b = QueryBuilder(n, "Author")
+ b.frm("Author").through(DC["creator"]).backwards_to("Paper")
+ b.frm("Paper").through(DC["creator"]).final("CoAuth", NodeFilter_but(n))
 
-b.frm("CoAuth").through(DC["creator"]).backwards_to("Paper'")
-#+end_src
-
+ b.frm("CoAuth").through(DC["creator"]).backwards_to("Paper'")
+ #+end_src
 
 *** Answers vs expansions
 [[./data/experiments/q14-CoauthorStar_IRI/p1/quick/goals_found-remote_expansions.png]]
@@ -209,7 +208,6 @@ b.frm("Paper'").through(DC["creator"]).to("CoAuth")
 
 b.frm("CoAuth").through(NAME).final("Name")
 #+end_src
-
 
 *** Answers vs expansions
 [[./data/experiments/q15-CoauthorStar/p1/quick/goals_found-remote_expansions.png]]
@@ -272,7 +270,6 @@ b.frm("CoActor").through(ACTED_IN).to("Movie")
 
 
 ** Q23  CoActor* sameAs                      :any:yago:dbpedia:lmdb:selected:
-
 *** SPARQL
 This query has no sane, readable SPARQL equivalent, as it has too many optional edges.
 
@@ -314,23 +311,24 @@ b.frm("CoActor").through(NAME).final("Name")
 
 
 ** Q30  NATO Business'                               :yago:selected:gubichev:
- Similar to Gubichev's Q1  (does not ends in ~yago:Berlin~)
+*** Q30  NATO Business'
+	Similar to Gubichev's Q1  (does not ends in ~yago:Berlin~)
 
-#+begin_src sparql
-select * where {
-  yago:wikicat_Member_states_of_NATO ^rdf:type/^yago:dealsWith/(yago:isLocatedIn*) ?place
-}
-#+end_src
+ #+begin_src sparql
+ select * where {
+	 yago:wikicat_Member_states_of_NATO ^rdf:type/^yago:dealsWith/(yago:isLocatedIn*) ?place
+ }
+ #+end_src
 
-#+begin_src python
-b = QueryBuilder(YAGO["wikicat_Member_states_of_NATO"], "NATO")
+ #+begin_src python
+ b = QueryBuilder(YAGO["wikicat_Member_states_of_NATO"], "NATO")
 
-b.frm("NATO").through(RDF["type"]).backwards_to("Area")
+ b.frm("NATO").through(RDF["type"]).backwards_to("Area")
 
-b.frm("Area").through(YAGO["dealsWith"]).backwards_to("Place", None, NodeFilter_but(n))
+ b.frm("Area").through(YAGO["dealsWith"]).backwards_to("Place", None, NodeFilter_but(n))
 
-b.frm("Place").through(YAGO["isLocatedIn"]).to("Place")
-#+end_src
+ b.frm("Place").through(YAGO["isLocatedIn"]).to("Place")
+ #+end_src
 
 *** Answers vs expansions
 [[./data/experiments/q30-NATO_Business/p1/quick/goals_found-remote_expansions.png]]
@@ -340,21 +338,22 @@ b.frm("Place").through(YAGO["isLocatedIn"]).to("Place")
 
 
 ** Q32  Airports in Netherlands                      :yago:selected:gubichev:
-Similar to Gubichev's Q2, but yago:dealsWith was removed
-#+begin_src sparql
-select * where {
-  yago:wikicat_Capitals_in_Europe ^rdf:type/yago:isLocatedIn* ?place
-}
-#+end_src
+*** Q32  Airports in Netherlands
+ Similar to Gubichev's Q2, but yago:dealsWith was removed
+ #+begin_src sparql
+ select * where {
+	 yago:wikicat_Capitals_in_Europe ^rdf:type/yago:isLocatedIn* ?place
+ }
+ #+end_src
 
-#+begin_src python
-# Using wikicat_* instead of wikicategory_*
+ #+begin_src python
+ # Using wikicat_* instead of wikicategory_*
 
-b = QueryBuilder(n, "EuropeCapitals")
-b.from_("Airports").through( RDF["type"]       ).backwards_to("airport")  # AirportList ~> airport
-b.from_("airport" ).through(YAGO["isLocatedIn"]).final("Place")           # airport     -> Place
-b.from_("Place"   ).through(YAGO["isLocatedIn"]).to("Place")              # Place       -> Place
-#+end_src
+ b = QueryBuilder(n, "EuropeCapitals")
+ b.from_("Airports").through( RDF["type"]       ).backwards_to("airport")  # AirportList ~> airport
+ b.from_("airport" ).through(YAGO["isLocatedIn"]).final("Place")           # airport     -> Place
+ b.from_("Place"   ).through(YAGO["isLocatedIn"]).to("Place")              # Place       -> Place
+ #+end_src
 
 
 *** Answers vs expansions
@@ -367,19 +366,20 @@ b.from_("Place"   ).through(YAGO["isLocatedIn"]).to("Place")              # Plac
 
 * Other queries used
 ** Q16  Paper IRIs from Coauthor*
-#+begin_src sparql
-select * where {
-  dblpAuthor:Michael_Stonebraker  (^dc:creator/dc:creator)*/^dc:creator  ?paper
-}
-#+end_src
+*** Q16  Paper IRIs from Coauthor*
+ #+begin_src sparql
+ select * where {
+	 dblpAuthor:Michael_Stonebraker  (^dc:creator/dc:creator)*/^dc:creator  ?paper
+ }
+ #+end_src
 
-#+begin_src python
-b = QueryBuilder(n, "Author")
-b.frm("Author").through(DC["creator"]).backwards_to("Paper")
-b.frm("Paper").through(DC["creator"]).to("Author")
+ #+begin_src python
+ b = QueryBuilder(n, "Author")
+ b.frm("Author").through(DC["creator"]).backwards_to("Paper")
+ b.frm("Paper").through(DC["creator"]).to("Author")
 
-b.frm("Author").through(DC["creator"]).backwards_final("Paper'")
-#+end_src
+ b.frm("Author").through(DC["creator"]).backwards_final("Paper'")
+ #+end_src
 
 *** Answers vs expansions
 [[./data/additional-experiments/q16-CoAuthStarPapers_IRI/p1/quick/goals_found-remote_expansions.png]]
@@ -388,21 +388,22 @@ b.frm("Author").through(DC["creator"]).backwards_final("Paper'")
 [[./data/additional-experiments/q16-CoAuthStarPapers_IRI/p1/quick/goals_found-wallClock.png]]
 
 ** Q17  Paper from Coauthor*
-#+begin_src sparql
-select * where {
-  dblpAuthor:Michael_Stonebraker  (^dc:creator/dc:creator)*/^dc:creator/dc:title  ?paperTitle
-}
-#+end_src
+*** Q17  Paper from Coauthor*
+ #+begin_src sparql
+ select * where {
+	 dblpAuthor:Michael_Stonebraker  (^dc:creator/dc:creator)*/^dc:creator/dc:title  ?paperTitle
+ }
+ #+end_src
 
 
-#+begin_src python
-b = QueryBuilder(n, "Author")
-b.frm("Author").through(DC["creator"]).backwards_to("Paper")
-b.frm("Paper").through(DC["creator"]).to("Author")
+ #+begin_src python
+ b = QueryBuilder(n, "Author")
+ b.frm("Author").through(DC["creator"]).backwards_to("Paper")
+ b.frm("Paper").through(DC["creator"]).to("Author")
 
-b.frm("Author").through(DC["creator"]).backwards_to("Paper'")
-b.frm("Paper'").through(DC["title"]).final("PaperTitle")
-#+end_src
+ b.frm("Author").through(DC["creator"]).backwards_to("Paper'")
+ b.frm("Paper'").through(DC["title"]).final("PaperTitle")
+ #+end_src
 
 
 *** Answers vs expansions

@@ -61,6 +61,8 @@ Queries are stated here.
 
 This should make the point that informed search works better than uninformed search. If we know the property path we are looking for, why don't we take advantage of that?
 
+(Slides are a list of stacks instead of just a list. Use ~SPACE~ to move)
+
 * Selected queries
 ** Notes
 	- Queries numbering is not contiguous, it follows a seemingly random pattern

@@ -25,17 +25,51 @@
     }
 </script>
 <script src='js/d3.v3.js' charset="utf-8"></script> <link rel="stylesheet" href="css/mine.css"> <link rel="stylesheet" href="css/graph.css"><link rel="stylesheet" href="https://doge.ing.puc.cl/dietr1ch/vendor/cytoscape.js/dist/cytoscape.min.js">
+<style type="text/css">section#table-of-contents {font-size:80%; }</style>
 </head>
 <body>
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide"><h2 class="author">Evaluating navigational RDF queries over the Web</h2>
 </section>
+<section id="table-of-contents">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#/slide-org741464d">Introduction</a></li>
+<li><a href="#/slide-org0b24793">Selected queries</a>
+<ul>
+<li><a href="#/slide-orgbc9661b">Notes</a></li>
+<li><a href="#/slide-org756a2c0">Prefixes</a></li>
+<li><a href="#/slide-org3fe60d7">Q10  Publications</a></li>
+<li><a href="#/slide-org7291f53">Q11  Journals</a></li>
+<li><a href="#/slide-orgc172d98">Q12  Conferences</a></li>
+<li><a href="#/slide-orgaabc525">Q13  CoAuthor</a></li>
+<li><a href="#/slide-org56b242b">Q14  CoAuthor* IRIs</a></li>
+<li><a href="#/slide-org605f926">Q15  CoAuthor*  (qA)</a></li>
+<li><a href="#/slide-org3c214ee">Q20  CoActor*</a></li>
+<li><a href="#/slide-org89150fd">Q22  CoActor* IRIs</a></li>
+<li><a href="#/slide-org3cf8b41">Q23  CoActor* sameAs  (qB)</a></li>
+<li><a href="#/slide-org94a19b3">Q30  NATO Business&rsquo;  (qC)</a></li>
+<li><a href="#/slide-orgeccd4dc">Q32  Airports in Netherlands</a></li>
+</ul>
+</li>
+<li><a href="#/slide-org131139d">Other queries used</a>
+<ul>
+<li><a href="#/slide-org142d7c2">Q16  Paper IRIs from Coauthor*</a></li>
+<li><a href="#/slide-orgfcea615">Q17  Paper from Coauthor*</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</section>
 
 
 <section>
-<section id="slide-org8fcc697">
-<h2 id="org8fcc697">Introduction</h2>
+<section id="slide-org741464d">
+<h2 id="org741464d">Introduction</h2>
 <p>
 See the pdf <a href="https://dietr1ch.github.io/asld/appendix.pdf">Appendix</a> to review the runs for selected queries.
 Queries are stated here.
@@ -48,14 +82,14 @@ This should make the point that informed search works better than uninformed sea
 </section>
 </section>
 <section>
-<section id="slide-org8843db4">
-<h2 id="org8843db4">Selected queries</h2>
-<div class="outline-text-2" id="text-org8843db4">
+<section id="slide-org0b24793">
+<h2 id="org0b24793">Selected queries</h2>
+<div class="outline-text-2" id="text-org0b24793">
 </div></section>
 </section>
 <section>
-<section id="slide-orgfcc3c56">
-<h3 id="orgfcc3c56">Notes</h3>
+<section id="slide-orgbc9661b">
+<h3 id="orgbc9661b">Notes</h3>
 <ul>
 <li>Queries numbering is not contiguous, it follows a seemingly random pattern
 <ul>
@@ -77,8 +111,8 @@ This should make the point that informed search works better than uninformed sea
 </section>
 </section>
 <section>
-<section id="slide-org11ecfbd">
-<h3 id="org11ecfbd">Prefixes</h3>
+<section id="slide-org756a2c0">
+<h3 id="org756a2c0">Prefixes</h3>
 <div class="org-src-container">
 
 <pre><code class="md" ># DBLP
@@ -103,12 +137,12 @@ swrc:    &lt;http://swrc.ontoware.org/ontology#&gt;
 </section>
 </section>
 <section>
-<section id="slide-orgc01f62d">
-<h3 id="orgc01f62d">Q10  Publications</h3>
-<div class="outline-text-3" id="text-orgc01f62d">
+<section id="slide-org3fe60d7">
+<h3 id="org3fe60d7">Q10  Publications</h3>
+<div class="outline-text-3" id="text-org3fe60d7">
 </div></section>
-<section id="slide-org8b32933">
-<h4 id="org8b32933">Q10  Publications</h4>
+<section id="slide-org17385d1">
+<h4 id="org17385d1">Q10  Publications</h4>
 <div class="org-src-container">
 
 <pre><code class="sparql" >select * where {
@@ -127,8 +161,8 @@ b.frm("Paper").through(NAME).final("Title")
 </div>
 
 </section>
-<section id="slide-orgd843492">
-<h4 id="orgd843492">Answers vs expansions</h4>
+<section id="slide-orgc2879c9">
+<h4 id="orgc2879c9">Answers vs expansions</h4>
 
 <div class="figure">
 <p><img src="./data/experiments/q10-Publications/p1/quick/goals_found-remote_expansions.png" alt="goals_found-remote_expansions.png" />
@@ -136,8 +170,8 @@ b.frm("Paper").through(NAME).final("Title")
 </div>
 
 </section>
-<section id="slide-org14ff303">
-<h4 id="org14ff303">Answers vs time</h4>
+<section id="slide-orgc3914b4">
+<h4 id="orgc3914b4">Answers vs time</h4>
 
 <div class="figure">
 <p><img src="./data/experiments/q10-Publications/p1/quick/goals_found-wallClock.png" alt="goals_found-wallClock.png" />
@@ -148,12 +182,12 @@ b.frm("Paper").through(NAME).final("Title")
 </section>
 </section>
 <section>
-<section id="slide-orgcaa5107">
-<h3 id="orgcaa5107">Q11  Journals</h3>
-<div class="outline-text-3" id="text-orgcaa5107">
+<section id="slide-org7291f53">
+<h3 id="org7291f53">Q11  Journals</h3>
+<div class="outline-text-3" id="text-org7291f53">
 </div></section>
-<section id="slide-org2e9791a">
-<h4 id="org2e9791a">Q11  Journals</h4>
+<section id="slide-orga820bdc">
+<h4 id="orga820bdc">Q11  Journals</h4>
 <div class="org-src-container">
 
 <pre><code class="sparql" >select * where {
@@ -172,8 +206,8 @@ b.frm("Journal").through(NAME).final("Name")
 </div>
 
 </section>
-<section id="slide-org4bab148">
-<h4 id="org4bab148">Answers vs expansions</h4>
+<section id="slide-org01314a4">
+<h4 id="org01314a4">Answers vs expansions</h4>
 
 <div class="figure">
 <p><img src="./data/experiments/q11-Journals/p1/quick/goals_found-remote_expansions.png" alt="goals_found-remote_expansions.png" />
@@ -181,8 +215,8 @@ b.frm("Journal").through(NAME).final("Name")
 </div>
 
 </section>
-<section id="slide-orgfa2cdf9">
-<h4 id="orgfa2cdf9">Answers vs time</h4>
+<section id="slide-org689f794">
+<h4 id="org689f794">Answers vs time</h4>
 
 <div class="figure">
 <p><img src="./data/experiments/q11-Journals/p1/quick/goals_found-wallClock.png" alt="goals_found-wallClock.png" />
@@ -192,12 +226,12 @@ b.frm("Journal").through(NAME).final("Name")
 </section>
 </section>
 <section>
-<section id="slide-orgace4a55">
-<h3 id="orgace4a55">Q12  Conferences</h3>
-<div class="outline-text-3" id="text-orgace4a55">
+<section id="slide-orgc172d98">
+<h3 id="orgc172d98">Q12  Conferences</h3>
+<div class="outline-text-3" id="text-orgc172d98">
 </div></section>
-<section id="slide-orgf209328">
-<h4 id="orgf209328">Q12  Conferences</h4>
+<section id="slide-org52a0646">
+<h4 id="org52a0646">Q12  Conferences</h4>
 <div class="org-src-container">
 
 <pre><code class="sparql" >select * where {
@@ -216,8 +250,8 @@ b.frm("Conference").through(NAME).final("Name")
 </div>
 
 </section>
-<section id="slide-org6a8fdf0">
-<h4 id="org6a8fdf0">Answers vs expansions</h4>
+<section id="slide-orga284575">
+<h4 id="orga284575">Answers vs expansions</h4>
 
 <div class="figure">
 <p><img src="./data/experiments/q12-Conferences/p1/quick/goals_found-remote_expansions.png" alt="goals_found-remote_expansions.png" />
@@ -225,8 +259,8 @@ b.frm("Conference").through(NAME).final("Name")
 </div>
 
 </section>
-<section id="slide-orgf054a10">
-<h4 id="orgf054a10">Answers vs time</h4>
+<section id="slide-org8a2c113">
+<h4 id="org8a2c113">Answers vs time</h4>
 
 <div class="figure">
 <p><img src="./data/experiments/q12-Conferences/p1/quick/goals_found-wallClock.png" alt="goals_found-wallClock.png" />
@@ -236,12 +270,12 @@ b.frm("Conference").through(NAME).final("Name")
 </section>
 </section>
 <section>
-<section id="slide-org244aa4d">
-<h3 id="org244aa4d">Q13  CoAuthor</h3>
-<div class="outline-text-3" id="text-org244aa4d">
+<section id="slide-orgaabc525">
+<h3 id="orgaabc525">Q13  CoAuthor</h3>
+<div class="outline-text-3" id="text-orgaabc525">
 </div></section>
-<section id="slide-org41c212b">
-<h4 id="org41c212b">Q13  CoAuthor</h4>
+<section id="slide-orgf54e5bc">
+<h4 id="orgf54e5bc">Q13  CoAuthor</h4>
 <div class="org-src-container">
 
 <pre><code class="sparql" >select * where {
@@ -261,8 +295,8 @@ b.frm("CoAuth").through(NAME).final("Name")
 </div>
 
 </section>
-<section id="slide-org808e56c">
-<h4 id="org808e56c">Answers vs expansions</h4>
+<section id="slide-org07b7971">
+<h4 id="org07b7971">Answers vs expansions</h4>
 
 <div class="figure">
 <p><img src="./data/experiments/q13-Direct_Coauthors/p1/quick/goals_found-remote_expansions.png" alt="goals_found-remote_expansions.png" />
@@ -270,8 +304,8 @@ b.frm("CoAuth").through(NAME).final("Name")
 </div>
 
 </section>
-<section id="slide-org716ebaf">
-<h4 id="org716ebaf">Answers vs time</h4>
+<section id="slide-org6fa18b1">
+<h4 id="org6fa18b1">Answers vs time</h4>
 
 <div class="figure">
 <p><img src="./data/experiments/q13-Direct_Coauthors/p1/quick/goals_found-wallClock.png" alt="goals_found-wallClock.png" />
@@ -282,12 +316,12 @@ b.frm("CoAuth").through(NAME).final("Name")
 </section>
 </section>
 <section>
-<section id="slide-org0d2bb7c">
-<h3 id="org0d2bb7c">Q14  CoAuthor* IRIs</h3>
-<div class="outline-text-3" id="text-org0d2bb7c">
+<section id="slide-org56b242b">
+<h3 id="org56b242b">Q14  CoAuthor* IRIs</h3>
+<div class="outline-text-3" id="text-org56b242b">
 </div></section>
-<section id="slide-org87183fa">
-<h4 id="org87183fa">Q14  CoAuthor* IRIs</h4>
+<section id="slide-org990fb64">
+<h4 id="org990fb64">Q14  CoAuthor* IRIs</h4>
 <div class="org-src-container">
 
 <pre><code class="sparql" >select * where {
@@ -307,8 +341,8 @@ b.frm("CoAuth").through(DC["creator"]).backwards_to("Paper'")
 </div>
 
 </section>
-<section id="slide-org009cf86">
-<h4 id="org009cf86">Answers vs expansions</h4>
+<section id="slide-orga458aea">
+<h4 id="orga458aea">Answers vs expansions</h4>
 
 <div class="figure">
 <p><img src="./data/experiments/q14-CoauthorStar_IRI/p1/quick/goals_found-remote_expansions.png" alt="goals_found-remote_expansions.png" />
@@ -316,8 +350,8 @@ b.frm("CoAuth").through(DC["creator"]).backwards_to("Paper'")
 </div>
 
 </section>
-<section id="slide-org43b7b2b">
-<h4 id="org43b7b2b">Answers vs time</h4>
+<section id="slide-orgd379dff">
+<h4 id="orgd379dff">Answers vs time</h4>
 
 <div class="figure">
 <p><img src="./data/experiments/q14-CoauthorStar_IRI/p1/quick/goals_found-wallClock.png" alt="goals_found-wallClock.png" />
@@ -327,12 +361,12 @@ b.frm("CoAuth").through(DC["creator"]).backwards_to("Paper'")
 </section>
 </section>
 <section>
-<section id="slide-orga6a35f6">
-<h3 id="orga6a35f6">Q15  CoAuthor*  (qA)</h3>
-<div class="outline-text-3" id="text-orga6a35f6">
+<section id="slide-org605f926">
+<h3 id="org605f926">Q15  CoAuthor*  (qA)</h3>
+<div class="outline-text-3" id="text-org605f926">
 </div></section>
-<section id="slide-org610435f">
-<h4 id="org610435f">Q15  CoAuthor*  (qA)</h4>
+<section id="slide-orge4350cf">
+<h4 id="orge4350cf">Q15  CoAuthor*  (qA)</h4>
 <div class="org-src-container">
 
 <pre><code class="sparql" >select * where {
@@ -355,8 +389,8 @@ b.frm("CoAuth").through(NAME).final("Name")
 </div>
 
 </section>
-<section id="slide-orgb233752">
-<h4 id="orgb233752">Answers vs expansions</h4>
+<section id="slide-org8d607d4">
+<h4 id="org8d607d4">Answers vs expansions</h4>
 
 <div class="figure">
 <p><img src="./data/experiments/q15-CoauthorStar/p1/quick/goals_found-remote_expansions.png" alt="goals_found-remote_expansions.png" />
@@ -364,8 +398,8 @@ b.frm("CoAuth").through(NAME).final("Name")
 </div>
 
 </section>
-<section id="slide-orga509937">
-<h4 id="orga509937">Answers vs time</h4>
+<section id="slide-org0035c16">
+<h4 id="org0035c16">Answers vs time</h4>
 
 <div class="figure">
 <p><img src="./data/experiments/q15-CoauthorStar/p1/quick/goals_found-wallClock.png" alt="goals_found-wallClock.png" />
@@ -376,12 +410,12 @@ b.frm("CoAuth").through(NAME).final("Name")
 </section>
 </section>
 <section>
-<section id="slide-org1e1f012">
-<h3 id="org1e1f012">Q20  CoActor*</h3>
-<div class="outline-text-3" id="text-org1e1f012">
+<section id="slide-org3c214ee">
+<h3 id="org3c214ee">Q20  CoActor*</h3>
+<div class="outline-text-3" id="text-org3c214ee">
 </div></section>
-<section id="slide-orgd93b581">
-<h4 id="orgd93b581">Q20  CoActor*</h4>
+<section id="slide-orgcd7d96d">
+<h4 id="orgcd7d96d">Q20  CoActor*</h4>
 <div class="org-src-container">
 
 <pre><code class="sparql" >select * where {
@@ -404,8 +438,8 @@ b.frm("CoActor").through(NAME).final("Name")
 
 
 </section>
-<section id="slide-orge5bd0b2">
-<h4 id="orge5bd0b2">Answers vs expansions</h4>
+<section id="slide-org2174952">
+<h4 id="org2174952">Answers vs expansions</h4>
 
 <div class="figure">
 <p><img src="./data/experiments/q20-CoactorStar__DBPEDIA/p1/quick/goals_found-remote_expansions.png" alt="goals_found-remote_expansions.png" />
@@ -413,8 +447,8 @@ b.frm("CoActor").through(NAME).final("Name")
 </div>
 
 </section>
-<section id="slide-org648c4b5">
-<h4 id="org648c4b5">Answers vs time</h4>
+<section id="slide-org6504001">
+<h4 id="org6504001">Answers vs time</h4>
 
 <div class="figure">
 <p><img src="./data/experiments/q20-CoactorStar__DBPEDIA/p1/quick/goals_found-wallClock.png" alt="goals_found-wallClock.png" />
@@ -427,12 +461,12 @@ b.frm("CoActor").through(NAME).final("Name")
 </section>
 </section>
 <section>
-<section id="slide-orgae6d07d">
-<h3 id="orgae6d07d">Q22  CoActor* IRIs</h3>
-<div class="outline-text-3" id="text-orgae6d07d">
+<section id="slide-org89150fd">
+<h3 id="org89150fd">Q22  CoActor* IRIs</h3>
+<div class="outline-text-3" id="text-org89150fd">
 </div></section>
-<section id="slide-org4fb8299">
-<h4 id="org4fb8299">Q22  CoActor* IRIs</h4>
+<section id="slide-org7d6e448">
+<h4 id="org7d6e448">Q22  CoActor* IRIs</h4>
 <div class="org-src-container">
 
 <pre><code class="sparql" >select * where {
@@ -452,8 +486,8 @@ b.frm("CoActor").through(ACTED_IN).to("Movie")
 </div>
 
 </section>
-<section id="slide-org4046eb4">
-<h4 id="org4046eb4">Answers vs expansions</h4>
+<section id="slide-orgcf7a927">
+<h4 id="orgcf7a927">Answers vs expansions</h4>
 
 <div class="figure">
 <p><img src="./data/experiments/q22-CoactorStar_IRI__YAGO/p1/quick/goals_found-remote_expansions.png" alt="goals_found-remote_expansions.png" />
@@ -461,8 +495,8 @@ b.frm("CoActor").through(ACTED_IN).to("Movie")
 </div>
 
 </section>
-<section id="slide-org214d540">
-<h4 id="org214d540">Answers vs time</h4>
+<section id="slide-org5eb88c9">
+<h4 id="org5eb88c9">Answers vs time</h4>
 
 <div class="figure">
 <p><img src="./data/experiments/q22-CoactorStar_IRI__YAGO/p1/quick/goals_found-wallClock.png" alt="goals_found-wallClock.png" />
@@ -474,12 +508,12 @@ b.frm("CoActor").through(ACTED_IN).to("Movie")
 </section>
 </section>
 <section>
-<section id="slide-org8a8ec6b">
-<h3 id="org8a8ec6b">Q23  CoActor* sameAs  (qB)</h3>
-<div class="outline-text-3" id="text-org8a8ec6b">
+<section id="slide-org3cf8b41">
+<h3 id="org3cf8b41">Q23  CoActor* sameAs  (qB)</h3>
+<div class="outline-text-3" id="text-org3cf8b41">
 </div></section>
-<section id="slide-org4091aec">
-<h4 id="org4091aec">SPARQL</h4>
+<section id="slide-orgc9d1d20">
+<h4 id="orgc9d1d20">SPARQL</h4>
 <p>
 This query has no sane, readable SPARQL equivalent, as it has too many optional edges.
 </p>
@@ -505,8 +539,8 @@ And the final state can be reached through any of
 </ul>
 
 </section>
-<section id="slide-orgeeb991d">
-<h4 id="orgeeb991d">Automaton code</h4>
+<section id="slide-org883d6ed">
+<h4 id="org883d6ed">Automaton code</h4>
 <div class="org-src-container">
 
 <pre><code class="python" >b = QueryBuilder(n, "Actor")
@@ -529,8 +563,8 @@ b.frm("CoActor").through(NAME).final("Name")
 
 
 </section>
-<section id="slide-org6f0f5b2">
-<h4 id="org6f0f5b2">Answers vs expansions</h4>
+<section id="slide-orgfeee3fe">
+<h4 id="orgfeee3fe">Answers vs expansions</h4>
 
 <div class="figure">
 <p><img src="./data/experiments/q23-CoactorStar__ANY/p1/quick/goals_found-remote_expansions.png" alt="goals_found-remote_expansions.png" />
@@ -538,8 +572,8 @@ b.frm("CoActor").through(NAME).final("Name")
 </div>
 
 </section>
-<section id="slide-org250818c">
-<h4 id="org250818c">Answers vs time</h4>
+<section id="slide-org8d02201">
+<h4 id="org8d02201">Answers vs time</h4>
 
 <div class="figure">
 <p><img src="./data/experiments/q23-CoactorStar__ANY/p1/quick/goals_found-wallClock.png" alt="goals_found-wallClock.png" />
@@ -550,12 +584,12 @@ b.frm("CoActor").through(NAME).final("Name")
 </section>
 </section>
 <section>
-<section id="slide-org3862c83">
-<h3 id="org3862c83">Q30  NATO Business&rsquo;  (qC)</h3>
-<div class="outline-text-3" id="text-org3862c83">
+<section id="slide-org94a19b3">
+<h3 id="org94a19b3">Q30  NATO Business&rsquo;  (qC)</h3>
+<div class="outline-text-3" id="text-org94a19b3">
 </div></section>
-<section id="slide-orgaf6b977">
-<h4 id="orgaf6b977">Q30  NATO Business&rsquo;  (qC)</h4>
+<section id="slide-orgb5735a1">
+<h4 id="orgb5735a1">Q30  NATO Business&rsquo;  (qC)</h4>
 <p>
 Similar to Gubichev&rsquo;s Q1  (does not ends in <code>yago:Berlin</code>)
 </p>
@@ -581,8 +615,8 @@ b.frm("Place").through(YAGO["isLocatedIn"]).to("Place")
 </div>
 
 </section>
-<section id="slide-org894917d">
-<h4 id="org894917d">Answers vs expansions</h4>
+<section id="slide-org9a5e0fd">
+<h4 id="org9a5e0fd">Answers vs expansions</h4>
 
 <div class="figure">
 <p><img src="./data/experiments/q30-NATO_Business/p1/quick/goals_found-remote_expansions.png" alt="goals_found-remote_expansions.png" />
@@ -590,8 +624,8 @@ b.frm("Place").through(YAGO["isLocatedIn"]).to("Place")
 </div>
 
 </section>
-<section id="slide-orgf7f4fac">
-<h4 id="orgf7f4fac">Answers vs time</h4>
+<section id="slide-orgc250520">
+<h4 id="orgc250520">Answers vs time</h4>
 
 <div class="figure">
 <p><img src="./data/experiments/q30-NATO_Business/p1/quick/goals_found-wallClock.png" alt="goals_found-wallClock.png" />
@@ -602,12 +636,12 @@ b.frm("Place").through(YAGO["isLocatedIn"]).to("Place")
 </section>
 </section>
 <section>
-<section id="slide-orgd338915">
-<h3 id="orgd338915">Q32  Airports in Netherlands</h3>
-<div class="outline-text-3" id="text-orgd338915">
+<section id="slide-orgeccd4dc">
+<h3 id="orgeccd4dc">Q32  Airports in Netherlands</h3>
+<div class="outline-text-3" id="text-orgeccd4dc">
 </div></section>
-<section id="slide-org6f80434">
-<h4 id="org6f80434">Q32  Airports in Netherlands</h4>
+<section id="slide-orgbe2d4c1">
+<h4 id="orgbe2d4c1">Q32  Airports in Netherlands</h4>
 <p>
 Similar to Gubichev&rsquo;s Q2, but yago:dealsWith was removed
 </p>
@@ -632,8 +666,8 @@ b.from_("Place"   ).through(YAGO["isLocatedIn"]).to("Place")              # Plac
 
 
 </section>
-<section id="slide-org617fb3c">
-<h4 id="org617fb3c">Answers vs expansions</h4>
+<section id="slide-org47383b3">
+<h4 id="org47383b3">Answers vs expansions</h4>
 
 <div class="figure">
 <p><img src="./data/experiments/q32-AirportsInNetherlands/p1/quick/goals_found-remote_expansions.png" alt="goals_found-remote_expansions.png" />
@@ -641,8 +675,8 @@ b.from_("Place"   ).through(YAGO["isLocatedIn"]).to("Place")              # Plac
 </div>
 
 </section>
-<section id="slide-org03fca39">
-<h4 id="org03fca39">Answers vs time</h4>
+<section id="slide-orgd6ba406">
+<h4 id="orgd6ba406">Answers vs time</h4>
 
 <div class="figure">
 <p><img src="./data/experiments/q32-AirportsInNetherlands/p1/quick/goals_found-wallClock.png" alt="goals_found-wallClock.png" />
@@ -654,18 +688,18 @@ b.from_("Place"   ).through(YAGO["isLocatedIn"]).to("Place")              # Plac
 </section>
 </section>
 <section>
-<section id="slide-orgead53ee">
-<h2 id="orgead53ee">Other queries used</h2>
-<div class="outline-text-2" id="text-orgead53ee">
+<section id="slide-org131139d">
+<h2 id="org131139d">Other queries used</h2>
+<div class="outline-text-2" id="text-org131139d">
 </div></section>
 </section>
 <section>
-<section id="slide-org2336245">
-<h3 id="org2336245">Q16  Paper IRIs from Coauthor*</h3>
-<div class="outline-text-3" id="text-org2336245">
+<section id="slide-org142d7c2">
+<h3 id="org142d7c2">Q16  Paper IRIs from Coauthor*</h3>
+<div class="outline-text-3" id="text-org142d7c2">
 </div></section>
-<section id="slide-orgae9ccb4">
-<h4 id="orgae9ccb4">Q16  Paper IRIs from Coauthor*</h4>
+<section id="slide-org32fedad">
+<h4 id="org32fedad">Q16  Paper IRIs from Coauthor*</h4>
 <div class="org-src-container">
 
 <pre><code class="sparql" >select * where {
@@ -685,8 +719,8 @@ b.frm("Author").through(DC["creator"]).backwards_final("Paper'")
 </div>
 
 </section>
-<section id="slide-org3e89038">
-<h4 id="org3e89038">Answers vs expansions</h4>
+<section id="slide-orga383433">
+<h4 id="orga383433">Answers vs expansions</h4>
 
 <div class="figure">
 <p><img src="./data/additional-experiments/q16-CoAuthStarPapers_IRI/p1/quick/goals_found-remote_expansions.png" alt="goals_found-remote_expansions.png" />
@@ -694,8 +728,8 @@ b.frm("Author").through(DC["creator"]).backwards_final("Paper'")
 </div>
 
 </section>
-<section id="slide-org7d969b8">
-<h4 id="org7d969b8">Answers vs time</h4>
+<section id="slide-orga55691a">
+<h4 id="orga55691a">Answers vs time</h4>
 
 <div class="figure">
 <p><img src="./data/additional-experiments/q16-CoAuthStarPapers_IRI/p1/quick/goals_found-wallClock.png" alt="goals_found-wallClock.png" />
@@ -705,12 +739,12 @@ b.frm("Author").through(DC["creator"]).backwards_final("Paper'")
 </section>
 </section>
 <section>
-<section id="slide-org4f46484">
-<h3 id="org4f46484">Q17  Paper from Coauthor*</h3>
-<div class="outline-text-3" id="text-org4f46484">
+<section id="slide-orgfcea615">
+<h3 id="orgfcea615">Q17  Paper from Coauthor*</h3>
+<div class="outline-text-3" id="text-orgfcea615">
 </div></section>
-<section id="slide-orga965b06">
-<h4 id="orga965b06">Q17  Paper from Coauthor*</h4>
+<section id="slide-org7d42c82">
+<h4 id="org7d42c82">Q17  Paper from Coauthor*</h4>
 <div class="org-src-container">
 
 <pre><code class="sparql" >select * where {
@@ -733,8 +767,8 @@ b.frm("Paper'").through(DC["title"]).final("PaperTitle")
 
 
 </section>
-<section id="slide-org05614ea">
-<h4 id="org05614ea">Answers vs expansions</h4>
+<section id="slide-org75bfded">
+<h4 id="org75bfded">Answers vs expansions</h4>
 
 <div class="figure">
 <p><img src="./data/additional-experiments/q17-CoAuthStarPapers/p1/quick/goals_found-remote_expansions.png" alt="goals_found-remote_expansions.png" />
@@ -742,8 +776,8 @@ b.frm("Paper'").through(DC["title"]).final("PaperTitle")
 </div>
 
 </section>
-<section id="slide-orgdb15675">
-<h4 id="orgdb15675">Answers vs time</h4>
+<section id="slide-org9f43bb8">
+<h4 id="org9f43bb8">Answers vs time</h4>
 
 <div class="figure">
 <p><img src="./data/additional-experiments/q17-CoAuthStarPapers/p1/quick/goals_found-wallClock.png" alt="goals_found-wallClock.png" />

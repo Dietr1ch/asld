@@ -29,7 +29,7 @@
 #+OPTIONS: reveal_overview:nil
 
 ** Numbering
-#+OPTIONS: toc:nil
+#+OPTIONS: toc:2
 #+OPTIONS: num:nil
 #+OPTIONS: reveal_slide_number:h.v
 
@@ -45,7 +45,7 @@
 # +EMAIL: ""
 #+OPTIONS: ':t *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
 #+OPTIONS: creator:comment d:(not LOGBOOK) date:t e:t email:nil f:t inline:t
-#+OPTIONS: num:nil p:nil pri:nil stat:t tags:nil tasks:t tex:t timestamp:t toc:nil
+#+OPTIONS: p:nil pri:nil stat:t tags:nil tasks:t tex:t timestamp:t
 #+OPTIONS: todo:t |:t
 #+DESCRIPTION:
 #+EXCLUDE_TAGS: noexport
@@ -53,6 +53,7 @@
 #+LANGUAGE: en
 #+SELECT_TAGS: export
 
+#+HTML_HEAD:      <style type="text/css">section#table-of-contents {font-size:80%; }</style>
 
 * Introduction
 See the pdf [[https://dietr1ch.github.io/asld/appendix.pdf][Appendix]] to review the runs for selected queries.

@@ -1,4 +1,4 @@
-# +TITLE: Evaluating navigational RDF queries over the Web
+#+TITLE: Evaluating navigational RDF queries over the Web
 #+Web: https://dietr1ch.github.io/asld/
 
 
